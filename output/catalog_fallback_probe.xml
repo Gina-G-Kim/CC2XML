@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cc_document doc_type="ST" eal="EAL1" title="Catalog Fallback Probe ST" version="1.0" date="September 18, 2026" cc_version="CC:2022">
+  <introduction>
+    <doc_reference>
+      <identifier/>
+      <title>Catalog Fallback Probe ST</title>
+      <version>1.0</version>
+      <date>September 18, 2026</date>
+      <author/>
+      <sponsor/>
+    </doc_reference>
+    <toe_overview>
+      <toe_name>Catalog Fallback Probe ST</toe_name>
+      <toe_version>1.0</toe_version>
+      <toe_type/>
+      <description/>
+    </toe_overview>
+  </introduction>
+  <conformance_claims>
+    <cc_conformance>
+      <cc_version>CC:2022</cc_version>
+      <part2_conformance>extended</part2_conformance>
+      <part3_conformance>strict</part3_conformance>
+    </cc_conformance>
+    <pp_claims/>
+    <package_claims>
+      <package_claim ref="EAL1" augmented="false"/>
+    </package_claims>
+  </conformance_claims>
+  <spd>
+    <threats>
+      <threat id="T.PROBE">
+        <description>An attacker attempts to exercise the fallback logic path.</description>
+      </threat>
+    </threats>
+    <assumptions/>
+    <osps/>
+  </spd>
+  <security_objectives>
+    <toe_objectives>
+      <objective id="O.PROBE">
+        <description>The TOE shall generate and retain the evidence needed to exercise the
+fallback logic.</description>
+      </objective>
+    </toe_objectives>
+    <env_objectives>
+      <objective id="OE.PROBE">
+        <description>The operational environment does not interfere with the TOE's operation.</description>
+      </objective>
+    </env_objectives>
+  </security_objectives>
+  <extended_components/>
+  <sfrs>
+    <class id="FAU" name="">
+      <family id="FAU_GEN" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FAU_GEN.1" name="Audit data generation" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="catalog">
+            <dependency>
+              <alternatives>
+                <comp_ref id="FPT_STM.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements source="catalog">
+            <element id="FAU_GEN.1.1">
+              <raw><![CDATA[The TSF shall be able to generate audit data of the following auditable events: Start-up and shutdown of the audit functions; All auditable events for the [selection: minimum, basic, detailed, not specified] level of audit; [assignment: other specifically defined auditable events] .]]></raw>
+              <operations>
+                <operation type="selection" label="(s1)">
+                  <option>minimum</option>
+                  <option>basic</option>
+                  <option>detailed</option>
+                  <option>not specified</option>
+                  <completed_value/>
+                </operation>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+            <element id="FAU_GEN.1.2">
+              <raw><![CDATA[The TSF shall record within the audit data at least the following information: Date and time of the auditable event, type of event, subject identity (if applicable), and the outcome (success or failure) of the event; For each auditable event type, based on the auditable event definitions of the functional components included in the PP, PP-Module, functional package or ST, [assignment: other audit relevant information] .]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+    <class id="FIA" name="">
+      <family id="FIA_UID" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FIA_UID.2" name="User identification before any action" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to source="catalog">
+            <comp_ref id="FIA_UID.1"/>
+          </hierarchical_to>
+          <dependencies source="catalog"/>
+          <management/>
+          <audit_events/>
+          <elements source="catalog">
+            <element id="FIA_UID.2.1">
+              <raw><![CDATA[The TSF shall require each user to be successfully identified before allowing any TSF-mediated actions on behalf of that user.]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+  </sfrs>
+  <sars>
+    <class id="ADV" name="">
+      <family id="ADV_FSP" name="">
+        <component id="ADV_FSP.1" name="Basic functional specification" inclusion="mandatory">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="catalog"/>
+          <elements source="catalog">
+            <element id="ADV_FSP.1.1D" type="D">
+              <raw><![CDATA[The developer shall provide a functional specification.]]></raw>
+            </element>
+            <element id="ADV_FSP.1.2D" type="D">
+              <raw><![CDATA[The developer shall provide a tracing from the functional specification to the SFRs.]]></raw>
+            </element>
+            <element id="ADV_FSP.1.1C" type="C">
+              <raw><![CDATA[The functional specification shall describe the purpose and method of use for each SFR-enforcing and SFR-supportingTSFI.]]></raw>
+            </element>
+            <element id="ADV_FSP.1.2C" type="C">
+              <raw><![CDATA[The functional specification shall identify all parameters associated with each SFR-enforcing and SFR-supporting TSFI.]]></raw>
+            </element>
+            <element id="ADV_FSP.1.3C" type="C">
+              <raw><![CDATA[The functional specification shall provide rationale for the implicit categorization of interfaces as SFR-non-interfering.]]></raw>
+            </element>
+            <element id="ADV_FSP.1.4C" type="C">
+              <raw><![CDATA[The tracing shall demonstrate that the SFRs trace to TSFIs in the functional specification.]]></raw>
+            </element>
+            <element id="ADV_FSP.1.1E" type="E">
+              <raw><![CDATA[The evaluator shall confirm that the information provided meets all requirements for content and presentation of evidence.]]></raw>
+            </element>
+            <element id="ADV_FSP.1.2E" type="E">
+              <raw><![CDATA[The evaluator shall determine that the functional specification is an accurate and complete instantiation of the SFRs.]]></raw>
+            </element>
+          </elements>
+        </component>
+      </family>
+    </class>
+  </sars>
+  <rationale>
+    <objectives_rationale>
+      <mapping objective_id="O.PROBE">
+        <justification><![CDATA[This objective addresses T.PROBE by ensuring security-relevant events are
+recorded and attributable to an identified user.]]></justification>
+        <spd_refs>
+          <spd_ref id="T.PROBE"/>
+        </spd_refs>
+      </mapping>
+      <mapping objective_id="OE.PROBE">
+        <justification><![CDATA[This objective addresses T.PROBE by requiring the operational environment
+not to interfere with the TOE's own enforcement of O.PROBE.]]></justification>
+        <spd_refs>
+          <spd_ref id="T.PROBE"/>
+        </spd_refs>
+      </mapping>
+    </objectives_rationale>
+    <sfr_rationale>
+      <mapping comp_id="FAU_GEN.1">
+        <justification><![CDATA[This component satisfies O.PROBE by generating audit records for
+security-relevant events.]]></justification>
+        <obj_refs>
+          <obj_ref id="O.PROBE"/>
+        </obj_refs>
+      </mapping>
+      <mapping comp_id="FIA_UID.2">
+        <justification><![CDATA[This component satisfies O.PROBE by requiring successful identification of
+every user before any other TSF-mediated action.]]></justification>
+        <obj_refs>
+          <obj_ref id="O.PROBE"/>
+        </obj_refs>
+      </mapping>
+    </sfr_rationale>
+    <dependency_rationale/>
+  </rationale>
+  <toe_summary_spec doc_type_applies="ST">
+    <raw><![CDATA[9. TOE Summary Specification
+
+The TOE generates audit records for security-relevant events and requires
+successful identification before any other TSF-mediated action.]]></raw>
+  </toe_summary_spec>
+  <unparsed_sections/>
+  <validation_report>
+    <summary stage1="ran" stage1_errors="0" stage1_warnings="0" stage2_errors="0" stage2_warnings="0" result="PASS"/>
+    <issues/>
+  </validation_report>
+</cc_document>

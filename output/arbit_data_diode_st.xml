@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cc_document doc_type="ST" eal="EAL7" title="Arbit Data Diode 10GbE Security Target Lite Sponsor: Arbit Cyber Defence Systems ApS" version="1.13" date="05.12.2025" cc_version="CC:2022">
+  <introduction>
+    <doc_reference>
+      <identifier/>
+      <title>Arbit Data Diode 10GbE Security Target Lite Sponsor: Arbit Cyber Defence Systems ApS</title>
+      <version>1.13</version>
+      <date>05.12.2025</date>
+      <author/>
+      <sponsor/>
+    </doc_reference>
+    <toe_overview>
+      <toe_name>Arbit Data Diode 10GbE Security Target Lite Sponsor: Arbit Cyber Defence Systems ApS</toe_name>
+      <toe_version>1.13</toe_version>
+      <toe_type/>
+      <description/>
+    </toe_overview>
+  </introduction>
+  <conformance_claims>
+    <cc_conformance>
+      <cc_version>CC:2022</cc_version>
+      <part2_conformance>strict</part2_conformance>
+      <part3_conformance>strict</part3_conformance>
+    </cc_conformance>
+    <pp_claims/>
+    <package_claims>
+      <package_claim ref="EAL7" augmented="false"/>
+    </package_claims>
+  </conformance_claims>
+  <spd>
+    <threats>
+      <threat id="T.DATA_LEAK">
+        <description>TA-SENDING and/or TA-RECEIVING threat agents may be able to manipulate the
+INPUT and/or OUTPUT port such that RECEIVING-INFO is able to exit the TOE
+through the INPUT port.</description>
+      </threat>
+    </threats>
+    <assumptions>
+      <assumption id="A.INTEGRATOR">
+        <description>The integrator who is performing the installation of the TOE is
+well-trained and competent in the prevention of signal leakage and will
+properly adhere to the TOE guidance.</description>
+      </assumption>
+      <assumption id="A.PHYSICAL">
+        <description>The TOE and its interfaces will be physically protected from unauthorized
+access and mechanical, electrical, optical, radiation or any other form of
+physical influence.</description>
+      </assumption>
+      <assumption id="A.POWER">
+        <description>Power supply to the TOE shall be 3.3 V +/-5%. The minimum current
+capacity, both continuous and peak, shall be 500 mA.</description>
+      </assumption>
+    </assumptions>
+    <osps>
+      <osp id="P.ONE_WAY_FLOW">
+        <description>The TOE shall allow information to enter through the INPUT port and then
+leave through the OUTPUT port and deny information flow from the OUTPUT
+port to the INPUT port.</description>
+      </osp>
+    </osps>
+  </spd>
+  <security_objectives>
+    <toe_objectives>
+      <objective id="O.NO_RECEIVING_INFO">
+        <description>The TOE must ensure that no information that may have entered through the
+OUTPUT port is able to leave through the INPUT port.</description>
+      </objective>
+    </toe_objectives>
+    <env_objectives>
+      <objective id="OE.INTEGRATOR">
+        <description>The integrator who is performing the installation of the TOE shall be
+well-trained and competent in the prevention of signal leakage and shall
+properly adhere to the TOE guidance.</description>
+      </objective>
+      <objective id="OE.PHYSICAL">
+        <description>The TOE and its interfaces shall be physically protected from unauthorized
+access.</description>
+      </objective>
+      <objective id="OE.POWER">
+        <description>Power supply to the TOE shall be 3.3 V +/-5%. The minimum current
+capacity, both continuous and peak, shall be 500 mA.</description>
+      </objective>
+    </env_objectives>
+  </security_objectives>
+  <extended_components/>
+  <sfrs>
+    <class id="FDP" name="">
+      <family id="FDP_IFC" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_IFC.2" name="Complete information flow control" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to source="catalog">
+            <comp_ref id="FDP_IFC.1"/>
+          </hierarchical_to>
+          <dependencies source="catalog">
+            <dependency>
+              <alternatives>
+                <comp_ref id="FDP_IFF.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements source="st">
+            <element id="FDP_IFC.2.1">
+              <raw><![CDATA[The TSF shall enforce the [assignment: One-Way SFP] on
+[assignment: the subjects INPUT port and OUTPUT port] and all operations
+that cause that information to flow to and from subjects covered by the
+SFP.]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+                <operation type="assignment" label="(a2)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+            <element id="FDP_IFC.2.2">
+              <raw><![CDATA[The TSF shall ensure that all operations that cause any
+information in the TOE to flow to and from any subject in the TOE are
+covered by an information flow control SFP.]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_IFF" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_IFF.1" name="Simple security attributes" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="st">
+            <dependency unsatisfied="true">
+              <alternatives>
+                <comp_ref id="FMT_MSA.3"/>
+              </alternatives>
+            </dependency>
+            <dependency>
+              <alternatives>
+                <comp_ref id="FDP_IFC.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements source="st">
+            <element id="FDP_IFF.1.1">
+              <raw><![CDATA[The TSF shall enforce the [assignment: One-Way SFP] based on
+the following types of subject and information security attributes:
+[assignment: subjects INPUT port and OUTPUT port].]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+                <operation type="assignment" label="(a2)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+            <element id="FDP_IFF.1.2">
+              <raw><![CDATA[The TSF shall permit an information flow between a controlled
+subject and controlled information via a controlled operation if the
+following rules hold: [assignment: information read from the INPUT port
+shall allow the transformation operation f, from an optical signal to an
+electrical signal, to write to the OUTPUT port; information read from the
+OUTPUT port shall deny the transformation operation g, from an electrical
+signal to an optical signal, to write to the INPUT port].]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+            <element id="FDP_IFF.1.3">
+              <raw><![CDATA[The TSF shall enforce the [assignment: rule in FDP_IFF.1.2
+only].]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+            <element id="FDP_IFF.1.4">
+              <raw><![CDATA[The TSF shall explicitly authorise an information flow based
+on the following rules: [assignment: no further rules].]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+            <element id="FDP_IFF.1.5">
+              <raw><![CDATA[The TSF shall explicitly deny an information flow based on the
+following rules: [assignment: no further rules].]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note>No security attributes are stated. Any instance of the
+defined information type, independent of its further properties, is
+covered by this SFR.</application_note>
+        </component>
+      </family>
+    </class>
+  </sfrs>
+  <sars>
+    <class id="ADV" name="">
+      <family id="ADV_SPM" name="">
+        <component id="ADV_SPM.1" name="Formal TOE security policy model" inclusion="mandatory">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="catalog">
+            <dependency>
+              <alternatives>
+                <comp_ref id="ASE_OBJ.2"/>
+              </alternatives>
+            </dependency>
+            <dependency>
+              <alternatives>
+                <comp_ref id="ASE_REQ.2"/>
+              </alternatives>
+            </dependency>
+            <dependency>
+              <alternatives>
+                <comp_ref id="ADV_FSP.4"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <elements source="st">
+            <element id="ADV_SPM.1.1D" type="D">
+              <raw><![CDATA[The developer shall provide a formal security policy model
+for the [assignment: One-Way SFP defined by FDP_IFC.2 and FDP_IFF.1].]]></raw>
+            </element>
+          </elements>
+        </component>
+      </family>
+    </class>
+    <class id="ALC" name="">
+      <family id="ALC_FLR" name="">
+        <component id="ALC_FLR.1" name="Basic flaw remediation" inclusion="mandatory">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="catalog"/>
+          <elements source="catalog">
+            <element id="ALC_FLR.1.1D" type="D">
+              <raw><![CDATA[The developer shall document and provide flaw remediation procedures addressed to TOE developers.]]></raw>
+            </element>
+            <element id="ALC_FLR.1.1C" type="C">
+              <raw><![CDATA[The flaw remediation procedures documentation shall describe the procedures used to track all reported security flaws in each release of the TOE.]]></raw>
+            </element>
+            <element id="ALC_FLR.1.2C" type="C">
+              <raw><![CDATA[The flaw remediation procedures shall require that a description of the nature and effect of each security flaw be provided, as well as the status of finding a correction to that flaw.]]></raw>
+            </element>
+            <element id="ALC_FLR.1.3C" type="C">
+              <raw><![CDATA[The flaw remediation procedures shall require that corrective actions be identified for each of the security flaws.]]></raw>
+            </element>
+            <element id="ALC_FLR.1.4C" type="C">
+              <raw><![CDATA[The flaw remediation procedures documentation shall describe the methods used to provide flaw information, corrections and guidance on corrective actions to TOE users.]]></raw>
+            </element>
+            <element id="ALC_FLR.1.1E" type="E">
+              <raw><![CDATA[The evaluator shall confirm that the information provided meets all requirements for content and presentation of evidence.]]></raw>
+            </element>
+          </elements>
+        </component>
+      </family>
+    </class>
+  </sars>
+  <rationale>
+    <objectives_rationale>
+      <mapping objective_id="O.NO_RECEIVING_INFO">
+        <justification><![CDATA[This objective addresses T.DATA_LEAK by ensuring that no information is
+able to spill over inside the TOE from the OUTPUT port to the INPUT port.]]></justification>
+        <spd_refs>
+          <spd_ref id="T.DATA_LEAK"/>
+        </spd_refs>
+      </mapping>
+      <mapping objective_id="OE.INTEGRATOR">
+        <justification><![CDATA[This objective addresses A.INTEGRATOR and T.DATA_LEAK by ensuring that the
+integrator who performs the installation of the TOE is well-trained and
+competent in the prevention of signal leakage and properly adheres to the
+TOE guidance.]]></justification>
+        <spd_refs>
+          <spd_ref id="A.INTEGRATOR"/>
+          <spd_ref id="T.DATA_LEAK"/>
+        </spd_refs>
+      </mapping>
+      <mapping objective_id="OE.PHYSICAL">
+        <justification><![CDATA[This objective addresses A.PHYSICAL and T.DATA_LEAK by ensuring that the
+TOE and its interfaces are physically protected from unauthorized access.]]></justification>
+        <spd_refs>
+          <spd_ref id="A.PHYSICAL"/>
+          <spd_ref id="T.DATA_LEAK"/>
+        </spd_refs>
+      </mapping>
+      <mapping objective_id="OE.POWER">
+        <justification><![CDATA[This objective addresses A.POWER and T.DATA_LEAK by ensuring that
+components are operating within power supply specification.]]></justification>
+        <spd_refs>
+          <spd_ref id="A.POWER"/>
+          <spd_ref id="T.DATA_LEAK"/>
+        </spd_refs>
+      </mapping>
+    </objectives_rationale>
+    <sfr_rationale>
+      <mapping comp_id="FDP_IFC.2">
+        <justification><![CDATA[This component satisfies O.NO_RECEIVING_INFO by ensuring that any
+information flow in the TOE is covered by the One-Way SFP.]]></justification>
+        <obj_refs>
+          <obj_ref id="O.NO_RECEIVING_INFO"/>
+        </obj_refs>
+      </mapping>
+      <mapping comp_id="FDP_IFF.1">
+        <justification><![CDATA[This component satisfies O.NO_RECEIVING_INFO by denying any information
+from the OUTPUT port to leave through the INPUT port.]]></justification>
+        <obj_refs>
+          <obj_ref id="O.NO_RECEIVING_INFO"/>
+        </obj_refs>
+      </mapping>
+    </sfr_rationale>
+    <dependency_rationale>
+      <mapping comp_id="FDP_IFF.1" dep_id="FMT_MSA.3">
+        <satisfied_by comp_id=""/>
+        <justification><![CDATA[not resolved. The TOE configuration is static and has therefore no concept of manageable security attributes. This dependency is therefore not applicable.]]></justification>
+      </mapping>
+    </dependency_rationale>
+  </rationale>
+  <toe_summary_spec doc_type_applies="ST">
+    <raw><![CDATA[9. TOE Summary Specification
+
+The TOE provides one security functionality, which represents the overall
+TOE Security Function. The TOE implements the one-way data diode: a fiber
+optic network cable is connected to the INPUT port and a receiver
+connection is on the OUTPUT port. Information received on the INPUT port
+is allowed to exit through the OUTPUT port, without further processing,
+and no information can spill over to the INPUT port from the OUTPUT port.
+This TSF is mapped to FDP_IFC.2 and FDP_IFF.1.]]></raw>
+  </toe_summary_spec>
+  <unparsed_sections/>
+  <validation_report>
+    <summary stage1="ran" stage1_errors="0" stage1_warnings="0" stage2_errors="0" stage2_warnings="0" result="PASS"/>
+    <issues/>
+  </validation_report>
+</cc_document>

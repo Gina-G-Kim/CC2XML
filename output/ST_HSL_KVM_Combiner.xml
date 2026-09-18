@@ -1,0 +1,1294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cc_document doc_type="ST" title="HSL Secure KVM Combiner Switches" version="44403-E7E7" date="" cc_version="" eal="EAL4" rationale_type="derived">
+  <introduction>
+    <doc_reference>
+      <identifier/>
+      <title>HSL Secure KVM Combiner Switches</title>
+      <version>44403-E7E7</version>
+      <date/>
+      <author/>
+      <sponsor/>
+    </doc_reference>
+    <toe_reference doc_type_applies="ST">
+      <name>HSL Secure KVM Combiner Switches</name>
+      <version>44403-E7E7</version>
+      <developer/>
+    </toe_reference>
+    <toe_overview>
+      <toe_type/>
+      <description/>
+    </toe_overview>
+  </introduction>
+  <conformance_claims>
+    <cc_conformance>
+      <cc_version/>
+      <part2_conformance>extended</part2_conformance>
+      <part3_conformance>strict</part3_conformance>
+    </cc_conformance>
+    <pp_claims doc_type_applies="ST"/>
+    <allowed_with doc_type_applies="PP"/>
+    <package_claims/>
+    <conformance_rationale/>
+  </conformance_claims>
+  <spd>
+    <assets/>
+    <threats>
+      <threat id="T.DATA_LEAK">
+        <description>An unauthorized user may be able to access data that is
+transmitted via an unauthorized data transfer through the TOE or
+its connected peripherals.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.PHYSICAL_TAMPER">
+        <description>A malicious user could physically tamper with or modify the TOE to
+allow unauthorized information flows between connected devices.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.SWITCHING">
+        <description>A poorly designed TOE could result in a situation where a user is
+connected to a computer other than the one to which the user
+intended to connect, resulting in an unintended flow of data.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.UNAUTH">
+        <description>A malicious user could tamper with the security attributes that
+determine allowed peripheral devices and allowed data flows,
+resulting in the use of unauthorized peripheral devices that may
+allow unauthorized data flows between connected devices, or an
+attack on the TOE or its connected computers.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.UNAUTH_DEVICE">
+        <description>A malicious user could connect an unauthorized peripheral device to
+the TOE, and that device could cause information to flow between
+connected devices in an unauthorized manner, or could enable an
+attack on the TOE or its connected computers.
+Table 5 – Threats
+3.2 ORGANIZATIONAL SECURITY POLICIES
+There are no Organizational Security Policies applicable to this TOE.
+3.3 ASSUMPTIONS
+The assumptions required to ensure the security of the TOE are listed in Table 5.
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 8 of 38
+Assumptions Description</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+    </threats>
+    <assumptions>
+      <assumption id="A.PHYSICAL">
+        <description>Physical security, commensurate with the value of the TOE
+and the data that passes through the TOE, is assumed to be
+provided by the environment.</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.TRUSTED_CONFIG">
+        <description>Personnel installing and configuring the TOE and its
+operational environment will follow the applicable guidance.</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.TRUSTED_USER">
+        <description>TOE users are trusted to follow and apply all guidance and
+security procedures in a reliable manner.</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.USER_IDENT">
+        <description>The operational environment is responsible for the
+identification and authentication of users. This determines
+physical access to the TOE, and access to the connected
+computers and their applications and resources.
+Table 6 – Assumptions
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 9 of 38
+4 SECURITY OBJECTIVES
+The purpose of the security objectives is to address the security concerns and to
+show which security concerns are addressed by the TOE, and which are
+addressed by the environment. Threats may be addressed by the TOE or the
+security environment or both. Therefore, the CC identifies two categories of
+security objectives:
+• Security objectives for the TOE
+• Security objectives for the environment</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+    </assumptions>
+    <osps/>
+  </spd>
+  <security_objectives>
+    <toe_objectives>
+      <objective id="O.CHANNEL_ISOLATION">
+        <description>User data must be routed by the TOE only to the
+computer selected by the user. The TOE must provide
+isolation between the data flowing from the peripheral
+device to the selected computer and any non-selected
+computer.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.NO_DATA_RETENTION">
+        <description>The TOE shall not retain user data after the channel is
+switched or the TOE is powered down.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.PERIPHERAL_DEVICE">
+        <description>The TOE shall ensure that only approved peripheral
+device types may be used with the TOE.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.STATIC_ATTRIBUTES">
+        <description>The TSF will provide TOE users with the security
+management functionality to switch between
+connected computers. The TOE will protect all other
+security attributes from being altered by the TOE
+users.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.TAMPER_INDICATION">
+        <description>The TOE shall be labeled with at least one visible
+tamper-evident marking that clearly indicates when
+tampering has been detected.
+Table 7 – Security Objectives for the TOE
+4.2 SECURITY OBJECTIVES FOR THE
+OPERATIONAL ENVIRONMENT
+This section identifies and describes the security objectives that are to be
+addressed by the IT environment or by non-technical or procedural means.
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 10 of 38
+Security Description
+Objective</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.AUTH">
+        <description>The operational environment will ensure that users are identified and
+authenticated prior to gaining physical access to the TOE, or access
+to the applications and resources of the connected computers.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.INSTALL">
+        <description>The operational environment will ensure that appropriately trained
+and trusted personnel are available to correctly install and configure
+the TOE.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PERSON">
+        <description>TOE users will follow TOE guidance and the security procedures of
+the operational environment in which the TOE is installed.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PHYSICAL">
+        <description>The operational environment will provide physical security
+commensurate with the value of the TOE and the data that passes
+through the TOE.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+    </toe_objectives>
+    <env_objectives>
+      <objective id="O.CHANNEL_ISOLATION">
+        <description>X X</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.NO_DATA_RETENTION">
+        <description>X X</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.PERIPHERAL_DEVICE">
+        <description>X</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.STATIC_ATTRIBUTES">
+        <description>X X</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.TAMPER_INDICATION">
+        <description>X</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.AUTH">
+        <description>X</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.INSTALL">
+        <description>X</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PERSON">
+        <description>X X</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PHYSICAL">
+        <description>X X
+Table 9 – Mapping Between Objectives, Threats, and Assumptions
+Security Objectives Rationale Related to
+Threats
+The security objectives rationale related to threats traces the security objectives
+for the TOE and the Operational Environment back to the threats addressed by
+the TOE.
+Threat: An unauthorized user may be able to access data that is
+transmitted via an unauthorized data transfer through the TOE or
+T.DATA_LEAK
+its connected peripherals.
+Objectives: O.CHANNEL User data must be routed by the TOE only to
+_ISOLATION the computer selected by the user. The TOE
+must provide isolation between the data
+flowing from the peripheral device to the
+selected computer and any non-selected
+computer.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.NO_DATA">
+        <description>The TOE shall not retain user data after the
+_RETENTION channel is switched or the TOE is powered
+down.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.STATIC">
+        <description>The TSF will provide TOE users with the
+_ATTRIBUTES security management functionality to switch
+between connected computers. The TOE will
+protect all other security attributes from being
+altered by the TOE users.
+Rationale: O.CHANNEL_ISOLATION mitigates this threat by ensuring that data
+flows only to the user-selected computer, and is therefore
+unavailable to an unauthorized user.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.NO_DATA_RETENTION">
+        <description>mitigates this threat by ensuring that
+data is not retained by the TOE, from where it could be mistakenly
+sent to a non-selected connected computer.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.STATIC_ATTRIBUTES">
+        <description>mitigates this threat by ensuring that the
+security attributes that determine allowed peripherals and data
+flows cannot be altered to allow an unauthorized data transfer.
+Threat: A malicious user could physically tamper with or modify the TOE to
+allow unauthorized information flows between connected devices.
+T.PHYSICAL
+_TAMPER
+Objectives: O.TAMPER The TOE shall be labeled with at least one
+_INDICATION visible tamper-evident marking that clearly
+indicates when tampering has been detected.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PERSON">
+        <description>TOE users will follow the security procedures
+of the operational environment in which the
+TOE is installed.
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 12 of 38</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PHYSICAL">
+        <description>The operational environment will provide
+physical security commensurate with the value
+of the TOE and the data that passes through
+the TOE.
+Rationale: O.TAMPER_INDICATION mitigates this threat by ensuring that
+tampering with the TOE will result in a clear indication of that
+activity.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PHYSICAL">
+        <description>ensures that the operational environment protects
+against potential malicious users by providing appropriate physical
+security.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PERSON">
+        <description>mitigates this threat by ensuring that users with access
+to the TOE follow the security procedures for the operational
+environment.
+Threat: A poorly designed TOE could result in a situation where a user is
+connected to a computer other than the one to which the user
+T.SWITCHING
+intended to connect, resulting in an unintended flow of data.
+Objectives: O.CHANNEL User data must be routed by the TOE only to
+_ISOLATION the computer selected by the user. The TOE
+must provide isolation between the data
+flowing from the peripheral device to the
+selected computer and any non-selected
+computer.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.NO_DATA">
+        <description>The TOE shall not retain user data after the
+_RETENTION channel is switched or the TOE is powered
+down.
+Rationale: O.CHANNEL_ISOLATION mitigates this threat by ensuring that user
+data is sent only to the intended connected computer.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.NO_DATA_RETENTION">
+        <description>mitigates this threat by ensuring that no
+data is retained by the TOE, from where it could be mistakenly sent
+to an unselected connected computer.
+Threat: A malicious user could tamper with the security attributes that
+determine allowed peripheral devices and allowed data flows,
+T.UNAUTH
+resulting in the use of unauthorized peripheral devices that may
+allow unauthorized data flows between connected devices, or an
+attack on the TOE or its connected computers.
+Objectives: O.STATIC The TSF will provide TOE users with the
+_ATTRIBUTES security management functionality to switch
+between connected computers. The TOE will
+protect all other security attributes from being
+altered by the TOE users.
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 13 of 38
+Rationale: O.STATIC_ATTRIBUTES mitigates this threat by ensuring that the
+security attributes that determine allowed peripheral devices and
+allowed data flows may not be altered by TOE users.
+Threat: A malicious user could connect an unauthorized peripheral device to
+the TOE, and that device could cause information to flow between
+T.UNAUTH
+connected devices in an unauthorized manner, or could enable an
+_DEVICE
+attack on the TOE or its connected computers.
+Objectives: O.PERIPHERAL The TOE shall ensure that only approved
+_DEVICE peripheral device types may be used with the
+TOE.
+Rationale: O.PERIPHERAL_DEVICE mitigates this threat by ensuring that only
+permitted peripheral devices may be connected to the TOE.
+Security Objectives Rationale Related to
+Assumptions
+The security objectives rationale related to assumptions traces the security
+objectives for the operational environment back to the assumptions for the
+TOE’s operational environment.
+Assumption: Physical security, commensurate with the value of the TOE and the
+data that passes through the TOE, is assumed to be provided by
+A.PHYSICAL
+the environment.
+Objectives: OE.PHYSICAL The operational environment will provide
+physical security commensurate with the value
+of the TOE and the data that passes through
+the TOE.
+Rationale: OE.PHYSICAL supports this assumption by protecting the TOE and
+the data that passes through the TOE from physical attack.
+Assumption: Personnel installing and configuring the TOE and its operational
+environment will follow the applicable guidance.
+A.TRUSTED
+_CONFIG
+Objectives: OE.INSTALL The operational environment will ensure that
+appropriately trained and trusted personnel
+are available to correctly install and configure
+the TOE.
+Rationale: OE.INSTALL supports this assumption by ensuring that trained and
+trusted individuals are available to install and configure the TOE.
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 14 of 38
+Assumption: TOE users are trusted to follow and apply all guidance and security
+procedures in a reliable manner.
+A.TRUSTED
+_USER
+Objectives: OE.PERSON TOE users will follow TOE guidance and the
+security procedures of the operational
+environment in which the TOE is installed.
+Rationale: OE.PERSON supports this assumption by ensuring that TOE users
+follow security procedures and guidance.
+Assumption: The operational environment is responsible for the identification
+and authentication of users. This determines physical access to the
+A.USER
+TOE, and access to the connected computers and their applications
+_IDENT
+and resources.
+Objectives: OE.AUTH The operational environment will ensure that
+users are identified and authenticated prior to
+gaining physical access to the TOE, or access
+to the applications and resources of the
+connected computers.
+Rationale: OE.AUTH supports this assumption by ensuring that the operational
+environment identifies and authenticates TOE users.
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 15 of 38</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+    </env_objectives>
+  </security_objectives>
+  <extended_components/>
+  <sfrs>
+    <class id="FDP" name="">
+      <family id="FDP_ACF" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_ACF.1" name="Security attribute based access control" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_IFC" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_IFC.1" name="Subset information flow control]" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_IFF" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_IFF.1" name="Simple security attributes" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_RIP" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_RIP.1" name="Subset residual information protection" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+    <class id="FMT" name="">
+      <family id="FMT_MSA" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FMT_MSA.1" name="(2) Management of security attributes (User" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FMT_MSA.3" name="Static attribute initialisation" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FDP_IFF.1.1">
+              <raw><![CDATA[The TSF shall enforce the [User Data Isolation SFP] based on the
+following types of subject and information security attributes:
+[Subjects: TOE computer interfaces
+Subject attributes: user selected computer interface
+Subjects: TOE peripheral device interfaces
+Subject attributes: none
+Information: User data
+Information attributes: none].]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_IFF.1.2">
+              <raw><![CDATA[The TSF shall permit an information flow between a controlled subject
+and controlled information via a controlled operation if the following
+rules hold: [
+1. user data is permitted to flow from the HID peripheral device interface
+to the TOE computer interface for the selected computer;
+2. video signals are permitted to flow from the connected computers to
+the display].]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_IFF.1.3">
+              <raw><![CDATA[The TSF shall enforce the [no additional rules].]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_IFF.1.4">
+              <raw><![CDATA[The TSF shall explicitly authorise an information flow based on the
+following rules: [no additional rules].]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_IFF.1.5">
+              <raw><![CDATA[The TSF shall explicitly deny an information flow based on the following
+rules: [
+1. the TOE will deny user data information flow from a peripheral device
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 20 of 38
+to a non-selected computer interface
+2. the TOE will deny user data information flow from one connected
+computer to another connected computer].
+6.2.1.5 FDP_RIP.1 Subset residual information protection
+Hierarchical to: No other components.
+Dependencies: No dependencies.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_RIP.1.1">
+              <raw><![CDATA[The TSF shall ensure that any previous information content of
+a resource is made unavailable upon the [deallocation of the resource
+from] the following objects: [a TOE computer interface].
+Application Note: Deallocation of the resource is deemed to take place:
+• Immediately after the TOE is switched to another selected computer
+• On start-up of the TOE
+Security Management (FMT)
+6.2.2.1 FMT_MSA.1(1) Management of security attributes
+(Peripherals)
+Hierarchical to: No other components.
+Dependencies: [FDP_ACC.1 Subset access control, or]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note>Deallocation of the resource is deemed to take place:
+• Immediately after the TOE is switched to another selected computer
+• On start-up of the TOE
+Security Management (FMT)
+6.2.2.1 FMT_MSA.1(1) Management of security attributes
+(Peripherals)</application_note>
+        </component>
+      </family>
+      <family id="FMT_SMF" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FMT_SMF.1" name="Specification of Management Functions" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies>
+            <dependency>
+              <alternatives>
+                <comp_ref id="FDP_ACC.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FMT_MSA.1.1">
+              <raw><![CDATA[(1) The TSF shall enforce the [Peripheral Device SFP] to restrict the
+ability to [modify] the security attributes [peripheral device type] to
+[no TOE users].
+6.2.2.2 FMT_MSA.1(2) Management of security attributes
+(User data)
+Hierarchical to: No other components.
+Dependencies: [FDP_ACC.1 Subset access control, or]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FMT_SMR" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FMT_SMR.1" name="Security roles" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FMT_MSA.3.1">
+              <raw><![CDATA[(2) The TSF shall enforce the [User Data Isolation SFP] to provide
+[restrictive] default values for security attributes that are used to
+enforce the SFP.]]></raw>
+              <operations/>
+            </element>
+            <element id="FMT_MSA.3.2">
+              <raw><![CDATA[(2) The TSF shall allow the [no user] to specify alternative initial
+values to override the default values when an object or information
+is created.
+6.2.2.5 FMT_SMF.1 Specification of Management Functions
+Hierarchical to: No other components.
+Dependencies: No dependencies.]]></raw>
+              <operations/>
+            </element>
+            <element id="FMT_SMF.1.1">
+              <raw><![CDATA[The TSF shall be capable of performing the following management
+functions: [switch between connected computers].
+6.2.2.6 FMT_SMR.1 Security roles
+Hierarchical to: No other components.
+Dependencies: FIA_UID.1 Timing of identification]]></raw>
+              <operations/>
+            </element>
+            <element id="FMT_SMR.1.1">
+              <raw><![CDATA[The TSF shall maintain the roles [user].]]></raw>
+              <operations/>
+            </element>
+            <element id="FMT_SMR.1.2">
+              <raw><![CDATA[The TSF shall be able to associate users with roles.
+Protection of the TSF (FPT)
+6.2.3.1 FPT_PHP.1 Passive detection of physical attack
+Hierarchical to: No other components.
+Dependencies: No dependencies.]]></raw>
+              <operations/>
+            </element>
+            <element id="FPT_PHP.1.1">
+              <raw><![CDATA[The TSF shall provide unambiguous detection of physical tampering
+that might compromise the TSF.]]></raw>
+              <operations/>
+            </element>
+            <element id="FPT_PHP.1.2">
+              <raw><![CDATA[The TSF shall provide the capability to determine whether physical
+tampering with the TSF's devices or TSF's elements has occurred.
+TOE Access (FTA)
+6.2.4.1 FTA_VIR_EXT.1 Visual indication rule
+Hierarchical to: No other components.
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 22 of 38
+Dependencies: No dependencies.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTA_VIR_EXT.1.1">
+              <raw><![CDATA[A visual method of indicating which computer is connected to the
+shared set of peripheral devices shall be provided, and this method
+shall be persistent for the duration of the connection.
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 23 of 38]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+  </sfrs>
+  <sars>
+    <class id="ADV" name="">
+      <family id="ADV_FSP" name="">
+        <component id="ADV_FSP.4" name="Complete functional specification" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ADV_TDS" name="">
+        <component id="ADV_TDS.3" name="Basic modular design" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+    </class>
+    <class id="AGD" name="">
+      <family id="AGD_PRE" name="">
+        <component id="AGD_PRE.1" name="Preparative procedures" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+    </class>
+    <class id="ALC" name="">
+      <family id="ALC_CMS" name="">
+        <component id="ALC_CMS.4" name="Problem tracking CM coverage" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ALC_DEL" name="">
+        <component id="ALC_DEL.1" name="Delivery procedures" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ALC_DVS" name="">
+        <component id="ALC_DVS.1" name="Identification of security measures" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ALC_LCD" name="">
+        <component id="ALC_LCD.1" name="Developer defined life-cycle model" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ALC_TAT" name="">
+        <component id="ALC_TAT.1" name="Well-defined development tools" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ALC_FLR" name="">
+        <component id="ALC_FLR.3" name="Systematic flaw remediation" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+    </class>
+    <class id="ASE" name="">
+      <family id="ASE_ECD" name="">
+        <component id="ASE_ECD.1" name="Extended components definition" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ASE_INT" name="">
+        <component id="ASE_INT.1" name="ST introduction" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ASE_OBJ" name="">
+        <component id="ASE_OBJ.2" name="Security objectives" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ASE_REQ" name="">
+        <component id="ASE_REQ.2" name="Derived security requirements" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ASE_SPD" name="">
+        <component id="ASE_SPD.1" name="Security problem definition" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ASE_TSS" name="">
+        <component id="ASE_TSS.1" name="TOE summary specification" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+    </class>
+    <class id="ATE" name="">
+      <family id="ATE_DPT" name="">
+        <component id="ATE_DPT.1" name="Testing: basic design" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ATE_FUN" name="">
+        <component id="ATE_FUN.1" name="Functional testing" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ATE_IND" name="">
+        <component id="ATE_IND.2" name="Independent testing - sample" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+    </class>
+    <class id="AVA" name="">
+      <family id="AVA_VAN" name="">
+        <component id="AVA_VAN.3" name="Focused vulnerability analysis" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+    </class>
+  </sars>
+  <rationale doc_type_applies="derived">
+    <objectives_rationale>
+      <mapping objective_id="O.CHANNEL">
+        <justification><![CDATA[flowing from the peripheral device to the selected computer and
+_ISOLATION
+any non-selected computer.
+Security FDP_IFC.1 Subset information flow control
+Functional
+Requirements: FDP_IFF.1 Simple security attributes
+Rationale: FDP_IFC.1 and FDP_IFF.1 ensure that the only permitted user data
+flow is from the peripheral device to the selected computer.
+Objective: The TOE shall not retain user data after the channel is switched or
+the TOE is powered down.]]></justification>
+        <spd_refs/>
+      </mapping>
+      <mapping objective_id="O.NO_DATA_RETENTION">
+        <justification><![CDATA[Security FDP_RIP.1 Subset residual information protection
+Functional
+Requirements:
+Rationale: FDP_RIP.1 ensures that user data from one connected computer
+becomes unavailable when the peripherals are switched to another
+connected computer.
+Objective: The TOE shall ensure that only approved peripheral device types
+may be used with the TOE.]]></justification>
+        <spd_refs/>
+      </mapping>
+      <mapping objective_id="O.PERIPHERAL_DEVICE">
+        <justification><![CDATA[Security FDP_ACC.1 Subset access control
+Functional
+Requirements: FDP_ACF.1 Security attribute based access control
+Rationale: FDP_ACC.1 and FDP_ACF.1 ensure that only authorized peripheral
+device types may be connected to the TOE.
+Objective: The TSF will provide TOE users with the security management
+functionality to switch between connected computers. The TOE will]]></justification>
+        <spd_refs/>
+      </mapping>
+      <mapping objective_id="O.STATIC">
+        <justification><![CDATA[protect all other security attributes from being altered by the TOE
+_ATTRIBUTES
+users.
+Security FMT_MSA.1(1) Management of security attributes
+Functional (Peripherals)
+Requirements:
+FMT_MSA.1(2) Management of security attributes (User data)
+FMT_MSA.3(1) Static attribute initialisation (Peripherals)
+FMT_MSA.3(2) Static attribute initialisation (User data)
+FMT_SMF.1 Specification of Management Functions
+FMT_SMR.1 Security roles
+FTA_VIR_EXT.1 Visual indication rule
+Rationale: FMT_MSA.1(1) ensures that no users can modify the list of
+acceptable peripheral device types. FMT_MSA.3(1) provides
+restrictive default values for these types, and does not allow these
+values to be changed.
+FMT_MSA.1(2) ensures that only users with physical access to the
+peripherals attached to the TOE are able to switch connected
+computers. FMT_MSA.3(2) provides restrictive default values for
+the selected types, and does not allow these values to be changed.
+FMT_SMF.1 ensures that the TSF provides TOE users with the
+capability to switch between connected computers. FMT_SMR.1
+provides for a single user role for the TOE.
+FTA_VIR_EXT.1 ensures that the user is able to identify the active
+channel when switching between connected computers.
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 27 of 38
+Objective: The TOE shall be labeled with at least one visible tamper-evident
+marking that clearly indicates when tampering has been detected.]]></justification>
+        <spd_refs/>
+      </mapping>
+      <mapping objective_id="O.TAMPER_INDICATION">
+        <justification><![CDATA[Security FPT_PHP.1 Passive detection of physical attack
+Functional
+Requirements:
+Rationale: FPT_PHP.1 ensures that the TSF provides unambiguous detection of
+physical tampering.
+Dependency Rationale
+Table 13 identifies the Security Functional Requirements from Part 2 of the CC
+and their associated dependencies. It also indicates whether the ST explicitly
+addresses each dependency.
+Dependency
+SFR Dependency Rationale
+Satisfied
+FDP_ACC.1 FDP_ACF.1 
+FDP_ACF.1 FDP_ACC.1 
+FMT_MSA.3  Satisfied by FMT_MSA.3(1)
+FDP_IFC.1 FDP_IFF.1 
+FDP_IFF.1 FDP_IFC.1 
+FMT_MSA.3  Satisfied by FMT_MSA.3(2)
+FDP_RIP.1 None N/A
+FMT_MSA.1(1) FDP_ACC.1 or  Satisfied by FDP_ACC.1]]></justification>
+        <spd_refs/>
+      </mapping>
+      <rationale_table_raw><![CDATA[6.4 SECURITY REQUIREMENTS RATIONALE
+Security Functional Requirements Rationale
+The following Table provides a mapping between the Security Functional
+Requirements (SFRs) and Security Objectives.
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 25 of 38
+O.NO_DATA_RETENTION O.CHANNEL_ISOLATION
+O.PERIPHERAL_ISOLATION
+O.TAMPER_INDICATION O.STATIC_ATTRIBUTES
+FDP_ACC.1 X
+FDP_ACF.1 X
+FDP_IFC.1 X
+FDP_IFF.1 X
+FDP_RIP.1 X
+FMT_MSA.1(1) X
+FMT_MSA.1(2) X
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 26 of 38
+O.NO_DATA_RETENTION O.CHANNEL_ISOLATION
+O.PERIPHERAL_ISOLATION
+O.TAMPER_INDICATION O.STATIC_ATTRIBUTES
+FMT_MSA.3(1) X
+FMT_MSA.3(2) X
+FMT_SMF.1 X
+FMT_SMR.1 X
+FPT_PHP.1 X
+FTA_VIR_EXT.1 X
+Table 13 – Mapping of SFRs to Security Objectives
+
+4.3 SECURITY OBJECTIVES RATIONALE
+The following table maps the security objectives to the assumptions, threats,
+and organizational policies identified for the TOE.
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 11 of 38
+T.DATA_LEAK
+T.PHYSICAL_TAMPER
+T.SWITCHING
+T.UNAUTH
+T.UNAUTH_DEVICE
+A.PHYSICAL
+A.TRUSTED_CONFIG
+A.TRUSTED_USER
+A.USER_IDENT
+O.CHANNEL_ISOLATION X X
+O.NO_DATA_RETENTION X X
+O.PERIPHERAL_DEVICE X
+O.STATIC_ATTRIBUTES X X
+O.TAMPER_INDICATION X
+OE.AUTH X
+OE.INSTALL X
+OE.PERSON X X
+OE.PHYSICAL X X
+Table 9 – Mapping Between Objectives, Threats, and Assumptions]]></rationale_table_raw>
+    </objectives_rationale>
+    <sfr_rationale>
+      <mapping comp_id="FDP_IFC.1">
+        <justification><![CDATA[FMT_SMR.1 
+FMT_SMF.1 
+FMT_MSA.1(2) FDP_ACC.1 or  Satisfied by FDP_IFC.1]]></justification>
+        <obj_refs/>
+      </mapping>
+      <mapping comp_id="FDP_IFC.1">
+        <justification><![CDATA[FMT_SMR.1 
+FMT_SMF.1 
+FMT_MSA.3(1) FMT_MSA.1  Satisfied by FMT_MSA.1(1)
+FMT_SMR.1 
+FMT_MSA.3(2) FMT_MSA.1  Satisfied by FMT_MSA.1(2)
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 28 of 38
+Dependency
+SFR Dependency Rationale
+Satisfied
+FMT_SMR.1 
+FMT_SMF.1 None N/A
+FMT_SMR.1 FIA_UID.1  Users are identified and
+authenticated by the
+operational environment. This
+dependency is satisfied by
+the operational environment
+in accordance with OE.AUTH.
+FPT_PHP.1 None N/A
+FTA_VIR_EXT.1 None N/A
+Table 14 – Functional Requirement Dependencies
+Security Assurance Requirements Rationale
+The TOE assurance requirements for this ST consist of the requirements
+corresponding to the EAL 4 level of assurance, as defined in the CC Part 3,
+augmented by the inclusion of Systematic Flaw Remediation (ALC_FLR.3). EAL 4
+was chosen for competitive reasons. The developer is claiming the ALC_FLR.3
+augmentation since the current practices and procedures exceed the minimum
+requirements for EAL 4.
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 29 of 38]]></justification>
+        <obj_refs>
+          <obj_ref id="OE.AUTH"/>
+        </obj_refs>
+      </mapping>
+    </sfr_rationale>
+    <dependency_rationale/>
+  </rationale>
+  <toe_summary_spec doc_type_applies="ST">
+    <raw><![CDATA[7 TOE SUMMARY SPECIFICATION
+This section provides a description of the security functions and assurance
+measures of the TOE that meet the TOE security requirements.
+7.1 USER DATA PROTECTION
+There are two SFPs that are enforced by the TOE.
+Peripheral Device SFP
+The TOE supports the following peripheral devices on the TOE console ports. If a
+device that does not support the authorized protocols is plugged into a console
+port, that device will not be correctly enumerated and therefore will not
+function.
+TOE Console Authorized Authorized Devices
+Port Protocols
+Keyboard USB Type A Any wired keyboard and keypad
+HID
+Mouse/ USB Type A Any wired mouse, trackball or touch screen
+Pointing Device HID
+Display HDMI 1.4 Monitor, projector
+DisplayPort 1.1,
+1.2
+Table 15 – Authorized Peripheral Devices
+USB hub and composite devices that include at least one end point that
+enumerates as a USB HID is accepted as an authorized device on the keyboard
+and mouse ports. Any functionality that does not enumerate as HID will not be
+available.
+TOE Security Functional Requirements addressed: FDP_ACC.1, FDP_ACF.1
+User Data Isolation SFP
+The allowed data flows between the connected computer and the peripheral
+devices are described in Sections 7.1.2.1 and 7.1.2.2 below.
+TOE Security Functional Requirements addressed: FDP_IFC.1, FDP_IFF.1,
+FDP_RIP.1.
+7.1.2.1 Video Data Flow
+The video data flows consist of EDID read and write functions, and unidirectional
+video from the connected computer to the monitor. The data flow is shown in
+the following figures. The figures show only four connected computers for
+simplicity; however, the data flows apply to all 8 or 16 connected computer
+ports.
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 30 of 38
+In Figure 3, the TOE video controller function reads the connected display EDID
+Electrically Erasable Programmable Read-Only Memory (EEPROM) content from
+the connected monitor through the closed isolation switch. No video is displayed
+on the monitor since the multiplexer (Video Mux) is switched to the isolation
+state. This mode of operation only occurs during power up. The EDID is not read
+from the monitor at any other time. The video controller reads the EDID content
+to verify that it is valid and usable. If the data is found to be invalid, this
+function will stop and wait for the next Hot Plug event before continuing on.
+Figure 3 – Video Data Flow during EDID Read
+Figure 4 shows the video controller writing the EDID content into the emulated
+EDID EEPROM chip for the first connected computer. The thick lines show the
+native video connections. The thin lines show I²C lines. The EDID multiplexer
+(labeled EDID Mux) couples the I²C lines to the EDID mode switch (orange) for
+the first connected computer. The first EDID mode switch switches the video
+controller I²C lines to the first emulated EDID EEPROM chip (gray). The chip
+write protect switch (green) opens to enable writing. The video controller uses
+the I²C lines to write to the first emulated EDID EEPROM chip. Once the write
+operation is complete and verified, the video controller function switches the
+EDID multiplexer to the next channel and the operation is repeated until all of
+the EDID EEPROM chips are programmed. Once this write operation is complete,
+the video controller switches to the normal operation mode.
+In the EDID Write mode, the emulated EDID EEPROM chips are switched to their
+respective computers to allow the EDID information to be read. The write
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 31 of 38
+protect switches (shown in green) are then switched back to protected mode to
+prevent any attempt to write the EEPROM or transmit MCCS commands.
+In the EDID write mode, each connected computer interface is completely
+independent. The power to each emulated EDID EEPROM is received from its
+respective computer through the video cable. The main video multiplexer is then
+switched to the user selected computer to enable the video display for that
+computer.
+Figure 4 – Video Data Flow during EDID Write
+Normal operation is shown in Figure 5. The connected computers have no means
+to affect the EDID channel.
+The following security features are enforced by the video data flow:
+a. The video input interfaces are isolated from one another. Isolation is
+achieved through the use of separate power and ground planes, and
+separate electronic components and separate emulated EDID chips for
+each channel;
+b. The EDID function is emulated by an independent emulated EDID EEPROM
+chip for each connected computer channel. These chips receive their
+content from the connected monitor during TOE power up;
+c. The TOE will reject any display device with non-valid EDID content;
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 32 of 38
+d. The TOE supports HDMI 1.4, DisplayPort 1.1 and DisplayPort 1.2 video
+source input from connected computers. The video function effectively
+filters out the AUX channel by converting it to I²C EDID only. The
+DisplayPort video is converted into an HDMI video stream. The I²C EDID
+lines are connected to the corresponding emulated EDID EEPROM
+functions as shown in the figures above. Threats to the AUX channel are
+mitigated through the conversion from DisplayPort to HDMI. Unauthorized
+protocols such as USB, Ethernet, MCCS and EDID write are blocked since
+the emulated EEPROM only supports valid EDID read requests from the
+connected computers;
+e. The TOE video function blocks MCCS write transactions through the
+emulated EDID EEPROMs. Emulated EEPROMs only supports EDID read
+transactions. The write protect switch prevents connected computers from
+writing to the Emulated EDID EEPROMs;
+f. When the TOE is powered off, or following failure of a self-test, all video
+signals are isolated. The emulated EDID EEPROMs may still operate since
+they receive power from their respective connected computers, however,
+the isolation function continues to be enforced; and
+g. Although only one connected computer interface is active at a time, the
+monitor will continue to display the video from the connected computers
+in accordance with the user’s configuration. The active computer is always
+indicated by the buttons on the KVM device, and on the screen.
+Figure 5 – Video Data Flow during Normal Operation
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 33 of 38
+7.1.2.2 Keyboard and Mouse Data Flow
+Isolation between the connected computers is enforced using one way data
+diodes and device emulators as shown in Figure 6. This diagram shows only two
+connected computers for simplicity. However, the functionality applies to all
+connected computer ports. The device emulators are microcontrollers that
+receive a serial stream representing the keyboard and mouse commands on one
+side, and interact with the connected computer via the USB bus on the other
+side. The use of isolated device emulators ensures that connected computers
+cannot interact physically or logically with shared TOE or peripheral resources.
+Each device emulator is powered by its respective connected computer. Power
+domains of different computer interfaces are independent and isolated using
+unidirectional data diodes.
+The TOE implements a host emulator to interface with the keyboard and mouse
+peripheral devices, thereby isolating the peripherals from the internal circuitry
+and from the connected computers.
+Data transmission from the host emulator to the device emulators is limited to
+basic HID transactions through the use of a serial protocol between the TOE host
+emulator and the device emulators. Only the limited data supported by the serial
+protocol is able to flow between the emulators.
+Optical data diodes are used to enforce the unidirectional data flow of serial data
+between the TOE host emulator and the device emulators. Optical data diodes
+are included for each device emulator channel to ensure that each channel is
+physically and logically isolated from the other channels, and from other TOE
+functionality. This also prevents data flow from the device emulators to the host
+emulator and on to the peripheral devices.
+A peripheral switch multiplexer ensures the selection of just one keyboard /
+mouse serial data source at any given time. The multiplexer has positions for
+each connected computer port, plus an addition position for isolation. The
+isolation position is used when the self-test has failed, and effectively disables
+the data flow from the keyboard and mouse.
+The keyboard and mouse data flow is not combined with or connected to any
+other TOE data flow. The keyboard and mouse functions are completely isolated
+from all other switching functions, such as audio or video. The keyboard and
+mouse are always switched together. The keyboard and mouse host emulators
+only enumerate USB HID (Human Interface Devices). No other devices or
+endpoints are supported on the keyboard or mouse interfaces, and will be
+rejected. USB hub and composite devices that include an HID interface will only
+enumerate the HID component of the composite device. The keyboard and
+mouse console ports are interchangeable since both enumerate HIDs.
+When power to the TOE is lost, the optical data diodes are powered off and no
+data flow is possible between the keyboard and mouse peripheral devices and
+computer interfaces.
+When the user switches from one computer to another, the system controller
+function ensures that the keyboard and mouse stacks are deleted and that the
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 34 of 38
+first 100 milliseconds of commands received from the keyboard after switching
+are ignored (deleted). This is done to delete the accumulation of cached
+commands from the previous channel in the keyboard microcontroller buffer.
+Since traffic cannot flow from the connected computer to the keyboard or
+mouse, it is not possible to display indications such as CAP LOCK and NUM LOCK
+on the keyboard.
+In accordance with the user guidance, wireless keyboards and mice are not
+permitted in the evaluated configuration.
+Figure 6 – Keyboard and Mouse Data Flow
+TOE Security Functional Requirements addressed: FDP_ACC.1, FDP_ACF.1,
+FDP_IFC.1(1), FDP_IFF.1(1)
+7.2 SECURITY MANAGEMENT
+The TOE provides for a single user role called ‘user’. The only security
+management functionality available to the user is the ability to switch between
+connected computers. It should be noted that users are also able to change the
+size and location of the windows that represent the various connected
+computers on their screens. However, this is not considered to be a security
+management function.
+The default accepted peripheral device type attributes are restrictive in that they
+are limited to the values indicated in Table 10. No user is able to change the
+default values.
+Switching may only be done by the user with physical access to the peripherals
+attached to the TOE KVM device. The default values are considered restrictive in
+that the TOE defaults to the first connected computer on power up. No user is
+able to change this default behaviour.
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 35 of 38
+TOE Security Functional Requirements addressed: FMT_MSA.1(1),
+FMT_MSA.1(2), FMT_MSA.3(1), FMT_MSA.3(2), FMT_SMF.1, FMT_SMR.1.
+7.3 PROTECTION OF THE TSF
+Tamper Evidence
+The TOE enclosure is designed to prevent physical tampering. It features a
+stainless steel welded chassis and panels that prevent external access through
+bending or brute force. Additionally, the TOE is equipped with holographic
+Tampering Evident Labels located in critical areas of the TOE enclosure. Any
+attempt to access the TOE internal circuitry causes permanent visible damage to
+one or more labels.
+TOE Security Functional Requirements addressed: FPT_PHP.1
+7.4 TOE ACCESS
+Visual Indication Rule
+For each video source, the screen displays a corresponding window. The border
+around each window is displayed in a different colour for ease of identification. A
+legend appears at the bottom of the screen showing which colour corresponds to
+which channel.
+TOE Security Functional Requirements addressed: FTA_VIR_EXT.1
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 36 of 38
+8 TERMINOLOGY AND ACRONYMS
+8.1 TERMINOLOGY
+The following terminology is used in this ST:
+Term Description
+AUX This refers to an auxiliary channel.
+Combiner A combiner is a type of KVM device that allows a user to share
+keyboard and mouse functionality between a number of
+connected computers while viewing the video from multiple
+sources simultaneously.
+I²C I²C is a synchronous, serial protocol used to connect low-
+speed devices such as microcontrollers, EEPROMs, and other
+similar peripherals in embedded systems.
+Mux This refers to a multiplexer.
+Peripheral devices ‘Peripherals’ or ‘peripheral devices’ refer to auxiliary devices
+that are intended to be connected to a computer, but are not
+an essential part of the computer. In the context of this ST, a
+peripheral device is a monitor (also called a display), or a USB
+HID such as a keyboard or mouse.
+Table 16 – Terminology
+8.2 ACRONYMS
+The following acronyms are used in this ST:
+Acronym Definition
+CC Common Criteria
+CM Configuration Management
+EAL Evaluation Assurance Level
+EDID Extended Display Identification Data
+EEPROM Electrically Erasable Programmable Read-Only Memory
+HDMI High-Definition Multimedia Interface
+HID Human Interface Device
+HSL HighSecLabs
+IT Information Technology
+MCCS Monitor Control Command Set
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 37 of 38
+Acronym Definition
+PP Protection Profile
+SFP Security Function Policy
+SFR Security Functional Requirement
+ST Security Target
+TOE Target of Evaluation
+TSF TOE Security Functionality
+UHD Ultra-high-definition
+USB Universal Serial Bus
+KVM Keyboard, Video, Mouse
+Table 17 – Acronyms
+Doc No: 2128-000-D102 Version: 1.1 Date: 17 July 2020 Page 38 of 38]]></raw>
+  </toe_summary_spec>
+  <unparsed_sections/>
+  <validation_report>
+    <summary stage1="ran" stage1_errors="1" stage1_warnings="0" stage2_errors="0" stage2_warnings="33" result="FAIL"/>
+    <issues>
+      <issue type="DEPENDENCY_MISMATCH" severity="ERROR" location="FMT_SMF.1" detail="['FDP_ACC.1'] not found among catalog dependencies []"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="O.NO_DATA" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.INSTALL" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="O.STATIC_ATTRIBUTES" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.PERSON" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="O.CHANNEL_ISOLATION" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.AUTH" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.PHYSICAL" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FDP_ACF.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FDP_IFF.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FDP_RIP.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FMT_MSA.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FMT_MSA.3" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FMT_SMF.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FMT_SMR.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ADV_FSP.4" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ADV_TDS.3" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="AGD_PRE.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ALC_CMS.4" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ALC_DEL.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ALC_DVS.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ALC_LCD.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ALC_TAT.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ALC_FLR.3" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ASE_ECD.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ASE_INT.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ASE_OBJ.2" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ASE_REQ.2" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ASE_SPD.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ASE_TSS.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ATE_DPT.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ATE_FUN.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ATE_IND.2" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="AVA_VAN.3" detail="no mapping in sfr_rationale"/>
+    </issues>
+  </validation_report>
+</cc_document>

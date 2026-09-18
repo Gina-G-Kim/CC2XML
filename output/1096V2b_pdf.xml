@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cc_document doc_type="ST" title="Arbit Data Diode 10GbE Security Target Lite" version="" date="05.12.2025" cc_version="Common Criteria version 3.1 revision 5 is the basis for this conformance claim. This Security Target is" eal="EAL7" rationale_type="derived">
+  <introduction>
+    <doc_reference>
+      <identifier/>
+      <title>Arbit Data Diode 10GbE Security Target Lite</title>
+      <version/>
+      <date>05.12.2025</date>
+      <author/>
+      <sponsor/>
+    </doc_reference>
+    <toe_reference doc_type_applies="ST">
+      <name>Arbit Data Diode 10GbE Security Target Lite</name>
+      <version/>
+      <developer/>
+    </toe_reference>
+    <toe_overview>
+      <toe_type/>
+      <description/>
+    </toe_overview>
+  </introduction>
+  <conformance_claims>
+    <cc_conformance>
+      <cc_version>Common Criteria version 3.1 revision 5 is the basis for this conformance claim. This Security Target is</cc_version>
+      <part2_conformance/>
+      <part3_conformance/>
+    </cc_conformance>
+    <pp_claims doc_type_applies="ST"/>
+    <allowed_with doc_type_applies="PP"/>
+    <package_claims>
+      <package_claim ref="EAL7" augmented="false"/>
+    </package_claims>
+    <conformance_rationale/>
+  </conformance_claims>
+  <spd>
+    <assets/>
+    <threats>
+      <threat id="T.DATA">
+        <description>LEAK TA-SENDING and/or TA-RECEIVING threat agents may be able to
+manipulate the INPUT and/or OUTPUT port such that RECEIVING-INFO to
+exit the TOE through the INPUT port.
+Table 3: Threats.
+4.2 Assumptions
+Assumption Definition</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+    </threats>
+    <assumptions>
+      <assumption id="A.INTEGRATOR">
+        <description>The integrator who is performing the installation of the TOE is well-
+trained and competent in the prevention of signal leakage and will
+properly adhere to the TOE guidance.</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.PHYSICAL">
+        <description>The TOE and its interfaces will be physically protected from unauthorized
+access and mechanical, electrical, optical, radiation or any other form of
+physical influence.</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.POWER">
+        <description>Power supply to TOE shall be 3.3 V +/-5%. The minimum current capacity,
+both continuous and peak, shall be 500 mA.
+Table 4: Assumptions.
+Page 7 of 15 Version: 1.13
+4.3 Organizational Security Policies
+Organizational Definition
+Security Policy</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+    </assumptions>
+    <osps>
+      <osp id="P.ONE">
+        <description>WAY FLOW The TOE shall allow information to enter through the INPUT port and then
+leave through the OUTPUT port and deny information flow from the
+OUTPUT to the INPUT.
+Table 5: Organizational Security Policies.
+Application Note:
+The policy is only concerning the allowed information flow which may flow. It is not a policy concerning
+availability, e.g. the guarantee that information received on INPUT port actually will be transmitted on
+the OUTPUT port.
+5 Security Objectives</description>
+        <rationale doc_type_applies="direct"/>
+      </osp>
+    </osps>
+  </spd>
+  <security_objectives>
+    <toe_objectives>
+      <objective id="O.NO">
+        <description>RECEIVING The TOE must ensure that no information that may have entered through
+INFO the OUTPUT port is able to leave through the INPUT port.
+Table 6: Security Objectives for the TOE.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+    </toe_objectives>
+    <env_objectives>
+      <objective id="OE.INTEGRATOR">
+        <description>The integrator who is performing the installation of the TOE shall be well-
+trained and competent in the prevention of signal leakage and shall
+properly adhere to the TOE guidance.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PHYSICAL">
+        <description>The TOE and its interfaces shall be physically protected from unauthorized
+access.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.POWER">
+        <description>Power supply to TOE shall be 3.3 V +/-5%. The minimum current capacity,
+both continuous and peak, shall be 500 mA.
+Table 7: Security Objectives for the Operational Environment.
+5.3 Security Objectives Rationale
+5.3.1 Coverage
+The following table provides a mapping of TOE objectives to threats and policies, showing that each
+objective counters or enforces at least one threat or policy, respectively.
+Objective Threat / OSP</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.NO">
+        <description>RECEIVING T.DATA LEAK
+INFO
+Table 8: TOE Security Objectives Coverage.
+Page 8 of 15 Version: 1.13
+The following table provides a mapping of the objectives for the Operational Environment to
+assumptions, threats and policies, showing that each objective holds, counters or enforces at least one
+assumption, threat or policy, respectively.
+Objective Assumption / Threat / OSP</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.INTEGRATOR">
+        <description>A.INTEGRATOR
+T.DATA LEAK</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PHYSICAL">
+        <description>A.PHYSICAL
+T.DATA LEAK</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.POWER">
+        <description>A.POWER
+T.DATA LEAK
+Table 9: Operational Environment Security Objectives Coverage.
+5.3.2 Sufficiency
+The following rationale provides justification that the security objectives are suitable to counter each
+individual threat and that each security objective tracing back to a threat.
+Threat Rationale for Security Objectives
+T.DATA LEAK TA-SENDING and/or TA-RECIEVING threat agents may be able to cause
+RECEIVING INFO to exit the TOE through the SENDING port.
+This threat is diminished by:</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.NO">
+        <description>RECEIVING INFO, which ensures that no information is able to
+spill over inside the TOE from the OUTOPUT port to the INPUT port.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.INTEGRATOR">
+        <description>, which ensures that the integrator who is
+performing the installation of the TOE is well-trained and competent
+in the prevention of signal leakage and is properly adhering to the
+TOE guidance.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PHYSICAL">
+        <description>, which ensures that the TOE and its interfaces are
+physically protected from unauthorized access.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.POWER">
+        <description>, which ensures that components are operating within
+power supply specification.
+Table 10: Sufficiency of objectives countering threats.
+The rationale for the assumptions is done by a direct mapping of each assumption to a security objective
+for the environment with corresponding name and description. Each security objective is a restatement
+of the assumption; it is therefore self-explanatory.
+Assumption Rationale for Security Objectives
+A.PHYSICAL OE.PHYSICAL
+A.POWER OE.POWER
+A.INTEGRATOR OE.INTEGRATOR
+Table 11: Sufficiency of objectives holding assumptions.
+Page 9 of 15 Version: 1.13
+The rationale for the organizational security policy is done by a direct mapping of the OSP to the security
+objective for the TOE with corresponding name and description. The TOE security objective is a
+restatement of the OSP, it is therefore self-explanatory.
+OSP Rationale for Security Objectives
+P.ONE WAY FLOW O.NO RECEIVING INFO
+Table 12: Sufficiency of objectives holding OSPs.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+    </env_objectives>
+  </security_objectives>
+  <extended_components/>
+  <sfrs>
+    <class id="FDP" name="">
+      <family id="FDP_IFC" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_IFC.2" name="" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FDP_IFC.2.1">
+              <raw><![CDATA[The TSF shall enforce the [assignment: One-Way SFP] on [assignment: the
+subjects INPUT port and OUTPUT port] and all operations that cause that
+information to flow to and from subjects covered by the SFP.]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+                <operation type="assignment" label="(a2)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+            <element id="FDP_IFC.2.2">
+              <raw><![CDATA[The TSF shall ensure that all operations that cause any information in the TOE
+to flow to and from any subject in the TOE are covered by an information flow
+control SFP.
+Page 10 of 15 Version: 1.13
+Simple security attributes (FDP_IFF.1)]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_IFF" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_IFF.1" name="" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FDP_IFF.1.1">
+              <raw><![CDATA[The TSF shall enforce the [assignment: One-Way SFP] based on the following
+types of subject and information security attributes:
+[assignment: subjects INPUT port and OUTPUT port].
+Application Note: No security attributes are stated. Any instance of defined information type,
+independent of its further properties, is covered by this SFR.]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+                <operation type="assignment" label="(a2)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+            <element id="FDP_IFF.1.2">
+              <raw><![CDATA[The TSF shall permit an information flow between a controlled subject and
+controlled information via a controlled operation if the following rules hold:
+[assignment:
+Object Information read from subject INPUT port shall allow the
+transformation operation f write to subject OUTPUT port, where f is a
+transformation function from an optical signal to an electrical signal.
+Object Information read from subject OUTPUT port shall deny the
+transformation operation g write to subject INPUT port, where g is a
+transformation function from electrical signal to an optical signal.
+Object Information read from subject OUTPUT port shall allow the
+transformation operation h write to subject OUTPUT port, where h is a
+1 1
+transformation function from an electrical signal to an electrical signal.
+Object Information read from subject INPUT port shall allow the
+transformation operation h write to subject INPUT port, where h is a
+2 2
+transformation function from an optical signal to an optical signal.].]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+            <element id="FDP_IFF.1.3">
+              <raw><![CDATA[The TSF shall enforce the [assignment: rule in FDP_IFF.1.2 only].]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+            <element id="FDP_IFF.1.4">
+              <raw><![CDATA[The TSF shall explicitly authorise an information flow based on the following
+rules: [assignment: No further rules].]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+            <element id="FDP_IFF.1.5">
+              <raw><![CDATA[The TSF shall explicitly deny an information flow based on the following rules:
+[assignment: No further rules].
+7.2 Security Requirements Rationale
+7.2.1 SFR Coverage
+The following table provides a mapping of SFR to the security objectives, showing that each security
+functional requirement addresses at least one security objective.
+Security functional Objectives
+requirement
+FDP_IFC.2 O.NO RECEIVING INFO
+FDP_IFF.1 O.NO RECEIVING INFO
+Table 15: Mapping of security functional requirements to security objectives.
+Page 11 of 15 Version: 1.13
+7.2.2 SFR Sufficiency
+The following rationale provides justification for each security objective for the TOE, showing that the
+security functional requirements are suitable to meet and achieve the security objectives.
+Security objectives Rationale
+O.NO RECEIVING INFO The TOE must ensure that no information that may have entered through
+the OUTPUT port is able to leave through the INPUT port. This objective is
+satisfied by:
+FDP_IFC.2, which ensures that any information flow in the TOE is
+covered by the “One-Way” SFP. FDP_IFF.1, which denies any
+information from OUTPUT port to leave through the INPUT port.
+Table 16: Security objectives for the TOE rationale.
+7.2.3 Security Requirements Dependency Analysis
+Dependencies within the EAL7 package selected for the security assurance requirements have been
+considered by the authors of CC Part 3 and are not analysed here again. The included component on flaw
+remediation (ALC_FLR.1) has no dependencies on other requirements.
+The security functional requirements in this Security Target do not introduce dependencies on any
+security assurance requirement; neither do the security assurance requirements in this Security Target
+introduce dependencies on any security functional requirement.
+The following table demonstrates the dependencies of SFRs modelled in CC Part 2 and how the SFRs for
+the TOE resolve those dependencies.
+Security functional Dependencies Resolution
+requirement
+FDP_IFC.2 FDP_IFF.1 FDP_IFF.1
+FDP_IFF.1 FDP_IFC.1 FDP_IFC.2
+FMT_MSA.3 Not resolved.
+The TOE configuration is static and has
+therefore no concept of manageable
+security attributes. This dependency
+SFR is therefore not applicable.
+Table 17: TOE SFR dependency analysis.]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+    <class id="FMT" name="">
+      <family id="FMT_MSA" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FMT_MSA.3" name="Not resolved." iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+  </sfrs>
+  <sars>
+    <class id="ADV" name="">
+      <family id="ADV_SPM" name="">
+        <component id="ADV_SPM.1" name="" inclusion="mandatory" package_inherited="false" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements>
+            <element id="ADV_SPM.1.1D" type="D">
+              <raw><![CDATA[The developer shall provide a formal security policy model for the [assignment: One-
+Way SPF defined by FDP_IFC.2 and FDP_IFF.1].]]></raw>
+            </element>
+          </elements>
+        </component>
+      </family>
+    </class>
+  </sars>
+  <rationale doc_type_applies="derived">
+    <objectives_rationale>
+      <mapping objective_id="OE.PHYSICAL">
+        <justification><![CDATA[LEAK
+OE.PHYSICAL A.PHYSICAL
+LEAK TA-SENDING and/or TA-RECIEVING threat agents may be able to cause
+RECEIVING INFO to exit the TOE through the SENDING port.
+This threat is diminished by:
+O.NO RECEIVING INFO, which ensures that no information is able to
+spill over inside the TOE from the OUTOPUT port to the INPUT port.
+OE.INTEGRATOR, which ensures that the integrator who is
+performing the installation of the TOE is well-trained and competent
+in the prevention of signal leakage and is properly adhering to the
+TOE guidance.
+OE.PHYSICAL, which ensures that the TOE and its interfaces are
+physically protected from unauthorized access.
+OE.POWER, which ensures that components are operating within
+power supply specification.
+Table 10: Sufficiency of objectives countering threats.
+The rationale for the assumptions is done by a direct mapping of each assumption to a security objective
+for the environment with corresponding name and description. Each security objective is a restatement
+of the assumption; it is therefore self-explanatory.
+Assumption Rationale for Security Objectives
+A.PHYSICAL OE.PHYSICAL
+A.POWER OE.POWER
+A.INTEGRATOR OE.INTEGRATOR
+Table 11: Sufficiency of objectives holding assumptions.
+Page 9 of 15 Version: 1.13
+The rationale for the organizational security policy is done by a direct mapping of the OSP to the security
+objective for the TOE with corresponding name and description. The TOE security objective is a
+restatement of the OSP, it is therefore self-explanatory.
+OSP Rationale for Security Objectives]]></justification>
+        <spd_refs>
+          <spd_ref id="T.DATA"/>
+        </spd_refs>
+      </mapping>
+      <mapping objective_id="OE.POWER">
+        <justification><![CDATA[LEAK
+OE.POWER A.POWER
+LEAK TA-SENDING and/or TA-RECIEVING threat agents may be able to cause
+RECEIVING INFO to exit the TOE through the SENDING port.
+This threat is diminished by:
+O.NO RECEIVING INFO, which ensures that no information is able to
+spill over inside the TOE from the OUTOPUT port to the INPUT port.
+OE.INTEGRATOR, which ensures that the integrator who is
+performing the installation of the TOE is well-trained and competent
+in the prevention of signal leakage and is properly adhering to the
+TOE guidance.
+OE.PHYSICAL, which ensures that the TOE and its interfaces are
+physically protected from unauthorized access.
+OE.POWER, which ensures that components are operating within
+power supply specification.
+Table 10: Sufficiency of objectives countering threats.
+The rationale for the assumptions is done by a direct mapping of each assumption to a security objective
+for the environment with corresponding name and description. Each security objective is a restatement
+of the assumption; it is therefore self-explanatory.
+Assumption Rationale for Security Objectives
+A.PHYSICAL OE.PHYSICAL
+A.POWER OE.POWER
+A.INTEGRATOR OE.INTEGRATOR
+Table 11: Sufficiency of objectives holding assumptions.
+Page 9 of 15 Version: 1.13
+The rationale for the organizational security policy is done by a direct mapping of the OSP to the security
+objective for the TOE with corresponding name and description. The TOE security objective is a
+restatement of the OSP, it is therefore self-explanatory.
+OSP Rationale for Security Objectives]]></justification>
+        <spd_refs>
+          <spd_ref id="T.DATA"/>
+        </spd_refs>
+      </mapping>
+      <mapping objective_id="O.NO">
+        <justification><![CDATA[LEAK TA-SENDING and/or TA-RECIEVING threat agents may be able to cause
+RECEIVING INFO to exit the TOE through the SENDING port.
+This threat is diminished by:
+O.NO RECEIVING INFO, which ensures that no information is able to
+spill over inside the TOE from the OUTOPUT port to the INPUT port.
+OE.INTEGRATOR, which ensures that the integrator who is
+performing the installation of the TOE is well-trained and competent
+in the prevention of signal leakage and is properly adhering to the
+TOE guidance.
+OE.PHYSICAL, which ensures that the TOE and its interfaces are
+physically protected from unauthorized access.
+OE.POWER, which ensures that components are operating within
+power supply specification.
+Table 10: Sufficiency of objectives countering threats.
+The rationale for the assumptions is done by a direct mapping of each assumption to a security objective
+for the environment with corresponding name and description. Each security objective is a restatement
+of the assumption; it is therefore self-explanatory.
+Assumption Rationale for Security Objectives
+A.PHYSICAL OE.PHYSICAL
+A.POWER OE.POWER
+A.INTEGRATOR OE.INTEGRATOR
+Table 11: Sufficiency of objectives holding assumptions.
+Page 9 of 15 Version: 1.13
+The rationale for the organizational security policy is done by a direct mapping of the OSP to the security
+objective for the TOE with corresponding name and description. The TOE security objective is a
+restatement of the OSP, it is therefore self-explanatory.
+OSP Rationale for Security Objectives
+WAY FLOW O.NO RECEIVING INFO
+Table 12: Sufficiency of objectives holding OSPs.]]></justification>
+        <spd_refs>
+          <spd_ref id="P.ONE"/>
+          <spd_ref id="T.DATA"/>
+        </spd_refs>
+      </mapping>
+      <mapping objective_id="OE.INTEGRATOR">
+        <justification><![CDATA[LEAK TA-SENDING and/or TA-RECIEVING threat agents may be able to cause
+RECEIVING INFO to exit the TOE through the SENDING port.
+This threat is diminished by:
+O.NO RECEIVING INFO, which ensures that no information is able to
+spill over inside the TOE from the OUTOPUT port to the INPUT port.
+OE.INTEGRATOR, which ensures that the integrator who is
+performing the installation of the TOE is well-trained and competent
+in the prevention of signal leakage and is properly adhering to the
+TOE guidance.
+OE.PHYSICAL, which ensures that the TOE and its interfaces are
+physically protected from unauthorized access.
+OE.POWER, which ensures that components are operating within
+power supply specification.
+Table 10: Sufficiency of objectives countering threats.
+The rationale for the assumptions is done by a direct mapping of each assumption to a security objective
+for the environment with corresponding name and description. Each security objective is a restatement
+of the assumption; it is therefore self-explanatory.
+Assumption Rationale for Security Objectives
+A.PHYSICAL OE.PHYSICAL
+A.POWER OE.POWER
+A.INTEGRATOR OE.INTEGRATOR
+Table 11: Sufficiency of objectives holding assumptions.
+Page 9 of 15 Version: 1.13
+The rationale for the organizational security policy is done by a direct mapping of the OSP to the security
+objective for the TOE with corresponding name and description. The TOE security objective is a
+restatement of the OSP, it is therefore self-explanatory.
+OSP Rationale for Security Objectives]]></justification>
+        <spd_refs>
+          <spd_ref id="T.DATA"/>
+        </spd_refs>
+      </mapping>
+      <rationale_table_raw/>
+    </objectives_rationale>
+    <sfr_rationale/>
+    <dependency_rationale/>
+  </rationale>
+  <toe_summary_spec doc_type_applies="ST">
+    <raw><![CDATA[7.5 TOE Summary Specification
+The TOE provides one security functionality, which represents the overall TOE Security Function (TSF).
+7.6 One-Way Information Flow
+The TOE implements the one-way data diode through a repeater, where a fiber optic network cable is
+connected to the INPUT port and a Receiver connection on the OUTPUT port. Information can only be
+received from the Sending network connected on the INPUT port, and no information can spill over to
+the INPUT port from the OUTPUT port. Information received on the INPUT port is allowed to exit through
+the OUTPUT port, without further processing. This TSF is mapped to the following SFRs:
+FDP_IFC.2, FDP_IFF.1
+Page 13 of 15 Version: 1.13
+Revisions, Abbreviations and Terminology
+Revision Date Author Description
+1.00 08-12-2020 RB First version compiled from ST authored by ASP.
+1.01 10-12-2020 RB Prepared for BSI web publication.
+1.10 06-05-2025 TER Version 1.01 converted to docx format for the purpose of
+updating life cycle information
+1.11 16-08-2025 BSO Minor update to design/details
+1.12 18-11-2025 TER Section 1.3 updated. Section B deleted due to privacy.
+1.13 05-12-2025 TER BSI identification no. updated
+Table 18: Revision history.
+Abbreviation Description
+BSI Bundesamt fu r Sicherheit in der Informationstechnik
+(Federal Office for Information Security, Germany)
+CC Common Criteria
+EAL Evaluation Assurance Level
+ID Identity document
+nm Nano meter
+OSP Organizational Security Policy
+SAR Security Assurance Requirement
+SFP Security Function Policy
+SFP+ Enhanced Small form-Factor Pluggable according to [2].
+SFR Security Functional Requirement
+ST Security Target
+TOE Target of Evaluation
+TSF TOE Security Function
+Table 19: Abbreviations
+Terminology Description
+Receiver The entity receiving information from the data diode. It resides on the
+Receiving network.
+Data diode A device that allows information to flow from the input to the output, but
+not the other way.
+Receiving network The network which is to receive information from the Sending network
+through the TOE.
+OUTPUT port The output interface of the data diode. Receiving devices and networks
+are connected to this interface.
+Receiving system Any system residing on the Receiving network, excluding the TOE.
+Information A signal that can traverse the OUTPUT or INPUT port.
+Page 14 of 15 Version: 1.13
+Sending network The network which is to send information through the TOE.
+INPUT port The input interface of the data diode. Sending devices and networks are
+connected to this interface.
+Sending system Any system residing on the Sending network, excluding the TOE.
+Sending The entity sending information to the data diode. It resides on the
+Sending network.
+Port The physical interface by which the cables are connected to the TOE.
+Table 20: Terminology.
+References
+[1] SFF Committee. SFF-8431 Specifications for Enhanced Small Form Factor Pluggable Module SFP+.
+https://www.snia.org/technology-communities/sff/specifications, Rev 4.1, 6th of July 2009.
+[2] SFF Committee. SFF-8432 Specification for SFP+ Module and Cage.
+https://www.snia.org/technology-communities/sff/specifications, Rev 5.2a, November 30, 2018.
+[3] Common Criteria. Common Criteria for Information Technology Security Evaluation. Part 2: Security
+functional components. Number CCMB-2017-04-002. Common Criteria, April 2017 Version 3.1,
+Revision 5.
+[4] Common Criteria. Common Criteria for Information Technology Security Evaluation. Part 3: Security
+assurance components. Number CCMB-2017-04-003. Common Criteria, April 2017 Version 3.1,
+Revision 5.
+[5] Arne Stig Peters. Arbit Data Diode 10GbE – Integration Guide. Number ARBIT0006. Arbit Cyber
+Defence Systems ApS, 2020, version 1.08.
+Page 15 of 15 Version: 1.13]]></raw>
+  </toe_summary_spec>
+  <unparsed_sections/>
+  <validation_report>
+    <summary stage1="ran" stage1_errors="1" stage1_warnings="0" stage2_errors="0" stage2_warnings="4" result="FAIL"/>
+    <issues>
+      <issue type="HIERARCHICAL_MISMATCH" severity="ERROR" location="FDP_IFC.2" detail="parsed=[] catalog=['FDP_IFC.1']"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FDP_IFC.2" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FDP_IFF.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FMT_MSA.3" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="ADV_SPM.1" detail="no mapping in sfr_rationale"/>
+    </issues>
+  </validation_report>
+</cc_document>

@@ -1,0 +1,4416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cc_document doc_type="ST" title="DTCO1381R4.1bSecurityTarget Rev. 1.9 Project: SmartTachographDTCO1381R4.1b" version="" date="2025-07-21" cc_version="" eal="EAL4" rationale_type="derived">
+  <introduction>
+    <doc_reference>
+      <identifier/>
+      <title>DTCO1381R4.1bSecurityTarget Rev. 1.9 Project: SmartTachographDTCO1381R4.1b</title>
+      <version/>
+      <date>2025-07-21</date>
+      <author/>
+      <sponsor/>
+    </doc_reference>
+    <toe_reference doc_type_applies="ST">
+      <name>DTCO1381R4.1bSecurityTarget Rev. 1.9 Project: SmartTachographDTCO1381R4.1b</name>
+      <version/>
+      <developer/>
+    </toe_reference>
+    <toe_overview>
+      <toe_type/>
+      <description/>
+    </toe_overview>
+  </introduction>
+  <conformance_claims>
+    <cc_conformance>
+      <cc_version/>
+      <part2_conformance>extended</part2_conformance>
+      <part3_conformance>strict</part3_conformance>
+    </cc_conformance>
+    <pp_claims doc_type_applies="ST">
+      <pp_claim ref="PP-0094-V2" conformance_type=""/>
+    </pp_claims>
+    <allowed_with doc_type_applies="PP"/>
+    <package_claims/>
+    <conformance_rationale/>
+  </conformance_claims>
+  <spd>
+    <assets/>
+    <threats>
+      <threat id="T.Card_Data_Exchange">
+        <description>Attackerscouldtrytomodifyuserdatawhilebeingexchanged
+betweenVUandtachographcards(addition,modification,deletion,
+replayofdata).</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.Remote_Detect_Data">
+        <description>Attackerscouldtrytomodifyuserdata,concerningpossible
+manipulationormisuse,targetedtoremoteearlydetection
+equipmentroadsidechecks(addition,modification,deletion,replay
+ofdata).</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.Output_Data">
+        <description>Attackerscouldtrytomodify,andthusmisrepresent,userdata
+output(print,displayordownload)
+Table3-5:ThreatsavertedbytheTOEanditsoperationalenvironment
+Label Threat</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.Access">
+        <description>Attackers(e.g. humanusers)couldtrytoaccessfunctionsnot
+allowedtothem(e.g. driversgainingaccesstocalibrationfunction,
+tomodifyordeleteuserdata.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.Calibration_Parameters">
+        <description>HumanUserscouldtrytousemiscalibratedTOE(throughcalibration
+datamodification,orthroughorganisationalweaknesses)to
+misrepresentactivitydata. Bothcalibrationdataandactivitydata
+arepartofuserdata.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.Clock">
+        <description>AttackerscouldtrytomodifyinternalclockoftheTOE,and
+interferencewiththecorrectoperationoftheTOE.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.Design">
+        <description>AttackerscouldtrytogainillicitknowledgeoftheTOEdesign
+informationandTOEsoftware,eitherfrommanufacturer’smaterial
+(throughtheft,bribery)orfromreverseengineering,interferewith
+thecorrectoperationoftheTOE.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.Environment">
+        <description>Attackerscoulduseenvironmentalattacks(thermal,
+electromagnetic,optical,chemicalormechanical)tointerferewith
+processingofuserdata.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.Fake_Devices">
+        <description>Attackerscouldtrytoconnectunknownequipment(fakemotion
+sensor,tachographcardsorexternalGNSSfacility)totheTOEto
+misrepresentuseractivitydata(dataatrestorbeingtransferred
+betweentheTOEandanexternalconnecteddevice).</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.Hardware">
+        <description>AttackerscouldtrytomodifyTOEhardware,andinterferewiththe
+correctoperationoftheTOE.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.Identification">
+        <description>HumanUserscouldtrytouseseveralidentificationsornoidentity
+tomisrepresentuseractivitydata.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.Motion_Sensor">
+        <description>Attackerscouldtrytomodifythevehicle’smotiondata(addition,
+modifi-cation,deletion,replayofsignal),partofuserdatato
+misrepresentuseractivitydata.
+Continuedonnextpage
+34of144
+Label Threat</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.Location_Data">
+        <description>Attackerscouldtrytomodifylocationdatawhentransmittedbyan
+externalGNSSfacility(addition,modification,deletion,replayof
+signal)7 tomisrepresentuseractivitydata.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.Power_Supply">
+        <description>Attackerscouldtrytointerferewiththerecordingortransmissionof
+userdatabymodifying(cutting,reducing,increasing)theTOE’s
+powersupplytointerferewithitscorrectoperation.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.Security_Data">
+        <description>AttackerscouldtrytogainillicitknowledgeofTOEimmanent
+securitydataduringsecuritydatagenerationortransportorstorage
+intheequipmentandattempttomisrepresentuseractivitydata.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.Software">
+        <description>AttackerscouldtrytomodifyTOEsoftwareinordertointerferewith
+thecorrectoperationoftheTOE.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.Stored_Data">
+        <description>Attackerscouldtrytomodifystoreddata(TOEimmanentsecurity
+dataoruserdata)inordertomisrepresentuseractivitydata.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.Tests">
+        <description>Theuseofnon-invalidatedtestmodesorofexistingbackdoorsby
+anattackercouldinterferewiththecorrectrecordingor
+transmissionofuserdata.
+3.3. Assumptions
+Thissectiondescribedtheassumptionsthataremadeabouttheoperationalenvironmentinorder
+tobeabletoprovidethesecurityfunctionality. IftheTOEisplacedinanoperationalenvironment
+doesnotupholdtheseassumptionsitmaybeunabletooperateinasecuremanner.
+Theassumptionsareprovidedinthefollowingtable:
+Table3-6:Assumptions
+ShortName Assumption</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+    </threats>
+    <assumptions>
+      <assumption id="A.Activation">
+        <description>VehiclemanufacturersandfittersorworkshopsactivatetheTOE
+afteritsinstallationatlatestbeforethevehicleisusedinScopeof
+RegulationEUNo. 561/2006[60].</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.Approv_Workshops">
+        <description>TheMemberStatesapprove,regularlycontrolandcertifytrusted
+fittersandworkshopstocarryoutinstallations,calibrations,checks,
+inspections,repairs.</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.Card_Availability">
+        <description>TachographcardsareavailabletotheTOEhumanusersand
+deliveredbyMemberStateauthoritiestoauthorisedpersonsonly.</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.Card_Traceability">
+        <description>Carddeliveryistraceable(whitelists,blacklists),andblacklistsare
+usedduringsecurityaudits.
+Continuedonnextpage
+7T.Location_DatamayberegardedasnotapplicablewhenaninternalGNSSreceiverisused.
+35of144
+ShortName Assumption</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.Cert_Infrastructure">
+        <description>WithintheEuropeanSmartTachographsystemrequiredkeypairs
+andcorrespondingcertificatesaregenerated,managedand
+communicatedusingstandardisedandsecuremethods(seeAnnex
+IC[54],chapter3).</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.Controls">
+        <description>LawenforcementcontrolsoftheTOEwillbeperformedregularly
+andrandomly,andmustincludesecurityauditsand(aswellas
+visualinspectionoftheTOE).</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.Driver_Card_Unique">
+        <description>Driverspossess,atonetime,onevaliddrivercardonly.</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.Faithful_Calibration">
+        <description>Approvedfittersandworkshopsenterpropervehicleparametersin
+recordingequipmentduringcalibration.</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.Inspections">
+        <description>Recordingequipmentwillbeperiodicallyinspectedandcalibrated.</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.Compliant_Drivers">
+        <description>Driversusetheircardsinaccordancewithprovidedguidancewith
+providedguidance,andproperlyselecttheiractivityforthosethat
+aremanuallyentered.</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.Type_Approved_Dev">
+        <description>TheTOEwillonlybeoperatedtogetherwithamotionsensorandan
+externalGNSSfacility(ifapplicable)thataretypeapproved
+accordingtoAnnexIC8 [54].</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.Bluetooth">
+        <description>BluetoothpairingandBluetoothconnectionoftheITSinterfaceare
+sufficientlysecurenottocompromisetheobjectivesofthisST.
+3.4. Organisational security policies
+This sections shows the organisational security policies that are to be enforced by the TOE, its
+operationalenvironmentoracombinationofthetwo.
+Theorganisationalpoliciesareprovidinginthefollowingtable:
+Table3-7:Organisationalsecuritypolicies
+ShortName Organisationalsecuritypolicy</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+    </assumptions>
+    <osps>
+      <osp id="P.Crypto">
+        <description>ThecryptographicalgorithmsdescribedinAnnexIC[54],Appendix11
+shallbeusedwheredataconfidentiality,integrity,authenticity
+and/ornon-repudiationneedtobeprotected</description>
+        <rationale doc_type_applies="direct"/>
+      </osp>
+      <osp id="P.Management_Device">
+        <description>TheManagementDevicesupportstheappropriatecommunication
+interfacewiththeVUandsecurestherelevantsecretsinsidetheMD
+asappropriate.
+8TypeapprovalrequirementsincludeCommonCriteriacertificationagainsttherelevantdigitaltachographprotection
+profile.
+36of144
+4. Security objectives
+ThissectionidentifiesthesecurityobjectivesfortheTOEandforitsoperationalenvironment. The
+securityobjectivesareaconciseandabstractstatementoftheintendedsolutiontotheproblem
+definedbythesecurityproblemdefinition. Theroleofthesecurityobjectivesisthreefold:
+- provideahigh-level,natural-languagesolutionoftheproblem;
+- dividethissolutionintotwopart-wisesolutions,thatreflectthatdifferententitieseachhave
+toaddressapartoftheproblem;
+- demonstratethatthesepart-wisesolutionsformacompletesolutiontotheproblem.</description>
+        <rationale doc_type_applies="direct"/>
+      </osp>
+    </osps>
+  </spd>
+  <security_objectives>
+    <toe_objectives>
+      <objective id="O.Access">
+        <description>TheTOEmustcontroluseraccesstofunctionsanddataonthebasis
+ofusertypeandidentity.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.Accountability">
+        <description>TheTOEmustcollectaccurateaccountabilitydata.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.Authentication">
+        <description>TheTOEmustauthenticateusersandconnectedentities(whena
+trustedpathoratrustedchannel9 needstobeestablishedtowards
+theseusers).</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.Audit">
+        <description>TheTOEmustauditattemptstounderminesystemsecurityand
+shouldtracethemtoassociatedusers.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.Integrity">
+        <description>TheTOEmustmaintainstoreddataintegrity.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.Output">
+        <description>TheTOEmustensurethatdataoutputreflectsaccuratelydata
+measuredorstored.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.Processing">
+        <description>TheTOEmustensurethatprocessingofinputstoderiveuserdatais
+accurate.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.Reliability">
+        <description>TheTOEmustprovideareliableservice.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.Secured_Exchange">
+        <description>TheTOEmustsecuredataexchangeswiththemotionsensorand
+withtachographcardsandwiththeremoteearlydetection
+communicationreader.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="O.Software_Update">
+        <description>TheTOEmustchecktheauthenticityandintegrityofTOEsoftware
+updatesbeforeinstallingthem10.
+9TrustedchannelisreferredtoinAnnexIC[54],Appendix11asasecuremessagingsession.
+10TheSTauthormustadditerationsofFCScomponentstodescribetheapproachemployedtoprotecttheauthenticity
+andintegrityofthesoftwareupdate.
+37of144</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+    </toe_objectives>
+    <env_objectives>
+      <objective id="OE.Data_Generation">
+        <description>Securitydatagenerationalgorithmsshallbe
+accessibletoauthorisedandtrustedpersons
+only.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.Data_Transport">
+        <description>Securitydatashallbegenerated,transported,
+andinsertedintotheTOE,insuchawayto
+preserveitsappropriateconfidentialityand
+integrity.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.Delivery">
+        <description>VUmanufacturers,vehiclemanufacturersand
+fittersorworkshopsshallensurethathandling
+oftheTOEisdoneinamannerwhichmaintains
+ITsecurity.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.Software_Update">
+        <description>Softwarerevisionsshallbegrantedsecurity
+certificationbeforetheycanbeimplementedin
+theTOE.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.Data_Strong">
+        <description>SecuritydatainsertedintotheTOEfor
+compatibilitywith2ndgenerationtachograph
+cards,motionsensors,EGFs(ifpresent)and
+remoteearlydetectioncommunicationreaders
+mustbecryptographicallystrongasrequiredby
+AnnexIC[54],Appendix11PartB.
+SecuritydatainsertedintotheTOEfor
+compatibilitywith1stgenerationtachograph
+cardsandmotionsensorsmustbeas
+cryptographicallystrongasrequiredbyAnnexIC
+[54],Appendix11PartA.
+Continuedonnextpage
+38of144
+Specificphase ShortName Securityobjectivefortheenvironment</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.Test_Points">
+        <description>Allcommands,actionsortestpoints,specificto
+thetestingneedsofthemanufacturingphaseof
+theVUshallbedisabledorremovedbeforethe
+VUactivationbytheVUmanufacturerduringthe
+manufacturingprocess.
+Calibration OE.Activation Vehiclemanufacturersandfittersorworkshops
+phase shallactivatetheTOEafteritsinstallation
+beforethevehicleisusedinscopeofRegulation
+(EC)No561/2006[60].</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.Approved_Workshops">
+        <description>Installation,calibrationandrepairofrecording
+equipmentshallbecarriedbytrustedand
+approvedfittersorworkshops.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.Faithful_Calibration">
+        <description>Approvedfittersandworkshopsshallenter
+propervehicleparametersinrecording
+equipmentduringcalibration.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.Management_Device">
+        <description>TheManagementDevice(MD)isinstalledinthe
+approvedworkshopsaccordingto
+A.Approv_Workshops. Thesoftwareupdatedata
+andnecessarykeydata(forthesoftwareupdate)
+areimportedintotheMDbytheapproved
+workshopsaccordingtoA.Approv_Workshops.
+Operational OE.Card_Availability TachographcardsshallbeavailabletoTOE
+phase humanusersanddeliveredbyMemberState
+Authoritiestoauthorisedpersonsonly.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.Card_Traceability">
+        <description>Carddeliveryshallbetraceable(whitelists,
+blacklists),andblacklistsmustbeusedduring
+securityaudits.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.Controls">
+        <description>Lawenforcementcontrolsshallbeperformed
+regularlyandrandomly,andmustinclude
+securityaudits.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.Driver_Card_Unique">
+        <description>Driversshallpossess,atonetime,onevalid
+drivercardonly.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.Compliant_Drivers">
+        <description>Driversmustusetheircardsinaccordancewith
+providedguidancewithprovidedguidance,and
+properlyselecttheiractivityforthosethatare
+manuallyentered.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.Regular_Inspections">
+        <description>Recordingequipmentshallbeperiodically
+inspectedandcalibrated.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.Type_Approval_MS11">
+        <description>TheMotionSensoroftherecordingequipment
+connectedtotheTOEshallbetypeapproved
+accordingtoAnnexIC[54].
+Continuedonnextpage
+39of144
+Specificphase ShortName Securityobjectivefortheenvironment</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.Type_Approval_EGF">
+        <description>TheexternalGNSSfacilityconnectedtotheTOE
+(ifapplicable)mustbetypeapprovedaccording
+toAnnexIC12 [54].</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.Bluetooth">
+        <description>BluetoothpairingandBluetoothconnectionof
+theITSinterfacemustbeestablishedsuchthat
+theyaresufficientlysecurenottoallow
+compromiseoftheassets.:</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.EOL">
+        <description>WhennolongerinservicetheTOEmustbe
+disposedofinasecuremanner,whichmeans,as
+aminimum,theconfidentialityofsymmetricand
+privatecryptographickeyhastobesafeguarded.
+Please note that the design and the manufacturing environments are not the intended usage
+environmentsfortheTOE(seesection1.2.4). Thesecurityobjectivesfortheseenvironmentsbeing
+duetothecurrentsecuritypolicy(OE.Development,OE.Manufacturing,OE.Test_Points,OE.Delivery)
+arethesubjecttotheassuranceclassALC.Hence,therelatedsecurityobjectivesforthedesignand
+themanufacturingenvironmentsdonotaddressanypotentialTOEuserand,therefore,cannotbe
+reflectedinthedocumentsoftheassuranceclassAGD.
+Theremainingsecurityobjectivesforthemanufacturingenvironment(OE.Data_Generation,</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.Data_TransportandOE.Data_Strong">
+        <description>)aresubjecttotheERCAandMSAPoliciesand,therefore,are
+notspecificfortheTOE.
+11Identificationandauthenticationofthemotionsensordependsonthemotionsensorhavingimplementedtherequired
+mechanismstosupportit.
+12OE.Type_Approval_EGFmayberegardedastriviallymetwhenaninternalGNSSfacilityisused.
+40of144
+5. Extended components definition
+ThissecuritytargetusesacomponentthatisdefinedasanextensiontoCCpart2[2].
+The extended component is FCS_RNG.1 Generation of random numbers. This component is fully
+definedandjustifiedin[316],Section3.
+The PP [5] defines a restricted set of ways in which the extended component can be used in this
+security target. These are set out in chapter Annex B — Operations for FCS_RNG.1, and further
+informationisprovidedin[316].
+5.1. Rationale for extended component
+CCPart2[2]definestwocomponentsFIA_SOS.2andFCS_CKM.1thataresimilartoFCS_RNG.1. However,
+FCS_RNG.1allowsthespecificationofrequirementsforthegenerationofrandomnumbersinamanner
+thatincludesnecessaryinformationforintendeduse,asisrequiredhere. Thesedetailsdescribethe
+quality of the generated data that other security services rely upon. Thus by using FCS_RNG a ST
+authorisabletoexpressacoherentsetofSFRsthatincludethegenerationofrandomnumbersasa
+securityservice.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+    </env_objectives>
+  </security_objectives>
+  <extended_components>
+    <ext_family id="FCS_RNG" name="" class="FCS">
+      <family_behaviour/>
+      <component_levelling/>
+      <ext_component id="FCS_RNG.1" name="Generationofrandomnumbers,requiresthattherandomnumbergeneratorimplements">
+        <hierarchical_to/>
+        <dependencies/>
+        <management/>
+        <audit_events/>
+      </ext_component>
+      <ext_component id="FCS_RNG.1" name="Generationofrandomnumbers">
+        <hierarchical_to/>
+        <dependencies/>
+        <management/>
+        <audit_events/>
+      </ext_component>
+    </ext_family>
+  </extended_components>
+  <sfrs>
+    <class id="FAU" name="">
+      <family id="FAU_GEN" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FAU_GEN.1" name="Auditdatageneration" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies>
+            <dependency>
+              <alternatives>
+                <comp_ref id="FPT_STM.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FAU_GEN.1.1">
+              <raw><![CDATA[TheTSFshallbeabletogenerateanauditrecordanddisplayavisualwarning
+ofthefollowingauditableevents:
+a) Start-upandshutdownoftheauditfunctions;
+b) Allauditableeventsforthenotspecifiedlevelofaudit;and
+c) [TheeventslistedinAnnexIC[54],section3.9];noother
+specificallydefinedauditevents.]]></raw>
+              <operations/>
+            </element>
+            <element id="FAU_GEN.1.2">
+              <raw><![CDATA[TheTSFshallrecordwithineachauditrecordatleastthefollowinginformation:
+a) Dateandtimeoftheevent,typeofevent,subjectidentity,andtheoutcome
+(successorfailure)oftheevent13;and
+b) Foreachauditeventtype,basedontheauditableeventdefinitionsofthe
+functional components included in the ST, [the data to be recorded for
+eacheventtypelistedinAnnexIC[54],sections3.12.8and3.12.9;noother
+auditrelevantinformation.
+6.1.1.1.2. FAU_SAR—Securityauditreview]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FAU_SAR" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FAU_SAR.1" name="Auditreview" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FAU_SAR.1.1">
+              <raw><![CDATA[The TSF shall provide [anyone, subject to the requirements of Annex IC [54].
+Paragraph13]withthecapabilitytoread[theinformationrequiredtoberecor-
+dedbyFAU_GEN.1andimportedmotionsensorauditdata]fromauditrecords.]]></raw>
+              <operations/>
+            </element>
+            <element id="FAU_SAR.1.2">
+              <raw><![CDATA[The TSF shall provide the audit records in a manner suitable for the user to
+interprettheinformation.
+13Theoutcomeoftheeventneedonlyberecordedwheresuchaconceptisrelevanttotheevent.
+44of144
+6.1.1.1.3. FAU_STG—Securityauditeventstorage]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FAU_STG" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FAU_STG.1" name="Protectedaudittrailstorage" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FAU_STG.1.1">
+              <raw><![CDATA[TheTSFshallprotectthestoredauditdataintheaudittrailfromunauthorized
+deletion.]]></raw>
+              <operations/>
+            </element>
+            <element id="FAU_STG.1.2">
+              <raw><![CDATA[The TSF shall be able to [detect14] unauthorized modifications to the stored
+auditdataintheaudittrail.]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FAU_STG.4" name="Preventionofauditdataloss" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FAU_STG.4.1">
+              <raw><![CDATA[TheTSFshall[overwritetheoldeststoredauditrecords],[andbehaveaccording
+to. AnnexIC[54],paragraph104,107,112,115and131]iftheaudittrailisfull.
+Applicationnote6-1: Asaminimumthedatamemoryshallbeabletoholdeventsdataasrequired
+by[54]section3.12.8withoutoverwriting.
+Applicationnote6-2: Therequirementsin??and??applyequallytoimportedmotionsensoraudit
+dataastoauditdatageneratedbytheTOE.
+6.1.1.2. ClassFCO:Communication
+6.1.1.2.1. FCO_NRO.1–Non-repudiationoforigin]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note>Asaminimumthedatamemoryshallbeabletoholdeventsdataasrequired
+by[54]section3.12.8withoutoverwriting.</application_note>
+        </component>
+      </family>
+    </class>
+    <class id="FCO" name="">
+      <family id="FCO_NRO" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FCO_NRO.1" name="Selectiveproofoforigin" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FCO_NRO.1.1">
+              <raw><![CDATA[The TSF shall be able to generate evidence of origin for [data downloads to
+externalmediaandDSRCtransmissionstotheremoteearlydetectioncommu-
+nicationreader]attherequestofthe[originator15]inaccordancewithAnnex
+IC[54],Appendix11,section14and13,respectively.]]></raw>
+              <operations/>
+            </element>
+            <element id="FCO_NRO.1.2">
+              <raw><![CDATA[The TSF shall be able to relate the [identity (VU private key (VU_Sign.SK) and
+VU_DSRCkey(VU
+DSRC
+_MAC))]oftheoriginator(vehicleunit)oftheinformation,
+andthe[userdatatobedownloadedtoexternalmediaandremotetachograph
+monitoringdatatransmittedtotheremoteearlydetectioncommunicationrea-
+der]oftheinformationtowhichtheevidenceapplies.]]></raw>
+              <operations/>
+            </element>
+            <element id="FCO_NRO.1.3">
+              <raw><![CDATA[TheTSFshallprovideacapabilitytoverifytheevidenceoforiginofinformation
+to [recipient] given [that the digital signature or the MAC can be verified (see
+AnnexIC[54],Appendix11,Chapters14and13].
+14Auditdataare“events/faults”definedinAnnex1C[54],sections3.9,3.12.8and3.12.9.Compromisedauditdatawilltrigger
+a“(code:14H)Storeduserdataintegrityerror”,seeAppendix1,2.70“EventFaultType”.
+15Theoriginatoristhevehicleunit.
+45of144
+6.1.1.3. ClassFDP:UserDataProtection
+6.1.1.3.1. FDP_ACC–Accesscontrolpolicy(1:FIL)]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+    <class id="FDP" name="">
+      <family id="FDP_ACC" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_ACC.1" name="(1:FIL) Subsetaccesscontrol" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FDP_ACC.1.1">
+              <raw><![CDATA[(1:FIL) TheTSFshallenforcethe[FILE_STRUCTURE_SFP16]on
+Subjects:
+- HumanandtechnicalusersoftheTOE
+Objects:
+- applicationanddatafilesstructureasrequiredinApplicationnote6-3:
+Operations
+- Read,write,modify,delete.
+Applicationnote6-3: Tachographapplicationanddatafilesstructureshallbecreatedduringthe
+manufacturingprocessandthenlockedagainstanynonauthorizedmodifi-
+cationordeletion. Throughsoftwareupdate,anauthorizedmodificationor
+deletion may occur. This SFR iteration relates to application and data file
+structuresthemselves.
+6.1.1.3.2. FDP_ACF–Accesscontrolfunctions(1:FIL)]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note>Tachographapplicationanddatafilesstructureshallbecreatedduringthe
+manufacturingprocessandthenlockedagainstanynonauthorizedmodifi-
+cationordeletion. Throughsoftwareupdate,anauthorizedmodificationor
+deletion may occur. This SFR iteration relates to application and data file
+structuresthemselves.
+6.1.1.3.2. FDP_ACF–Accesscontrolfunctions(1:FIL)</application_note>
+        </component>
+      </family>
+      <family id="FDP_ACF" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_ACF.1" name="(1:FIL) Securityattributebasedaccesscontrol" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_ITC" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_ITC.2" name="." iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FDP_ACF.1.3">
+              <raw><![CDATA[(6:SWU) The TSF shall explicitly authorise access of subjects to objects based on the
+followingadditionalrules: none.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_ACF.1.4">
+              <raw><![CDATA[(6:SWU) TheTSFshallexplicitlydenyaccessofsubjectstoobjectsbasedonthefollowing
+additionalrule: alldatanotrecognizedasanauthenticSW-Update.
+Applicationnote6-8: TheseiterationswereaddedbytheSTAuthortodefinetheSFRforaccess,
+authenticityandintegrityoftheSW-Update.
+54of144
+6.1.1.3.13. FDP_ETC–ExportfromtheTOE]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note>TheseiterationswereaddedbytheSTAuthortodefinetheSFRforaccess,
+authenticityandintegrityoftheSW-Update.
+54of144
+6.1.1.3.13. FDP_ETC–ExportfromtheTOE</application_note>
+        </component>
+        <component id="FDP_ITC.1" name="Subsetinformationflowcontrol]" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FDP_ETC.2.1">
+              <raw><![CDATA[TheTSFshallenforcethe[USER_DATA_EXPORT_SFP]whenexportinguserdata,
+controlledundertheSFP(s),outsideoftheTOE.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_ETC.2.2">
+              <raw><![CDATA[The TSF shall export the user data with the user data’s associated security
+attributes.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_ETC.2.3">
+              <raw><![CDATA[TheTSFshallensurethatthesecurityattributes, whenexportedoutsidethe
+TOE,areunambiguouslyassociatedwiththeexporteduserdata.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_ETC.2.4">
+              <raw><![CDATA[TheTSFshallenforcethefollowingruleswhenuserdataisexportedfromthe
+TOE:[
+- tachographcardsdataupdateshallbesuchthat,whenneededandtaking
+into account card actual storage capacity, most recent data replace oldest
+data;
+- the vehicle unit shall export data to tachograph cards with associated se-
+curity attributes such that the card will be able to verify its integrity and
+authenticity;
+- the vehicle unit shall download data to external storage media with asso-
+ciatedsecurityattributessuchthatdownloadeddataintegrityandauthen-
+ticitycanbeverified].
+6.1.1.3.14. FDP_ITC–ImportfromoutsideoftheTOE]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_ETC" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_ETC.2" name="Exportofuserdatawithsecurityattributes" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_IFC" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_IFC.1" name="Subsetinformationflowcontrol]" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_ITT" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_ITT.1" name="Basicinternaltransferprotection" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FDP_ITT.1.1">
+              <raw><![CDATA[The TSF shall enforce the [DATA_SFP] to prevent [modification] of user data
+whenitistransmittedbetweenphysically-separatedpartsoftheTOE.
+6.1.1.3.16. FDP_RIP—Residualinformationprotection]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_RIP" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_RIP.1" name="Subsetresidualinformationprotection" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FDP_RIP.1.1">
+              <raw><![CDATA[TheTSFshallensurethatanypreviousinformationcontentofatemporarily
+stored resource is made unavailable upon the deallocation of the resource
+fromthefollowingobjects: [
+- TemporarilystoredcryptographickeysthatarelistedinTableA-1,TableA-2,
+TableA-4andTableA-5;
+- PIN: the verification value of the workshop card PIN temporarily stored in
+theTOEduringitscalibration(atmostbytheendofthecalibrationphase);
+- [transportkeysoftwareupdateTK(atmostbytheendofthesoftware
+update)]
+Applicationnote6-10: ThecomponentFDP_RIP.1concernsinthisSTonlythetemporarilystored(e.g.
+in RAM) instantiations of objects in question. In contrast, the component]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note>ThecomponentFDP_RIP.1concernsinthisSTonlythetemporarilystored(e.g.
+in RAM) instantiations of objects in question. In contrast, the component</application_note>
+        </component>
+      </family>
+      <family id="FDP_SDI" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_SDI.2" name="(1) Storeddataintegritymonitoringandaction" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FDP_SDI.2.1">
+              <raw><![CDATA[(1) TheTSFshallmonitoruserdatastoredintheTOE’sdatamemory for[integrity
+errors] on all objects, based on the following attributes: [assignment: user
+dataattributes].]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+            <element id="FDP_SDI.2.2">
+              <raw><![CDATA[(1) Upondetectionofadataintegrityerror,theTSFshall[generateanauditrecord].]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+    <class id="FMT" name="">
+      <family id="FMT_MSA" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FMT_MSA.3" name="Staticattributeinitialisation" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FDP_ACF.1.1">
+              <raw><![CDATA[(1:FIL) TheTSFshallenforce the[FILE_STRUCTURE_SFP]toobjectsbased onthefol-
+lowing
+Subjects:
+- HumanandtechnicalusersoftheTOE
+Objects:
+- applicationanddatafilesstructureasrequiredinApplicationnote6-3:]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_ACF.1.2">
+              <raw><![CDATA[(1:FIL) TheTSFshallenforcethefollowingrulestodetermineifanoperationamong
+controlledsubjectsandcontrolledobjectsisallowed: [none].]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_ACF.1.3">
+              <raw><![CDATA[(1:FIL) The TSF shall explicitly authorise access of subjects to objects based on the
+followingadditionalrules: [none].
+16AsdefinedinFDP_ACC.1(1:FIL)andFDP_ACF.1(1:FIL)
+46of144]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_ACF.1.4">
+              <raw><![CDATA[(1:FIL) TheTSFshallexplicitlydenyaccessofsubjectstoobjectsbasedonthefollowing
+additional rules [application and data files structure and access conditions
+shall be created during the manufacturing process, and then locked from any
+nonauthorisedfuturemodificationordeletion].
+6.1.1.3.3. FDP_ACC–Accesscontrolpolicy(2:FUN)]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FMT_MSA.1" name="Managementofsecurityattributes" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies>
+            <dependency>
+              <alternatives>
+                <comp_ref id="FDP_ACC.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FMT_SMR" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FMT_SMR.1" name="Securitymanagementroles" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies>
+            <dependency>
+              <alternatives>
+                <comp_ref id="FIA_UID.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FMT_SMR.1.1">
+              <raw><![CDATA[TheTSFshallmaintaintheroles[
+a) Driver(drivercard),
+b) Controller(controlcard),
+c) Workshop(workshopcard),
+d) Company(companycard),
+e) Unknown(nocardinserted),
+f) Motionsensor,
+g) ExternalGNSSfacility(ifapplicable),
+h) Intelligentdedicatedequipment]]]></raw>
+              <operations/>
+            </element>
+            <element id="FMT_SMR.1.2">
+              <raw><![CDATA[TheTSFshallbeabletoassociateuserswithroles.
+6.1.1.6. ClassFPT:ProtectionoftheTSF
+6.1.1.6.1. FPT_FLS—Failsecure]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FMT_SMF" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FMT_SMF.1" name="Specificationofmanagementsfunctions" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FMT_MOF.1.1">
+              <raw><![CDATA[(1) TheTSFshallrestricttheabilityto[enable]thefunctions[allcommands,actions
+ortestpoints,specifictothetestingneedsofthemanufacturingphaseofthe
+VU]to[nobody].]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FMT_MOF" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FMT_MOF.1" name="(1) Managementofsecurityfunctionsbehaviour" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies>
+            <dependency>
+              <alternatives>
+                <comp_ref id="FMT_SMR.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FMT_MTD" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FMT_MTD.1" name="ManagementofTSFdata" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies>
+            <dependency>
+              <alternatives>
+                <comp_ref id="FMT_SMR.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+    <class id="FTP" name="">
+      <family id="FTP_TRP" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FTP_TRP.1" name="Trustedpath]" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FTP_ITC" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FTP_ITC.1" name="(1:MS) Inter-TSFtrustedchannel(1:MS)" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FTP_ITC.1.1">
+              <raw><![CDATA[(1:MS) TheTSFshallprovideacommunicationschannelbetweenitselfandanother
+trustedITproductthemotionsensorthatislogicallydistinctfromothercom-
+municationchannelsandprovidesassuredidentificationofitsendpointsand
+protectionofthechanneldatafrommodificationordisclosure.
+68of144]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_ITC.1.2">
+              <raw><![CDATA[(1:MS) TheTSFshallpermit[theTSF]toinitiatecommunicationviathetrustedchannel.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_ITC.1.3">
+              <raw><![CDATA[(1:MS) TheTSFshallinitiatecommunicationviathetrustedchannelfor[alldataex-
+change31]
+Applicationnote6-28: DetailsofthecommunicationchannelcanbefoundinAnnexIC[54],Appendix
+11,Chapter12.
+6.1.2. Securityfunctionalrequirementsforexternalcommunications(2nd Generation)
+Thesecurityfunctionalrequirementsinthissectionarerequiredtosupportcommunicationsspecifi-
+callywith2nd generationtachographcards,2nd generationmotionsensors,externalGNSSfacilities
+(ifapplicable)andremoteearlydetectioncommunicationreaders.
+6.1.2.1. ClassFCSCryptographicsupport
+6.1.2.1.1. FCS_CKM-–Cryptographickeymanagement]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note>DetailsofthecommunicationchannelcanbefoundinAnnexIC[54],Appendix
+11,Chapter12.
+6.1.2. Securityfunctionalrequirementsforexternalcommunications(2nd Generation)
+Thesecurityfunctionalrequirementsinthissectionarerequiredtosupportcommunicationsspecifi-
+callywith2nd generationtachographcards,2nd generationmotionsensors,externalGNSSfacilities
+(ifapplicable)andremoteearlydetectioncommunicationreaders.
+6.1.2.1. ClassFCSCryptographicsupport
+6.1.2.1.1. FCS_CKM-–Cryptographickeymanagement</application_note>
+        </component>
+      </family>
+    </class>
+    <class id="FPT" name="">
+      <family id="FPT_TDC" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FPT_TDC.1" name="InterTSFbasicTSFdataconsistency" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FDP_ITC.2.1">
+              <raw><![CDATA[The TSF shall enforce the [INPUT_SOURCES_SFP] when importing user data,
+controlledundertheSFP,fromoutsideoftheTOE.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_ITC.2.2">
+              <raw><![CDATA[The TSF shall use the security attributes associated with the imported user
+data.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_ITC.2.3">
+              <raw><![CDATA[The TSF shall ensure that the protocol used provides for the unambiguous
+associationbetweenthesecurityattributesandtheuserdatareceived.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_ITC.2.4">
+              <raw><![CDATA[The TSF shall ensure that interpretation of the security attributes of the im-
+porteduserdataisasintendedbythesourceoftheuserdata.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_ITC.2.5">
+              <raw><![CDATA[TheTSFshallenforcethefollowingruleswhenimportinguserdatacontrolled
+undertheSFPfromoutsidetheTOE:[
+- thevehicleunitshallensurethatdatarelatedtovehiclemotion,tachograph
+cardsandexternalGNSSfacility(ifapplicable)mayonlybeprocessedfrom
+therightinputsources;
+- the vehicle unit shall verify the integrity and authenticity of motion data
+andauditdataimportedfromthemotionsensor;
+- upondetectionofamotiondataintegrityorauthenticityerrortheTOEshall
+generateanauditrecord,andcontinuetousetheimporteddata;
+- thevehicleunitshallverifytheintegrityandauthenticityofdataimported
+fromtachographcards;
+- upon detection of a card data integrity or authenticity error the TOE shall
+generateanauditrecord,andnotusethedata;
+- thevehicleunitshallverifytheintegrityandauthenticityofdataimported
+fromtheexternalGNSSfacility(ifapplicable,);
+- upon detection of an external GNSS facility data integrity or authenticity
+errortheTOEshallgenerateanauditrecord,andnotusethedata;
+- inputsfromexternalsourcesshallnotbeacceptedasexecutablecode;
+- software updates shall be verified by cryptographic security attribute
+beforebeingimplemented].
+Applicationnote6-9: Softwareupdateisamandatoryfunctionofthevehicleunit,asperAnnex1C
+[54]. Updatingthestoreddigitalmapbelongstothisfunction.
+56of144
+6.1.1.3.15. FDP_ITT–InternalTOEtransfer]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note>Softwareupdateisamandatoryfunctionofthevehicleunit,asperAnnex1C
+[54]. Updatingthestoreddigitalmapbelongstothisfunction.
+56of144
+6.1.1.3.15. FDP_ITT–InternalTOEtransfer</application_note>
+        </component>
+      </family>
+      <family id="FPT_FLS" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FPT_FLS.1" name="Failurewithpreservationofsecurestate" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FPT_FLS.1.1">
+              <raw><![CDATA[The TSF shall preserve a secure state30 when the following types of failures
+occur: [
+a) Detectionofaninternalfault;
+b) Deviationfromthespecifiedvaluesofthepowersupply;
+c) Transactionstoppedbeforecompletion;
+d) Anyotherresetcondition].
+30AsecurestateisdefinedinCCasastateinwhichtheTSFdataareconsistentandtheTSFcontinuescorrectenforcement
+oftheSFRs.
+66of144
+6.1.1.6.2. FPT_PHP—TSFphysicalprotection]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FPT_PHP" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FPT_PHP.2" name="Notificationofphysicalattack" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies>
+            <dependency>
+              <alternatives>
+                <comp_ref id="FMT_MOF.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FPT_PHP.2.1">
+              <raw><![CDATA[TheTSFshallprovideunambiguousdetectionofphysicaltamperingthatmight
+compromisetheTSF.]]></raw>
+              <operations/>
+            </element>
+            <element id="FPT_PHP.2.2">
+              <raw><![CDATA[TheTSFshallprovidethecapabilitytodeterminewhetherphysicaltampering
+withtheTSF’sdevicesorTSF’selementshasoccurred.]]></raw>
+              <operations/>
+            </element>
+            <element id="FPT_PHP.2.3">
+              <raw><![CDATA[For[powersupply]theTSFshallmonitorthedevicesandelementsandnotify
+[the human user] when physical tampering with the TSF’s devices or TSF’s
+elementshasoccurred.
+Applicationnote6-23: InFPT_PHP.2.3physicaltamperingmeansdeviationfromthespecifiedvalues
+ofelectricalinputstothepowersupply,includingcut-off. Datastoredinto
+the TOE data memory shall not be affected by an external power supply
+cut-offoflessthantwelvemonthsintypeapprovalconditions.
+Applicationnote6-24: IftheTOEisdesignedsothatitcanbeopened,theTOEshalldetectanycase
+opening, except in calibration mode, even without external power supply
+for a minimum of six months. In such a case, the TOE shall generate an
+auditrecord(itisacceptablethattheauditrecordisgeneratedandstored
+afterpowersupplyreconnection). IftheTOEisdesignedsothatitcannotbe
+opened,itshallbedesignedsuchthatphysicaltamperingattemptscanbe
+easilydetected(e.g. throughvisualinspection).
+The TOE is designed so that it cannot be opened. Physical tampering
+attemptsareeasilydetectablei.e. throughvisualinspectionofsecureseals.
+Thesecuresealsareconformanttosecuritylevel1ofBSI–TL03415[317].
+Afteritsactivation,theTOEshalldetectspecifiedhardwaresabotage(details
+tobeprovidedbytheSTauthor: none).]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note>InFPT_PHP.2.3physicaltamperingmeansdeviationfromthespecifiedvalues
+ofelectricalinputstothepowersupply,includingcut-off. Datastoredinto
+the TOE data memory shall not be affected by an external power supply
+cut-offoflessthantwelvemonthsintypeapprovalconditions.</application_note>
+        </component>
+        <component id="FPT_PHP.3" name="Resistancetophysicalattack" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FPT_PHP.3.1">
+              <raw><![CDATA[The TSF shall resist [physical tampering attacks] to the [TSF software and TSF
+dataonceimplementedintheTOE]byrespondingautomaticallysuchthatthe
+SFRsarealwaysenforced.
+67of144
+6.1.1.6.3. FPT_STM—Timestamps]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FPT_STM" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FPT_STM.1" name="Reliabletimestamps" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FPT_STM.1.1">
+              <raw><![CDATA[TheTSFshallbeabletoprovidereliabletimestamps.
+Applicationnote6-25: Timestampsarederivedfromtheinternalclockofthevehicleunit. Require-
+mentsontimemeasurementandtimeadjustmentaredefinedinAnnexIC
+[54],Chapter2,Sections3.3and3.23.
+6.1.1.6.4. FPT_TST—TSFselftest]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note>Timestampsarederivedfromtheinternalclockofthevehicleunit. Require-
+mentsontimemeasurementandtimeadjustmentaredefinedinAnnexIC
+[54],Chapter2,Sections3.3and3.23.
+6.1.1.6.4. FPT_TST—TSFselftest</application_note>
+        </component>
+      </family>
+      <family id="FPT_TST" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FPT_TST.1" name="TSFtesting" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FPT_TST.1.1">
+              <raw><![CDATA[TheTSFshallrunasuiteofself-tests([duringinitialstart-up,periodicallyduring
+normal operation and at the request of an operator/External equipment] to
+demonstrate the correct operation of [data memory, card interface devices,
+remoteearlydetectioncommunicationfacility,linktoexternalGNSSfacility(if
+applicable),linktomotionsensor,linktoIDEfordatadownloading].]]></raw>
+              <operations/>
+            </element>
+            <element id="FPT_TST.1.2">
+              <raw><![CDATA[TheTSFshallprovideauthoriseduserswiththecapabilitytoverifytheintegrity
+of[datamemory].]]></raw>
+              <operations/>
+            </element>
+            <element id="FPT_TST.1.3">
+              <raw><![CDATA[TheTSFshallprovideauthoriseduserswiththecapabilitytoverifytheintegrity
+of[TSFsoftware,theGNSSreceiversoftware,softwareimplementingfunctions
+specifiedin[5]Annex1C,Chapter3].
+Applicationnote6-26: IfthefacilitytoprovidealinktoanexternalGNSSisnotprovidedbytheTOE,
+thenthismaybeomittedfromFPT_TST.1.1andFPT_TST.1.3intheST.
+Applicationnote6-27: Self-testofthelinktoIDEfordatadownloadingrequiredbyFPT_TST.1need
+onlybecarriedoutduringdownloading.
+6.1.1.7. ClassFTP:Trustedpath/channels
+6.1.1.7.1. FTP_ITC—Inter-TSFtrustedchannel]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note>IfthefacilitytoprovidealinktoanexternalGNSSisnotprovidedbytheTOE,
+thenthismaybeomittedfromFPT_TST.1.1andFPT_TST.1.3intheST.</application_note>
+        </component>
+      </family>
+    </class>
+    <class id="FCS" name="">
+      <family id="FCS_CKM" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FCS_CKM.4" name="Cryptographickeydestruction" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FCS_CKM.1.1">
+              <raw><![CDATA[(1) TheTSFshallgeneratekeysinaccordancewithaspecifiedkeygenerationalgo-
+rithm[RSA:rsagen1(PKCSv2.1RFC3447[308];EllipticCurveEC:specifiedinANSI
+X9.62- 2005 [319] and ISO/IEC 15946-1:2002 [318]] and specified cryptographic
+keysizes[forthekeysindicatedinTableA-4andTableA-5asbeinggenerated
+bytheTOEthekeysizesrequiredbyAnnex1C[54],Appendix11,PartBofthose
+keys]thatmeetthefollowing: [Reference[316]predefinedRNGclass[PTG.3]].
+Applicationnote6-29: TheSTauthorselectsoneofthepermittedpredefinedRNGclassesfrom[316],
+and completes the operations in FCS_CKM.1(1) and FCS_RNG.1 as required.
+ThepermittedRNGclassesareincludedinAnnexB.
+Applicationnote6-30: ThefunctionFCS_RNG.1/HPRGfromtheunderlyingplatform(see[300])is
+used.]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note>TheSTauthorselectsoneofthepermittedpredefinedRNGclassesfrom[316],
+and completes the operations in FCS_CKM.1(1) and FCS_RNG.1 as required.
+ThepermittedRNGclassesareincludedinAnnexB.</application_note>
+        </component>
+        <component id="FCS_CKM.1" name="Cryptographickeygeneration]" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FCS_CKM.4.1">
+              <raw><![CDATA[(1) TheTSFshalldestroycryptographickeysinaccordancewithaspecifiedcrypto-
+graphickeydestructionmethod[overwritingwithvalue0xFF]thatmeetsthe
+following[
+- RequirementsinTableA-4andTableA-5;
+- Temporary private and secret cryptographic keys shall be destroyed in a
+manner that removes all traces of the keying material so that it cannot be
+recoveredbyeitherphysicalorelectronicmeans32;
+- [nofurtherstandards].
+6.1.2.1.2. FCS_COP-–Cryptographicoperation]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FCS_CKM.2" name="(1) Cryptographickeydistribution" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies>
+            <dependency>
+              <alternatives>
+                <comp_ref id="FDP_ITC.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FCS_COP" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FCS_COP.1" name="(2:SHA-2) Cryptographicoperation" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies>
+            <dependency>
+              <alternatives>
+                <comp_ref id="FDP_ITC.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FCS_RNG" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FCS_RNG.1" name="Generationofrandomnumbers" iteration_label="" inclusion="mandatory" extended="true">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FCS_RNG.1.1">
+              <raw><![CDATA[The TSF shall provide a [hybrid physical] random number generator
+that implements: [class PTG.3 according to [316] and to Annex B —
+OperationsforFCSRNG.1;PTG3.1toPTG3.6.
+(PTG.3.1) Atotalfailuretestdetectsatotalfailureofentropysourceimmediately
+whentheRNGhasstarted. Whenatotalfailureisdetected,norandom
+numberswillbeoutput.
+72of144
+(PTG.3.2) If a total failure of the entropy source occurs while the RNG is be-
+ing operated, the RNG [prevents the output of any internal random
+numberthatdependsonsomerawrandomnumbersthathavebeen
+generatedafterthetotalfailureoftheentropysource].
+(PTG.3.3) Theonlinetestshalldetectnon-tolerablestatisticaldefectsoftheraw
+randomnumbersequence(i)immediatelywhentheRNGhasstarted,
+and(ii)whiletheRNGisbeingoperated. TheTSFmustnotoutputany
+randomnumbersbeforethepower-uponlinetestandtheseedingof
+theDRG.3post-processingalgorithmhavebeenfinishedsuccessfully
+orwhenadefecthasbeendetected.
+(PTG.3.4) The online test procedure shall be effective to detect non-tolerable
+weaknessesoftherandomnumberssoon.
+(PTG.3.5) Theonlinetestprocedurechecksthequalityoftherawrandomnum-
+bersequence. Itistriggered[continuously]. Theonlinetestissuitable
+fordetectingnon-tolerablestatisticaldefectsofthestatisticalprop-
+erties of the raw random numbers within an acceptable period of
+time.
+(PTG.3.6) The algorithmic post-processing algorithm belongs to Class DRG.3
+withcryptographicstatetransitionfunctionandcryptographicoutput
+function,andtheoutputdatarateofthepost-processingalgorithm
+shallnotexceeditsinputdatarate.]]]></raw>
+              <operations/>
+            </element>
+            <element id="FCS_RNG.1.2">
+              <raw><![CDATA[TheTSFshallproviderandomnumbersthatmeet[classPTG.3accordingto[316]
+andtoAnnexB—OperationsforFCSRNG.1;PTG3.7toPTG3.8):
+(PTG.3.7) Statisticaltestsuitescannotpracticallydistinguishtheinternalran-
+domnumbersfromoutputsequencesofanidealRNG.Theinternal
+randomnumbersmustpasstestprocedureA34 [asdefinedin[316]].
+(PTG.3.8) Theinternalrandomnumbersshall[usePTRNGofclassPTG.2asran-
+domsourceforthepost-processing]].
+34See[316],Section2.4.4
+73of144
+6.1.2.2. ClassFIAIdentificationandauthentication
+6.1.2.2.1. FIA_ATD-–Userattributedefinition]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+    <class id="FIA" name="">
+      <family id="FIA_AFL" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FIA_AFL.1" name="(3:MS) Authenticationfailurehandling" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FIA_AFL.1.1">
+              <raw><![CDATA[(3:MS) TheTSFshalldetectwhen[1]unsuccessfulauthenticationattemptsoccurre-
+latedto[motionsensorauthentication],whilenotincalibrationmode.]]></raw>
+              <operations/>
+            </element>
+            <element id="FIA_AFL.1.2">
+              <raw><![CDATA[(3:MS) Whenthedefinednumberofunsuccessfulauthenticationattemptshasbeen
+[surpassed],theTSFshall[
+a) generateanauditrecordoftheevent,
+b) warntheuser,
+c) continue to accept and use non secured motion data sent by the motion
+sensor].
+Applicationnote6-15: The positive integer number expected in FIA_AFL.1.1(3:MS) and]]></raw>
+              <operations/>
+            </element>
+            <element id="FIA_AFL.1.1">
+              <raw><![CDATA[(4:EGF)shallbe≤3outsidethecalibrationmode.
+59of144]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note>The positive integer number expected in FIA_AFL.1.1(3:MS) and</application_note>
+        </component>
+      </family>
+      <family id="FIA_ATD" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FIA_ATD.1" name="(3:EGF) Userattributedefinition" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FIA_ATD.1.1">
+              <raw><![CDATA[(3:EGF) The TSF shall maintain the following list of security attributes belonging to
+individualusersexernalGNSSfacilities[
+a) ExternalGNSSfacilityidentificationdata:
+i. Serialnumber
+ii. Approvalnumber
+b) ExternalGNSSfacilitycouplingdata:
+i. Couplingdate].
+Applicationnote6-34: ForfurtherdetailsseeAnnexIC[54],section3.12.1.3,andAppendix12.133and
+2.134.
+74of144
+6.1.2.2.2. FIA_UAU-–Userauthentication]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note>ForfurtherdetailsseeAnnexIC[54],section3.12.1.3,andAppendix12.133and
+2.134.
+74of144
+6.1.2.2.2. FIA_UAU-–Userauthentication</application_note>
+        </component>
+      </family>
+      <family id="FIA_UAU" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FIA_UAU.3" name="Unforgeableauthentication" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FIA_UAU.3.1">
+              <raw><![CDATA[The TSF shall [detect and prevent] use of authentication data that has been
+forgedbyanyuseroftheTSF.]]></raw>
+              <operations/>
+            </element>
+            <element id="FIA_UAU.3.2">
+              <raw><![CDATA[The TSF shall [detect and prevent] use of authentication data that has been
+copiedfromanyotheruseroftheTSF.
+Applicationnote6-18: Thisrequirementrelatestothemotionsensor,tachographcards,manage-
+mentdeviceand,ifapplicable,theexternalGNSSfacility.]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note>Thisrequirementrelatestothemotionsensor,tachographcards,manage-
+mentdeviceand,ifapplicable,theexternalGNSSfacility.</application_note>
+        </component>
+        <component id="FIA_UAU.5" name="Multipleauthenticationmechanisms" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FIA_UAU.5.1">
+              <raw><![CDATA[The TSF shall provide [authentication using the methods described in Annex
+IC [54], Appendix 11, Chapter 10 (certificate chain authentication and PIN)] to
+supportuserauthentication.]]></raw>
+              <operations/>
+            </element>
+            <element id="FIA_UAU.5.2">
+              <raw><![CDATA[TheTSFshallauthenticateanyuser’sclaimedidentityaccordingtothe[rule:
+ifthecardisaworkshopcardthenauthenticationusingbothcertificatechain
+authenticationandaPINofatleast4digitsisrequired].
+Applicationnote6-19: FIA_UAU.5 applies only to authentication using a workshop card, where a
+PINisrequired.]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note>FIA_UAU.5 applies only to authentication using a workshop card, where a
+PINisrequired.</application_note>
+        </component>
+        <component id="FIA_UAU.6" name="Re–authenticating" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FIA_UAU.6.1">
+              <raw><![CDATA[TheTSFshallre-authenticatetheusertachographcardundertheconditions
+[at power supply recovery, when the secure messaging session is aborted as
+describedinAnnex1C[54],Appendix11[assignment: nolistofotherconditions
+wherere-authenticationisrequired]].
+61of144
+6.1.1.4.4. FIA_UID—Useridentification]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FIA_UAU.1" name="(1:TC) Timingofauthentication" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies>
+            <dependency>
+              <alternatives>
+                <comp_ref id="FIA_UID.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FIA_UAU.1.1">
+              <raw><![CDATA[(1:TC) The TSF shall allow [reading out of audit records] on behalf of the user to be
+performedbeforetheusertachographcardisauthenticated.]]></raw>
+              <operations/>
+            </element>
+            <element id="FIA_UAU.1.2">
+              <raw><![CDATA[(1:TC) TheTSFshallrequireeachusertachographcardtobesuccessfullyauthenti-
+catedusingthemethoddescribedinAnnexIC[54],Appendix11,PartA,Section
+10beforeallowinganyotherTSF-mediatedactionsonbehalfofthatusertacho-
+graphcard.]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FIA_UAU.2" name="(2:EGF) Userauthenticationbeforeanyaction" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies>
+            <dependency>
+              <alternatives>
+                <comp_ref id="FIA_UID.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FIA_UAU.2.1">
+              <raw><![CDATA[(2:EGF) The TSF shall require each user external GNSS facility to be successfully au-
+thenticatedusingthemethoddescribedinAnnexIC[54],Appendix11,Section11
+beforeallowinganyotherTSF-mediatedactionsonbehalfofthatuserexternal
+GNSS.
+6.1.2.3. ClassFPTProtectionoftheTSF
+6.1.2.3.1. FPT_TDC-–Inter-TSFTSFdataconsistency]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FIA_UID" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FIA_UID.2" name="Useridentificationbeforeanyaction" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FIA_UID.2.1">
+              <raw><![CDATA[The TSF shall require each user to be successfully identified before allowing
+anyTSF-mediatedactionsonbehalfofthatuser.
+6.1.1.5. ClassFMT:SecurityManagement
+6.1.1.5.1. FMT_MSA—Managementofsecurityattributes]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+  </sfrs>
+  <sars/>
+  <rationale doc_type_applies="derived">
+    <objectives_rationale>
+      <mapping objective_id="O.Processing.">
+        <justification><![CDATA[T.Remote_Detect_DataisaddressedthroughO.Secured_Exchange,whichrequiressecuredataex-
+changewiththeremoteearlydetectionfacility;andthroughO.Audit,whichrequiresauditofattempts
+tounderminesystemsecurity.
+T.Output_DataisaddressedbyO.Output. O.Auditalsocontributestoaddressthethreatbyrecording
+eventsrelatedtodatadisplay,printanddownload.
+T.AccessisaddressedbyO.Authenticationtoensuretheidentificationoftheuser,O.Accesstocontrol
+accessoftheusertofunctions,andO.Audittotraceattemptsofunauthorisedaccesses. OE.Activation:
+TheactivationoftheTOEafteritsinstallationensuresaccessoftheusertofunctions.
+T.Identification is addressed by O.Authentication to ensure the identification of the user, O.Audit
+totraceattemptsofunauthorisedaccesses. O.Accountabilitycontributestoaddressthisthreatby
+storingallactivitycarried(evenwithoutanidentification)withtheVU.TheOE.Driver_Card_Unique,
+OE.Card_AvailabilityandOE.Card_Traceabilityobjectives,alsorequiredfromMemberStatesbylaw,
+helpaddressingthethreat.
+T.DesignisaddressedbyOE.DevelopmentandOE.Manufacturingbeforeactivation,andafteractiva-
+tionbyO.Reliability. OE.EOLhelpstosafeguardaccesstotheTOEdesignthroughsecuredisposalof
+equipmentatendoflife.
+T.Calibration_ParametersisaddressedbyO.Accesstoensurethatthecalibrationfunctionisaccessible
+to workshops only and by O.Authentication to ensure the identification of the workshop and by]]></justification>
+        <spd_refs>
+          <spd_ref id="T.AccessisaddressedbyO.Authenticationtoensuretheidentificationoftheuser"/>
+          <spd_ref id="T.Calibration_ParametersisaddressedbyO.Accesstoensurethatthecalibrationfunctionisaccessible"/>
+          <spd_ref id="T.DesignisaddressedbyOE.DevelopmentandOE.Manufacturingbeforeactivation"/>
+          <spd_ref id="T.Identification"/>
+          <spd_ref id="T.Output_DataisaddressedbyO.Output"/>
+          <spd_ref id="T.Remote_Detect_DataisaddressedthroughO.Secured_Exchange"/>
+        </spd_refs>
+      </mapping>
+      <mapping objective_id="O.Processingtoensurethatprocessingofinputsmadebytheworkshoptoderivecalibrationdata">
+        <justification><![CDATA[is accurate, by O.Integrity to maintain the integrity of calibration parameters stored. Workshops
+are approved by Member States authorities and are therefore trusted to calibrate properly the
+equipment(OE.Approved_Workshops,OE.Faithful_Calibration). Periodicinspectionsandcalibration
+of the equipment, as required by law, contribute to address the threat (OE.Regular_Inspections).
+Finally,OE.Controlsincludescontrolsbylawenforcementofficersofcalibrationdatarecordsheldin
+theVU,whichhelpsaddressingthethreat.
+T.Clock is addressed by O.Access to ensure that the full time adjustment function is accessible
+to workshops only and by O.Authentication to ensure the identification of the workshop and by]]></justification>
+        <spd_refs>
+          <spd_ref id="T.Clock"/>
+        </spd_refs>
+      </mapping>
+      <mapping objective_id="O.Processingtoensurethatprocessingofinputsmadebytheworkshoptoderivetimeadjustment">
+        <justification><![CDATA[dataisaccurate. WorkshopsareapprovedbyMemberStatesauthoritiesandarethereforetrusted
+to properly set the clock (OE.Approved_Workshops). Periodic inspections and calibration of the
+equipment,OE.Faithful_Calibrationcontributestoaddressthethreat. Finally,OE.Controlsincludes
+controlsbylawenforcementofficersoftimeadjustmentdatarecordsheldintheVU,whichhelps
+addressingthethreat.
+T.EnvironmentisaddressedbyO.Processingtoensurethatprocessingofinputstoderiveuserdata
+isaccurateandbyO.Reliabilitytoensurethatphysicalattacksarecountered. OE.Controlsincludes
+controlsbylawenforcementofficersoftimeadjustmentdatarecordsheldintheVU,whichhelps
+addressingthethreat.
+84of144
+T.Fake_DevicesisaddressedbyO.Access,O.Authentication,O.Audit,O.Processing,O.Reliabilityand
+O.Secured_Exchange. OE.Type_Approval_MSandOE.Type_Approval_EGFhelpaddressingthethreat
+throughvisualinspectionofthewholeinstallationandvisibletypeapprovalseals.
+T.HardwareismostlyaddressedintheuserenvironmentbyO.Reliability,O.Output,O.Processingand
+byO.Auditcontributestoaddressthethreatbyrecordingeventsrelatedtohardwaremanipulation.
+TheOE.ControlsandOE.Regular_Inspectionshelpaddressingthethreatthroughvisualinspectionof
+theinstallation.
+T.Motion_SensorisaddressedbyO.Authentication,O.Reliability,O.Secured_Exchange,
+OE.Type_Approval_MS and OE.Regular_Inspections. O.Audit contributes to address the threat by
+recordingeventsrelatedtomotiondataexchangeintegrityorauthenticityerrors.
+T.Power_Supply is mainly addressed by O.Reliability to ensure appropriate behaviour of the VU
+against the attack. O.Audit contributes to address the threat by keeping records of attempts to
+tamperwithpowersupply. OE.Controlsincludescontrolsbylawenforcementofficersofpowersupply
+interruptionrecordsheldintheVU,whichhelpsaddressingthethreat. OE.Regular_Inspectionshelps
+addressingthethreatthroughinstallations,calibrations,checks,inspections,repairscarriedoutby
+trustedfittersandworkshops.
+T.Security_DataisaddressedbyOE.Data_Generation,OE.Data_Strong,OE.Data_Transport,OE.Delivery,
+OE.Software_Update and OE.Controls objectives for the environment. It is also addressed by the
+O.Access,O.ProcessingandO.Secured_Exchangeobjectivestoensureappropriateprotectionwhile
+storedintheVU.O.Reliabilityalsohelpsinaddressingthethreat, andOE.EOLhelpstosafeguard
+accesstothesecuritydatathroughsecuredisposalofequipmentatendoflife.
+T.SoftwareisaddressedintheoperationalphasebytheO.Output,O.ProcessingandO.Reliabilityto
+ensuretheintegrityofthecode. O.Auditcontributestoaddressthethreatbyrecordingdataintegrity
+errors. O.Software_Update addresses the possibility of unauthorised software updates. During
+design and manufacture, the threat is addressed by the OE.Development objective. OE.Controls,
+OE.Regular_Inspections(checkingfortheauditrecordsrelated)alsocontribute.
+T.Stored_Data is addressed mainly by O.Integrity, O.Access, O.Output and O.Reliability to ensure
+thatnoillicitaccesstodataispossible. TheO.Auditcontributestoaddressthethreatbyrecording
+dataintegrityerrors. OE.Software_UpdateisincludedsuchthatSoftwarerevisionsshallbesecurity
+certifiedbeforetheycanbeimplementedintheTOEtopreventtoalterordeleteanystoreddriver
+activity data. OE.Controls includes controls by law enforcement officers of integrity error records
+heldintheVU,whichhelpsaddressingthethreat.
+T.Tests is addressed by O.Reliability, OE.Manufacturing and OE.Test_Points. If the TOE provides a
+reliable service as required by O.Reliability and its security cannot be compromised during the
+manufacturingprocess(OE.Manufacturing),theTOEcanneitherenteranyinvalidatedtestmodenor
+haveanybackdoor. OE.Test_Pointsrequiresremovalofcommands,actionsandtestpointsbefore
+theendofthemanufacturingphase,ensuringthattheycannotbeusedtoattacktheTOEduringthe
+operationalphase. Hence,therelatedthreatwillbeeliminated.
+A.ActivationisupheldbyOE.Activation.
+A.Approv_WorkshopsisupheldbyOE.Approved_Workshops.
+A.Card_AvailabilityisupheldbyOE.Card_Availability
+A.Card_TraceabilityisupheldbyOE.Card_Traceability.
+85of144
+A.Cert_InfrastructureisupheldbyOE.Data_Generation,OE.Data_Transport,OE.Deliveryand]]></justification>
+        <spd_refs>
+          <spd_ref id="A.ActivationisupheldbyOE.Activation"/>
+          <spd_ref id="A.Approv_WorkshopsisupheldbyOE.Approved_Workshops"/>
+          <spd_ref id="A.Card_AvailabilityisupheldbyOE.Card_Availability"/>
+          <spd_ref id="A.Card_TraceabilityisupheldbyOE.Card_Traceability"/>
+          <spd_ref id="A.Cert_InfrastructureisupheldbyOE.Data_Generation"/>
+          <spd_ref id="T.EnvironmentisaddressedbyO.Processingtoensurethatprocessingofinputstoderiveuserdata"/>
+          <spd_ref id="T.Fake_DevicesisaddressedbyO.Access"/>
+          <spd_ref id="T.HardwareismostlyaddressedintheuserenvironmentbyO.Reliability"/>
+          <spd_ref id="T.Motion_SensorisaddressedbyO.Authentication"/>
+          <spd_ref id="T.Power_Supply"/>
+          <spd_ref id="T.Security_DataisaddressedbyOE.Data_Generation"/>
+          <spd_ref id="T.SoftwareisaddressedintheoperationalphasebytheO.Output"/>
+          <spd_ref id="T.Stored_Data"/>
+          <spd_ref id="T.Tests"/>
+        </spd_refs>
+      </mapping>
+      <mapping objective_id="OE.Data_Strong.">
+        <justification><![CDATA[A.ControlsisupheldbyOE.Controls.
+A.Driver_Card_UniqueisupheldbyOE.Driver_Card_Unique.
+A.Faithful_CalibrationisupheldbyOE.Faithful_CalibrationandOE.Approved_Workshops.
+A.Compliant_DriversisupheldbyOE.Compliant_Drivers.
+A.InspectionsisupheldbyOE.Regular_Inspections.
+A.Type_Approved_DevisupheldbyOE.Type_Approval_MSandOE.Type_Approval_EGF.
+A.BluetoothisupheldbyOE.Bluetooth.
+P.CryptoisaddressedthroughthecryptographicmethodsusedtofulfilO.Access,O.Authentication,
+O.Integrity,O.Secured_Exchange,OE.Data_TransportandOE.Data_Strong.
+P.Management_DeviceisaddressedtofulfilO.Software_Update,OE.Software_Updateand]]></justification>
+        <spd_refs>
+          <spd_ref id="A.BluetoothisupheldbyOE.Bluetooth"/>
+          <spd_ref id="A.Compliant_DriversisupheldbyOE.Compliant_Drivers"/>
+          <spd_ref id="A.ControlsisupheldbyOE.Controls"/>
+          <spd_ref id="A.Driver_Card_UniqueisupheldbyOE.Driver_Card_Unique"/>
+          <spd_ref id="A.Faithful_CalibrationisupheldbyOE.Faithful_CalibrationandOE.Approved_Workshops"/>
+          <spd_ref id="A.InspectionsisupheldbyOE.Regular_Inspections"/>
+          <spd_ref id="A.Type_Approved_DevisupheldbyOE.Type_Approval_MSandOE.Type_Approval_EGF"/>
+          <spd_ref id="P.CryptoisaddressedthroughthecryptographicmethodsusedtofulfilO.Access"/>
+          <spd_ref id="P.Management_DeviceisaddressedtofulfilO.Software_Update"/>
+        </spd_refs>
+      </mapping>
+      <mapping objective_id="OE.Management_Device.">
+        <justification><![CDATA[7.2. Security requirements rationale
+7.2.1. RationaleforSFR’sdependencies
+ThefollowingtableshowshowthedependenciesforeachSFRaresatisfied.
+Table7-2:SFR’sdependencies
+SFR Dependencies Rationale
+VUCore
+FAU_GEN.1 FPT_STM.1 SatisfiedbyFPT_STM.1
+FAU_SAR.1 FAU_GEN.1 SatisfiedbyFAU_GEN.1
+FAU_STG.1 FAU_GEN.1 SatisfiedbyFAU_GEN.1
+FAU_STG.4 FAU_STG.1 SatisfiedbyFAU_STG.1
+FCO_NRO.1 FIA_UID.1 SatisfiedbyFIA_UID.2
+FDP_ACC.1(1:FIL) FDP_ACF.1 SatisfiedbyFDP_ACF.1(1:FIL)
+FDP_ACF.1(1:FIL) FDP_ACC.1,FMT_MSA.3 SatisfiedbyFDP_ACC.1(1:FIL)and
+FMT_MSA.3(1:FIL)
+FDP_ACC.1(2:FUN) FDP_ACF.1 SatisfiedbyFDP_ACF.1(2:FUN)
+FDP_ACF.1(2:FUN) FDP_ACC.1,FMT_MSA.3 SatisfiedbyFDP_ACC.1(2:FUN)and
+FMT_MSA.3(2:FUN)
+FDP_ACC.1(3:DAT) FDP_ACF.1 SatisfiedbyFDP_ACF.1(3:DAT)
+Continuedonnextpage
+86of144
+SFR Dependencies Rationale
+FDP_ACF.1(3:DAT) FDP_ACC.1,FMT_MSA.3 SatisfiedbyFDP_ACC.1(3:DAT)and
+FMT_MSA.3(3:DAT)
+FDP_ACC.1(4:UDE) FDP_ACF.1 SatisfiedbyFDP_ACF.1(4:UDE)
+FDP_ACF.1(4:UDE) FDP_ACC.1,FMT_MSA.3 SatisfiedbyFDP_ACC.1(4:UDE)and
+FMT_MSA.3(4:UDE)
+FDP_ACC.1(5:IS) FDP_ACF.1 SatisfiedbyFDP_ACF.1(5:IS)
+FDP_ACF.1(5:IS) FDP_ACC.1,FMT_MSA.3 SatisfiedbyFDP_ACC.1(5:IS)and
+FMT_MSA.3(5:IS)
+FDP_ACC.1(6:SWU) FDP_ACF.1 SatisfiedbyFDP_ACF.1(6:SWU)
+FDP_ACF.1(6:SWU) FDP_ACC.1,FMT_MSA.3 SatisfiedbyFDP_ACC.1(6:SWU)and
+FMT_MSA.3(6:SWU)
+FDP_ETC.2 FDP_ACC.1orFDP_ITC.1 SatisfiedbyFDP_ACC.1(4:UDE)
+FDP_ITC.1 FDP_ACC.1orFDP_IFC.1,FMT_MSA.3 SatisfiedbyFDP_ACC.1(5:IS)and
+FMT_MSA.3(5:IS)
+FDP_ITC.2 FDP_ACC.1orFDP_IFC.1,FTP_ITC.1or SatisfiedbyFDP_ACC.1(5:IS),
+FTP_TRP.1,FPT_TDC.1 FTP_ITC.1(1:MS),FTP_ITC.1(2:TC),
+FTP_ITC.1(3:EGF),FTP_ITC.1(4:TC),
+FPT_TDC.1(1),FPT_TDC.1(2),
+FPT_TDC.1(3:SWU)
+FDP_RIP.1 - -
+FDP_SDI.2(1) - -
+FDP_SDI.2(2) - -
+FDP_SDI.2(3) - -
+FIA_AFL.1(1:TCL) FIA_UAU.1 SatisfiedbyFIA_UAU.1(1:TC)
+FIA_AFL.1(2:TCR) FIA_UAU.1 SatisfiedbyFIA_UAU.1(1:TC)
+FIA_AFL.1(3:MS) FIA_UAU.1 SatisfiedbyFIA_UAU.2(1:MS)
+FIA_AFL.1(4:EGF) FIA_UAU.1 SatisfiedbyFIA_UAU.2(2:EGF)
+FIA_ATD.1(1:TC) - -
+FIA_UAU.3 - -
+FIA_UAU.5 - -
+FIA_UAU.6 - -
+FIA_UID.2 - -
+FMT_MSA.1 FDP_ACC.1orFDP_IFC.1,FMT_SMR.1, SatisfiedbyFDP_ACC.1(2:FUN),
+FMT_SMF.1 FMT_SMR.1andFMT_SMF.1
+FMT_MSA.3(1:FIL) FMT_MSA.1,FMT_SMR.1 SatisfiedbyFMT_MSA.1and]]></justification>
+        <spd_refs/>
+      </mapping>
+      <rationale_table_raw><![CDATA[7.1. Security objectives rationale
+The following table provides an overview for security objectives coverage (TOE and its environment) also giving an evidence for
+sufficiencyandnecessityofthesecurityobjectivesdefined. ItshowsthatallthreatsandOSPsareaddressedbythesecurityobjectives.
+ItalsoshowsthatallassumptionsareaddressedbythesecurityobjectivesfortheTOEenvironment.
+Table7-1:Securityobjectiverationale
+T.Remote_Detect_Data T.Card_Data_Exchange
+T.Output_Data
+T.Access
+T.Calibration_Parameters
+T.Clock
+T.Design
+T.Environment
+T.Fake_Devices
+T.Hardware
+T.Identiifcation
+T.Motion_Sensor
+T.Security_Data T.Power_Supply T.Location_Data
+T.Software
+T.Stored_Data
+T.Tests
+A.Activation
+A.Approv_Workshops
+A.Card_Traceability A.Card_Availability
+A.Cert_Infrastructure
+A.Controls
+A.Faithful_Calibration A.Driver_Card_Unique
+A.Inspections
+A.Compliant_Drivers
+A.Type_Approved_Dev
+A.Bluetooth
+P.Crypto
+P.Management_Device
+O.Access X X X X X X X
+O.Authentication X X X X X X X X
+O.Accountability X
+O.Audit X X X X X X X X X X X X
+O.Integrity X X X
+O.Output X X X X
+O.Processing X X X X X X X X
+O.Reliability X X X X X X X X X X X
+O.Secured_Exchange X X X X X X
+O.Software_Update X X
+OE.Development X X
+Continuedonnextpage
+81of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+T.Remote_Detect_Data T.Card_Data_Exchange
+T.Output_Data
+T.Access
+T.Calibration_Parameters
+T.Clock
+T.Design
+T.Environment
+T.Fake_Devices
+T.Hardware
+T.Identiifcation
+T.Motion_Sensor
+T.Security_Data T.Power_Supply T.Location_Data
+T.Software
+T.Stored_Data
+T.Tests
+A.Activation
+A.Approv_Workshops
+A.Card_Traceability A.Card_Availability
+A.Cert_Infrastructure
+A.Controls
+A.Faithful_Calibration A.Driver_Card_Unique
+A.Inspections
+A.Compliant_Drivers
+A.Type_Approved_Dev
+A.Bluetooth
+P.Crypto
+P.Management_Device
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+OE.Manufacturing X X
+OE.Data_Generation X X
+OE.Data_Transport X X X
+OE.Delivery X X
+OE.Software_Update X X X
+OE.Data_Strong X X X
+OE.Test_Points X
+OE.Activation X X
+OE.Approved_- X X X X
+Workshops
+OE.Faithful_Calibration X X X
+OE.Card_Availability X X
+OE.Card_Traceability X X
+OE.Controls X X X X X X X X X X
+OE.Driver_Card_Unique X X
+OE.Compliant_Drivers X
+OE.Management_Device X
+OE.Regular_Inspections X X X X X X X
+Continuedonnextpage
+82of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+T.Remote_Detect_Data T.Card_Data_Exchange
+T.Output_Data
+T.Access
+T.Calibration_Parameters
+T.Clock
+T.Design
+T.Environment
+T.Fake_Devices
+T.Hardware
+T.Identiifcation
+T.Motion_Sensor
+T.Security_Data T.Power_Supply T.Location_Data
+T.Software
+T.Stored_Data
+T.Tests
+A.Activation
+A.Approv_Workshops
+A.Card_Traceability A.Card_Availability
+A.Cert_Infrastructure
+A.Controls
+A.Faithful_Calibration A.Driver_Card_Unique
+A.Inspections
+A.Compliant_Drivers
+A.Type_Approved_Dev
+A.Bluetooth
+P.Crypto
+P.Management_Device
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+OE.Type_Approval_MS36 X X X
+OE.Type_Approval_EGF X X
+OE.Bluetooth X
+OE.EOL X X]]></rationale_table_raw>
+    </objectives_rationale>
+    <sfr_rationale>
+      <mapping comp_id="FMT_SMR.1">
+        <justification><![CDATA[Continuedonnextpage
+87of144
+SFR Dependencies Rationale
+FMT_MSA.3(2:FUN) FMT_MSA.1,FMT_SMR.1 SatisfiedbyFMT_MSA.1and]]></justification>
+        <obj_refs/>
+      </mapping>
+      <mapping comp_id="FMT_SMR.1">
+        <justification><![CDATA[FMT_MSA.3(3:DAT) FMT_MSA.1,FMT_SMR.1 SatisfiedbyFMT_MSA.1and]]></justification>
+        <obj_refs/>
+      </mapping>
+      <mapping comp_id="FMT_SMR.1">
+        <justification><![CDATA[FMT_MSA.3(4:UDE) FMT_MSA.1,FMT_SMR.1 SatisfiedbyFMT_MSA.1and]]></justification>
+        <obj_refs/>
+      </mapping>
+      <mapping comp_id="FMT_SMR.1">
+        <justification><![CDATA[FMT_MSA.3(5:IS) FMT_MSA.1,FMT_SMR.1 SatisfiedbyFMT_MSA.1and]]></justification>
+        <obj_refs/>
+      </mapping>
+      <mapping comp_id="FMT_SMR.1">
+        <justification><![CDATA[FMT_MSA.3(6:SWU) FMT_MSA.1,FMT_SMR.1 SatisfiedbyFMT_MSA.1and]]></justification>
+        <obj_refs/>
+      </mapping>
+      <mapping comp_id="FMT_SMR.1">
+        <justification><![CDATA[FMT_MOF.1(1) FMT_SMR.1,FMT_SMF.1 SatisfiedbyFMT_SMR.1and]]></justification>
+        <obj_refs/>
+      </mapping>
+      <mapping comp_id="FMT_SMF.1">
+        <justification><![CDATA[FMT_MOF.1(2) FMT_SMR.1,FMT_SMF.1 SatisfiedbyFMT_SMR.1and]]></justification>
+        <obj_refs/>
+      </mapping>
+      <mapping comp_id="FMT_SMF.1">
+        <justification><![CDATA[FMT_MOF.1(3) FMT_SMR.1,FMT_SMF.1 SatisfiedbyFMT_SMR.1and]]></justification>
+        <obj_refs/>
+      </mapping>
+      <mapping comp_id="FMT_SMF.1">
+        <justification><![CDATA[FMT_MOF.1(4) FMT_SMR.1,FMT_SMF.1 SatisfiedbyFMT_SMR.1and]]></justification>
+        <obj_refs/>
+      </mapping>
+      <mapping comp_id="FMT_SMF.1">
+        <justification><![CDATA[FMT_MOF.1(5) FMT_SMR.1,FMT_SMF.1 SatisfiedbyFMT_SMR.1and]]></justification>
+        <obj_refs/>
+      </mapping>
+      <mapping comp_id="FMT_SMF.1">
+        <justification><![CDATA[FMT_MTD.1 FMT_SMR.1,FMT_SMF.1 SatisfiedbyFMT_SMR.1and]]></justification>
+        <obj_refs/>
+      </mapping>
+      <mapping comp_id="FMT_SMF.1">
+        <justification><![CDATA[FMT_SMF.1 - -
+FMT_SMR.1 FIA_UID.1 SatisfiedbyFIA_UID.2
+FPT_FLS.1 - -
+FPT_PHP.2 FMT_MOF.1 Notapplicableasthereisno
+managementofthelistofusersto
+benotifiedorlistofdevicesthat
+shouldnotify
+FPT_PHP.3 - -
+FPT_STM.1 - -
+FPT_TST.1 - -
+FTP_ITC.1(1:MS) - -
+2nd generationspecific
+FCS_CKM.1(1) FCS_CKM.2orFCS_COP.1,FCS_CKM.4 SatisfiedbyFCS_CKM.2(1),
+FCS_COP.1(1:AES),FCS_COP.1(3:ECC)
+andFCS_CKM.4(1)
+Continuedonnextpage
+88of144
+SFR Dependencies Rationale
+FCS_CKM.2(1) FDP_ITC.1orFDP_ITC.2orFCS_CKM.1, SatisfiedbyFCS_CKM.1(1)and
+FCS_CKM.4 FCS_CKM.4(1)
+FCS_CKM.4(1) FDP_ITC.1orFDP_ITC.2orFCS_CKM.1 SatisfiedbyFDP_ITC.2and
+FCS_CKM.1(1)
+FCS_COP.1(1:AES) FDP_ITC.1orFDP_ITC.2orFCS_CKM.1 SatisfiedbyFDP_ITC.2and
+FCS_CKM.1(1)
+FCS_COP.1(2:SHA-2) FDP_ITC.1orFDP_ITC.2orFCS_CKM.1, Notapplicableasnokeysareused
+FCS_CKM.4 forSHA-2
+FCS_COP.1(3:ECC) FDP_ITC.1orFDP_ITC.2orFCS_CKM.1, SatisfiedbyFDP_ITC.2,FCS_CKM.1(1)
+FCS_CKM.4 andFCS_CKM.4(1)
+FCS_RNG.1 37 - -
+FIA_ATD.1(2:MS) - -
+FIA_ATD.1(3:EGF) - -
+FIA_UAU.1(1:TC) FIA_UID.1 SatisfiedbyFIA_UID.2
+FIA_UAU.2(1:MS) FIA_UID.1 SatisfiedbyFIA_UID.2
+FIA_UAU.2(2:EGF) FIA_UID.1 SatisfiedbyFIA_UID.2
+FPT_TDC.1(1) - -
+FTP_ITC.1(2:TC) - -
+FTP_ITC.1(3:EGF) - -
+1st generationspecific
+FCS_CKM.1(2) FCS_CKM.2orFCS_COP.1,FCS_CKM.4 SatisfiedbyFCS_CKM.2(2),
+FCS_COP.1(4:TDES),FCS_COP.1(5:RSA)
+andFCS_CKM.4(2)
+FCS_CKM.2(2) FDP_ITC.1orFDP_ITC.2orFCS_CKM.1 SatisfiedbyFCS_CKM.1(2)
+FCS_CKM.4(2) FDP_ITC.1orFDP_ITC.2orFCS_CKM.1 SatisfiedbyFDP_ITC.2and
+FCS_CKM.1(2)
+FCS_COP.1(4:TDES) FDP_ITC.1orFDP_ITC.2orFCS_CKM.1 SatisfiedbyFDP_ITC.2and
+FCS_CKM.1(2)
+FCS_COP.1(5:RSA) FDP_ITC.1orFDP_ITC.2orFCS_CKM.1 SatisfiedbyFDP_ITC.2and
+FCS_CKM.1(2)
+FCS_COP.1(6:SHA-1) FDP_ITC.1orFDP_ITC.2orFCS_CKM.1 Notapplicableasnokeysareused
+forSHA-1
+FIA_UAU.1(2:TC) FIA_UID.1 SatisfiedbyFIA_UID.2
+FPT_TDC.1(2) - -
+FTP_ITC.1(4:TC) - -
+37Extendedcomponent
+89of144
+7.2.2. Securityfunctionalrequirementsrationale
+Thefollowingtableprovidesanoverviewforsecurityfunctionalrequirementscoveragealsogiving
+anevidenceforsufficiencyandnecessityoftheSFRschosen.
+Table7-3:CoverageofsecurityobjectivesfortheTOEbySFRs
+SecurityObjectives
+sseccA.O
+ytilibatnuoccA.O
+tiduA.O
+noitacitnehtuA.O
+ytirgetnI.O
+tuptuO.O
+gnissecorP.O
+ytilibaileR.O
+egnahcxE_deruceS.O
+etadpU_erawtfoS.O
+FAU_GEN.1 Auditdatageneration X X
+FAU_SAR.1 Auditreview X X
+FAU_STG.1 Protectedaudittrailstorage X X X
+FAU_STG.4 Preventionofauditdataloss X X
+FCO_NRO.1 Selectiveproofoforigin X X
+FDP_ACC.1(1:FIL) Subsetaccesscontrol(1:FIL) X
+FDP_ACF.1(1:FIL) Securityattributebasedaccesscontrol X
+(1:FIL)
+FDP_ACC.1(2:FUN) Subsetaccesscontrol(2:FUN) X X X X
+FDP_ACF.1(2:FUN) Securityattributebasedaccesscontrol(2: X X X X
+FUN)
+FDP_ACC.1(3:DAT) Subsetaccesscontrol(3:DAT) X
+FDP_ACF.1(3:DAT) Securityattributebasedaccesscontrol X
+(3.DAT)
+FDP_ACC.1(4:UDE) Subsetaccesscontrol(4:UDE) X
+FDP_ACF.1(4:UDE) Securityattributebasedaccesscontrol X
+(4:UDE)
+FDP_ACC.1(5:IS) Subsetaccesscontrol(5: IS) X X X
+FDP_ACF.1(5:IS) Securityattributebasedaccesscontrol X X X
+(5:IS)
+FDP_ACC.1(6:SWU) Subsetaccesscontrol(6:SWU) X X X X
+FDP_ACF.1(6:SWU) Securityattributebasedaccesscontrol X X X X
+(6:SWU)
+FDP_ETC.2 Exportofuserdatawithsecurityattributes X X X X
+Continuedonnextpage
+90of144
+SecurityObjectives
+sseccA.O
+ytilibatnuoccA.O
+tiduA.O
+noitacitnehtuA.O
+ytirgetnI.O
+tuptuO.O
+gnissecorP.O
+ytilibaileR.O
+egnahcxE_deruceS.O
+etadpU_erawtfoS.O
+FDP_ITC.1 Importofuserdatawithoutsecurity X X
+attributes
+FDP_ITC.2 Importofuserdatawithsecurityattributes X X X X
+FDP_ITT.1 Basicinternaltransferprotection X X X
+FDP_RIP.1 Subsetresidualinformationprotection X X X
+FDP_SDI.2(1) Storeddataintegritymonitoringand X X X X
+action(1)
+FDP_SDI.2(2) Storeddataintegritymonitoringandaction X X X
+(2)
+FDP_SDI.2(3) Storeddataintegritymonitoringandaction X X
+(3)
+FIA_AFL.1(1:TCL) Authenticationfailurehandling(1:TCL) X X
+FIA_AFL.1(2:TCR) Authenticationfailurehandling(2:TCR) X X
+FIA_AFL.1(3:MS) Authenticationfailurehandling(3:MS) X X X
+FIA_AFL.1(4:EGF) Authenticationfailurehandling(4:EGF) X X X
+FIA_ATD.1(1:TC) Userattributedefinition(1:TC) X X
+FIA_UAU.3 Unforgeableauthentication X
+FIA_UAU.5 Multipleauthenticationmechanisms X X X
+FIA_UAU.6 Re-authenticating X X
+FIA_UID.2 Useridentificationbeforeanyaction X X X X X
+FMT_MSA.1 Managementofsecurityattributes X X
+FMT_MSA.3(1:FIL) Staticattributeinitialisation(1:FIL) X X X X
+FMT_MSA.3(2:FUN) Staticattributeinitialisation(2:FUN) X X X X
+FMT_MSA.3(3:DAT) Staticattributeinitialisation(3:DAT) X
+FMT_MSA.3(4:UDE) Staticattributeinitialisation(4:UDE) X
+FMT_MSA.3(5:IS) Staticattributeinitialisation(5:IS) X X X
+FMT_MSA.3(6:SWU) Staticattributeinitialisation(6:SWU) X X X X
+FMT_MOF.1(1) Managementofsecurityfunctions(1) X X X X X
+Continuedonnextpage
+91of144
+SecurityObjectives
+sseccA.O
+ytilibatnuoccA.O
+tiduA.O
+noitacitnehtuA.O
+ytirgetnI.O
+tuptuO.O
+gnissecorP.O
+ytilibaileR.O
+egnahcxE_deruceS.O
+etadpU_erawtfoS.O
+FMT_MOF.1(2) Managementofsecurityfunctions(2) X X
+FMT_MOF.1(3) Managementofsecurityfunctions(3) X X
+FMT_MOF.1(4) Managementofsecurityfunctions(4) X X
+FMT_MOF.1(5) Managementofsecurityfunctions(5) X X
+FMT_MTD.1 ManagementofTSFData X X X X X
+FMT_SMF.1 SpecificationofManagementFunctions X X
+FMT_SMR.1 Securitymanagementroles X X
+FPT_FLS.1 Failurewithpreservationofsecurestate. X
+FPT_PHP.2 Notificationofphysicalattack X
+FPT_PHP.3 Resistancetophysicalattack X X X
+FPT_STM.1 Reliabletimestamps X X X X
+FPT_TST.1 TSFtesting X X
+FTP_ITC.1(1:MS) Inter-TSFtrustedchannel(1:MS) X
+FCS_CKM.1(1) Cryptographickeygeneration(1) X X
+FCS_CKM.2(1) Cryptographickeydistribution(1) X X
+FCS_CKM.4(1) Cryptographickeydestruction(1) X X
+FCS_COP.1(1:AES) Cryptographicoperation(1:AES) X X
+FCS_COP.1(2:SHA-2) Cryptographicoperation(2:SHA-2) X X
+FCS_COP.1(3:ECC) Cryptographicoperatiom(3:ECC) X X
+FCS_RNG.1 RandomNumberGeneration X X
+FIA_ATD.1(2:MS) Userattributedefinition(2:MS) X X
+FIA_ATD.1(3:EGF) Userattributedefinition(3:EGF) X X
+FIA_UAU.1(1:TC) Timingofauthentication(1:TC) X X
+FIA_UAU.2(1:MS) Userauthenticationbeforeanyaction X X
+(1:MS)
+FIA_UAU.2(2:EGF) Userauthenticationbeforeanyaction X X
+(2:EGF)
+FPT_TDC.1(1) Inter-TSFbasicTSFdataconsistency(1) X X
+Continuedonnextpage
+92of144
+SecurityObjectives
+sseccA.O
+ytilibatnuoccA.O
+tiduA.O
+noitacitnehtuA.O
+ytirgetnI.O
+tuptuO.O
+gnissecorP.O
+ytilibaileR.O
+egnahcxE_deruceS.O
+etadpU_erawtfoS.O
+FPT_TDC.1(3:SWU) Inter-TSFbasicTSFdataconsistency X X X
+(3:SWU)
+FTP_ITC.1(2:TC) Inter-TSFtrustedchannel(2:TC) X
+FTP_ITC.1(3:EGF) Inter-TSFtrustedchannel(3: EGF) X
+FCS_CKM.1(2) Cryptographickeygeneration(2) X
+FCS_CKM.2(2) Cryptographickeydistribution(2) X
+FCS_CKM.4(2) Cryptographickeydestruction(2) X
+FCS_COP.1(4:TDES) Cryptographicoperation(4:TDES) X
+FCS_COP.1(5:RSA) Cryptographicoperation(5:RSA) X
+FCS_COP.1(6:SHA-1) Cryptographicoperation(6:SHA-1) X
+FIA_UAU.1(2:TC) Timingofauthentication(2:TC) X X
+FPT_TDC.1(2) Inter-TSFbasicTSFdataconsistency(2) X X
+FTP_ITC.1(4:TC) Inter-TSFtrustedchannel(4:TC) X
+Adetailedjustificationrequiredforsuitabilityofthesecurityfunctionalrequirementstoachievethe
+securityobjectivesisgivenbelow.
+Table7-4:SuitabilityoftheSFR’s
+Securityobjective SFR Rationale
+O.Access FDP_ACC.1(1:FIL) TheFILE_STRUCTURE_SFPdefinesthepolicyfor
+FDP_ACF.1(1:FIL) restrictingmodificationordeletionofapplication
+anddatafilesstructureandaccessconditions.
+FDP_ACC.1(2:FUN) FUNCTION_SFPdefinesthepolicyforcontrolof
+FDP_ACF.1(2:FUN) accesstospecificfunctions(e.g. incalibration
+modeonly).
+FDP_ACC.1(3:DAT) TheDATA_SFPdefinesthepolicyforcontrolof
+FDP_ACF.1(3:DAT) accesstocryptographickeysandvehicle
+identificationdata. Italsodefinesdatathatmust
+bestoredbytheVU.
+Continuedonnextpage
+93of144
+Securityobjective SFR Rationale
+FDP_ACC.1(4:UDE) TheUSER_DATA_EXPORT_SFPdefinesthepolicy
+FDP_ACF.1(4:UDE) fordatastorageontachographcards,foroutput
+ofdriverrelateddata,andforprintingand
+display.
+FDP_ACC.1(5:IS) TheINPUT_SOURCES_SFPdefinespolicyto
+FDP_ACF.1(5:IS) ensureatdataisprocessedonlyfromtheright
+inputsources. Thisrestrictsattemptsto
+undermineTOEsecuritythroughuseofincorrect
+inputsources(e.g. inputandexecutionof
+unauthorisedcode).
+FDP_ACC.1(6:SWU) TheSW–UPDATE_SFPfortheupdateofthe
+FDP_ACF.1(6:SWU) softwareintheTOE
+FDP_RIP.1 Anypreviousinformationcontentofaresourceis
+madeunavailableuponthedeallocationofthe
+resource
+FIA_UID.2 Connecteddeviceshavetobesuccessfully
+identifiedbeforeallowinganyotheraction
+FMT_MSA.1 SupportstheFUNCTION_SFPbyrestrictingthe
+abilitytochangedefaultthesecurityattributes
+UserGroup,UserIDtonobody.
+FMT_MSA.3(1:FIL) SupportstheFILE_STRUCTURE_SFPtoprovide
+restrictivedefaultvaluesforsecurityattributes
+thatareusedtoenforcetheSFPandallows
+nobodytospecifyalternativeinitialvaluesto
+overridethedefaultvalueswhenanobjector
+informationiscreated.
+FMT_MSA.3(2:FUN) SupportstheFUNCTION_SFPtoprovide
+restrictivedefaultvaluesforsecurityattributes
+thatareusedtoenforcetheSFPandallows
+nobodytospecifyalternativeinitialvaluesto
+overridethedefaultvalueswhenanobjector
+informationiscreated.
+FMT_MSA.3(3:DAT) SupportstheDATA_SFPtoproviderestrictive
+defaultvaluesforsecurityattributesthatare
+usedtoenforcetheSFPandallowsnobodyto
+specifyalternativeinitialvaluestooverridethe
+defaultvalueswhenanobjectorinformationis
+created.
+Continuedonnextpage
+94of144
+Securityobjective SFR Rationale
+FMT_MSA.3(4:UDE) SupportstheUSER_DATA_EXPORT_SFPtoprovide
+restrictivedefaultvaluesforsecurityattributes
+thatareusedtoenforcetheSFPandallows
+nobodytospecifyalternativeinitialvaluesto
+overridethedefaultvalueswhenanobjector
+informationiscreated.
+FMT_MSA.3(5:IS) SupportstheINPUT_SOURCES_SFPtoprovide
+restrictivedefaultvaluesforsecurityattributes
+thatareusedtoenforcetheSFPandallows
+nobodytospecifyalternativeinitialvaluesto
+overridethedefaultvalueswhenanobjector
+informationiscreated.
+FMT_MSA.3(6:SWU) ProvidestheSW–UPDATE_SFPtoprovide
+restrictivedefaultvaluesforsecurityattributes
+thatareusedtoenforcetheSFPandallows
+nobodytospecifyalternativeinitialvaluesto
+overridethedefaultvalueswhenanobjector
+informationiscreated.
+FMT_MOF.1(1) Restricttheabilitytoenablethetestfunctions
+specifiedinRLB_201tonobody,and,thus
+preventsanunintendedaccesstodatainthe
+operationalphase.
+FMT_MOF.1(2) Restrictstheabilitytoentercalibrationmodeto
+workshopcards.
+FMT_MOF.1(3) Restrictstheabilitytocarryoutcompanylocksto
+companycards
+FMT_MOF.1(4) Restrictstheabilitymonitorcontrolactivitiesto
+controlcards.
+FMT_MOF.1(5) Restrictsaccesstothedownloadfunctions.
+FMT_MTD.1 Restrictstheabilitytocarryoutmanualtime
+settingtoworkshopcards.
+FMT_SMF.1 Identifiesthecapabilitytocarryoutspecified
+managementfunctions.
+FMT_SMR.1 Definesthemanagementrolesthatprovidethe
+basisforaccesscontrol.
+O.Accountability FAU_GEN.1 Generatescorrectauditrecords
+FAU_SAR.1 Allowsuserstoreadaccountabilityauditrecords
+FAU_STG.1 Protectthestoredauditrecordsfrom
+unauthoriseddeletion
+Continuedonnextpage
+95of144
+Securityobjective SFR Rationale
+FAU_STG.4 Preventlossofauditdataloss(overwritethe
+oldeststoredauditrecordsandbehaves
+correctlyiftheaudittrailisfull).
+FDP_ETC.2 Providesexportofuserdatawithsecurity
+attributesusingtheUSER_DATA_EXPORT_SFP
+FIA_UID.2 Devicesaresuccessfullyidentifiedbefore
+allowinganyotheraction
+FPT_STM.1 Providesaccuratetime
+O.Audit FAU_GEN.1 Generatescorrectauditrecords
+FAU_SAR.1 Allowsuserstoreadaccountabilityauditrecords
+FAU_STG.1 Protectthestoredauditrecordsfrom
+unauthoriseddeletion.
+FAU_STG.4 Preventlossofauditdataloss(overwritethe
+oldeststoredauditrecordsandbehavecorrectly
+iftheaudittrailisfull.)
+FDP_SDI.2(1) Monitorsstoreduserdataforintegrityerrors
+FIA_AFL.1(1:TCL) Detectsandrecordsauthenticationfailureevents
+forthelocaleuseoftachographcards
+FIA_AFL.1(2:TCR) Detectsandrecordsauthenticationfailureevents
+fortheremotecarduse(companycard)
+FIA_AFL.1(3:MS) Detectsandrecordsauthenticationfailureevents
+forthemotionsensor
+FIA_AFL.1(4:EGF) Detectsandrecordsauthenticationfailure
+eventsfortheexternalgatewayfacility.
+FIA_ATD.1(1:TC) Definesuserattributesfortachographcardsto
+supporttraceabilityofauditedevents
+FIA_UID.2 Devicesaresuccessfullyidentifiedbefore
+allowinganyotheraction,supportingthe
+traceabilityofauditevents
+FPT_STM.1 Providesaccuratetimetoberecordedwhen
+auditrecordsaregenerated
+FPT_TST.1 Detectsintegrityfailureeventsforsecuritydata
+andstoredexecutablecode
+O.Authentication FDP_ACC.1(4:UDE) Restrictstheabilitytoreadremoteearly
+FDP_ACF.1(4:UDE) detectioncommunicationfacilitydatatocontrol
+cards
+FIA_AFL.1(1:TCL) Detectsandrecordsauthenticationfailureevents
+forthelocaluseoftachographcards
+FIA_AFL.1(2:TCR) Detectsandreportsauthenticationfailureevents
+fortheremoteuseofcompanytachographcards
+Continuedonnextpage
+96of144
+Securityobjective SFR Rationale
+FIA_AFL.1(3:MS) Detectsandrecordsauthenticationfailureevents
+forthemotionsensor
+FIA_AFL.1(4:EGF) Detectsandrecordsauthenticationfailure
+eventsfortheexternalGNSSfacility.
+FIA_ATD.1(2:MS) Theseattributesidentifythemotionsensoror
+FIA_ATD.1(3:EGF) externalGNSSfacilityconnectedtothevehicle
+unit.
+FIA_UAU.3 Providesunforgeableauthentication
+FIA_UAU.5 Multipleauthenticationmechanismsarerequired
+foruseofworkshopcards
+FIA_UAU.6 Periodicallyre-authenticatethetachographcards
+FIA_UID.2 Connecteddevicesaresuccessfullyidentified
+beforeallowinganyotheraction
+FMT_MOF.1(3) Restrictstheabilitytocarryoutcompanylocks
+managementtocompanycards.
+FMT_MOF.1(4) Restrictstheabilitytomonitorcontrolactivities
+tocontrolcards.
+FMT_MOF.1(5) Restrictsaccesstothedownloadfunctions
+FMT_MTD.1 Restrictstheabilitytocarryoutmanualtime
+settingtoworkshopcards.
+FCS_CKM.1(1) Keygenerationtosupporttheauthentication
+process.
+FCS_CKM.2(1) Keydistributiontosupporttheauthentication
+process.
+FCS_CKM.4(1) Keydestructionwhentemporarykeysareno
+longerrequired.
+FCS_COP.1(1:AES) Cryptographicalgorithmusedtosupport
+authentication.
+FCS_COP.1(2:SHA-2) Cryptographicalgorithmusedtosupport
+authentication.
+FCS_COP.1(3:ECC) Cryptographicalgorithmusedtosupport
+authentication.
+FCS_RNG.1 Randomnumbersaregeneratedinsupportof
+cryptographickeygenerationforauthentication.
+FIA_UAU.1(1:TC) Atachographcardhastobesuccessfully
+FIA_UAU.1(2:TC) authenticated.
+FIA_UAU.2(1:MS) Amotionsensorhastobesuccessfully
+authenticatedbeforeallowinganyaction.
+Continuedonnextpage
+97of144
+Securityobjective SFR Rationale
+FIA_UAU.2(2:EGF) AnexternalGNSSfacilityhastobesuccessfully
+authenticatedbeforeallowinganyaction
+O.Integrity FAU_STG.1 Protectthestoredauditrecordsfrom
+unauthoriseddeletion
+FDP_ETC.2 Providesexportofuserdatawithsecurity
+attributesusingtheaccesscontrol
+USER_DATA_EXPORT_SFP
+FDP_SDI.2(1) monitorsuserdatastoredforintegrityerror
+FMT_MOF.1(1) Preventsaccesstocommandsusedin
+manufacturingthatmaybeusedtoaffect
+outputs.
+FMT_MTD.1 Preventsunauthorisedtimechangesthatmay
+affectdataintegrity.
+O.Output FCO_NRO.1 Generatesanevidenceoforiginforthedatato
+bedownloadedtoexternalmedia.
+FDP_ETC.2 Providesexportofuserdatawithsecurity
+attributesusingtheaccesscontrol
+USER_DATA_EXPORT_SFP. Datadownloadedis
+protectedbysignatureagainstundetected
+modification.
+FDP_ITT.1 Providesprotectionforuserdataduringtransfer
+totheprinteranddisplay.
+FDP_SDI.2(1) monitorsuserdatastoredforintegrityerror
+FMT_MOF.1(1) Preventsaccesstocommandsusedin
+manufacturingthatmaybeusedtoaffect
+outputs.
+FPT_PHP.2 RequiresresistancetophysicalattacktotheTOE
+FPT_PHP.3 softwareinthefield,anddetectionofattempted
+attacksontheTOE
+O.Processing FDP_ACC.1(2:FUN) TheFUNCTION_SFPdefinesthepolicyforcontrol
+FDP_ACF.1(2:FUN) ofaccesstospecificfunctions(e.g. incalibration
+modeonly).
+FDP_ACC.1(5:IS) TheINPUT_SOURCES_SFPdefinesthepolicyto
+FDP_ACF.1(5:IS) ensurethatdataisprocessedonlyfromtheright
+inputsources. Thisrestrictsattemptsto
+undermineTOEsecuritythroughuseofincorrect
+inputsources(e.g. inputandexecutionof
+unauthorisedcode).
+FDP_ACC.1(6:SWU) DefinessecurityattributesforSW–UPDATE_SFP
+FDP_ACF.1(6:SWU)
+Continuedonnextpage
+98of144
+Securityobjective SFR Rationale
+FDP_ITC.1 ImplementstheINPUT_SOURCES_SFPtocontrol
+processingofdataonlyfromthecorrectinput
+sources.
+FDP_ITC.2 Handlesintegrityandauthenticityerrorsindata
+importedwithsecurityattributes.
+FDP_ITC.2 Providesimportofuserdata,fromoutsideofthe
+TOEusingtheSW–UPDATE_SFP. Onlyuserdata
+recognizedasanauthenticSW-Updateare
+allowedtobeacceptedasexecutablecode;else
+theyarerejected.
+FDP_RIP.1 Anypreviousinformationcontentofaresourceis
+madeunavailableuponthedeallocationofthe
+resource
+FMT_MSA.3(2:FUN) SupportstheFUNCTION_SFPtoprovide
+restrictivedefaultvaluesforsecurityattributes
+thatareusedtoenforcetheSFPandallows
+nobodytospecifyalternativeinitialvaluesto
+overridethedefaultvalueswhenanobjector
+informationiscreated.
+FMT_MSA.3(5:IS) SupportstheINPUT_SOURCES_SFPoprovide
+restrictivedefaultvaluesforsecurityattributes
+thatareusedtoenforcetheSFPandallows
+nobodytospecifyalternativeinitialvaluesto
+overridethedefaultvalueswhenanobjector
+informationiscreated.
+FMT_MSA.3(6:SWU) ProvidestheSW–UPDATE_SFPtoprovide
+restrictivedefaultvaluesforsecurityattributes
+thatareusedtoenforcetheSFPandallows
+nobodytospecifyalternativeinitialvaluesto
+overridethedefaultvalueswhenanobjector
+informationiscreated.
+FDP_SDI.2(2) Requiresconsistencybetweenmotionsensor
+dataandGNSSdata.
+FDP_SDI.2(3) Requiresconsistencybetweenmotionsensor
+dataanddriveractivitydata.
+FMT_MOF.1(1) Preventsaccesstocommandsusedin
+manufacturingthatmaybeusedtointerferewith
+accurateprocessing.
+FMT_MTD.1 Restrictstheabilitytocarryoutmanualtime
+settingtoworkshopcards
+FPT_PHP.3 RequiresresistancetophysicalattacktotheTOE
+softwareinthefieldonceimplemented
+Continuedonnextpage
+99of144
+Securityobjective SFR Rationale
+FPT_STM.1 Providesaccuratetime
+FPT_TDC.1(1) Requirescorrectinterpretationofattributesand
+databetweentrustedproducts
+FPT_TDC.1(2) Requirescorrectinterpretationofattributesand
+databetweentrustedproducts.
+FPT_TDC.1(3:SWU) Providesthecapabilitytoconsistentlyinterpret
+secureattributesasdefinedbytheproprietary
+specificationfortheSW-UpdatebytheTOE
+developer
+O.Reliability FDP_ACC.1(2:FUN) TheFUNCTION_SFPdefinesthepolicyforcontrol
+FDP_ACF.1(2:FUN) ofaccesstospecificfunctions(e.g. incalibration
+modeonly).
+FDP_SDI.2(1) Requiresconsistencybetweenmotionsensor
+FDP_SDI.2(2) dataandGNSSdata
+FDP_SDI.2(3) Requiresconsistencybetweenmotionsensor
+dataanddriveractivitydata.
+FDP_ACC.1(5:IS) TheINPUT_SOURCES_SFPdefinespolicyto
+FDP_ACF.1(5:IS) ensurethatdataisprocessedonlytherightinput
+sources.
+FDP_ACC.1(6:SWU) DefinessecurityattributesforSW–UPDATE_SFP
+FDP_ACF.1(6:SWU) ThisrestrictsattemptstoundermineTOEsecurity
+throughuseofincorrectinputsources(e.g. input
+andexecutionofunauthorisedcode)
+FDP_ITC.1 ImplementstheINPUT_SOURCES_SFPtocontrol
+processingofdataonlyfromthecorrectinput
+sources.
+FDP_ITC.2 Handlesintegrityandauthenticityerrorsindata
+importedwithsecurityattributes.
+FDP_ITT.1 WheretheTOEisimplementedasphysically
+separatedcomponentsthisprovidesintegrity
+protectionoftransferreddata.
+FDP_RIP.1 Anypreviousinformationcontentofaresourceis
+madeunavailableuponthedeallocationofthe
+resource
+FDP_SDI.2(1) monitorsuserdatastoredforintegrityerror
+FDP_SDI.2(2)
+FIA_AFL.1(1:TCL) Detectsandrecordsauthenticationfailureevents
+forthelocaluseoftachographcards
+FIA_AFL.1(2:TCR) Detectsandrecordsauthenticationfailureevents
+fortheremoteuseofcompanytachographcards
+Continuedonnextpage
+100of144
+Securityobjective SFR Rationale
+FIA_AFL.1(3:MS) Detectsandrecordsauthenticationfailureevents
+forthemotionsensor
+FIA_AFL.1(4:EGF) Detectsandrecordsauthenticationfailure
+eventsfortheexternalGNSSfacility
+FMT_MSA.3(2:FUN) SupportstheFUNCTION_SFPtoprovide
+restrictivedefaultvaluesforsecurityattributes
+thatareusedtoenforcetheSFPandallows
+nobodytospecifyalternativeinitialvaluesto
+overridethedefaultvalueswhenanobjector
+informationiscreated.
+FMT_MSA.3(5:IS) SupportstheINPUT_SOURCES_SFPtoprovide
+restrictivedefaultvaluesforsecurityattributes
+thatareusedtoenforcetheSFPandallows
+nobodytospecifyalternativeinitialvaluesto
+overridethedefaultvalueswhenanobjector
+informationiscreated.
+FMT_MSA.3(6:SWU) ProvidestheSW–UPDATE_SFPtoprovide
+restrictivedefaultvaluesforsecurityattributes
+thatareusedtoenforcetheSFPandallows
+nobodytospecifyalternativeinitialvaluesto
+overridethedefaultvalueswhenanobjector
+informationiscreated.
+FMT_MOF.1(1) Preventsaccesstocommandsusedin
+manufacturingthatmaybeusedtointerferewith
+accurateprocessing.
+FMT_MOF.1(2) Restrictstheabilitytoentercalibrationmodeto
+workshopcards.
+FMT_MTD.1 Restrictstheabilitytocarryoutmanualtime
+settingtoworkshopcards.
+FPT_FLS.1 Preservesasecurestatewhenthefollowing
+typesoffailuresoccur.
+FPT_PHP.2 Detectionofphysicaltampering
+(Power_Deviation)andgenerationofanaudit
+record
+FPT_PHP.3 RequiresresistancetophysicalattacktotheTOE
+softwareinthefieldaftertheTOEactivation
+FPT_STM.1 Providesaccuratetime
+FPT_TST.1 Detectsintegrityfailureeventsforsecuritydata
+andstoredexecutablecode
+FPT_TDC.1(1) Requiresconsistentlybetweenmotionsensor
+dataandGNSSdata.
+Continuedonnextpage
+101of144
+Securityobjective SFR Rationale
+FPT_TDC.1(2) Requirescorrectinterpretationofattributesand
+databetweentrustedproducts.
+FPT_TDC.1(3:SWU) Providesthecapabilitytoconsistentlyinterpret
+secureattributesasdefinedbytheproprietary
+specificationfortheSW-UpdatebytheTOE
+developer
+O.Secured_Exchange FCO_NRO.1 Generatesanevidenceoforiginforthedatato
+bedownloadedtoexternalmedia.
+FDP_ACC.1(2:FUN) TheFUNCTION_SFPdefinesthepolicyforcontrol
+FDP_ACF.1(2:FUN) ofaccesstospecificfunctions(e.g. incalibration
+modeonly).
+FDP_ACC.1(4:UDE) Restrictstheabilitytoreadremoteearly
+FDP_ACF.1(4:UDE) detectioncommunicationfacilitydatatocontrol
+cards.
+FDP_ETC.2 Providesexportofuserdatawithsecurity
+attributesusingtheUSER_DATA_EXPORT_SFP.
+FDP_ITC.2 Handlesintegrityandauthenticityerrorsindata
+importedwithsecurityattributes.
+FIA_ATD.1(1:TC) Definesuserattributesfortachographcards.
+FIA_ATD.1(2:MS) Theseattributesidentifythemotionsensoror
+FIA_ATD.1(3:EGF) externalGNSSfacilityconnectedtothevehicle
+unit.
+FIA_UAU.6 Periodicallyre-authenticatethetachographcards
+FIA_UID.2 Connecteddevicesaresuccessfullyidentified
+beforeallowinganyotheraction
+FMT_MSA.1 SupportstheFUNCTION_SFPtorestricttheability
+tochangedefaultthesecurityattributesUser
+Group,UserIDtonobody
+FMT_MSA.3(2:FUN) SupportstheFUNCTION_SFPtoprovide
+restrictivedefaultvaluesforsecurityattributes
+thatareusedtoenforcetheSFPandallows
+nobodytospecifyalternativeinitialvaluesto
+overridethedefaultvalueswhenanobjector
+informationiscreated.
+FMT_MTD.1 Restrictstheabilitytocarryoutmanualtime
+settingtoworkshopcards.
+FMT_SMF.1 Identifiesthecapabilitytocarryoutspecified
+management
+FMT_SMR.1 Definesthemanagementrolesthatprovidethe
+basisforaccesscontrol
+Continuedonnextpage
+102of144
+Securityobjective SFR Rationale
+FCS_CKM.1(1) Keygenerationusedtosupportauthentication
+fortheexchange.
+FCS_CKM.2(1) Keydistributiontosupportauthenticationforthe
+exchange
+FCS_CKM.4(1) Specifiestherequirementsforkeydestruction
+FCS_COP.1(1:AES) Cryptographicalgorithmusedtosupport
+authentication
+FCS_COP.1(2:SHA-2) Cryptographicalgorithmusedtosupport
+authentication
+FCS_COP.1(3:ECC) Cryptographicalgorithmusedtosupport
+authentication
+FCS_RNG.1 Randomnumbersaregeneratedinsupportof
+cryptographickeygeneration
+FIA_UAU.1(1:TC) Tachographcardhastobesuccessfully
+authenticated.
+FIA_UAU.2(1:MS) Motionsensorhastobesuccessfully
+authenticatedbeforeallowinganyaction
+FIA_UAU.2(2:EGF) ExternalGNSSfacilityhastobesuccessfully
+authenticatedbeforeallowinganyaction
+FTP_ITC.1(1:MS) Providesatrustedchannelforthemotionsensor.
+FTP_ITC.1(2:TC) Providesatrustedchannelforgeneration2
+tachographcards.
+FTP_ITC.1(3:EGF) ProvidesatrustedchannelfortheexternalGNSS
+facility.
+FTP_ITC.1(4:TC) Providesatrustedchannelforgeneration1
+tachographcards
+FCS_CKM.1(2) Keygenerationusedtosupportauthentication
+fortheexchange.
+FCS_CKM.2(2) Keydistributiontosupportauthenticationforthe
+exchange
+FCS_CKM.4(2) Specifiestherequirementsforkeydestruction
+FCS_COP.1(4:TDES) Cryptographicalgorithmusedtosupport
+authentication
+FCS_COP.1(5:RSA) Cryptographicalgorithmusedtosupport
+authentication
+FCS_COP.1(6:SHA-1) Cryptographicalgorithmusedtosupport
+authentication
+FIA_UAU.1(2:TC) Tachographcardhastobesuccessfully
+authenticated
+Continuedonnextpage
+103of144
+Securityobjective SFR Rationale
+O.Software_Update FDP_ACC.1(6:SWU) DefinessecurityattributesforSW–UPDATE_SFP
+FDP_ACF.1(6:SWU) ThisrestrictsattemptstoundermineTOEsecurity
+throughuseofincorrectinputsources(e.g. input
+andexecutionofunauthorisedcode)
+FDP_ITC.2 Providesverificationofimportedsoftware
+updates
+FMT_MSA.3(6:SWU) ProvidestheSW–UPDATE_SFPtoprovide
+restrictivedefaultvaluesforsecurityattributes
+thatareusedtoenforcetheSFPandallows
+nobodytospecifyalternativeinitialvaluesto
+overridethedefaultvalueswhenanobjector
+informationiscreated.
+FPT_TDC.1(3:SWU) Providesthecapabilitytoconsistentlyinterpret
+secureattributesasdefinedbytheproprietary
+specificationfortheSW-UpdatebytheTOE
+developer
+7.2.3. SecurityAssuranceRequirementsRationale
+ThechosenassurancepackagerepresentsthepredefinedassurancepackageEAL4augmentedby
+theassurancecomponentsATE_DPT.2andAVA_VAN.5. ThispackageismandatedbyAnnexIC[54],
+Appendix10.
+Thispackagepermitsadevelopertogainmaximumassurancefrompositivesecurityengineering
+basedongoodcommercialdevelopmentpracticeswhich,thoughrigorous,donotrequiresubstantial
+specialist knowledge, skills, and other resources. EAL4 is the highest level, at which it is likely to
+retrofit to an existing product line in an economically feasible way. EAL4 is applicable in those
+circumstances where developers or TOE users require a moderate to high level of independently
+assured security in conventional commodity TOEs and are prepared to incur additional security
+specificengineeringcosts.
+TheselectionofthecomponentATE_DPT.2providesahigherassurancethanthepre-definedEAL4
+packageduetorequiringthefunctionaltestingofSFR-enforcingmodules.
+TheselectionofthecomponentAVA_VAN.5providesahigherassurancethanthepre-definedEAL4
+package,namelyrequiringavulnerabilityanalysistoassesstheresistancetopenetrationattacks
+performedbyanattackerpossessingahighattackpotential(seealsoTable3-3: Subjectsandexternal
+entities, entry ‘Attacker’). This decision represents a part of the conscious security policy for the
+recordingequipmentrequiredbytheregulationAnnexIC[54],andreflectedbythecurrentST.
+ThesetofassurancerequirementsbeingpartofEAL4fulfilsalldependenciesapriori.
+TheaugmentationofEAL4chosencomprisesthefollowingassurancecomponents:
+- ATE_DPT.2and
+- AVA_VAN.5.
+104of144
+For these additional assurance components, all dependencies are met or exceeded in the EAL4
+assurancepackage:
+Table7-5:SARDependencies(additionaltoEAL4only)
+Component DependenciesrequiredbyCCPart3 Dependencysatisfiedby
+ATE_DPD.2 ADV_ARC.1 ADV_ARC.1
+ADV_TDS.3 ADV_TDS.3
+ATE_FUN.1 ATE_FUN.1
+AVA_VAN.5 ADV_ARC.1 ADV_ARC.1
+ADV_FSP.4 ADV_FSP.4
+ADV_TDS.3 ADV_TDS.3
+ADV_IMP.1 ADV_IMP.1
+AGD_OPE.1 AGD_OPE.1
+AGD_PRE.1 AGD_PRE.1
+ATE_DPT.1 ATE_DPT.2
+7.2.4. SecurityRequirements–InternalConsistency
+Thispartofthesecurityrequirementsrationaleshowsthatthesetofsecurityrequirementsforthe
+TOEconsistingofthesecurityfunctionalrequirements(SFRs)andthesecurityassurancerequirements
+(SARs)togetherformaninternallyconsistentwhole.
+a) SFRs
+Thedependencyanalysisinsection7.2.1forthesecurityfunctionalrequirementsshowsthatthebasis
+forinternalconsistencybetweenalldefinedfunctionalrequirementsissatisfied. Alldependencies
+between the chosen functional components are analysed and non-satisfied dependencies are
+appropriatelyexplained.
+AllsubjectsandobjectsaddressedbymorethanoneSFRinsec. 6.1arealsotreatedinaconsistent
+way: the SFRs impacting them do not require any contradictory property and behaviour of these
+‘shared’ items. The current PP accurately reflects the requirements of Commission Implementing
+Regulation2016/799[53]implementingRegulation165/2014oftheEuropeanParliamentandofthe
+Council,AnnexIC[54],whichisassumedtobeinternallyconsistent
+b) SARs
+TheassurancepackageEAL4isapre-definedsetofinternallyconsistentassurancerequirements.
+The dependency analysis for the sensitive assurance components in section 7.2.3 shows that the
+assurancerequirementsareinternallyconsistent,becauseall(additional)dependenciesaresatisfied
+andnoinconsistencyappears.
+Inconsistencybetweenfunctionalandassurancerequirementscouldonlyarise,iftherearefunctional-
+assurancedependenciesbeingnotmet–anopportunityhavingbeenshownnottoariseinsections
+7.2.1and7.2.3Furthermore,asalsodiscussedinsection7.2.3,thechosenassurancecomponentsare
+105of144
+adequate for the functionality of the TOE. So, there are no inconsistencies between the goals of
+thesetwogroupsofsecurityrequirements.
+106of144]]></justification>
+        <obj_refs>
+          <obj_ref id="O.Access"/>
+          <obj_ref id="O.Accountability"/>
+          <obj_ref id="O.Audit"/>
+          <obj_ref id="O.Authentication"/>
+          <obj_ref id="O.Integrity"/>
+          <obj_ref id="O.Output"/>
+          <obj_ref id="O.Processing"/>
+          <obj_ref id="O.Reliability"/>
+          <obj_ref id="O.Secured_Exchange"/>
+          <obj_ref id="O.Software_Update"/>
+        </obj_refs>
+      </mapping>
+    </sfr_rationale>
+    <dependency_rationale/>
+  </rationale>
+  <toe_summary_spec doc_type_applies="ST">
+    <raw><![CDATA[8. TOE summary specification
+TheTOEprovidesthefollowingsecurityservices.
+8.1. TOE_SS.Identification_Authentication
+TheTOEidentifiesandauthenticatestachographcardsandmotionsensors. TheTOEidentifiesand
+authenticatestheworkshopuserbyhiscardandadditionallyhisPIN.
+Applicationnote8-1: IdentificationandAuthenticationofanexternalGNSSfacilityisnotapplica-
+blefortheTOE.
+Applicationnote8-2: ThevehicleunitisabletoauthenticatetheconnectedmotionsensorbyMS
+approvalnumberandMSserialnumberorbyMSextendedserialnumberat
+motionsensorpairing. Atmotionsensorre-connectionandatpowersupply
+recoverythevehicleunitauthenticatestheconnectedmotionsensorbythe
+usage of the correct and valid session key. The use of copied or replayed
+authenticationdataispreventedandwillbedetected.
+Table8-1:TOE_SS.Identification_Authentication—SFRsconcerned)
+TOE_SS.Identification_Authentication
+Securityfunctionalrequirementsconcerned:
+FIA_UID.2: UserIdentificationbeforeanyaction
+FIA_UAU.3,FIA_UAU.5,FIA_UAU.6: authentication
+FIA_UAU.1(1:TC): Timingofauthentication
+FIA_AFL.1(1:TCL): Authenticationfailurehandling: tachograph
+cards
+FIA_AFL.1(2:TCR): Authenticationfailurehandling: remote
+tachographcompanycard
+FIA_AFL.1(3:MS): Authenticationfailurehandling: motionsensor
+FIA_ATD.1(1:TC),FIA_ATD.1(2:MS), UsergroupstobemaintainedbytheTOE
+FMT_SMR.1:
+FMT_MSA.3(2:FUN): Staticattributeinitialization: (functions)
+FDP_ACC.1(2:FUN): subsetaccesscontrol: (functions)
+Supportedby:
+FCS_COP.1(1:AES),FCS_COP.1(2:SHA-2), forthetachographcards
+FCS_COP.1(3:ECC),FCS_COP.1(5:RSA):
+FCS_CKM.1(1),FCS_CKM.2(1), cryptographickeymanagement
+FCS_CKM.4(1),FCS_CKM.1(2),
+FCS_CKM.2(2),FCS_CKM.4(2):
+Continuedonnextpage
+107of144
+TOE_SS.Identification_Authentication
+FAU_GEN.1: Auditrecords: Generation
+FMT_MSA.1: Managementofsecurityattributes
+FMT_MTD.1: ManagementofTSFdata
+FMT_SMF.1: Specificationofmanagementfunctions
+8.2. TOE_SS.Access_Control
+TheTOEcontrolsaccesstostoreddataandfunctionsbasedonthemodeofoperation.
+TheTOEregularlysendsitscurrentremoteearlydetectiondatatotheinternalorexternalremote
+earlydetectioncommunicationfacility(REDCF).Thisdataisencryptedandauthenticated. Thedata
+canbeaccessedbyanyremoteearlydetectioncommunicationreaderthatinterrogatestheREDCF,
+withoutanyauthenticationbeingnecessary. Accesstoremoteearlydetectioncommunicationdata
+iscontrolledonthebasisofpossessionofthecorrectkeyfromwhichtheTOE-specificdecryption
+keycanbederived.
+Table8-2:TOE_SS.Access_Control—SFRsconcerned)
+TOE_SS.Access_Control
+Securityfunctionalrequirementsconcerned:
+FDP_ACC.1(1:FIL): Subsetaccesscontrol: (filestructure)
+FDP_ACF.1(1:FIL): Securityattributebasedaccesscontrol: (file
+structure)
+FDP_ACC.1(2:FUN): Subsetaccesscontrol(functions)
+FDP_ACF.1(2:FUN): Securityattributebasedaccesscontrol
+(functions)
+FDP_ACC.1(3:DAT): Subsetaccesscontrol: (data)
+FDP_ACF.1(3:DAT): Securityattributebasedacesscontrol(data)
+FDP_ACC.1(4:UDE): Subsetaccesscontrol: (userdataexport)
+FDP_ACF.1(4:UDE): Securityattributebasedaccesscontrol. (user
+dataexport)
+FDP_ACC.1(5:IS): Subsetaccesscontrol: (Inputsources)
+FDP_ACF.1(5:IS): Securityattributebasedaccesscontrol: (Input
+sources)
+FDP_ACC.1(6:SWU): Subsetaccesscontrol: (SWupdate)
+FDP_ACF.1(6:SWU): Securityattributebasedaccesscontrol: (SW
+update)
+Supportedby:
+Continuedonnextpage
+108of144
+TOE_SS.Access_Control
+FIA_UAU.2(1:MS),FIA_UAU.3: Authentication: (motionsensor)
+FIA_UAU.1(1:TC),FIA_UAU.1(2:TC), Authentication: (tachographcards)
+FIA_UAU.3,FIA_UAU.5,FIA_UAU.6:
+FMT_MTD.1: ManagementofTSFdata
+FMT_MSA.3(1:FIL): Staticattributeinitialization: (filestructure)
+FMT_MSA.3(2:FUN): Staticattributeinitializationcontrol:
+(functions)
+FMT_MSA.3(3:DAT): Staticattributeinitializationcontrol: (data)
+FMT_MSA.3(4:UDE): Staticattributeinitialization: (userdataexport)
+FMT_MSA.3(5:IS): Staticattributeinitialization: (Inputsources)
+FMT_MSA.3(6:SWU): Staticattributeinitialization: (SWupdate)
+FMT_MSA.1: Managementofsecurityattributes
+FMT_SMF.1: Specificationofmanagementfunctions
+FMT_SMR.1: Securitymanagementroles
+8.3. TOE_SS.Accountability of users
+Useractivityisrecordedsuchthatuserscanbeheldaccountablefortheiractions.
+Table8-3:TOE_SS.Accountabilityofusers–SFRsconcerned)
+TOE_SS.Accountabilityofusers
+Securityfunctionalrequirementsconcerned:
+FAU_GEN.1: Securityauditdatageneration
+FAU_STG.1: Protectedauditdatastorage
+FAU_STG.4: Preventionofauditdataloss
+FDP_ETC.2: Exportofuserdatawithsecurityattributes
+Supportedby:
+FDP_ACC.1(3:DAT): Subsetaccesscontrol(data)
+FDP_ACF.1(3:DAT): Securityattributebasedaccesscontrol: (data)
+FDP_ACC.1(4:UDE): Subsetaccesscontrol: (userdataexport)
+FDP_ACF.1(4:UDE): Securityattributebasedaccesscontrol: (user
+dataexport)
+FPT_STM.1: Reliabletimestamp
+FCS_COP.1(1:AES): forthemotionsensorand2nd generation
+tachographcards
+Continuedonnextpage
+109of144
+TOE_SS.Accountabilityofusers
+FCS_COP.1(4:TDES): for1st generationtachographcards
+8.4. TOE_SS.Audit of events and faults
+TheTOEdetectsandrecordsarangeofeventsandfaults.
+Table8-4:TOE_SS.Auditofeventsandfaults–SFRsconcerned)
+TOE_SS.Auditofeventsandfaults
+Securityfunctionalrequirementsconcerned:
+FAU_GEN.1: Securityauditdatageneration
+FAU_SAR.1: Auditreview
+Supportedby:
+FDP_ACC.1(3:DAT): Subsetaccesscontrol: (data)
+FDP_ACF.1(3:DAT): Securityattributebasedaccesscontrol: (data)
+FDP_ETC.2: Exportofuserdatawithsecurityattributes
+8.5. TOE_SS.Residual information protection for secret data
+Encryption keys and certificates are deleted from the TOE when no longer needed, such that the
+informationcannolongerberetrieved
+Table8-5:TOE_SS.Residualinformationprotectionforsecretdata–SFRsconcerned)
+TOE_SS.Residualinformationprotectionfor
+secretdata
+Securityfunctionalrequirementsconcerned:
+FDP_RIP.1: Subsetresidualinformationprotection
+Supportedby:
+FCS_CKM.4(1),FCS_CKM.4(2): Cryptographickeydestruction
+8.6. TOE_SS.Integrity and authenticity of exported data
+Theintegrityandauthenticityofuserdataexported(downloaded)toanexternalstoragemedium,in
+accordancewithAnnexIC[54],Appendix7,isassuredthroughtheuseofdigitalsignatures.
+110of144
+Table8-6:TOE_SS.Integrityandauthenticityofexporteddata–SFRsconcerned)
+TOE_SS.Integrityandauthenticityofexported
+data
+Securityfunctionalrequirementsconcerned:
+FCO_NRO.1: Selectiveproofoforigin
+FDP_ETC.2: Exportofuserdatawithsecurityattributes
+Supportedby:
+FCS_COP.1(2:SHA-2),FCS_COP.1(3:ECC): Cryptographicoperation
+8.7. TOE_SS.Stored_Data_Accuracy
+DatastoredintheTOEfullyandaccuratelyreflectstheinputvaluesfromallsources(motionsensor,
+VUrealtimeclock,calibrationconnector,Tachographcards,VUkeyboard,externalGNSSfacility(if
+applicable-Note: notapplicable)).
+Table8-7:TOE_SS.Stored_Data_Accuracy–SFRsconcerned)
+TOE_SS.Stored_Data_Accuracy
+Securityfunctionalrequirementsconcerned:
+FDP_ITC.1: importofuserdatawithoutsecurityattributes
+FDP_ITC.2: importofuserdatawithsecurityattributes
+FPT_TDC.1(1): Inter-TSFbasicTSFdataconsistency
+FPT_TDC.1(2): Inter-TSFbasicTSFdataconsistency
+FPT_TDC.1(3:SWU): Inter-TSFbasicTSFdataconsistency
+FDP_SDI.2(1): Storeddataintegritymonitoringandaction(1)
+FDP_SDI.2(2): Storeddataintegritymonitoringandaction(2)
+FDP_SDI.2(3): Storeddataintegritymonitoringandaction(3)
+Supportedby:
+FDP_ACC.1(5:IS): Subsetaccesscontrol: (inputsources)
+FDP_ACF.1(5:IS): Securityattributebasedaccesscontrol: (input
+sources)
+FDP_ACC.1(2:FUN): Subsetaccesscontrol: (functions)
+FDP_ACF.1(2:FUN): Securityattributebasedaccesscontrol:
+(functions)
+FAU_GEN.1: Securityauditdatageneration
+FPT_STM.1: Reliabletimestamps
+FIA_UAU.2(1:MS),FIA_UAU.3: Authentication: (motionsensor)
+Continuedonnextpage
+111of144
+TOE_SS.Stored_Data_Accuracy
+FIA_UAU.1(1:TC),FIA_UAU.1(2:TC), Authentication: tachographcards)
+FIA_UAU.3,FIA_UAU.5,FIA_UAU.6:
+8.8. TOE_SS.Reliability
+TheTOEprovidesfeaturesthataimtoassurethereliabilityofitsservices. Thesefeaturesincludebut
+arenotlimitedtoself-testing,physicalprotection,controlofexecutablecode,resourcemanagement,
+andsecurehandlingofevents.
+Table8-8:TOE_SS.Reliability–SFRsconcerned)
+TOE_SS.Reliability
+Securityfunctionalrequirementsconcerned:
+FDP_ITC.2: Importofuserdatawithsecurityattributes
+FPT_FLS.1: Failurewithpreservationofsecurestate
+FPT_PHP.2: Notificationofphysicalattack
+FPT_PHP.3: Resistancetophysicalattack: storeddata
+FPT_TST.1: TSFtesting
+FDP_ACC.1(6:SWU): Subsetaccesscontrol
+FDP_ACF.1(6:SWU): Securitybasedaccesscontrol
+FDP_ITC.2: Importofuserdatawithsecurityattributes
+FPT_TDC.1(1),FPT_TDC.1(2), Inter-TSFbasicTSFdataconsistency
+FPT_TDC.1(3:SWU):
+FMT_MSA.3(6:SWU): Staticattributeinitializationcontrol: (Software
+update)
+Supportedby:
+FAU_GEN.1: Auditrecords: Generation
+FDP_ACC.1(5:IS),FDP_ACF.1(5:IS): noexecutablecodefromexternalsources
+FDP_ACC.1(2:FUN),FDP_ACF.1(2:FUN): TachographCardwithdrawl
+FMT_MOF.1(1),FMT_MOF.1(2), Notestentrypoints;calibrationonlyin
+FMT_MOF.1(3),FMT_MOF.1(4), workshop;managecompanylocksonlyby
+FMT_MOF.1(5): company,performingcontrolactivitiesonlyby
+controller
+FMT_MTD.1: ManagementofTSFdata
+112of144
+8.9. TOE_SS.Data_Exchange
+The TOE provides this security service of data exchange with the motion senor and tachograph
+cards.
+Table8-9:TOE_SS.Data_Exchange–SFRsconcerned)
+TOE_SS.Data_Exchange
+Securityfunctionalrequirementsconcerned:
+FDP_ETC.2: Exportofuserdatawithsecurityattributes: to
+theTC
+FDP_ITC.2: Importofuserdatawithsecurityattributes:
+fromtheMSandtheTC
+Supportedby:
+FCS_COP.1(1:AES),FCS_COP.1(4:TDES): forthemotionsensorandthetachograph
+cardsof2ndand1stgeneration
+FCS_COP.1(2:SHA-2),FCS_COP.1(3:ECC): fordatadownloadingtoexternalmedia
+(signing)
+FCS_CKM.1(1),FCS_CKM.2(1), cryptographickeymanagement
+FCS_CKM.4(1),FCS_CKM.1(2),
+FCS_CKM.2(2),FCS_CKM.4(2):
+FDP_ACC.1(4:UDE),FDP_ACF.1(4:UDE): UserdataexporttotheTC
+FDP_ACC.1(5:IS),FDP_ACF.1(5:IS): UserdataimportfromtheMSandtheTC
+FAU_GEN.1: Auditrecords: Generation
+FTP_ITC.1(1:MS),FTP_ITC.1(2:TC), Inter-TSFtrustedchanneltoMSandTC
+FTP_ITC.1(4:TC):
+FIA_ATD.1(2:MS): UserattributedefinitionofMSidentificationan
+pairingdata
+8.10. TOE_SS.Cryptographic_support
+TheTOEprovidesthissecurityserviceofcryptographicsupportusingstandardcryptographicalgo-
+rithmsandprocedures.
+DetailedpropertiesofthissecurityservicearedescribedinAppendix11ofAnnexIC[54].
+113of144
+Table8-10:TOE_SS.Cryptographic_support–SFRsconcerned)
+TOE_SS.Cryptographic_support
+Securityfunctionalrequirementsconcerned:
+FCS_COP.1(1:AES): forthemotionsensor,thetachographcardsof
+2ndgenerationandforSoftwareUpdate
+FCS_COP.1(4:TDES): Fortachographcardsof1stgeneration
+FCS_COP.1(2:SHA-2),FCS_COP.1(3:ECC), fordatadownloadingtoexternalmedia
+FCS_COP.1(5:RSA),FCS_COP.1(6:SHA-1): (signing)andfortheSoftwareUpdate
+FCS_CKM.1(1),FCS_CKM.2(1), cryptographickeymanagement
+FCS_CKM.4(1),FCS_CKM.1(2),
+FCS_CKM.2(2),FCS_CKM.4(2):
+FCS_RNG.1: Generationofrandomnumbers
+114of144
+Referenced Documents
+Common Criteria References
+[1] CommonCriteriaforInformationTechnologySecurityEvaluation,Part1.:Introductionand
+GeneralModel;CCMB-2017-09-001,Version3.1,Revision5,April2017.
+[2] CommonCriteriaforInformationTechnologySecurityEvaluation,Part2.:SecurityFunctional
+Components;CCMB-2017-09-002,Version3.1,Revision5,April2017.
+[3] CommonCriteriaforInformationTechnologySecurityEvaluation,Part3.:SecurityAssurance
+RequirementsCCMB-2017-09-003,Version3.1,Revision5,April2017.
+[5] Common Criteria Protection Profile, Digital Tachograph – Vehicle Unit (VU PP). Compliant
+with Commission Implementing Regulation (EU) 2016/799 of 18 March 2016 implementing
+Regulation(EU)165/2014(AnnexIC),asamendedby(Regulation(EU)2020/1054oftheEuropean
+ParliamentandoftheCouncilof15July2020),andasamendedbyCommissionImplementing
+Regulation(EU)2018/502of28February2018andCommissionImplementingRegulation(EU)
+2021/1228of16July2021,DGJRC–DirectorateE–Space,SecurityandMigrationCyberand
+DigitalCitizens’SecurityUnitE3,BSI-CC-PP-0094-V2,version1.15,06/06/2021.
+[9] CommonCriteriaProtectionDigitalTachographMotionSensor(MSPP),Version1.0,9May2017
+(BSI-CC-PP-0093).
+Tachograph Standards
+[53] CommissionImplementingRegulation(EU)2016/799.of18March2016implementingRegula-
+tion(EU)165/2014oftheEuropeanParliamentandoftheCouncillayingdowntherequirements
+fortheconstruction,testing,installation,operationandrepairoftachographsandtheircom-
+ponents,AnnexIClastamendedbyCommissionImplementingRegulation(EU)2023/980of16
+May2023.
+[54] Annex1C.ofCommissionImplementingRegulation(EU)2016/799.
+[55] Appendix11ofAnnex1C.ofCommissionImplementingRegulation(EU)2016/799.
+[57] ISO16844-4.:RoadVehicles–TachographSystems-Part4:CANInterface,2015.
+[58] CommissionImplementingRegulation(EU)2019/1213.of12July2019–layingdowndetailed
+provisionsensuringuniformconditionsfortheimplementationofinteroperabilityandcom-
+patibilityofon-boardweighingequipmentpursuanttoCouncilDirective96/53/EC.
+[60] Regulation(EC)No561/2006.oftheEuropeanParliamentandoftheCouncilof15March2006
+ontheharmonisationofcertainsociallegislationrelatingtoroadtransportandamending
+CouncilRegulations(EEC)No3821/85and(EC)No2135/98andrepealingCouncilRegulation
+(EEC) No 3820/85, last amended by Regulation (EU) 2020/1054 of the European Parliament
+andoftheCouncilof15July2020.
+115of144
+Other References
+[300] Public Security Target IFX_CCI_00003Fh, IFX_CCI_000059h, IFX_CCI_00005Bh, IFX_CCI_-
+00003Ch, IFX_CCI_00003Dh, IFX_CCI_00005Ah, G11. including optional software libraries:
+FlashLoaderaccordingPackage1andPackage2,HCL,RCL,HSL,ACLandSCLCommonCriteria
+EAL6augmented/EAL6+Revision2.6asof2024-08-16.
+[305] FIPSPUB180-4.:SecureHashStandard,NIST,March2012.
+[306] FIPSPUB186-4.:DigitalSignatureStandard(DSS),NIST,July2013.
+[307] FIPSPUB197.,U.S.DepartmentofCommerce,NationalInstituteofStandardsandTechnology,
+InformationTechnologyLaboratory(ITL),AdvancedEncryptionStandard(AES).
+[308] RFC3447.Public-KeyCryptographyStandards(PKCS)1:RSACryptographySpecificationsVersion
+2.1,February2003.
+[315] TR-03111.,TechnicalGuideline,EllipticCurveCryptography,BSI;version2.00,2012-06-28.
+[316] Aproposalfor:Functionalityclassesforrandomnumbergenerators. , Wolfgang Killmann
+(T-Systems)andWernerSchindler(BSI),Version2.0,18September2011.
+[317] AnforderungenundPrüfbedingungenfürSicherheitsetiketten.,BSITL-03415,Bundesamtfür
+SicherheitinderInformationstechnik,Version:1.4,Juli2011.
+[318] ISO15946-1:2002.Informationtechnology-Securitytechniques-Cryptographictechniques
+basedonellipticcurves-Part1:General.
+[319] ANSIX9.62:2005.PublicKeyCryptographyforthefinancialservicesindustry:TheEllipticCurve
+DigitalSignatureAlgorithm(ECDSA).
+116of144
+Annexes
+Annex A Key & Certificate Tables
+ThisannexprovidesdetailsofthecryptographickeysandcertificatesrequiredbytheVUduringits
+lifetime,andtosupportcommunicationwith1st and2nd generationdevices.
+TableA-1 First-generationasymmetrickeysgenerated,usedorstoredbyaVU
+TableA-2 First-generationsymmetrickeysgenerated,usedorstoredbyaVU
+TableA-3 First-generationcertificatesusedorstoredbyaVU
+TableA-4 Second-generationasymmetrickeysgenerated,usedorstoredbyaVU
+TableA-5 Second-generationsymmetrickeysgenerated,usedorstoredbyaVU
+TableA-6 Second-generationcertificatesusedorstoredbyaVU
+Ingeneral,avehicleunitwillnotbeabletoknowwhenithasreachedendoflifeandthuswillnot
+beabletomakepermanentsecretkeysunavailable. Therefore,forthepurposesofthetablesbelow,
+’endoflife’isdefinedasoneoffollowingcircumstances:
+a) WhensupportfortheGeneration-1cryptographyissuppressedbyaworkshop,asdescribedin
+Applicationnote1-5: ;
+b) Whenthe(Gen. 2)vehicleunitsigncertificatehasreacheditsendofvalidity. Ifothercircum-
+stancesnecessitatethedecommissioningofavehicleunit,makingunavailablethepermanently
+storedkeysmentionedinthistable,iffeasible,isamatteroforganisationalpolicy.
+117of144
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+TableA-1:First-generationasymmetrickeysgenerated,usedorstoredbyaVU
+Key Description Purpose Type Source Generation Destruction Storedin
+Symbol method methodandtime
+VU.SK VUprivatekey UsedbytheVUto RSA GeneratedbyVU Seesection Madeunavailable non-volatile
+performVU orVU 6.1.3.1.1ifdoneby whentheVUhas memory
+authentication manufacturerat VU.Otherwise, reachedendof
+to-wards theendofthe notinscopeof life
+tachographcards manufacturing thisST.
+andforsigning phase
+downloadeddata
+files
+SWUM.SK SWUMprivatekey UsedbytheVU RSA GeneratedbyVU Notinscopeof Madeunavailable non-volatile
+manufacturerfor manufacturerat thisST whentheVUhas memory
+decryptingthe theendofthe reachedendof
+transportkeyof manufacturing life
+theupdatefile phase
+SWUM.PK SWUMpublickey UsedbytheVU RSA GeneratedbyVU Notinscopeof Madeunavailable non-volatile
+forencryptingthe manufacturerat thisST whentheVUhas memory
+transportkeyof theendofthe reachedendof
+theupdatefile manufacturing life
+phase
+EUR.PK PublickeyofERCA UsedbyVUto RSA Generatedby Outofscopefor Notapplicable VUnon-volatile
+perform ERCA;insertedin thisST memory
+verificationofMS VUby
+certificates manufacturerat
+presentedby theendofthe
+(for-eign)cards manufacturing
+duringmutual phase
+authentication.
+Seealsonotesfor
+EUR.KIDinTable
+A-3
+Continuedonnextpage
+118of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+Key Description Purpose Type Source Generation Destruction Storedin
+Symbol method methodandtime
+Card.PK Cardpublickey UsedbyVUto RSA Generatedbycard Outofscopefor Notapplicable VUnon-volatile
+(condi- performcard orcard thisST memory
+tional, authentication manufacturer;
+possibly (seealsonotesfor obtainedbyVUin
+multiple) Card.Ccontentsin cardcertificate
+TableA-3) duringmutual
+authentication
+MS.PK Publickeyofan UsedbyVUto RSA Generatedby Outofscopefor Notapplicable VUnon-volatile
+(condi- MSCAotherthan perform (foreign)MSCA; thisST memory
+tional, theMSCA verificationof obtainedbyVUin
+possibly responsiblefor cardcertificates MScertificate
+multiple) signingtheVU signedbythis presentedbya
+certificate (foreign)MSCA. cardduring
+Seealsonotesfor mutual
+MS.Ccontentsin authentication
+TableA-3
+TableA-2:First-generationsymmetrickeysgenerated,usedorstoredbyaVU
+Key Description Purpose Type Source Generation Destruction Storedin
+Symbol method methodandtime
+SecureMessaging Sessionkeyfor TDES Agreedbetween Seesection Madeunavailable Notpermanently
+sessionkey dataprotection VUandcard 6.1.3.1.1 whentheSecure stored
+Agreedbetween betweenVUanda duringmutual Messaging
+VUandcard cardduringa authentication sessionisaborted
+duringmutual SecureMessaging
+authentication session
+119of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+TableA-3:First-generationcertificatesusedorstoredbyaVU
+CertificateSymbol Description Purpose Source Storedin Note
+VU.C VUcertificatefor UsedbycardsorIDE Createdandsigned VUgeneral
+signingandMutual toobtainandverify byMSCAbasedon non-volatilememory
+Authentication theVU.PKthatthey VUmanufacturer
+willsubsequently input;insertedby
+usetoperformVU manufactu-reratthe
+authentica-tionor endofthe
+verificationof manufacturingphase
+sig-naturescreated
+bytheVU
+MS.C CertificateofMSCA UsedbycardsorIDE Createdandsigned VUgeneral
+responsiblefor toobtainandverify byERCAbasedon non-volatilememory
+signingVUcertificate theMS.PKthatthey MSCAinput;inserted
+willsubsequently bymanufacturerat
+usetoverifytheVU.C theendofthe
+manufacturingphase
+Card.Ccontents CHRandothercard IfaVUhasverifieda Createdandsigned VUgeneral PresenceinVUis
+(conditional, certificatecontents cardcertificate byMSCAbasedon non-volatilememory conditional;onlyif
+possiblymultiple) before,itmaystore cardmanufacturer VUisdesignedto
+thepublickey(see input;insertedin storecardcertificate
+TableA-1),theCHR cardbycard contentsforfuture
+andpossiblythe manufacturer; referenceandhas
+validityperiodand obtainedandstored encounteredcardsin
+otherdatainorder byVUduringa thepast. TheVUmay
+toauthenticatethat previoussuccessful storethecontentsof
+cardagaininthe cardauthentication. multipleCard.C.
+future
+Continuedonnextpage
+120of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+CertificateSymbol Description Purpose Source Storedin Note
+MS.Ccontents CHRandotherMS IfaVUhasverifieda Createdandsigned VUgeneral PresenceinVUis
+(conditio-nal, certificatecontents MScertificatebefore, byERCAbasedon non-volatile conditional;onlyif
+possiblymultiple itmaystorethe MSCAinput,inserted memory. VUisde-signedto
+publickey(seeTable incardbycard storeMSCA
+A-1),theCHRand manufacturer; certificatecontents
+possiblythevalidity obtainedandstored forfuturereference
+periodandother byVUafter andhasencountered
+datainorderto successful cardscontaininga
+verifycard verificationduringa foreignMScertificate
+certifcatesbasedon previousmutual inthepast. TheVU
+thatMScertificatein authentication maystorethe
+thefuture processwitha contentsofmultiple
+(foreign)card. MS.C
+EUR.KIDKey KeyIdentifierfor Thisidentifierwillbe InsertedinVUby VUgeneral
+publickeyofERCA usedbytheVUto manufactureratthe non-volatilememory
+referencethe endofthe
+Europeanrootpublic manufacturingphase
+keyduringmutual
+authentication
+towardscardsor
+EGFs
+121of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+TableA-4:Second-generationasymmetrickeysgenerated,usedorstoredbyaVU
+Key Description Purpose Type Source Generation Destruction Storedin
+Symbol method methodandtime
+VU_- VUprivatekeyfor UsedbytheVUto ECC GeneratedbyVU notinscopeof Madeunavailable VUnon-volatile
+MA.SK Mutual performVU orVU thisST. whentheVUhas memory
+Au-thentication authentication manufacturerat reachedendof
+towards theendofthe life
+tachographcards manufacturing
+andexternal phase
+GNSSfacilities
+VU_Sign.- VUprivatekeyfor UsedbytheVUto ECC GeneratedbyVU notinscopeof Madeunavailable SecDEVPCinthe
+SK signing signdownloaded orVU thisST. whentheVUhas production
+datafiles manufacturerat reachedendof
+theendofthe life
+manufacturing
+phase
+SecDev.SK SecDevprivate Usedfor ECC GeneratedbyVU notinscopeof Madeunavailable SecDEVPCinthe
+key verificationofthe manufacturerat thisST. whentheVUhas production
+signatureofthe theendofthe reachedendof
+updatefile manufacturing life
+phase
+SecDev.PK SecDevpublickey Usedfor ECC GeneratedbyVU notinscopeof Madeunavailable VUnon-volatile
+generatingthe manufacturerat thisST. whentheVUhas memory
+corresponding theendofthe reachedendof
+signatures manufacturing life
+phase
+Continuedonnextpage
+122of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+Key Description Purpose Type Source Generation Destruction Storedin
+Symbol method methodandtime
+MD.SK Management usedfor ECC GeneratedbyVU notinscopeof Madeunavailable VUnon-volatile
+deviceprivatekey generatingthe manufacturerat thisST. whentheVUhas memory
+responseforthe theendofthe reachedendof
+challengeduring manufacturing life
+management phase
+device
+authentication
+MD.PK Management usedfor ECC GeneratedbyVU notinscopeof Madeunavailable VUnon-volatile
+devicepublickey verificationofthe manufacturerat thisST. whentheVUhas memory
+responseofthe theendofthe reachedendof
+management manufacturing life
+device phase
+EUR.PK Thecurrentpublic UsedbytheVUfor ECC Generatedby Outofscopefor Notapplicable VUnon-volatile
+(current) keyofERCA(at theverificationof ERCA;insertedin thisST memory
+thetimeof MSCAcertificates VUby
+issuingofVU) issuedunderthe manufacturerat
+cur-rentERCA theendofthe
+rootcertificate. manufacturing
+Seealsonotesfor phase
+EUR.C(current
+con-tentsinTable
+A-6.
+Continuedonnextpage
+123of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+Key Description Purpose Type Source Generation Destruction Storedin
+Symbol method methodandtime
+EUR.PK Theprevious UsedbytheVUto ECC Generatedby Outofscopefor Notapplicable VUnon-volatile
+(previ- publickeyofERCA verifyMSCA ERCA;insertedin thisST memory
+ous) (attheti-meof certificatesissued VUby (conditional;only
+is-suingofVU) underthe manufacturerat presentifexisting
+previousERCA theendofthe attimeofVU
+rootcertificate. manufacturing issuance)
+Seealsonotesfor phase
+EUR.C(previous)
+contentsinTable
+A-6
+EUR.Link Thepublickeyof UsedbytheVUto ECC Generatedby Outofscopefor Notapplicable VUgeneral
+.PK ERCAfollowing verifyMSCA ERCA;insertedby thisST nonvo-latile
+thepublickey certificatesissued manufacturerina memory
+thatwascurrent underthenext cardorEGFissued (con-ditional;only
+atthetimeof ERCAroot underthenext iftheVUhas
+issuingoftheVU certificate. Note generationof success-fully
+thatEUR.Link.PK EUR.Caspartof authenticateda
+isthesameasthe theEUR.Link.C; next-generation
+nextEUR.PK.See obtainedbyVU cardorEGF)
+alsoApplication du-ringmutual
+note6-40: And authentication
+notesfor towardssuchcard
+EUR.Link.C orEGF
+contentsinTable
+A-6.
+VU.SKEPH VUephemeral UsedbytheVUto ECC GeneratedbyVU Seesection Madeunavailable Notpermanently
+privatekey performsession duringmutual 6.1.2.1.1 atthelatestwhen stored
+keyagreement authentication theSecure
+withatachograph withacardorEGF Messaging
+cardorexternal sessionisaborted
+GNSSfacility
+Continuedonnextpage
+124of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+Key Description Purpose Type Source Generation Destruction Storedin
+Symbol method methodandtime
+VU.PKEPH VUephemeral Usedby ECC GeneratedbyVU Seesection Notapplicable Notpermanently
+publickey tacho-graphcards duringmutual 6.1.2.1.1 stored
+orexternalGNSS authentication
+facilitiesto withacardorEGF,
+per-formsession togetherwith
+keyagreement VU.SKeph
+withtheVU
+Card_- Cardpublickey UsedbyVUto ECC Generatedbycard Outofscopefor Notapplicable VUnon-volatile
+MA.PK forMutual performcard orcard thisST memory
+Authentication authentication manufac-turer; (conditional,
+andsessionkey obtainedbyVUin possiblymultiple)
+agreement(See cardcerti-ficate
+alsonotesfor duringmu-tual
+Card_MA.C authentication
+contentsinTable
+A-6)
+EGF_MA. EGFpublickeyfor UsedbyVUto ECC GeneratedbyEGF Outofscopefor Notapplicable VUnon-volatile
+PK Mutual performEGF orEGF thisST memory
+Authentication authentication manufacturer; (conditional,
+andsessionkey obtainedbyVUin possiblymultiple)
+agreement(See EGFcertificate
+alsonotesfor duringmutual
+Card_MA.C authenticationas
+contentsinTable partofthe
+A-6) couplingprocess
+Continuedonnextpage
+125of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+Key Description Purpose Type Source Generation Destruction Storedin
+Symbol method methodandtime
+MSCA_- Publickeyof UsedbyVUto ECC Generatedby Outofscopefor Notapplicable VUnon-volatile
+Card.PK MSCA verifythe MSCA;obtained thisST memory
+responsi-blefor certifi-cateofa byVUin (conditional,
+signingcard cardsignedby MSCA-_Card possiblymultiple)
+certificates this(foreign) certificateduring
+MSCA.Seealso mutual
+notesfor authentication
+MSCA-_Card.C
+contentsinTable
+A-6)
+VUEGF.PK Publickeyof UsedbyVUto ECC Generatedby Outofscopefor Notapplicable VUnon-volatile
+MSCA verifythe MSCA;obtained thisST memory
+responsi-blefor certificateofan byVUin (conditional,
+signingVUand EGFsignedbythis MSCA_VU-EGF possiblymultiple)
+EGFcertificates (foreign)MSCA. certificateduring
+Seealsonotesfor couplingtoan
+MSCA_VUEGF.C EGF
+contentsinTable
+A-6.
+126of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+TableA-5:Second-generationsymmetrickeysgenerated,usedorstoredbyaVU
+Key Description Purpose Type Source Generation Destruction Storedin
+Symbol method methodandtime
+Km-vu Motionsensor AllowingaVUto AES Generatedby Outofscopefor Madeunavailable VUnon-volatile
+masterkey–VU derivetheMotion ERCA;insertedby thisST whentheVUhas Memory
+part SensorMasterKey VUmanufacturer reachedendof
+ifawork-shop attheendofthe life
+cardisinserted manufacturing
+intotheVU phase. Note: as
+explainedin
+Annex1C[54],
+Appendix11,
+section12.2,aVU
+containsonlyone
+Km-vu.
+Continuedonnextpage
+127of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+Key Description Purpose Type Source Generation Destruction Storedin
+Symbol method methodandtime
+Km-wc Motionsensor AllowingaVUto AES Generatedby Outofscopefor Madeunavailable Notpermanently
+masterkey derivetheMotion ERCA;retrievedby thisST atthelatestby stored;only
+–workshopcard SensorMasterKey VUfrominserted endofcalibration presentduring
+part ifawork-shop workshopcard. phase pairingtoa2nd
+cardisinserted Note: as generation
+intotheVU explainedin motionsensor
+Annex1C[54],
+Appendix11,
+section12.2,a
+workshopcard
+maycontainupto
+threekeysKm-wc
+(ofconsecutive
+keygenerations).
+However,aVUwill
+retrieveonlyone
+ofthesekeys
+duringthepairing
+process.
+Km Motionsensor Keyusedfor AES DerivedbytheVU Not Madeunavailable Notpermanently
+masterkey au-thentication fromKm-vuand independently atthelatestby stored;(only
+bet-weentheVU Km-wc generated endofcalibration duringpairingto
+andamotion phase a2nd generation
+sensorduring motionsensor)
+pairing
+Continuedonnextpage
+128of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+Key Description Purpose Type Source Generation Destruction Storedin
+Symbol method methodandtime
+Kp Motionsensor Keyusedfor AES Generatedbythe Outofscopefor Madeunavailable Notpermanently
+pairingkey encryptingthe motionsensor thisST atthelatestby stored;only
+motionsensor manufacturer; endofcalibration presentduring
+sessionkeywhen storedinmotion phase pairingtoa2nd
+sendingittothe sensor(encrypted generation
+motionsensor underKm)atthe motionsensor
+duringpairing endofthe
+manufacturing
+phase;obtained
+anddecryptedby
+VUduringpairing
+Kid Motionsensor Keyusedfor AES DerivedbyVU Not Madeunavailable Notpermanently
+identificationkey authentication fromKmanda independently atthelatestby stored;only
+betweentheVU constantvector generated endofcalibration presentduring
+andamotion phase pairingtoa2nd
+sensorduring generation
+pairing motionsensor
+conditional
+KS Motionsensor Sessionkeyfor AES GeneratedbyVU Seesection Madeunavailable VUnon-volatile
+sessionkey38 confidentiality duringpairingto 6.1.2.1.1 whentheVUis memory
+betweenVUand amotionsensor pairedtoanother (conditional,only
+motionsensorin (orthesame) iftheVUhasbeen
+operationalphase motionsensor. pairedwitha
+motionsensor)
+Continuedonnextpage
+129of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+Key Description Purpose Type Source Generation Destruction Storedin
+Symbol method methodandtime
+Kmac SecureMessaging Sessionkeyfor AES Agreedbetween Seesection Madeunavailable Notpermanently
+sessionkeyfor authenticity VUandcardor 6.1.2.1.1 whentheSecure stored
+authenticity betweenVUanda EGFduringmutual Messaging
+cardorEGFduring authentication sessionisaborted
+aSecure
+Messaging
+session
+Kenc SecureMessaging Sessionkeyfor AES Agreedbetween Seesection Madeunavailable Notpermanently
+sessionkeyfor confidentiality VUandcardor 6.1.2.1.1 whentheSecure stored
+confidentiality betweenVUanda EGFduringmutual Messaging
+cardorEGFduring authentication sessionisaborted
+aSecure
+Messaging
+session
+K_VU VU-specificDSRC Toensure AES DerivedbyMSCA Outofscopefor Madeunavailable VUnon-volatile
+DSRC
+_ENC keyfor confi-dentialityof basedonDSRC thisST whentheVUhas memory
+confidentiality datasentovera MasterKeyand reachedendof
+remote VUserialnumber life
+communication receivedfromVU
+channelbetween manufacturer;
+aVUandaremote insertedbyVU
+earlydetection manufacturerat
+communication theendofthe
+reader manufacturing
+phase
+Continuedonnextpage
+130of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+Key Description Purpose Type Source Generation Destruction Storedin
+Symbol method methodandtime
+K_VU VU-specificDSRC Toensure AES DerivedbyMSCA Outofscopefor Madeunavailable VUnon-volatile
+DSRC
+_MAC keyfor integrityand basedonDSRC thisST whentheVUhas memory
+authenticity authenticityof MasterKeyand reachedendof
+datasentovera VUserialnumber life
+re-mote receivedfromVU
+communication manufacturer;
+channelbetween insertedbyVU
+aVUandaremote manufacturerat
+earlydetection theendofthe
+communication manufacturing
+reader phase
+TK Transportkeyfor Toensure AES Generatedbythe Outofscopeof Madeunavailable Notpermanently
+updatefile confidentialityof VUmanufacturer thisST whentheVUhas stored
+theupdatefile reachedendof
+life
+CBC-MAC CBC-MACkey Toprotectthe AES Generatedbythe Outofscopeof Madeunavailable VUnon-volatile
+SWUM.SK,the VUmanufacturer thisST whentheVUhas memory
+SecDev.PK,the reachedendof
+curveparameters life
+oftheunderlying
+ellipticcurveand
+theCBC-MACkey
+itself
+Kvu Individualdevice Keyusedto AES Generatedbythe Outofscopeof Madeunavailable VUnon-volatile
+key calculateMACsfor VUmanufacturer thisST whentheVUhas memory
+thedataintegrity reachedendof
+controlofuser life
+datarecords
+38Notethata‘session’canlastuptotwoyears,untilthenextcalibrationoftheVUinaworkshop.
+131of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+TableA-6:Second-generationcertificatesusedorstoredbyaVU
+CertificateSymbol Description Purpose Source Storedin Note
+VU_MA.C VUcertificatefor UsedbycardorEGF Createdandsigned VUgeneral
+Mutual toobtainandverify byMSCAbasedon non-volatilememory
+Authentication theVU_MA.PKthey VUmanufacturer
+willsubsequently input;insertedby
+usetoperformVU manufactureratthe
+authentication endofthe
+manufacturingphase
+VU_Sign.C VUcertificatefor UsedbyIDEor Createdandsigned VUgeneral
+signing controlcardto byMSCAbasedon non-volatilememory
+obtainandverifythe VUmanufacturer
+VU_Sign.PKtheywill input;insertedby
+subse-quentlyuseto manufactureratthe
+verifythesignature endofthe
+overadatafile manufacturingphase
+signedbytheVU.
+MSCA_VU-EGF.C CertificateofMSCA Usedbyacard,EGF Createdandsigned VUgeneral
+responsiblefor orIDEtoobtainand byERCAbasedon non-volatilememory
+signingtheVU_MA verifythe MSCAinput;inserted
+andVU_Sign MSCA_VUEGF.PKthey bymanufacturerat
+certificates willsubsequently theendofthe
+usetoverifythe manufacturingphase
+VU_MAorVU_Sign
+certificate
+Continuedonnextpage
+132of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+CertificateSymbol Description Purpose Source Storedin Note
+EUR.Link.C LinkCertificate Usedbyacard,EGF Createdandsigned VUgeneralnon- PresenceinVUis
+signedbyprevious orDIEissuedunder byERCA;insertedin volatile-memory condi-tional;onlyif
+EUR.SK(see thepreviousERCA VUbymanufacturer apreviousERCAroot
+ApplicationnoteA-1 rootcertificateto attheendofthe certificateexistedat
+below) obtainandverifythe manufacturingphase themomentofVU
+currentEUR.PKthey manufacturing
+willsubsequently
+usetoverifythe
+MSCA_VU-EGF
+certificate
+Continuedonnextpage
+133of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+CertificateSymbol Description Purpose Source Storedin Note
+EUR.C(current) CHRandother ThisCHRwillbe GeneratedbyERCA; VUgeneral
+Contents con-tentsofcurrent usedbytheVUto insertedinVUby non-volatilememory
+Europeanroot referencethecurrent manufactureratthe
+certificate Europeanrootpublic endofthe
+keyduring manufacturingphase
+verificationoftheVU
+certificationchainby
+acardorEGF.TheVU
+willalsoreadthis
+CHRfromtheMSCA
+certificateofacard
+orEGFissuedunder
+thecurrentEuropean
+rootpublickey
+duringverificationof
+thecardorEGF
+certificatechain. The
+CHRthenservesto
+referen-cetheVU’s
+EUR.PK(current)key
+(seeTableA-4. The
+VUmaystorethe
+validityperiodand
+othercertificatedata
+aswell.
+Continuedonnextpage
+134of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+CertificateSymbol Description Purpose Source Storedin Note
+EUR.C(previous) CHRandother TheVUwillreadthis GeneratedbyERCA; VUgeneral PresenceinVUis
+contents contentsofprevious CHRfromtheMSCA insertedinVUby non-volatilememory condi-tional;onlyif
+Europeanroot certificateofacard manufactureratthe apreviousERCAroot
+certificate orEGFissuedunder endofthe certificateexistedat
+theprevious manufacturingphase themomentofVU
+Europeanrootkey manufacturing
+duringverificationof
+thecardorEGF
+certificatechain. The
+CHRservesto
+referencetheVU’s
+EUR.PK(previous)
+key(seeTableA-4.
+TheVUmaystorethe
+validityperiodand
+othercertificatedata
+aswell.
+Continuedonnextpage
+135of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+CertificateSymbol Description Purpose Source Storedin Note
+EUR.Link.Ccontents CHRandother TheVUwillreadthis GeneratedbyERCA; VUgeneral PresenceinVUis
+contentsofnext CHRfromtheMSCA insertedby non-volatilememory condi-tional;onlyif
+Europeanroot certificateofacard manufacturerina theVUhas
+certificate orEGFissuedunder cardorEGFissued successfully
+thenextEuropean underthenext authenticatedanext
+rootkeyduring generationofEUR.C gene-rationcardor
+verificationofthe aspartofthe EGF
+cardorEGF EUR.Link.C;obtained
+certificatechain. The byVUduringmutual
+CHRservesto authentication
+referencetheVU’s towardssuchcardor
+EUR.Link.PKkey(see EGF
+TableA-4). TheVU
+maystorethe
+validityperiodand
+othercertificatedata
+aswell.
+Card_MA.Ccontents CHRandother IfaVUhasverifieda Createdandsigned VUgeneral PresenceinVUis
+contentsofCard Card_MAcertificate byMSCAbasedon non-volatilememory condi-tional;onlyif
+certificateforMutual before,itmaystore cardmanufacturer VUisdesig-nedto
+Authentication thepublickey(see input;insertedin storecardcertificate
+TableA-4,theCHR cardbycard contentsforfuture
+andpossiblythe manufacturer; refe-renceandhas
+validityperiodand obtainedandstored encounteredcardsin
+otherdatainorder byVUdu-ringmutual thepast. TheVUmay
+toauthenticatethat authenticationafter storethecontentsof
+cardagaininthe successful multipleCard_MA.C.
+future verification.
+Continuedonnextpage
+136of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+CertificateSymbol Description Purpose Source Storedin Note
+EGF_MA.Ccontent CHRandother IfaVUhasverified Createdandsigned VUgeneral PresenceinVUis
+contentsofEGF anEGF_MA byMSCA_VU-EGF non-volatilememory condi-tional;onlyif
+certificateforMutual certificatebefore,it basedonEGF VUhasbeencoupled
+Authentication maystorethepublic manufacturerinput, toanEGF.TheVU
+key(seeTableA-4), insertedinEGFby shallstorethe
+theCHRandpossibly EGFmanufacturer, contentsofonlyone
+thevalidityperiod obtainedandstored EGF_MA.Catany
+andotherdatain byVUduringmutual giventime
+ordertoauthenticate authenticationafter
+thatEGFagaininthe successful
+future verification.
+MSCA_Card.C CHRandother IfaVUhasverifieda Createdandsigned VUgeneral PresenceinVUis
+contents contentsof MSCAcertificate byERCAbasedon non-volatilememory condi-tional;onlyif
+certificateofMSCA before,itmaystore MSCAinput,inserted VUisdesignedto
+responsiblefor thepublickey(see incardbycard storecardcertificate
+signingcard TableA-4),theCHR manufacturer contentsforfuture
+certificates andpossiblythe obtainedandstored referen-ceandhas
+validityperiodand byVUafter encounteredcardsin
+otherdatainorder successful thepast. TheVUmay
+toverifycard verificationduringa storethecontentsof
+certificatesbasedon previousmutual multiple
+thatMSCAcertificate authentication MSCA_Card.C,e.g.
+inthefuture processwithacard. differentMSCAs
+and/orgenerations
+Continuedonnextpage
+137of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+DTCO1381R4.1bSecurityTarget
+Rev.
+1.9
+CertificateSymbol Description Purpose Source Storedin Note
+MSCA_VU-EGF.C CHRandotherof IfaVUhasverifieda Createdandsigned VUgeneral PresenceinVUis
+Contents certificateofMSCA MSCAcertificate byERCAbasedon non-volatilememory condi-tional;onlyif
+responsiblefor before,itmaystore MSCAinput,inserted VUhasbeencoupled
+signingVUandEGF thepublickey(see inEGFbyEGF toanEGFandis
+certificates TableA-4),theCHR manufacturer; designedtostore
+andpossiblythe obtainedandstored MSCAcertificate
+validityperiodand byVUafter contentsforfuture
+otherdatainorder successful reference
+toverifyEGF veri-ficationduringa
+certificatesbasedon previousmutual
+thatMSCAcertificate au-thentication
+inthefuture processwithacard.
+ApplicationnoteA-1: Duringitslifetime,theVUcanbeconfrontedwithtwodifferentlinkcertificates:
+- IfatthetimeofissuanceoftheVU,therearecardsorEGFsinthefieldthatareissuedunderapreviousEUR.C,
+thentheVUshallbeissuedwithboththepreviousEUR.CandaEUR.Link.CsignedwiththepreviousEUR.SK.
+TheVUwillneedthefirstonetochecktheauthenticityoftheoldcards. TheVUwillneedthesecondoneto
+proveitsauthenticitytowardsoldcards.
+- If,aftertheissuanceoftheVU,anewEUR.CisgeneratedandcardsorEGFsareissuedunderthisnewroot
+certificate,thensuchanewcardorEGFwillpresenttheVUwithaEUR.Link.CsignedbythecurrentEUR.SKto
+proveitsauthenticity. TheVUcancheckthiscertificatewithitscurrentEUR.PK.Ifcorrect,theVUshallstore
+theEUR.Link.PKasanewtrustpoint.
+138of144
+©ContinentalAG
+1381R41b.HOM.6154.SecurityTarget.pdf
+Releasedby
+marion.gruener@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+Designedby
+norbert.koehn@continental-corporation.com
+2025-07-21
+AAMCSVRDPSHOVIL
+public
+Date
+Department
+Signature
+Annex B Operations for FCS_RNG.1
+This annex provides further information on the use of FCS_RNG.1 and FCS_CKM.1(1) in compliant
+securitytargets. Thesecuritytargetauthorshouldselectoneoftheseclasses,asappropriatetothe
+TOE,tocompletetheselectioninFCS_CKM.1(1),andshouldcompletetheoperationsinFCS_RNG.1
+correspondingly. Furtherinformationontheapplicationoftheseclassescanbefoundin[316].
+B.1 Class PTG.2
+FunctionalsecurityrequirementsoftheclassPTG.2aredefinedbycomponentFCS_RNG.1withspecific
+operationsasgivenbelow.
+FCS_RNG.1 Randomnumbergeneration(ClassPTG.2)
+FCS_RNG.1.1 TheTSFshallprovidea[physical]randomnumbergeneratorthatimplements:
+(PTG.2.1) Atotalfailuretestdetectsatotalfailureofentropysourceimmedi-
+atelywhentheRNGhasstarted. Whenatotalfailureisdetected,
+norandomnumberswillbeoutput.
+(PTG.2.2) IfatotalfailureoftheentropysourceoccurswhiletheRNGisbeing
+operated,theRNG[selection: preventstheoutputofanyinternal
+randomnumberthatdependsonsomerawrandomnumbersthat
+havebeengeneratedafterthetotalfailureoftheentropysource,
+generates the internal random numbers with a post-processing
+algorithmofclassDRG.2aslongasitsinternalstateentropyguar-
+anteestheclaimedoutputentropy].
+(PTG.2.3) Theonlinetestshalldetectnon-tolerablestatisticaldefectsofthe
+rawrandomnumbersequence(i)immediatelywhentheRNGhas
+started,and(ii)whiletheRNGisbeingoperated. TheTSFmustnot
+outputanyrandomnumbersbeforethepower-uponlinetesthas
+finishedsuccessfullyorwhenadefecthasbeendetected.
+(PTG.2.4) Theonlinetestprocedureshallbeeffectivetodetectnon-tolerable
+weaknessesoftherandomnumberssoon.
+(PTG.2.5) The online test procedure checks the quality of the raw random
+numbersequence. Itistriggered[selection: externally,atregular
+intervals,continuously,applieduponspecifiedinternalevents]. The
+onlinetestissuitablefordetectingnon-tolerablestatisticaldefects
+ofthestatisticalpropertiesoftherawrandomnumberswithinan
+acceptableperiodoftime.
+FCS_RNG.1.2 The TSF shall provide [selection: bits, octets of bits, numbers [assignment:
+formatofthenumbers]]thatmeet:
+139of144
+(PTG.2.6) Test procedure A39 [assignment: additional standard test suites]
+does not distinguish the internal random numbers from output
+sequencesofanidealRNG.
+(PTG.2.7) The average Shannon entropy per internal random bit exceeds
+0.997.
+B.2 Class PTG.3
+FunctionalsecurityrequirementsoftheclassPTG.3aredefinedbycomponentFCS_RNG.1withspecific
+operationsasgivenbelow.
+FCS_RNG.1 Randomnumbergeneration(ClassPTG.3)
+FCS_RNG.1.1 TheTSFshallprovidea[hybridphysical]randomnumbergeneratorthatimple-
+ments:
+(PTG.3.1) Atotalfailuretestdetectsatotalfailureofentropysourceimmedi-
+atelywhentheRNGhasstarted. Whenatotalfailureisdetected,
+norandomnumberswillbeoutput.
+(PTG.3.2) IfatotalfailureoftheentropysourceoccurswhiletheRNGisbeing
+operated,theRNG[selection: preventstheoutputofanyinternal
+randomnumberthatdependsonsomerawrandomnumbersthat
+havebeengeneratedafterthetotalfailureoftheentropysource,
+generates the internal random numbers with a post-processing
+algorithmofclassDRG.3aslongasitsinternalstateentropyguar-
+anteestheclaimedoutputentropy].
+(PTG.3.3) Theonlinetestshalldetectnon-tolerablestatisticaldefectsofthe
+rawrandomnumbersequence(i)immediatelywhentheRNGhas
+started, and (ii) while the RNG is being operated. The TSF must
+notoutputanyrandomnumbersbeforethepower-uponlinetest
+andtheseedingoftheDRG.3post-processingalgorithmhavebeen
+finishedsuccessfullyorwhenadefecthasbeendetected.
+(PTG.3.4) Theonlinetestprocedureshallbeeffectivetodetectnon-tolerable
+weaknessesoftherandomnumberssoon.
+(PTG.3.5) Theonlinetestprocedurecheckstherawrandomnumbersequence.
+It is triggered [selection: externally, at regular intervals, continu-
+ously,uponspecifiedinternalevents]. Theonlinetestissuitablefor
+detectingnon-tolerablestatisticaldefectsofthestatisticalprop-
+ertiesoftherawrandomnumberswithinanacceptableperiodof
+time.
+39See[316]Section2.4.4.
+140of144
+(PTG.3.6) Thealgorithmicpost-processingalgorithmbelongstoClassDRG.3
+withcryptographicstatetransitionfunctionandcryptographicout-
+putfunction,andtheoutputdatarateofthepost-processingalgo-
+rithmshallnotexceeditsinputdatarate.
+FCS_RNG.1.2 The TSF shall provide [selection: bits, octets of bits, numbers [assignment:
+formatofthenumbers]]thatmeet:
+(PTG.3.7) Statistical test suites cannot practically distinguish the internal
+randomnumbersfromoutputsequencesofanidealRNG.Thein-
+ternalrandomnumbersmustpasstestprocedureA39 [assignment:
+additionaltestsuites].
+(PTG.3.8) Theinternalrandomnumbersshall[selection: usePTRNGofclass
+PTG.2asrandomsourceforthepost-processing,have[assignment:
+workfactor],require[assignment: guesswork]].
+B.3 Class DRG.2
+FunctionalsecurityrequirementsoftheclassDRG.2aredefinedbycomponentFCS_RNG.1withspecific
+operationsasgivenbelow.
+FCS_RNG.1 Randomnumbergeneration(ClassDRG.2)
+FCS_RNG.1.1 TheTSFshallprovidea[deterministic]randomnumbergeneratorthatimple-
+ments:
+(DRG.2.1) Ifinitializedwitharandomseed[selection: usingaPTRNGofclass
+PTG.2asrandomsource,usingaPTRNGofclassPTG.3asrandom
+source,usinganNPTRNGofclassNTG.1[assignment: otherrequire-
+mentsforseeding]],theinternalstateoftheRNGshall[selection:
+have [assignment: amount of entropy], have [assignment: work
+factor],require[assignment: guesswork]].
+(DRG.2.2) TheRNGprovidesforwardsecrecy.
+(DRG.2.3) TheRNGprovidesbackwardsecrecy.
+FCS_RNG.1.2 TheTSFshallproviderandomnumbersthatmeet:
+(DRG.2.4) TheRNG,initializedwitharandomseed[assignment: requirements
+for seeding], generates output for which [assignment: number
+of strings] strings of bit length 128 are mutually different with
+probability[assignment: probability].
+(DRG.2.5) Statistical test suites cannot practically distinguish the random
+numbers from output sequences of an ideal RNG. The random
+numbersmustpasstestprocedureA39 [assignment: additionaltest
+suites].
+141of144
+B.4 Class DRG.3
+FunctionalsecurityrequirementsoftheclassDRG.3aredefinedbycomponentFCS_RNG.1withspecific
+operationsasgivenbelow.
+FCS_RNG.1 Randomnumbergeneration(ClassDRG.3)
+FCS_RNG.1.1 TheTSFshallprovidea[deterministic]randomnumbergeneratorthatimple-
+ments:
+(DRG.3.1) Ifinitializedwitharandomseed[selection: usingaPTRNGofclass
+PTG.2asrandomsource,usingaPTRNGofclassPTG.3asrandom
+source,usinganNPTRNGofclassNTG.1[assignment: otherrequire-
+mentsforseeding]],theinternalstateoftheRNGshall[selection:
+have [assignment: amount of entropy], have [assignment: work
+factor],require[assignment: guesswork]].
+(DRG.3.2) TheRNGprovidesforwardsecrecy.
+(DRG.3.3) The RNG provides backward secrecy even if the current internal
+stateisknown.
+FCS_RNG.1.2 TheTSFshallproviderandomnumbersthatmeet:
+(DRG.3.4) TheRNG,initializedwitharandomseed[assignment: requirements
+for seeding], generates output for which [assignment: number
+of strings] strings of bit length 128 are mutually different with
+probability[assignment: probability].
+(DRG.3.5) Statistical test suites cannot practically distinguish the random
+numbers from output sequences of an ideal RNG. The random
+numbersmustpasstestprocedureA39 [assignment: additionaltest
+suites].
+B.5 Class DRG.4
+FunctionalsecurityrequirementsoftheclassDRG.4aredefinedbycomponentFCS_RNG.1withspecific
+operationsasgivenbelow.
+FCS_RNG.1 Randomnumbergeneration(ClassDRG.4)
+FCS_RNG.1.1 TheTSFshallprovidea[hybriddeterministic]randomnumbergeneratorthat
+implements:
+(DRG.4.1) TheinternalstateoftheRNGshall[selection: usePTRNGofclass
+PTG.2 as random source, have [assignment: work factor], require
+[assignment: guesswork]].
+(DRG.4.2) TheRNGprovidesforwardsecrecy.
+(DRG.4.3) The RNG provides backward secrecy even if the current internal
+stateisknown.
+142of144
+(DRG.4.4) TheRNGprovidesenhancedforwardsecrecy[selection: ondemand,
+oncondition[assignment: condition],after[assignment: time]]
+(DRG.4.5) TheinternalstateoftheRNGisseededbyan[selection: internal
+entropysource,PTRNGofclassPTG.2,PTRNGofclassPTG.3,[other
+selection]].
+FCS_RNG.1.2 TheTSFshallproviderandomnumbersthatmeet:
+(DRG.4.6) The RNG generates output for which [assignment: number of
+strings]stringsofbitlength128aremutuallydifferentwithproba-
+bility[assignment: probability].
+(DRG.4.7) Statistical test suites cannot practically distinguish the random
+numbers from output sequences of an ideal RNG. The random
+numbersmustpasstestprocedureA39 [assignment: additionaltest
+suites].
+B.6 Class NTG.1
+FunctionalsecurityrequirementsoftheclassNTG.1aredefinedbycomponentFCS_RNG.1withspecific
+operationsasgivenbelow.
+FCS_RNG.1 Randomnumbergeneration(ClassNTG.1)
+FCS_RNG.1.1 The TSF shall provide a [non-physical true] random number generator that
+implements:
+(NTG.1.1) TheRNGshalltesttheexternalinputdataprovidedbyanon-phy-
+sicalentropysourceinordertoestimatetheentropyandtodetect
+non-tolerablestatisticaldefectsunderthecondition[assignment:
+requirementsforNPTRNGoperation].
+(NTG.1.2) TheinternalstateoftheRNGshallhaveatleast[assignment: Min-
+entropy]. The RNG shall prevent any output of random numbers
+untiltheconditionsforseedingarefulfilled.
+(NTG.1.3) The RNG provides backward secrecy even if the current internal
+state and the previously used data for reseeding, resp. for seed-
+update,areknown.
+FCS_RNG.1.2 TheTSFshallproviderandomnumbersthatmeet:
+(NTG.1.4) The RNG generates output for which [assignment: number of
+strings]stringsofbitlength128aremutuallydifferentwithproba-
+bility[assignment: probability].
+(NTG.1.5) Statistical test suites cannot practically distinguish the internal
+randomnumbersfromoutputsequencesofanidealRNG.Thein-
+ternalrandomnumbersmustpasstestprocedureA39 [assignment:
+additionaltestsuites].
+143of144
+(NTG.1.6) The average Shannon entropy per internal random bit exceeds
+0.997.
+144of144]]></raw>
+  </toe_summary_spec>
+  <unparsed_sections/>
+  <validation_report>
+    <summary stage1="ran" stage1_errors="6" stage1_warnings="0" stage2_errors="0" stage2_warnings="68" result="FAIL"/>
+    <issues>
+      <issue type="HIERARCHICAL_MISMATCH" severity="ERROR" location="FDP_SDI.2" detail="parsed=[] catalog=['FDP_SDI.1']"/>
+      <issue type="HIERARCHICAL_MISMATCH" severity="ERROR" location="FPT_PHP.2" detail="parsed=[] catalog=['FPT_PHP.1']"/>
+      <issue type="DEPENDENCY_MISMATCH" severity="ERROR" location="FPT_PHP.2" detail="['FMT_MOF.1'] not found among catalog dependencies ['FMT_LIM.1']"/>
+      <issue type="UNKNOWN_COMPONENT" severity="ERROR" location="FCS_CKM.4" detail="not found in cc_2022.xml catalog"/>
+      <issue type="HIERARCHICAL_MISMATCH" severity="ERROR" location="FIA_UAU.2" detail="parsed=[] catalog=['FIA_UAU.1']"/>
+      <issue type="HIERARCHICAL_MISMATCH" severity="ERROR" location="FIA_UID.2" detail="parsed=[] catalog=['FIA_UID.1']"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="O.Authentication" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="O.Access" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Test_Points" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Data_TransportandOE.Data_Strong" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Regular_Inspections" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="O.Reliability" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Controls" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Software_Update" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="O.Processing" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Bluetooth" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="O.Audit" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="O.Integrity" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Approved_Workshops" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Type_Approval_MS11" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Data_Strong" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="O.Secured_Exchange" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Data_Generation" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.EOL" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Data_Transport" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Card_Traceability" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="O.Accountability" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Driver_Card_Unique" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="O.Software_Update" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="O.Output" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Faithful_Calibration" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Management_Device" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Type_Approval_EGF" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Delivery" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.Compliant_Drivers" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FAU_GEN.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FAU_SAR.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FAU_STG.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FAU_STG.4" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FCO_NRO.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FDP_ACC.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FDP_ACF.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FDP_ITC.2" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FDP_ITC.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FDP_ETC.2" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FDP_IFC.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FDP_ITT.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FDP_RIP.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FDP_SDI.2" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FMT_MSA.3" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FMT_MSA.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FMT_MOF.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FMT_MTD.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FTP_TRP.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FTP_ITC.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FPT_TDC.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FPT_FLS.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FPT_PHP.2" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FPT_PHP.3" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FPT_STM.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FPT_TST.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FCS_CKM.4" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FCS_CKM.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FCS_CKM.2" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FCS_COP.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FCS_RNG.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FIA_AFL.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FIA_ATD.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FIA_UAU.3" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FIA_UAU.5" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FIA_UAU.6" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FIA_UAU.1" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FIA_UAU.2" detail="no mapping in sfr_rationale"/>
+      <issue type="UNMAPPED_SFR" severity="WARNING" location="FIA_UID.2" detail="no mapping in sfr_rationale"/>
+    </issues>
+  </validation_report>
+</cc_document>

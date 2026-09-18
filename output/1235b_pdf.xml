@@ -1,0 +1,3334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cc_document doc_type="ST" title="Security Target for BlackBerry UEM Server" version="1.9" date="2025-08-18" cc_version="CCV3.1R5]. Dependencies have changed from FAU_STG.1 to FAU_STG.2. This section has been updated to reflect" eal="EAL4" rationale_type="derived">
+  <introduction>
+    <doc_reference>
+      <identifier/>
+      <title>Security Target for BlackBerry UEM Server</title>
+      <version>1.9</version>
+      <date>2025-08-18</date>
+      <author/>
+      <sponsor/>
+    </doc_reference>
+    <toe_reference doc_type_applies="ST">
+      <name>Security Target for BlackBerry UEM Server</name>
+      <version>1.9</version>
+      <developer/>
+    </toe_reference>
+    <toe_overview>
+      <toe_type/>
+      <description/>
+    </toe_overview>
+  </introduction>
+  <conformance_claims>
+    <cc_conformance>
+      <cc_version>CCV3.1R5]. Dependencies have changed from FAU_STG.1 to FAU_STG.2. This section has been updated to reflect</cc_version>
+      <part2_conformance>extended</part2_conformance>
+      <part3_conformance>strict</part3_conformance>
+    </cc_conformance>
+    <pp_claims doc_type_applies="ST">
+      <pp_claim ref="PP-0116" conformance_type=""/>
+      <pp_claim ref="PP-Configuration" conformance_type=""/>
+      <pp_claim ref="PP-Module" conformance_type=""/>
+    </pp_claims>
+    <allowed_with doc_type_applies="PP"/>
+    <package_claims>
+      <package_claim ref="EAL4" augmented="false"/>
+    </package_claims>
+    <conformance_rationale/>
+  </conformance_claims>
+  <spd>
+    <assets/>
+    <threats>
+      <threat id="T.MALICIOUSDEVICE">
+        <description>A malicious device agent may gain unauthorised
+logical access to the MDM device server component
+in order to cause unauthorised execution of
+management functions (in particular enrolment or
+unenrolment), to disclose or modify user data, or to
+compromise the MDM device server component.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.MALICIOUSSTAFF">
+        <description>A malicious staff agent may gain unauthorised
+logical access to the MDM control server component
+in order to cause unauthorised execution of
+management functions, to disclose or modify user
+data, or to compromise the MDM control server
+component.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.MASQUERADING">
+        <description>A malicious MDM proxy may masquerade as an
+authorised device agent, an authorised staff agent,
+or the MDM device/control server component in
+2 T.COMPROMISEDCOMMUNICATION is defined in [MDMTSPP] and [TCCPPM]. The other threats are defined in
+[MDMTSPP].
+Page 17
+Threat Description
+order to disclose or modify user data exchanged
+between the MDM device/control server
+component and authorised device/staff agents.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.COMPROMISEDCOMMUNICATION">
+        <description>A network attacker may gain unauthorised logical
+access to communication channels in order to
+disclose or modify data exchanged between parts of
+the TOE and remote external entities.</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+      <threat id="T.COMPROMISEDSTORAGE">
+        <description>A malicious MDM proxy may gain unauthorised
+logical access to storage media in order to disclose
+or modify user data processed by the MDM
+device/control server component.
+Table 1: Threats
+3.2 Organisational security policies
+The following organisational security policies (OSPs) are to be enforced by the TOE and the TOE
+environment. They have been taken from [MDMTSPP].3
+OSP Description</description>
+        <asset_refs/>
+        <agents/>
+        <rationale doc_type_applies="direct"/>
+      </threat>
+    </threats>
+    <assumptions>
+      <assumption id="A.PROPERSTAFF">
+        <description>Staff members are assigned and authorised as administrator,
+auditor or manager based on their competence, skills, and training.
+They are trusted to not act in a careless, negligent, or hostile
+manner. They have access to operational user guidance and follow
+the instructions.
+3 [TCCPPM] does not define any organisational security policies.
+4 [TCCPPM] does not define any assumptions on the TOE environment.
+Page 18
+Assumption Description</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.PROPERUSER">
+        <description>Mobile device users are well informed about security measures and
+how to respond to security incidents. Mobile device users are
+assumed to immediately notify an authorised manager if a mobile
+device is lost or stolen so that the manager may apply remediation
+actions via the MDM Trusted Server.</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.PROPERMANAGEMENT">
+        <description>Mobile device management activities, including updates of
+applications and the operating system, are assumed to be
+performed cautiously, carefully and regularly. Authorised managers
+are in the performance of their tasks assumed to have due regard
+to the balance of stability and security of mobile device settings
+and configurations.</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+      <assumption id="A.RESILIENCE">
+        <description>The operational environment provides sufficient security measures
+to ensure availability and resilience of the MDM Trusted Server.
+Table 3: Assumptions
+Page 19
+4 SECURITY OBJECTIVES
+The security objectives provide a concise statement of the intended response to the security
+problem. It will describe which security need will be addressed by the TOE and which will be
+addressed by the TOE environment, in the form of a statement of security objectives.</description>
+        <rationale doc_type_applies="direct"/>
+      </assumption>
+    </assumptions>
+    <osps>
+      <osp id="P.SEPARATION">
+        <description>The MDM Trusted Server shall separate interaction with authorised device
+agents from interaction with authorised staff agents. The MDM device
+server component shall communicate with device agents. The MDM control
+server component shall communicate with staff agents. The TOE shall
+prevent unauthorised disclosure or modification of data when it is
+transmitted between device agents, staff agents and MDM device/control
+server components.</description>
+        <rationale doc_type_applies="direct"/>
+      </osp>
+      <osp id="P.MANAGEMENT">
+        <description>The MDM Trusted Server shall provide management of mobile devices by
+providing management functions as specified in Table 12. Management
+functions shall be performed only on behalf of authorised device/manager
+agents. The performance of management functions shall be controlled
+based on a hierarchical grouping relationship of authorised device/
+manager agents.
+Table 2: OSPs
+3.3 Assumptions
+This section specifies the assumptions on the TOE environment that are necessary for the TOE to
+meet its security objectives. They have been taken from [MDMTSPP]4.
+Assumption Description</description>
+        <rationale doc_type_applies="direct"/>
+      </osp>
+    </osps>
+  </spd>
+  <security_objectives>
+    <toe_objectives>
+      <objective id="OT.COMMUNICATION">
+        <description>The TOE shall prevent unauthorised disclosure and
+modification of data exchanged between parts of
+the TOE and remote authorised external entities by
+establishing and maintaining mutually
+authenticated trusted communication paths.
+The protection of confidentiality and integrity shall
+be based on the use of trusted communication
+channels.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.DEVICELIFECYCLE">
+        <description>The TOE shall protect the life-cycle of mobile
+devices by providing a trusted communication path
+between the TSF and each authorised device agent
+for device enrolment services, and by restricting the
+control over all device life-cycle management
+activities to authorised administrator agents.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.DEVICETRACKING">
+        <description>The TOE shall provide reliable logging facilities, that
+record all management activities of mobile devices
+including events concerning the life-cycle of mobile
+devices and any configuration changes of mobile
+devices. The logging facilities shall include the
+identities of the authorised device agents
+concerned. Review of the audit records shall be
+restricted to authorised auditor agents or
+authorised manager agents, and selectable with
+respect to the hierarchical grouping of device and
+staff agents.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.LOGGING">
+        <description>The TOE shall provide reliable logging facilities, that
+record all actions of authorised staff agents. The
+logging facilities shall include the identities of the
+authorised staff agents concerned. Review of the
+audit records shall be restricted to authorised
+auditor agents.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.MANAGEMENT">
+        <description>The TOE shall provide management of mobile
+devices by providing management functions as
+specified in Table 12. Management functions shall
+be performed only on behalf of authorised device
+agents or authorised manager agents. The
+5 OT.COMMUNICATION is defined in [MDMTSPP] and has been refined in [TCCPPM] to include trusted
+communication channels. OT.TRUSTEDCOMMUNICATIONCHANNEL is defined in [TCCPPM]. The remaining
+objectives are defined in [MDMTSPP].
+Page 20
+Objective5 Description
+performance of management functions shall be
+controlled based on a hierarchical grouping
+relationship of authorised device agents and
+authorised manager agents.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.SEPARATION">
+        <description>The TOE shall separate interaction with authorised
+device agents from interaction with authorised staff
+agents. The MDM device server component shall
+communicate with device agents. The MDM control
+server component shall communicate with staff
+agents. The TOE shall prevent unauthorised
+disclosure or modification of data when it is
+transmitted between authorised device agents,
+authorised staff agents and MDM device/control
+server components.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.STORAGE">
+        <description>The TOE shall prevent unauthorised disclosure or
+modification of user data when it is stored on
+persistent storage media.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.TRUSTEDCOMMUNICATIONCHANNEL">
+        <description>The TOE shall provide mutually authenticated
+trusted communication channels. The TOE shall
+implement the trusted communication channels
+using trusted channel protocols based on
+cryptographic mechanisms.
+Table 4: Security objectives for the TOE</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+    </toe_objectives>
+    <env_objectives>
+      <objective id="OE.PROPERSTAFF">
+        <description>All authorised administrators, auditors and
+managers shall be competent, skilled and trained.
+They shall follow and apply TOE user guidance in a
+trusted manner.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PROPERUSER">
+        <description>Mobile device user’s awareness concerning security
+measures shall be assured. This includes the
+handling of security incidents as well as the
+acceptance of notifications. Mobile device users
+shall immediately notify an authorised manager if a
+mobile device is lost or stolen so that the manager
+may apply remediation actions via the TOE.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PROPERMANAGEMENT">
+        <description>Mobile device management activities, including
+updates of applications and the operating system,
+shall be performed cautiously, carefully and
+6 [TCCPPM] does not define security objectives for the TOE environment.
+Page 21
+Objective Description
+regularly. Authorised managers shall in the
+performance of their tasks have due regard to the
+balance of stability and security of mobile device
+settings and configurations.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.RESILIENCE">
+        <description>The security configuration settings of the
+operational environment shall be appropriately
+adjusted to support availability and resilience of the
+TOE.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.DEVICELIFECYCLE">
+        <description>The device agents shall provide suitable technical
+means for trusted device enrolment, protected
+storage and communication, and execution of
+management functions during the mobile device
+life-cycle. Security measures and configuration
+settings of mobile devices shall be regularly
+checked and adjusted by authorised managers.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.SUPPORTINGSERVICES">
+        <description>The operational environment shall establish
+suitable technical means for the protection of all
+supporting services including their connection to
+the TOE. In particular, the operational environment
+shall provide a trusted enrolment service for mobile
+devices.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.RELIABLETIMESTAMPS">
+        <description>The operational environment shall provide reliable
+timestamps.</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.AUDITTRAIL">
+        <description>The operational environment shall protect the
+stored audit records in the audit trail from
+unauthorised deletion or unauthorised
+modification.
+Table 5: Security objectives for the operational environment
+4.3 Security objectives rationale
+All security objectives trace to threats and organisational security policies (see Table 6).
+All security objectives for the operational environment trace to assumptions (see Table 7).
+E
+C IV F A G N D- N O D- T
+E D S T S S ID A E S IM IT A E S IM N O N E M
+U O IC U O IC R E U Q O R P C IN U O R P E G IT A R E G A
+IL IL S MM MA A N
+A M A M A M OM OR O P E A M
+.T .T .T C .T O C C .T T S S .P .P</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.COMMUNICATION">
+        <description>x x x x x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.DEVICELIFECYCLE">
+        <description>x x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.DEVICETRACKING">
+        <description>x
+Page 22
+E
+C IV F A G N D- N O D- T
+E D S T S S ID A E S IM IT A E S IM N O N E M
+U O IC U O IC R E U Q O R P C IN U O R P E G IT A R E G A
+IL IL S MM MA A N
+A M A M A M OM OR O P E A M
+.T .T .T C .T O C C .T T S S .P .P</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.LOGGING">
+        <description>x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.MANAGEMENT">
+        <description>x x x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.SEPARATION">
+        <description>x x x x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.STORAGE">
+        <description>x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.TRUSTEDCOMMUNICATIONCHANNEL">
+        <description>x x x x x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PROPERSTAFF">
+        <description>x x x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PROPERUSER">
+        <description>x x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PROPERMANAGEMENT">
+        <description>x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.RESILIENCE">
+        <description>x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.DEVICELIFECYCLE">
+        <description>x x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.SUPPORTINGSERVICES">
+        <description>x x x x x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.RELIABLETIMESTAMPS">
+        <description>x x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.AUDITTRAIL">
+        <description>x
+Table 6: Tracing of security objectives to threats and organisational security policies
+The following rationale provides justification that the security objectives are suitable to counter
+each individual threat and that each security objective tracing back to a threat actually contributes
+to the mitigation of that threat.
+The threat T.MALICIOUSDEVICE is countered by the objectives OT.COMMUNICATION,</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.SEPARATION">
+        <description>, OT.MANAGEMENT, OT.DEVICELIFECYCLE, and OT.DEVICETRACKING which are
+supported by the objectives OE.PROPERSTAFF, OE.PROPERUSER, OE.DEVICELIFECYCLE,</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.SUPPORTINGSERVICES">
+        <description>, OT.TRUSTEDCOMMUNICATIONCHANNEL, and OE.RELIABLETIMESTAMPS
+as these objectives ensure that unauthorised logical access of malicious device agents to the MDM
+device server component is prevented.
+The threat T.MALICIOUSSTAFF is countered by the objectives OT.COMMUNICATION,</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.SEPARATION">
+        <description>, OT.MANAGEMENT, OT.DEVICELIFECYCLE, and OT.LOGGING which are supported
+by the objectives OE.PROPERSTAFF, OE.SUPPORTINGSERVICES,</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.TRUSTEDCOMMUNICATIONCHANNEL">
+        <description>, OE.RELIABLETIMESTAMPS and OE.AUDITTRAIL as these
+objectives ensure that unauthorised logical access of malicious staff agents to the MDM control
+server component is prevented.
+Page 23
+The threat T.MASQUERADING is countered by the objectives OT.SEPARATION, and</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.COMMUNICATION">
+        <description>which are supported by the objectives OE.SUPPORTINGSERVICES, and</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.TRUSTEDCOMMUNICATIONCHANNEL">
+        <description>, as these objectives ensure the separation of
+communication paths and the protection of communication from disclosure and modification.
+The threat T.COMPROMISEDCOMMUNICATION is countered by the objective</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.COMMUNICATION">
+        <description>which is supported by the objective</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.TRUSTEDCOMMUNICATIONCHANNEL">
+        <description>, as these objectives ensure the protection from
+unauthorised disclosure and modification of data exchanged between parts of the TOE and remote
+external entities by providing mutually authenticated trusted communication channels using
+trusted channel protocols based on cryptographic mechanisms.
+The threat T.COMPROMISEDSTORAGE is countered by the objective OT.STORAGE which is
+supported by the objective OE.SUPPORTINGSERVICES for user data stored by the MDM
+device/control server component.
+The organisational security policy P.SEPARATION is enforced by the objectives OT.SEPARATION,</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OT.COMMUNICATION">
+        <description>and OT.TRUSTEDCOMMUNICATIONCHANNEL, as these objectives ensure the
+separation of interaction with authorised device agents from interaction with authorised staff
+agents.
+The organisational security policy P.MANAGEMENT is enforced by the objective OT.MANAGEMENT
+which is supported by the objectives OE.PROPERSTAFF, OE.PROPERUSER,</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PROPERMANAGEMENT">
+        <description>, OE.RESILIENCE, OE.DEVICELIFECYCLE, and OE.SUPPORTINGSERVICES.
+T
+N
+E
+M
+E
+G
+F F R A N
+A T S R E S U R A M R E C N
+E P E P E P E IL
+O O O IS
+R R R E
+P P P R
+.A .A .A .A</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PROPERSTAFF">
+        <description>x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PROPERUSER">
+        <description>x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PROPERMANAGEMENT">
+        <description>x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.RESILIENCE">
+        <description>x</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.DEVICELIFECYCLE">
+        <description/>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.SUPPORTINGSERVICES">
+        <description/>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.RELIABLETIMESTAMPS">
+        <description/>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.AUDITTRAIL">
+        <description>Table 7: Tracing of security objectives for the operational environment to assumptions
+The assumption A.PROPERSTAFF is directly justified through the objective OE.PROPERSTAFF.
+The assumption A.PROPERUSER is directly justified through the objective OE.PROPERUSER.
+The assumption A.PROPERMANAGEMENT is directly justified through the objective</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+      <objective id="OE.PROPERMANAGEMENT.">
+        <description>Page 24
+The assumption A.RESILIENCE is directly justified through the objective OE.RESILIENCE.
+Page 25</description>
+        <application_note/>
+        <spd_refs/>
+      </objective>
+    </env_objectives>
+  </security_objectives>
+  <extended_components>
+    <ext_family id="FDP_ITT" name="" class="FDP">
+      <family_behaviour/>
+      <component_levelling/>
+      <ext_component id="FDP_ITT.1" name="X Simple internal transfer protection, requires that user data be protected when">
+        <hierarchical_to/>
+        <dependencies/>
+        <management/>
+        <audit_events/>
+      </ext_component>
+      <ext_component id="FDP_ITT.1" name="X Simple internal transfer protection">
+        <hierarchical_to/>
+        <dependencies>
+          <dependency>
+            <alternatives>
+              <comp_ref id="FDP_ACC.1"/>
+            </alternatives>
+          </dependency>
+        </dependencies>
+        <management/>
+        <audit_events/>
+      </ext_component>
+      <ext_component id="FDP_ITT.1" name="X.1 The TSF shall enforce the [assignment: access control SFP(s) and/or information">
+        <hierarchical_to/>
+        <dependencies/>
+        <management/>
+        <audit_events/>
+      </ext_component>
+    </ext_family>
+    <ext_family id="FDP_IFC" name="" class="FDP">
+      <family_behaviour/>
+      <component_levelling/>
+      <ext_component id="FDP_IFC.1" name="Subset information flow control]">
+        <hierarchical_to/>
+        <dependencies/>
+        <management/>
+        <audit_events/>
+      </ext_component>
+    </ext_family>
+  </extended_components>
+  <sfrs>
+    <class id="FAU" name="">
+      <family id="FAU_GEN" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FAU_GEN.1" name="FPT_STM.1 OE.RELIABLETIMESTAMPS; reliable timestamps will" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FAU_GEN.2" name="makes sure that the device agent who" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FAU_SAR" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FAU_SAR.1" name="Basic: Reading of information from the audit records" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FAU_SAR.2" name="Basic: Unsuccessful attempts to read information from the audit records" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FAU_SAR.3" name="FAU_SAR.1 satisfied" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FAU_STG" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FAU_STG.4" name="FAU_STG.2 OE.AUDITTRAIL; the protection required for the" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FAU_SEL" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FAU_SEL.1" name="to the security functional requirements." iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FCS_CKM.1.1/ECDSA">
+              <raw><![CDATA[The TSF shall generate asymmetric cryptographic keys in accordance with a
+specified cryptographic key generation algorithm ECC schemes and
+specified elliptic curves cryptographic key sizes NIST curves P-256, P-384,
+P-521, no other curves that meet the following: FIPS PUB 186-4, 'Digital
+Signature Standard (DSS)', Appendix B.4.
+ST Application Note (FCS_CKM.1). FCS_CKM.1/ECDSA is used in support of ECDHE key
+establishment in TLS communication.
+6.1.8 FCS_CKM.1/RSA Cryptographic key generation]]></raw>
+              <operations/>
+            </element>
+            <element id="FCS_CKM.1.1/RSA">
+              <raw><![CDATA[The TSF shall generate asymmetric cryptographic keys in accordance with a
+specified cryptographic key generation algorithm RSA schemes and specified
+cryptographic key sizes 3072-bit or greater that meet the following: FIPS PUB
+186-4, 'Digital Signature Standard (DSS)', Appendix B.3.
+ST Application Note (FCS_CKM.1). FCS_CKM.1 is used for the generation of keys used for
+authentication in TLS communication.
+6.1.9 FCS_CKM.2/ECDHE Cryptographic key distribution
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: Success and failure of the activity.
+b) Basic: The object attribute(s), and object value(s) excluding any sensitive information.]]></raw>
+              <operations/>
+            </element>
+            <element id="FCS_CKM.2.1/ECDHE">
+              <raw><![CDATA[The TSF shall distribute cryptographic keys perform cryptographic key
+establishment in accordance with a specified cryptographic key distribution
+establishment method Elliptic curve-based key establishment schemes
+that meets the following: NIST Special Publication 800-56A,
+'Recommendation for Pair-Wise Key Establishment Schemes Using
+Discrete Logarithm Cryptography'.
+ST Application Note (FCS_CKM.2). FCS_CKM.2 is used for the ephemeral key establishment in TLS
+communication.
+Page 34
+6.1.10 FCS_CKM.5/SYMM Cryptographic key derivation
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: Success and failure of the activity.
+b) Basic: The object attribute(s), and object value(s) excluding any sensitive information.]]></raw>
+              <operations/>
+            </element>
+            <element id="FCS_CKM.5.1/SYMM">
+              <raw><![CDATA[The TSF shall derive cryptographic keys symmetric keys from
+master_secret, "key expansion", server_random + client_random in
+accordance with a specified cryptographic key derivation algorithm TLS KDF
+and specified cryptographic key sizes 16, 32 bytes that meet the following:
+RFC 5246 section 6.3.
+PPM Application notes (FCS_CKM.5).
+The PP/ST author shall iterate FCS_CKM.5 if necessary to cover all corresponding dependencies
+concerning cryptographic key derivation arising from FTP_PRO.2 or iterations thereof.
+According to the dependencies of FCS_CKM.5, the PP/ST author shall further include the necessary]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+    <class id="FCS" name="">
+      <family id="FCS_CKM" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FCS_CKM.1" name=", FCS_CKM.2 or satisfied by FCS_CKM.5 and FCS_COP.1" iteration_label="ECDSA" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FCS_CKM.1" name="added to satisfy dependencies" iteration_label="RSA" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FCS_CKM.2" name="FDP_ITC.1 or satisfied by FCS_CKM.1/ECDSA, FCS_CKM.1/RSA" iteration_label="ECDHE" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FCS_CKM.5" name="Minimal: Success and failure of the activity" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FCS_CKM.6" name="Minimal: Success and failure of the activity" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FCS_CKM.1" name="Minimal: Success and failure of the activity" iteration_label="EC" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FCS_CKM.2" name=", FCS_COP.1 and/or FCS_CKM.48 components, to cover all corresponding cryptographic" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FCS_CKM.5.1/MAC">
+              <raw><![CDATA[The TSF shall derive cryptographic keys MAC keys from master_secret, "key
+expansion", server_random + client_random in accordance with a specified
+cryptographic key derivation algorithm TLS KDF and specified cryptographic key
+sizes 32, 48 bytes that meet the following: RFC 5246 section 6.3.
+ST Application Note (FCS_CKM.5/MAC). FCS_CKM.5/MAC is used for the derivation of MAC keys in
+TLS communication.
+6.1.12 FCS_CKM.6 Timing and event of cryptographic key destruction]]></raw>
+              <operations/>
+            </element>
+            <element id="FCS_CKM.6.1">
+              <raw><![CDATA[The TSF shall destroy all plaintext keying material and critical security
+parameters (CSP) when no longer needed.]]></raw>
+              <operations/>
+            </element>
+            <element id="FCS_CKM.6.2">
+              <raw><![CDATA[The TSF shall destroy cryptographic keys and keying material specified by]]></raw>
+              <operations/>
+            </element>
+            <element id="FCS_CKM.6.1">
+              <raw><![CDATA[in accordance with a specified cryptographic key destruction
+method single direct overwrite consisting of zeroes that meets the following:
+none.
+ST Application Note (FCS_CKM.6). FCS_CKM.6 is used for the destruction of session keys that are
+generated in TLS communication.
+6.1.13 FCS_COP.1/AES Cryptographic operation
+The following actions should be auditable (minimum or basic level of audit):
+8 Dependencies in the PPM Application notes still refer to [CCV3.1R5].
+Page 35
+a) Minimal: Success and failure, and the type of cryptographic operation.
+b) Basic: Any applicable cryptographic mode(s) of operation, subject attributes and object
+attributes.]]></raw>
+              <operations/>
+            </element>
+            <element id="FCS_COP.1.1/AES">
+              <raw><![CDATA[The TSF shall perform symmetric encryption and decryption in accordance
+with a specified cryptographic algorithm AES with operating modes and
+cryptographic key sizes that meet the standards as defined in the following
+table:
+AES operating mode Cryptographic key sizes [bits] Standards
+CBC mode 128, 256 FIPS PUB 197 and NIST SP 800-38A
+GCM mode 128, 256 NIST SP 800-38D
+ST Application Note (FCS_COP.1/AES). FCS_COP.1/AES is used for encryption and decryption
+within TLS communication.
+PPM Application Notes (FCS_COP.1).
+There are several SFRs in this PP-Module, which model functionality making use of cryptographic
+operations. The author of this PP-Module cannot decide, how many different cryptographic
+operations (also in terms of cryptographic algorithm, key size, and applicable standard) would be
+necessary for a concrete TOE. Therefore, it is left open to the PP/ST author to iterate FCS_COP.1 in
+a way that all SFR dependencies requiring FCS_COP.1 are satisfied, and that also all cryptographic
+operations, which are needed to cover the security objectives of the TOE, are included in the final
+set of SFRs of the PP/ST.
+Furthermore, as the dependencies concerning the key management related to the cryptographic
+operation modelled by FCS_COP.1, i.e. FDP_ITC.1, FDP_ITC.2, FCS_CKM.1 and FCS_CKM.4,9
+• may be satisfied very differently for different concrete TOEs,
+• may be satisfied very differently even for different keys of the same TOE,
+• may be rightfully left unsatisfied with a corresponding rationale given, or
+• may be satisfied by the very same iteration of FDP_ITC.1, FDP_ITC.2, FCS_CKM.1 and/or]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FCS_CKM.4" name="even for several iterations of FCS_COP.1," iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FCS_CKM.5" name="FCS_CKM.2 or satisfied by FCS_CKM.2" iteration_label="SYMM" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FCS_CKM.3" name="not satisfied; key access as required by FCS_CKM.3" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FCS_CKM.1" name="or satisfied by FCS_CKM.1" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FCS_CKM.5" name="FCS_CKM.2 or satisfied by FCS_CKM.2" iteration_label="MAC" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FCS_COP" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FCS_COP.1" name="as finally stated in the PP/ST. Satisfaction of dependencies has to be shown in the SFR" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FCS_COP.1.1/RSA">
+              <raw><![CDATA[The TSF shall perform cryptographic signature services (generation and
+verification) in accordance with a specified cryptographic algorithm RSA Digital
+Signature Algorithm and cryptographic key sizes 3072 bit or greater that meet
+the following: FIPS PUB 186-4, 'Digital Signature Standard (DSS)', Section 5
+ST Application Note (FCS_COP.1/RSA). FCS_COP.1/RSA is used for the RSA signature generation
+and verification performed as part of the authentication within TLS communication.
+6.1.15 FCS_COP.1/ECDSA Cryptographic operation
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: Success and failure, and the type of cryptographic operation.
+b) Basic: Any applicable cryptographic mode(s) of operation, subject attributes, and object
+attributes.]]></raw>
+              <operations/>
+            </element>
+            <element id="FCS_COP.1.1/ECDSA">
+              <raw><![CDATA[The TSF shall perform cryptographic signature services (generation and
+verification) in accordance with a specified cryptographic algorithm ECDSA
+schemes and cryptographic key sizes NIST curves P-384, P-256, P-521 that
+meet the following: FIPS PUB 186-4, 'Digital Signature Standard (DSS)',
+Section 6
+ST Application Note (FCS_COP.1/ECDSA). FCS_COP.1/ECDSA is used for the ECDSA signature
+generation and verification performed as part of the authentication within TLS communication.
+6.1.16 FCS_COP.1/SHA Cryptographic operation
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: Success and failure, and the type of cryptographic operation.
+10 German Federal Office for Information Security (Bundesamt für Sicherheit in der Informationstechnik – BSI),
+Technical Guideline TR-02102 – Cryptographic Mechanisms:
+https://www.bsi.bund.de/EN/Service-Navi/Publications/TechnicalGuidelines/tr02102/tr02102_node.html
+11 SOG-IS Crypto Evaluation Scheme – Agreed Cryptographic Mechanisms:
+https://www.sogis.eu/uk/supporting_doc_en.html
+Page 37
+b) Basic: Any applicable cryptographic mode(s) of operation, subject attributes and object
+attributes.]]></raw>
+              <operations/>
+            </element>
+            <element id="FCS_COP.1.1/SHA">
+              <raw><![CDATA[The TSF shall perform cryptographic hashing in accordance with a specified
+cryptographic algorithm SHA-256, SHA-384, SHA-512 and cryptographic key
+message digest sizes 256, 384, 512 bits that meet the following: FIPS Pub
+180-4
+ST Application Note (FCS_COP.1/SHA). FCS_COP.1/SHA is used in TLS communication and random
+number generation.
+6.1.17 FCS_COP.1/HMAC Cryptographic operation
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: Success and failure, and the type of cryptographic operation.
+b) Basic: Any applicable cryptographic mode(s) of operation, subject attributes and object
+attributes.]]></raw>
+              <operations/>
+            </element>
+            <element id="FCS_COP.1.1/HMAC">
+              <raw><![CDATA[The TSF shall perform keyed-hash message authentication in accordance
+with a specified cryptographic algorithm HMAC-SHA-256, HMAC-SHA-384
+and cryptographic key sizes 256 and 384 bits and message digest sizes 256,
+384 bits that meet the following: FIPS Pub 198-1, 'The Keyed-Hash Message
+Authentication Code', and FIPS Pub 180-4, 'Secure Hash Standard.'
+ST Application Note (FCS_COP.1/HMAC). FCS_COP.1/HMAC is used in TLS communication.
+6.1.18 FCS_RNG.1 Random number generation]]></raw>
+              <operations/>
+            </element>
+            <element id="FCS_RNG.1.1">
+              <raw><![CDATA[The TSF shall provide a deterministic random number generator conforming to
+NIST SP800-90A Hash_DRBG with SHA2-512 core that implements:
+(DRG.3.1) If initialized with a random seed by an entropy source that accumulates
+entropy from a platform-based RBG with a minimum of 256 bits of entropy,
+the internal state of the RNG shall have a minimum entropy of 256 bits.
+(DRG.3.2) The RNG provides forward secrecy.
+(DRG.3.3) The RNG provides backward secrecy even if the current internal state is
+known.]]></raw>
+              <operations/>
+            </element>
+            <element id="FCS_RNG.1.2">
+              <raw><![CDATA[The TSF shall provide random numbers that meet:
+(DRG.3.4) The RNG, initialized with a random seed that is 256 bits in in size, generates
+output for which 219 strings of bit length 128 are mutually different with
+probability 1-2-10.
+(DRG.3.5) Statistical test suites cannot practically distinguish the random numbers from
+output sequences of an ideal RNG. The random numbers must pass test
+procedure A and no additional test suites.
+6.1.19 FDP_IFC.1 Subset information flow control]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_IFC.1.1">
+              <raw><![CDATA[The TSF shall enforce the MDM grouping SFP on the list of subjects,
+information, and operations that cause controlled information to flow to and
+from controlled subjects as defined in Table 11.
+Page 38
+Subjects Information Operations
+manager attendant transmitted/received user data initiation of
+with security with security attribute: a mobile device management
+attribute: cluster of cluster of groupings function as specified in Table 12
+groupings
+device attendant transmitted/received user data execution of
+with security with security attribute: a mobile device management
+attribute: grouping cluster of groupings function as specified in Table 12.
+Table 11: List of subjects, information, and operations covered by the MDM grouping SFP
+Mobile Device Management Functions
+Payloads to be transferred to device agents
+1) Enforce/Prevent the installation/update/deinstallation of applications
+2) Enable/Disable installed applications – including enterprise applications
+3) Restrict the installation of applications based on trusted sources, or positive list of allowed
+applications, negative list of denied applications
+4) Enforce the update of system software from trusted sources
+Prevent the update of system software from untrusted sources
+5) Remote lock (transition to locked state)
+6) Remote wipe of protected data
+7) Activate/Deactivate obligatory encryption of persistent memory 12
+8) Configure the way how sensitive information or data is displayed in unprotected states
+Note: This supports, for example, to hide e-mail contents, headers or metadata in
+notifications or in locked state
+9) Configure password authentication policy settings:
+a) minimum password length
+b) minimum password complexity
+c) maximum password lifetime
+d) maximal number (at most 10) of consecutive unsuccessful password authentications
+e) time delay after a specified number of consecutive unsuccessful password
+authentications13
+12 The storage of encryption keys into persistent memory is managed by Apple/Google design.
+13 On iOS devices, there is a time delay after six failed passcode attempts. This is an iOS native setting that cannot be
+configured via MDM payloads. On Android devices, there is a time delay after five failed passcode attempts. This is a
+Samsung Android native setting that cannot be configured via KSP policy.
+Page 39
+Mobile Device Management Functions
+Payloads to be transferred to device agents
+10) Configure biometric authentication policy settings
+11) Configure push message policy settings
+12) Android = Activate/Deactivate developer mode, e.g. Android Debug Bridge (ADB) 14
+13) Query software integrity attestation status incl. jailbreak / rooting detection 15
+14) Query the status of security-related configuration settings including at least
+a) installed certificates
+b) device settings
+c) operating system version / patch level
+d) installed applications incl. version
+15) Enable/Disable users to/from configuring system level certificates, e.g., custom root
+certificates
+16) Configure custom certificate provisioning (both enrolment and renewal) using
+Simple Certificate Enrollment Protocol (SCEP), Enrollment over Secure Transport (EST), or
+other suitable protocols
+17) Configure network connections (DNS, gateways, DHCP, protection, etc.)
+18) Configure VPN settings/policies
+Note: This supports, in particular, the configuration of a (permanent where necessary) VPN
+connection to the German Federal Networks (Netze des Bundes – NdB)
+19) Enable/Disable network services/interfaces, e.g., tethering, VPN, WiFi, Bluetooth, NFC
+20) Enable/Disable sharing services, e.g., Android Nearby Share, iOS AirDrop
+21) Android = Enable/Disable location services 16
+22) Enable/Disable data exchange with other devices via specific interfaces, e.g., USB storage
+media
+23) Enable/Disable data synchronisation with cloud services
+Table 12: Mobile Device Management Functions
+14 ADB is only applicable for Android, and not iOS.
+15 Android= UEM Server initiates the attestation process by sending a Play Integrity attestation request to the UEM
+Client on the device. The UEM Client calls the Google Play Integrity API, requesting an assessment of the device’s
+security and integrity. Google Play returns device integrity attestation verdict to the UEM Client (e.g device is
+jailbroken) The UEM Client forwards the attestation response payload back to the UEM Server. The UEM Server
+evaluates the verdict and applies compliance actions based on the integrity results. iOS= Apple MDA can perform
+attestation on four device identifiers - OS version, nonce, udid and serial number. It doesn’t directly detect root
+detection as part of Jailbroken device.
+16 Controlling of location service is only available for Android and not for iOS
+Page 40
+ST Application Note (FDP_IFC.1). Regarding 16.) SCEP is used to configure custom certificate
+provisioning, EST is not supported.
+The UEM supports several parameters for managing devices. To allow for efficient modelling of
+parameters, only the following four parameters have been selected to be within the TOE scope:
+OS type (OS), the OS version (OSV), Device Model (DM) including the Manufacturer (M). All four
+parameters fall into the category of straightforward bounded sub-lattices of groupings as defined
+in section 7.2 of [MDMTSPP]. The combination of the four parameters matches the case of a
+systematic combination of bounded sub-lattices as defined in 7.5 of [MDMTSPP].
+The TOE allows to combine the four parameters and vary them independently. But the resulting
+policy depends on whether the selected values for OS, OSV, DM and M fit. This will be discussed
+below in more detail.
+The TOE supports the following straightforward bounded sub-lattices of groupings:
+a.) OS types (OSs)
+Let OSTypes be the set of all OS types:
+OSTypes = {OSType , ...OSType }
+1 n
+Lattice elements: OSs = {OS|OS ⊆ OSTypes} (the set of all subsets of OSTypes)
+Partial ordering: ∀U, V ∈ OSs: U ≤ V ≡ U ⊆ V (subset relation)
+Join function: ∀U, V ∈ OSs: U ⊔ V = U ∪ V (set union)
+Meet function: ∀U, V ∈ OSs: U ⊓ V = U ∩ V (set intersection)
+b.) OS versions (OSVs)
+Let OSVersions be the set of all OS versions used by the users:
+OSVersions = {OSVersion , ...OSVersion }
+1 n
+Lattice elements: OSVs = {OSV|OSV ⊆ OSVersions} (the set of all subsets of OSVersions)
+Partial ordering: ∀U, V ∈ OSVs: U ≤ V ≡ U ⊆ V (subset relation)
+Join function: ∀U, V ∈ OSVs: U ⊔ V = U ∪ V (set union)
+Meet function: ∀U, V ∈ OSVs: U ⊓ V = U ∩ V (set intersection)
+c.) DeviceModels (DMs)
+Let DeviceModels be the set of all user groups defined in all associated LDAPs:
+DeviceModels = {DeviceModel , ...DeviceModel }
+1 n
+Lattice elements: DMs = {DM|DM ⊆ DeviceModels} (the set of all subsets of DeviceModels)
+Partial ordering: ∀U, V ∈ DMs: U ≤ V ≡ U ⊆ V (subset relation)
+Join function: ∀U, V ∈ DMs: U ⊔ V = U ∪ V (set union)
+Meet function: ∀U, V ∈ DMs: U ⊓ V = U ∩ V (set intersection)
+d.) Manufacturers (Ms)
+Let Manufacturers be the set of all Manufacturers:
+Manufacturers = {Manufacturer , ...Manufacturer }
+1 n
+Lattice elements: Ms = {M|M ⊆ Manufacturers} (the set of all subsets of Manufacturers)
+Page 41
+Partial ordering: ∀U, V ∈ Ms: U ≤ V ≡ U ⊆ V (subset relation)
+Join function: ∀U, V ∈ Ms: U ⊔ V = U ∪ V (set union)
+Meet function: ∀U, V ∈ Ms: U ⊓ V = U ∩ V (set intersection)
+Combined lattice
+The four sub-lattices defined above can be systematically combined into one bounded lattice. The
+elements of this latter reflect the possible groupings relevant for the MDM grouping SFP.
+For the bounded sub-lattices on the set OSs of operating system groupings, the set of OSVs of
+operating system version groupings, the set of DM of device model groupings and the set of Ms of
+manufacturer groupings, all as defined above, we define the combined groupings and by this the
+combined bounded lattice component-by-component on ordered tuples:
+Lattice elements: {(OS, OSV, DM, M) | OS ∈ OSs, OSV ∈ OSVs, DM ∈ DMs, M ∈ Ms}
+Partial ordering: (OS , OSV , DM , M ) ≤ (OS , OSV , DM , M ) ≡ OS ≤ OS ∧ OSV ≤ OSV ∧ DM
+1 1 1 1 2 2 2 2 1 2 1 2 1
+≤ DM ∧ M ≤ M
+2 1 2
+Join function: (OS , OSV , DM , M ) ⊔ (OS , OSV , DM , M ) = (OS ⊔ OS , OSV ⊔ OSV , DM ⊔
+1 1 1 1 2 2 2 2 1 2 1 2 1
+DM , M ⊔ M )
+2 1 2
+Meet function: (OS , OSV , DM , M ) ⊓ (OS , OSV , DM , M ) = (OS ⊓ OS , OSV ⊓ OSV , DM ⊓
+1 1 1 1 2 2 2 2 1 2 1 2 1
+DM , M ⊓ M )
+2 1 2
+For a device attendant only one grouping at a time is supported. For a manager attendant a cluster
+of groupings (i.e. a combination of more than one grouping) is supported. If more than one
+grouping is assigned to the manager attendant, the effective grouping is the result of joining the
+single groupings using the join function for the combined lattice as defined above.
+To determine the effective policy based on a grouping, the TOE allows to define 'ALL' and 'ANY' for
+the combination of the single groupings, where 'ALL' mandates that all parameters must match and
+'ANY' requires that at least one of the parameters matches.
+Refinement for items 9e.), 11.), 7.), 12.), 13.), 21.) of [MDMTSPP]
+Table 5 in [MDMTSPP] defines 9e.) Configure password authentication policy settings: time delay
+after a specified number of consecutive unsuccessful password authentications. On iOS devices,
+there is a time delay after six failed passcode attempts. This is an iOS native setting that cannot be
+configured via MDM payloads. As the TOE does not allow the manager attendant to configure this
+time delay through the MDM, this item has been removed by formatting it in strikethrough. In the
+sense of the lattice model the modelling for payload for configuring password authentication policy
+settings in general does not change as only the group members for the time delay are missing in
+the lattice.
+Table 5 in [MDMTSPP] defines 11.) Configure push message policy settings. The settings for how
+the UEM Server communicate with the APNS is hard coded to UEM and not configurable. As the
+TOE does not allow the manager attendant to configure these policy settings through the MDM,
+this item has been removed by formatting it in strikethrough. In the sense of the lattice model this
+corresponds to a fixed grouping of (OS, OSV, DM, M) = (∅, ∅, ∅, ∅).
+Table 5 in [MDMTSPP] defines 7) The functions is not provided by the platforms and hence cannot
+be invoked by the UEM and for the iOS functionality, iOS does not provide the corresponding
+interactions, hence, they cannot be invoked by the UEM.
+Table 5 in [MDMTSPP] defines 12) Currently there is no MDM developer mode IT Policy in UEM.
+Page 42
+Table 5 in [MDMTSPP] defines 13) BlackBerry UEM uses Apple manage device attestation feature
+for any device attestation failure.
+Table 5 in [MDMTSPP] defines 21) Apple does not provide MDM location service policy, for Android
+this can be done through KSP policy.
+PP Application Note (MDM functions). The MDM functions specified in Table 12 may be modified
+by the PP/ST author in accordance with the restrictions for refinement operations. For instance, the
+TOE may be able to support profile templates for specific user subgroups. The configuration of such
+profile templates may be listed as an additional MDM function.
+6.1.20 FDP_IFF.2 Hierarchical security attributes
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: Decisions to permit requested information flows.
+b) Basic: All decisions on requests for information flow.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_IFF.2.1">
+              <raw><![CDATA[The TSF shall enforce the MDM grouping SFP based on the following types of
+subject and information security attributes: the list of subjects and information,
+and for each, the security attributes as defined in Table 11.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_IFF.2.2">
+              <raw><![CDATA[The TSF shall permit an information flow between a controlled subject and
+controlled information via a controlled operation if the following rules, based
+on the ordering relationships between security attributes, hold: for an
+arbitrarily chosen cluster of groupings of controlled information
+• the initiation of a mobile device management function is permitted, if
+and only if each grouping of the chosen cluster is smaller than or equal
+to at least one grouping of the manager attendant cluster of groupings;
+• the execution of a mobile device management function is permitted, if
+and only if the infimum of at least one grouping of the chosen cluster
+and the device attendant grouping is not equal to the bottom
+grouping.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_IFF.2.3">
+              <raw><![CDATA[The TSF shall enforce the following additional rules:
+• distinct communication paths are used for information flows between
+manager attendant and manager agent on initiation of a mobile device
+management function and between device attendant and device agent
+on execution of a mobile device management function;
+• the initiation and/or execution of a mobile device management
+function involves an information flow between manager attendant and
+device attendant ensuring that the cluster of groupings of controlled
+information remains unaltered;
+• the execution of a mobile device management function involves the
+over-the-air transfer of the payload to the mobile device.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_IFF.2.4">
+              <raw><![CDATA[The TSF shall explicitly authorise an information flow based on the following
+rules: none.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_IFF.2.5">
+              <raw><![CDATA[The TSF shall explicitly deny an information flow based on the following rules:
+the execution of a mobile device management function is denied when the
+respective device is unable to perform the device command or to enforce the
+device policy.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_IFF.2.6">
+              <raw><![CDATA[The TSF shall enforce the following relationships for any two valid groupings:
+Page 43
+a) there exists a partial ordering relation with a unique minimum (bottom
+grouping) and a unique maximum (top grouping) that, given two valid
+groupings, determines
+if the groupings are equal, if one grouping is greater or lower than the
+other, or if the groupings are incomparable;
+b) there exists a join function in the set of groupings, such that,
+given any two valid groupings, there is a valid unique join grouping
+that is the supremum (least upper bound) of the two valid groupings;
+c) there exists a meet function in the set of groupings, such that,
+given any two valid groupings, there is a valid unique meet grouping
+that is the infimum (greatest lower bound) of the two valid groupings.
+PP Application Note (MDM grouping SFP). The components FDP_IFC.1 and FDP_IFF.2 define rules
+for the relationship between manager attendants and device attendants by restricting the initiation
+and execution of MDM functions based on groupings that are associated with subjects and
+information. FDP_IFC.1 defines the name of the information flow control policy (MDM grouping
+SFP) and its scope of control. FDP_IFF.2 specifies the details of the information control policy. The
+TOE usually provides further restrictions on the initiation and execution of MDM functions, that
+may particularly be based on arbitrary selections of mobile devices. While any such further
+restrictions are not considered as part of the TOE security functionality, the ST author should
+describe in the TOE summary specification how the initiation and execution of MDM functions is
+controlled based on groupings as defined in this PP.
+PP Application Notes (bounded lattice of groupings).
+The rules of the MDM grouping SFP are based on the partial ordering relationship of groupings that
+is an essential part of the definition of a lattice of groupings (see PP appendix section 7 for some
+examples). It is important that the set of groupings is a lower-bounded lattice with bottom
+grouping, since otherwise the rules of the MDM grouping SFP were ill-defined. It is also important
+that the set of groupings is an upper-bounded lattice with top grouping, since this enables the
+existence of a management attendant associated with the top grouping, i.e. a top management
+attendant being able to manage all mobile devices.
+The bounded lattice of groupings may be realised in various ways. For multi-tenancy support, the
+groupings may be expressed as sets of tenants with basic operations from set theory (see PP
+appendix section 7.2). Extended kinds of groupings may be constructed as tuples of groupings
+where the components of a tuple are combining e.g. a set of tenants with the elements of some
+other bounded lattices of groupings. The bottom and top elements, the partial ordering relation,
+and the join and meet functions of such tuples of groupings are defined component-by-component
+(see PP appendix section 7.5).
+The ST author should describe in the TOE summary specification how the bounded lattice of
+groupings is realised. The description should include the definition of the bottom and top elements,
+the partial ordering relation, and the join and meet functions.
+6.1.21 FDP_ITT.1X Simple internal transfer protection
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: Successful transfers of user data,
+including identification of the protection method used.
+b) Basic: All attempts to transfer user data,
+including the protection method used and any errors that occurred.
+Page 44]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FCS_COP.1" name=", /RSA, /ECDSA, /SHA, x" iteration_label="AES" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FCS_RNG" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FCS_RNG.1" name="[CC:2022], [AIS20]" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FCS_RBG" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FCS_RBG.1" name="or satisfied by FCS_RNG.1" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+    <class id="FDP" name="">
+      <family id="FDP_IFC" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_IFC.1" name="FDP_IFF.1 satisfied by FDP_IFF.2 (hierarchical to FDP_IFF.1)" iteration_label="" inclusion="mandatory" extended="true">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_IFF" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_IFF.2" name="Minimal: Decisions to permit requested information flows" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_ITT" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_ITT.1" name="X.1 The TSF shall enforce the MDM grouping SFP to prevent the disclosure and" iteration_label="" inclusion="mandatory" extended="true">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FDP_RIP.1.1">
+              <raw><![CDATA[The TSF shall ensure that any previous information content of a resource is
+made unavailable upon the deallocation of the resource from the following
+objects: any buffer object that is used during the initiation or execution of a
+mobile device management function according to the MDM grouping SFP.
+• Plaintext PINs and passwords sent to the TOE for user authentication
+and reference values retrieved from the database are erased from
+the database storage after the user is deleted, or before it is updated;
+• Ephemeral keys for TLS sessions are erased from volatile memory
+upon session termination.
+PP Application Note (FDP_RIP.1). Residual information, in particular special categories of user data
+such as PINs, passwords, cryptographic keys/certificates, etc., needs protection against re-use. The
+ST author should describe in the TOE summary specification how such residual information (i.e.
+previous information content) is made unavailable.
+ST Application Note (FDP_RIP.1). The residual information that needs to be protected from
+unauthorized re-use in the context of the MDM grouping SFP are PINs and passwords entered by
+users for authentication to the TOE as well as ephemeral keys for TLS sessions.
+6.1.23 FDP_SDC.1 Stored data confidentiality]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_SDC.1.1">
+              <raw><![CDATA[The TSF shall ensure the confidentiality of the following user data: special
+categories of user data, while it is stored in the persistent memory controlled
+by the TSF.
+PP Application Note (FDP_SDC.1). Typical special categories of user data are PINs, passwords,
+cryptographic keys/certificates, etc. Various protection mechanisms may be used to ensure
+confidentiality. The ST author should describe in the TOE summary specification the protection
+mechanisms that are used by the TSF.
+6.1.24 FDP_SDI.1 Stored data integrity monitoring
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: Successful attempts to check the integrity of user data,
+including an indication of the results of the check.
+b) Basic: All attempts to check the integrity of user data,
+including an indication of the results of the check, if performed.
+Page 45]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_SDI.1.1">
+              <raw><![CDATA[The TSF shall monitor special categories of user data stored encrypted in
+persistent memory controlled by the TSF for integrity errors during decryption
+on all objects, based on the following attributes: user passwords, PINs,
+passwords used for key derivation, X509v3 certificates and related private
+keys.
+PP Application Note (FDP_SDI.1). Typical special categories of user data are PINs, passwords,
+cryptographic keys/certificates, etc. Various protection mechanisms may be used to monitor
+integrity. The ST author should describe in the TOE summary specification the protection
+mechanisms that are used by the TSF.
+6.1.25 FDP_UCT.1 Basic data exchange confidentiality
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: The identity of any user or subject using the data exchange mechanisms.
+b) Basic: The identity of any unauthorised user or subject attempting to use the data
+exchange mechanisms.
+c) Basic: A reference to the names or other indexing information
+useful in identifying the user data that was transmitted or received. This could include
+security attributes associated with the information.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_UCT.1.1">
+              <raw><![CDATA[The TSF shall enforce the MDM grouping SFP to transmit and receive user data
+in a manner protected from unauthorised disclosure.
+6.1.26 FDP_UIT.1 Data exchange integrity
+The following actions should be auditable (minimum or basic level of audit):
+a) Basic: The identity of any user or subject using the data exchange mechanisms.
+b) Basic: The identity of any user or subject
+attempting to use the user data exchange mechanisms, but who is unauthorised to do so.
+c) Basic: A reference to the names or other indexing information
+useful in identifying the user data that was transmitted or received. This could include
+security attributes associated with the user data.
+d) Basic: Any identified attempts to block transmission of user data.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_UIT.1.1">
+              <raw><![CDATA[The TSF shall enforce the MDM grouping SFP to transmit and receive user data
+in a manner protected from modification errors.]]></raw>
+              <operations/>
+            </element>
+            <element id="FDP_UIT.1.2">
+              <raw><![CDATA[The TSF shall be able to determine on receipt of user data, whether
+modification has occurred.
+6.1.27 FIA_ATD.1 User attribute definition]]></raw>
+              <operations/>
+            </element>
+            <element id="FIA_ATD.1.1">
+              <raw><![CDATA[The TSF shall maintain the following list of security attributes belonging to
+individual users:
+• staff agent security attributes: role, cluster of groupings;
+• device agent security attributes: grouping.
+6.1.28 FIA_UAU.1/DA Timing of authentication [iteration for device agents]
+The following actions should be auditable (minimum or basic level of audit):
+Page 46
+a) Minimal: Unsuccessful use of the authentication mechanism.
+b) Basic: All use of the authentication mechanism.]]></raw>
+              <operations/>
+            </element>
+            <element id="FIA_UAU.1.1/DA">
+              <raw><![CDATA[The TOE device server security functionality shall allow no TSF mediated
+actions on behalf of the device agent to be performed before the device agent
+is authenticated.]]></raw>
+              <operations/>
+            </element>
+            <element id="FIA_UAU.1.2/DA">
+              <raw><![CDATA[The TOE device server security functionality shall require each device agent to
+be successfully authenticated before allowing any other TSF-mediated actions
+on behalf of that device agent.
+6.1.29 FIA_UAU.1/SA Timing of authentication [iteration for staff agents]
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: Unsuccessful use of the authentication mechanism.
+b) Basic: All use of the authentication mechanism.]]></raw>
+              <operations/>
+            </element>
+            <element id="FIA_UAU.1.1/SA">
+              <raw><![CDATA[The TOE control server security functionality shall allow to request password
+recover, choose a language and select the authentication provider on behalf
+of the staff agent to be performed before the staff agent is authenticated.]]></raw>
+              <operations/>
+            </element>
+            <element id="FIA_UAU.1.2/SA">
+              <raw><![CDATA[The TOE control server security functionality shall require each staff agent to
+be successfully authenticated before allowing any other TSF-mediated actions
+on behalf of that staff agent.
+6.1.30 FIA_UID.1/DA Timing of identification [iteration for device agents]
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: Unsuccessful use of the user identification mechanism, including the user identity
+provided.
+b) Basic: All use of the user identification mechanism, including the user identity provided.]]></raw>
+              <operations/>
+            </element>
+            <element id="FIA_UID.1.1/DA">
+              <raw><![CDATA[The TOE device server security functionality shall allow no TSF mediated
+actions on behalf of the device agent to be performed before the device agent
+is identified.]]></raw>
+              <operations/>
+            </element>
+            <element id="FIA_UID.1.2/DA">
+              <raw><![CDATA[The TOE device server security functionality shall require each device agent to
+be successfully identified before allowing any other TSF-mediated actions on
+behalf of that device agent.
+6.1.31 FIA_UID.1/SA Timing of identification [iteration for staff agents]
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: Unsuccessful use of the user identification mechanism, including the user identity
+provided.
+b) Basic: All use of the user identification mechanism, including the user identity provided.]]></raw>
+              <operations/>
+            </element>
+            <element id="FIA_UID.1.1/SA">
+              <raw><![CDATA[The TOE control server security functionality shall allow to request password
+recover, choose a language and select the authentication provider on behalf
+of the staff agent to be performed before the staff agent is identified.]]></raw>
+              <operations/>
+            </element>
+            <element id="FIA_UID.1.2/SA">
+              <raw><![CDATA[The TOE control server security functionality shall require each staff agent to
+be successfully identified before allowing any other TSF-mediated actions on
+behalf of that staff agent.
+Page 47
+6.1.32 FIA_USB.1 User-subject binding
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: Unsuccessful binding of user security attributes to a subject (e.g. creation of a
+subject).
+b) Basic: Success and failure of binding of user security attributes to a subject (e.g. success or
+failure to create a subject).]]></raw>
+              <operations/>
+            </element>
+            <element id="FIA_USB.1.1">
+              <raw><![CDATA[The TSF shall associate the following user security attributes with subjects
+acting on the behalf of that user:
+• staff agent security attributes: role, cluster of groupings;
+• device agent security attributes: grouping.]]></raw>
+              <operations/>
+            </element>
+            <element id="FIA_USB.1.2">
+              <raw><![CDATA[The TSF shall enforce the following rules on the initial association of user
+security attributes with subjects acting on the behalf of users:
+• a staff attendant, i.e. a subject in the TOE control server acting on
+behalf of a staff agent, inherits the role and the cluster of groupings
+from that staff agent;
+• a device attendant, i.e. a subject in the TOE device server acting on
+behalf of a device agent, inherits the grouping from that device agent.]]></raw>
+              <operations/>
+            </element>
+            <element id="FIA_USB.1.3">
+              <raw><![CDATA[The TSF shall enforce the following rules governing changes to the user security
+attributes associated with subjects acting on the behalf of users: The TSF
+cannot modify user data maintained by LDAP (in case LDAP-based
+authentication is used), but only update user data by synchronizing data with
+LDAP. Managers can modify user data maintained by the MDM-TS directly on
+the TOE.
+ST Application Note (FIA_USB.1).
+The TOE supports the creation of local users, but also allows to use users maintained in an LDAP
+server. In the latter case, the TOE handles user data that is synchronized with LDAP. This user data
+cannot be directly modified on the TOE, but only updated by modifying the data on LDAP and
+synchronizing with LDAP afterwards.
+There is additional user data that is not maintained by LDAP and that can directly be modified on
+the TOE. Roles with permissions are maintained in the MDM-TS directly and not in LDAP.
+All changes to the user data are audited.
+6.1.33 FMT_MOF.1 Management of security functions behaviour
+The following actions should be auditable (minimum or basic level of audit):
+a) Basic: All modifications in the behaviour of the functions in the TSF.]]></raw>
+              <operations/>
+            </element>
+            <element id="FMT_MOF.1.1">
+              <raw><![CDATA[The TSF shall restrict the ability to determine the behaviour of, disable, enable,
+and modify the behaviour of the device life-cycle management to the
+administrator role.
+6.1.34 FMT_MSA.1 Management of security attributes
+The following actions should be auditable (minimum or basic level of audit):
+a) Basic: All modifications of the values of security attributes.
+Page 48]]></raw>
+              <operations/>
+            </element>
+            <element id="FMT_MSA.1.1">
+              <raw><![CDATA[The TSF shall enforce the MDM grouping SFP to restrict the ability to
+change_default, query, modify or delete the information security attributes
+cluster of groupings to the manager role.
+6.1.35 FMT_MSA.3 Static attribute initialisation
+The following actions should be auditable (minimum or basic level of audit):
+a) Basic: Modifications of the default setting of permissive or restrictive rules.
+b) Basic: All modifications of the initial values of security attributes.]]></raw>
+              <operations/>
+            </element>
+            <element id="FMT_MSA.3.1">
+              <raw><![CDATA[The TSF shall enforce the MDM grouping SFP to provide permissive restrictive
+default values for security attributes that are used to enforce the SFP.]]></raw>
+              <operations/>
+            </element>
+            <element id="FMT_MSA.3.2">
+              <raw><![CDATA[The TSF shall not allow the manager or any other role to specify alternative
+initial values to override the default values when information is created.
+ST Application Note (FMT_MSA.3).
+Refinement FMT_MSA.3.1: All permissions have to be actively assigned to a role. There is no set of
+default permissions. Thus, the default-like set of permission is 'no permissions'. This is a restrictive
+default value. Therefore, the SFR has been refined from 'permissive' to 'restrictive'. As 'restrictive'
+is stricter than 'permissive', this refinement should be acceptable.
+Refinement FMT_MSA.3.2: The default list of permissions is empty and each permission needs to
+be explicitly granted for a role. This behaviour cannot be changed and no default set of permissions
+can be specified. While it is understandable for the original selection in FMT_MSA.3.1 to mandate
+that the manager can specify alternative initial values to create more strict TOE configurations,
+with the refinement for FMT_MSA.3.1 the TOE is already in its most secure configuration. Allowing
+the manager to specify alternative initial values (i.e. default permissions), the TOE configuration
+will not become more strict and potentially weaker. Therefore, FMA_MSA.3.2 has been refined to
+not to allow the manager or any other role to specify alternative initial values. As the refined
+definition for FMT_MSA.3.2 is stricter than the original definition for FMT_MSA.3.2 (in particular in
+the light of the refinement for FMT_MSA.3.1), this refinement should be acceptable.
+6.1.36 FMT_SMF.1/AD Specification of Management Functions [iteration for
+administrator agents]
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: Use of the management functions.]]></raw>
+              <operations/>
+            </element>
+            <element id="FMT_SMF.1.1/AD">
+              <raw><![CDATA[The TSF shall be capable of performing the following management functions on
+behalf of a staff agent that is associated with the administrator role:
+• determine the behaviour of, disable, enable, or modify the behaviour
+of the device life-cycle management including
+– device enrolment,
+– device unenrolment,
+– provisioning of credentials for identification/authentication of
+device agents, and
+– setting of device agent security attributes.
+PP Application Note (FMT_SMF.1/AD – device life-cycle management). The device life-cycle
+management may include various activities. Processes for device (un-)enrolment and device agent
+Page 49
+registration (provisioning of credentials, setting of security attributes) are not in the scope of this
+PP. If the TSF provides security features for device (un-)enrolment or device agent registration, the
+PP/ST author may add further management functions, and, as appropriate, other security
+functional requirements.
+PP Application Note (FMT_SMF.1/AD – staff agent management). The staff agent management is
+not in the scope of this PP. If the TSF provides secure management of staff agents, the PP/ST
+author may add further management functions, and, as appropriate, other security functional
+requirements.
+6.1.37 FMT_SMF.1/AU Specification of Management Functions [iteration for
+auditor agents]
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: Use of the management functions.]]></raw>
+              <operations/>
+            </element>
+            <element id="FMT_SMF.1.1/AU">
+              <raw><![CDATA[The TSF shall be capable of performing the following management functions on
+behalf of a staff agent that is associated with the auditor role:
+• review audit information.
+PP Application Note (FMT_SMF.1/AU – management of the audit function). The management of
+the audit function is not in the scope of this PP. If the TSF provides secure management of the audit
+function, the PP/ST author may add further management functions, a further iteration of]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_RIP" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_RIP.1" name="No dependencies –" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_SDC" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_SDC.1" name="No dependencies –" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_SDI" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_SDI.1" name="Minimal: Successful attempts to check the integrity of user data, including an" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_UCT" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_UCT.1" name="Minimal: The identity of any user or subject using the data exchange mechanisms" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_UIT" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_UIT.1" name="Basic: The identity of any user or subject using the data exchange mechanisms." iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_ITC" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_ITC.2" name="or and FCS_CKM.5" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_ACC" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_ACC.1" name="or satisfied by FDP_IFC.1" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+    <class id="FIA" name="">
+      <family id="FIA_ATD" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FIA_ATD.1" name=". The association of roles to staff agents is" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FIA_UAU" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FIA_UAU.1" name="FIA_UID.1 satisfied [iteration for device agents]" iteration_label="DA" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FIA_UAU.1" name="FIA_UID.1 satisfied [iteration for staff agents]" iteration_label="SA" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FIA_UAU.1" name="only after device enrolment. The ST author should therefore describe in the TOE" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FTP_TRP.1.1/DA">
+              <raw><![CDATA[The TSF shall use TLS as defined by FTP_PRO.1 to provide a communication
+path between itself and remote authorised device agents that is logically
+distinct from other communication paths and provides assured identification of
+its end points and protection of the communicated data from modification and
+disclosure.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_TRP.1.2/DA">
+              <raw><![CDATA[The TSF shall permit remote authorised device agents to initiate
+communication via the trusted path.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_TRP.1.3/DA">
+              <raw><![CDATA[The TSF shall require the use of the trusted path for initial user authentication,
+and mobile device management.
+6.1.47 FTP_TRP.1/SA Trusted path [iteration for staff agents]
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: Failures of the trusted path functions.
+b) Minimal: Identification of the user associated with all trusted path failures, if available.
+c) Basic: All attempted uses of the trusted path functions.
+d) Basic: Identification of the user associated with all trusted path invocations, if available.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_TRP.1.1/SA">
+              <raw><![CDATA[The TSF shall implement HTTPS compliant with RFC 2818 using TLS as defined
+by FTP_PRO.1 to provide a communication path between itself and remote
+authorised staff agents that is logically distinct from other communication
+paths and provides assured identification of its end points and protection of
+the communicated data from modification and disclosure.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_TRP.1.2/SA">
+              <raw><![CDATA[The TSF shall permit remote authorised staff agents to initiate communication
+via the trusted path.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_TRP.1.3/SA">
+              <raw><![CDATA[The TSF shall require the use of the trusted path for initial user authentication,
+and all services provided to authorised staff agents.
+6.2 Security functional requirements rationale
+6.2.1 Coverage
+The following table provides a mapping of SFR components to the security objectives for the TOE,
+showing that each SFR component addresses at least one security objective and that all security
+objectives are addressed by one or more SFR components.
+Page 55
+SFR component L
+E
+N
+N
+N O IT A
+C IN
+U M
+M O C
+E L C Y
+C E
+F IL E C
+IV E D
+G N IK
+C A
+R T E C
+IV E D
+G N IG
+G O L
+T N
+E M
+E G A
+N A M
+N O
+IT A R
+A P E S
+E G A
+R O T S
+D E T
+S U R T
+-
+A
+H C N O
+IT
+A C IN
+U M M
+.T .T .T .T .T .T .T .TO
+O O O O O O O OC]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FIA_UID" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FIA_UID.1" name="No dependencies –" iteration_label="DA" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FIA_UID.1" name="Minimal: Unsuccessful use of the user identification mechanism, including the user" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FIA_UID.1" name="make sure that staff agents are" iteration_label="SA" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FIA_USB" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FIA_USB.1" name="Minimal: Unsuccessful binding of user security attributes to a subject (e.g. creation of" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+    <class id="FMT" name="">
+      <family id="FMT_MOF" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FMT_MOF.1" name=", and, as appropriate, other security functional requirements." iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FMT_SMF.1.1/MA">
+              <raw><![CDATA[The TSF shall be capable of performing the following management functions on
+behalf of a staff agent that is associated with the manager role:
+• review audit information;
+• change_default, query, modify or delete the information security
+attributes of the MDM grouping SFP.
+6.1.39 FMT_SMR.1 Security roles
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: Modifications to the group of users that are part of a role.]]></raw>
+              <operations/>
+            </element>
+            <element id="FMT_SMR.1.1">
+              <raw><![CDATA[The TSF shall maintain the roles administrator, auditor, and manager.]]></raw>
+              <operations/>
+            </element>
+            <element id="FMT_SMR.1.2">
+              <raw><![CDATA[The TSF shall associate staff agents with roles.
+6.1.40 FPT_ITT.1 Basic internal TSF data transfer protection]]></raw>
+              <operations/>
+            </element>
+            <element id="FPT_ITT.1.1">
+              <raw><![CDATA[The TSF shall protect TSF data from disclosure and modification when it is
+transmitted between separate parts of the TOE.
+PP Application Note (FPT_ITT.1). Protection of TSF data is required while it is in transit between
+separate parts of the TSF in the TOE device server and the TOE control server. The degree of
+separation depends on the architecture and design of the TOE. The internal transfer of TSF data
+Page 50
+may be performed using network communication or using e.g. inter-container communication,
+shared services, etc. The ST author should describe in the TOE summary specification how the TSF
+data is protected from disclosure and modification while in transit within the TOE.
+6.1.41 FTP_ITC.1 Inter-TSF trusted channel
+The following actions should be auditable (minimum or basic level of audit):
+a) minimal: Failure of the trusted channel functions;
+b) minimal: Identification of the initiator and target of failed trusted channel functions;
+c) basic: All attempted uses of the trusted channel functions;
+d) basic: Identification of the initiator and target of all trusted channel functions.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_ITC.1.1">
+              <raw><![CDATA[The TSF shall provide a communication channel using TLS as defined in]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FMT_MSA" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FMT_MSA.1" name="Basic: All modifications of the values of security attributes" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FMT_MSA.3" name="Basic: Modifications of the default setting of permissive or restrictive rules" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FMT_SMF" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FMT_SMF.1" name="No dependencies –" iteration_label="AD" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FMT_SMF.1" name="and FMT_SMF.1/MA define the" iteration_label="AU" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FMT_SMF.1" name="No dependencies –" iteration_label="MA" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FMT_SMF.1" name="Minimal: Use of the management functions" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FMT_SMR" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FMT_SMR.1" name="Minimal: Modifications to the group of users that are part of a role" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+    <class id="FPT" name="">
+      <family id="FPT_ITT" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FPT_ITT.1" name="when user and TSF data is exchanged" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+    <class id="FTP" name="">
+      <family id="FTP_ITC" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FTP_ITC.1" name="Minimal: Failure of the trusted channel functions." iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FTP_PRO" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FTP_PRO.1" name="between itself and another trusted IT product an LDAP server, an" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FTP_ITC.1.2">
+              <raw><![CDATA[The TSF shall permit the TSF to initiate communication via the trusted channel.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_ITC.1.3">
+              <raw><![CDATA[The TSF shall initiate communication via the trusted channel for
+• exporting audit records to an external audit server
+• authentication through the LDAP server
+• accessing the MDM Server’s SQL database in case of a remote
+database server
+6.1.42 FTP_PRO.1 Trusted channel protocol
+The following actions should be auditable (minimum or basic level of audit):
+a) Minimal: Failure of the trusted channel establishment.
+b) Minimal: Identification of the initiator and target of failed trusted channel establishment.
+c) Basic: All attempted uses of the trusted channel.
+d) Basic: Identification of the initiator and target of all trusted channel attempts.
+Other events should be considered according to the specific protocols used.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_PRO.1.1">
+              <raw><![CDATA[The TSF shall implement TLS v1.2 and no earlier TLS versions acting as a client,
+a server in accordance with: RFC 5246.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_PRO.1.2">
+              <raw><![CDATA[The TSF shall enforce usage of the trusted channel for the following purposes:
+When acting as a TLS server:
+• protecting communication channels between the MDM Server and
+device agent
+• protecting remote web-based staff agent sessions (in conjunction
+with HTTPS)
+• protecting internal data transfer between the Management console
+(Control Server component) and the Core Server component (part of
+the Device Server component)
+When acting as a TLS client:
+Page 51
+• protecting audit records exported to an external audit server
+• protecting the communication channel between the MDM Server and
+LDAP server for authentication
+• protecting the communication channel between the MDM Server and
+a remote database server hosting the MDM Server’s SQL database
+When acting as a TLS server and as a TLS client:
+• protecting internal data transfer between the Management console
+(Control Server, acting as TLS client) and the Core Server component
+(part of the Device Server, acting as TLS server)
+in accordance with: none.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_PRO.1.3">
+              <raw><![CDATA[The TSF shall permit itself (when acting as a client), its peer to initiate
+communication via the trusted channel.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_PRO.1.4">
+              <raw><![CDATA[The TSF shall enforce the following rules for the trusted channel:
+When acting as a TLS server, the MDM Server shall not establish a trusted
+channel if the client certificate is invalid.
+When acting as a TLS client, the MDM Server shall not establish a trusted
+channel if the server certificate is invalid, with no exceptions.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_PRO.1.5">
+              <raw><![CDATA[The TSF shall enforce the following static protocol options:
+When acting as a TLS server, the MDM Server
+• shall support mutual authentication using X.509v3 certificates,
+• shall support session renegotiation, no session resumption or session
+tickets,
+• shall deny connections from clients requesting SSL 2.0, SSL 3.0, TLS
+1.0 and TLS 1.1.
+When acting as a TLS client, the MDM Server
+• shall present the Supported Groups Extension in the Client Hello with
+the supported groups [secp256r1, secp384r1, secp521r1],
+• shall support mutual authentication using X.509v3 certificates.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_PRO.1.6">
+              <raw><![CDATA[The TSF shall negotiate one of the following protocol configurations with its
+peer:
+When acting as a server:
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC
+5289,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289
+no other cipher suites
+When acting as a client:
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289,
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289,
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289,
+PPM Application note (FTP_PRO.1). The PP/ST author should model all necessary trusted channel
+protocols by FTP_PRO.1. If different protocols are used, the PP/ST author should iterate]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FTP_PRO.2" name=". To satisfy remaining open dependencies of FTP_PRO.2, the PP/ST author should" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FTP_PRO.3.1">
+              <raw><![CDATA[The TSF shall protect data in transit from unauthorised disclosure using one of
+the following mechanisms: AES as specified by FCS_COP.1/AES.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_PRO.3.2">
+              <raw><![CDATA[The TSF shall protect data in transit from modification using one of the
+following mechanisms:
+AES in GCM mode as specified by FCS_COP.1/AES,
+PPM Application note (FTP_PRO.3). The PP/ST author should model all necessary trusted channel
+data protection by FTP_PRO.3. If different protocols are used, the PP/ST author should iterate]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FTP_PRO.3" name="." iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FTP_TRP.1.1/EN">
+              <raw><![CDATA[The TSF shall use TLS as defined by FTP_PRO.1 to provide a communication
+path between itself and remote device agents that is logically distinct from
+other communication paths and provides assured identification of its end
+points and protection of the communicated data from modification and
+disclosure.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_TRP.1.2/EN">
+              <raw><![CDATA[The TSF shall permit remote device agents to initiate communication via the
+trusted path.]]></raw>
+              <operations/>
+            </element>
+            <element id="FTP_TRP.1.3/EN">
+              <raw><![CDATA[The TSF shall require the use of the trusted path for device enrolment services.
+PP Application Note (FTP_TRP.1/EN). The device enrolment services itself are not in the scope of
+the TSF. Device agents can be identified and authenticated via the requirements of FIA_UID.1 and]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FTP_PRO.317" name="ensures that the protection of" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FTP_TRP" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FTP_TRP.1" name="[MDMTSPP]" iteration_label="EN" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FTP_TRP.1" name="[MDMTSPP]," iteration_label="DA" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements/>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FTP_TRP.1" name="[MDMTSPP]," iteration_label="SA" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FAU_GEN.1.1">
+              <raw><![CDATA[The TSF shall be able to generate an audit record of the following auditable
+events:
+a) Start-up and shutdown of the audit functions;
+b) All auditable events for the basic level of audit listed in Table 9;
+c) device enrolment, device unenrolment and disablement/enablement
+of device workspace; and
+Page 29
+d) configuration changes of mobile devices regarding
+i. installed certificates
+ii. device settings
+iii. operating system version / patch level
+iv. installed applications incl. version
+v. and no other configuration changes of mobile devices.]]></raw>
+              <operations/>
+            </element>
+            <element id="FAU_GEN.1.2">
+              <raw><![CDATA[The TSF shall record within each audit record at least the following information:
+a) Date and time of the event, type of event, subject identity (if
+applicable), and the outcome (success or failure) of the event; and
+b) For each auditable event type, based on the auditable event
+definitions of the functional components included in the PP, PP-
+Module, functional package or ST, no other audit relevant
+information.
+Requirement Auditable event]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+        <component id="FTP_TRP.1" name="Minimal: Failures of the trusted path functions." iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <management/>
+          <audit_events/>
+          <elements>
+            <element id="FAU_GEN.2.1">
+              <raw><![CDATA[For audit events resulting from actions of identified users, the TSF shall be able
+to associate each auditable event with the identity of the user that caused the
+event.
+PP Application Note (FAU_GEN.2). This PP considers device agents and staff agents as users. The
+ST author should describe in the TOE summary specification how auditable events are associated
+with the identity of device agents and staff agents.
+6.1.3 FAU_SAR.1 Audit review
+The following actions should be auditable (minimum or basic level of audit):
+a) Basic: Reading of information from the audit records.]]></raw>
+              <operations/>
+            </element>
+            <element id="FAU_SAR.1.1">
+              <raw><![CDATA[The TSF shall provide authorised staff agents as specified in Table 10, with the
+capability to read the list of audit information as specified in Table 10 from the
+audit data.]]></raw>
+              <operations/>
+            </element>
+            <element id="FAU_SAR.1.2">
+              <raw><![CDATA[The TSF shall provide the audit data in a manner suitable for the staff agent to
+interpret the information.
+Authorised users List of audit information
+auditor agents, i.e. staff agents all audit information
+associated with role auditor
+Page 32
+Authorised users List of audit information
+manager agents, i.e. staff all audit information related to management activities of
+agents associated with role mobile devices including events concerning the life-cycle of
+manager mobile devices or any configuration changes of mobile
+devices
+Table 10: Audit review capabilities
+PP Application Note (FAU_SAR.1). This PP considers staff agents as external IT entities. The ST
+author should describe in the TOE summary specification how the audit information is
+unambiguously represented in an electronic fashion suitable for interpretation by staff agents.
+6.1.4 FAU_SAR.2 Restricted audit review
+The following actions should be auditable (minimum or basic level of audit):
+a) Basic: Unsuccessful attempts to read information from the audit records.]]></raw>
+              <operations/>
+            </element>
+            <element id="FAU_SAR.2.1">
+              <raw><![CDATA[The TSF shall prohibit all users read access to the audit records, except those
+users that have been granted explicit read-access.
+PP Application Note (FAU_SAR.2). According to FAU_SAR.1, auditor agents and manager agents
+have been granted explicit read access to the audit records. The ST author should describe in the
+TOE summary specification how read access of administrator agents and device agents is
+prohibited.
+6.1.5 FAU_SAR.3 Selectable audit review]]></raw>
+              <operations/>
+            </element>
+            <element id="FAU_SAR.3.1">
+              <raw><![CDATA[The TSF shall provide the ability to apply filtering of audit data based on the
+following criteria with logical relations for an arbitrarily chosen cluster of
+groupings, the staff agent reviewing the audit data, and the device agent
+associated with an audit record:
+• each grouping of the chosen cluster is smaller than or equal to at least
+one grouping of the staff agent cluster of groupings; and
+• the infimum of at least one grouping of the chosen cluster and the
+device agent grouping is not equal to the bottom grouping.
+PP Application Note (FAU_SAR.3). The ability to apply filtering of audit data is expressed in terms
+of the bounded lattice of groupings as required by FDP_IFF.2.6. The staff agent reviewing the audit
+data chooses a cluster of groupings such that each grouping is upper-bounded by at least one
+grouping of its own cluster. All filtered audit records are associated with a device agent in such a
+way that the device agent grouping and at least one grouping of the chosen cluster have a common
+substantial lower bound, i.e. they meet at an infimum grouping greater than the bottom grouping.
+The ST author should describe in the TOE summary specification how the staff agent can choose a
+specific cluster of groupings and how the audit records are filtered according to the chosen cluster.
+6.1.6 FAU_STG.4 Action in case of possible audit data loss7
+The following actions should be auditable (minimum or basic level of audit):
+a) Basic: Actions taken due to exceeding of a threshold.
+7 In [CC:2022], action in case of possible audit data loss is covered by FAU_STG.4 instead of FAU_STG.3 as in
+[CCV3.1R5]. Dependencies have changed from FAU_STG.1 to FAU_STG.2. This section has been updated to reflect
+these changes.
+Page 33]]></raw>
+              <operations/>
+            </element>
+            <element id="FAU_STG.4.1">
+              <raw><![CDATA[The TSF shall erase stored audit data if the audit data storage exceeds the
+lifetime for audit records of a value between 1 and 365 days configurable by
+the administrator.
+PP Application Note (FAU_STG.4). The action to be taken in case of a possible audit storage failure
+may require selecting a subset of all auditable events. In this case the PP/ST author should add]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+  </sfrs>
+  <sars>
+    <class id="ADV" name="">
+      <family id="ADV_ARC" name="">
+        <component id="ADV_ARC.1" name="Security architecture description" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ADV_FSP" name="">
+        <component id="ADV_FSP.4" name="Complete functional specification" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ADV_IMP" name="">
+        <component id="ADV_IMP.1" name="Implementation representation of the TSF" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ADV_TDS" name="">
+        <component id="ADV_TDS.3" name="Basic modular design" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+    </class>
+    <class id="AGD" name="">
+      <family id="AGD_OPE" name="">
+        <component id="AGD_OPE.1" name="Operational user guidance" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="AGD_PRE" name="">
+        <component id="AGD_PRE.1" name="Preparative procedures" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+    </class>
+    <class id="ALC" name="">
+      <family id="ALC_CMC" name="">
+        <component id="ALC_CMC.4" name="Production support, acceptance procedures" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ALC_CMS" name="">
+        <component id="ALC_CMS.4" name="Problem tracking CM coverage" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ALC_DEL" name="">
+        <component id="ALC_DEL.1" name="Delivery procedures" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ALC_DVS" name="">
+        <component id="ALC_DVS.1" name="Identification of security measures" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ALC_FLR" name="">
+        <component id="ALC_FLR.3" name="Systematic flaw remediation" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ALC_LCD" name="">
+        <component id="ALC_LCD.1" name="Developer defined life-cycle model" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ALC_TAT" name="">
+        <component id="ALC_TAT.1" name="Well-defined development tools" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+    </class>
+    <class id="ASE" name="">
+      <family id="ASE_CCL" name="">
+        <component id="ASE_CCL.1" name="Conformance claims" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ASE_ECD" name="">
+        <component id="ASE_ECD.1" name="Extended components definition" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ASE_INT" name="">
+        <component id="ASE_INT.1" name="ST introduction" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ASE_OBJ" name="">
+        <component id="ASE_OBJ.2" name="Security objectives" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ASE_REQ" name="">
+        <component id="ASE_REQ.2" name="Derived security requirements" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ASE_SPD" name="">
+        <component id="ASE_SPD.1" name="Security problem definition" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ASE_TSS" name="">
+        <component id="ASE_TSS.1" name="TOE summary specification" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+    </class>
+    <class id="ATE" name="">
+      <family id="ATE_COV" name="">
+        <component id="ATE_COV.2" name="Analysis of coverage" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ATE_DPT" name="">
+        <component id="ATE_DPT.1" name="Testing: basic design" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ATE_FUN" name="">
+        <component id="ATE_FUN.1" name="Functional testing" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+      <family id="ATE_IND" name="">
+        <component id="ATE_IND.2" name="Independent testing – sample" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+    </class>
+    <class id="AVA" name="">
+      <family id="AVA_VAN" name="">
+        <component id="AVA_VAN.3" name="Focused vulnerability analysis" inclusion="mandatory" package_inherited="true" augmented="false">
+          <hierarchical_to/>
+          <dependencies/>
+          <elements/>
+        </component>
+      </family>
+    </class>
+  </sars>
+  <rationale doc_type_applies="derived">
+    <objectives_rationale>
+      <mapping objective_id="OE.DEVICELIFECYCLE">
+        <justification/>
+        <spd_refs/>
+      </mapping>
+      <mapping objective_id="OE.SUPPORTINGSERVICES">
+        <justification/>
+        <spd_refs/>
+      </mapping>
+      <mapping objective_id="OE.RELIABLETIMESTAMPS">
+        <justification/>
+        <spd_refs/>
+      </mapping>
+      <mapping objective_id="OE.AUDITTRAIL">
+        <justification><![CDATA[Table 7: Tracing of security objectives for the operational environment to assumptions
+The assumption A.PROPERSTAFF is directly justified through the objective OE.PROPERSTAFF.
+The assumption A.PROPERUSER is directly justified through the objective OE.PROPERUSER.
+The assumption A.PROPERMANAGEMENT is directly justified through the objective]]></justification>
+        <spd_refs>
+          <spd_ref id="A.PROPERMANAGEMENT"/>
+          <spd_ref id="A.PROPERSTAFF"/>
+          <spd_ref id="A.PROPERUSER"/>
+        </spd_refs>
+      </mapping>
+      <mapping objective_id="OE.PROPERMANAGEMENT.">
+        <justification><![CDATA[Page 24
+The assumption A.RESILIENCE is directly justified through the objective OE.RESILIENCE.
+Page 25]]></justification>
+        <spd_refs>
+          <spd_ref id="A.RESILIENCE"/>
+        </spd_refs>
+      </mapping>
+      <rationale_table_raw><![CDATA[4.3 Security objectives rationale
+All security objectives trace to threats and organisational security policies (see Table 6).
+All security objectives for the operational environment trace to assumptions (see Table 7).
+E
+C IV F A G N D- N O D- T
+E D S T S S ID A E S IM IT A E S IM N O N E M
+U O IC U O IC R E U Q O R P C IN U O R P E G IT A R E G A
+IL IL S MM MA A N
+A M A M A M OM OR O P E A M
+.T .T .T C .T O C C .T T S S .P .P
+OT.COMMUNICATION x x x x x
+OT.DEVICELIFECYCLE x x
+OT.DEVICETRACKING x
+Page 22
+E
+C IV F A G N D- N O D- T
+E D S T S S ID A E S IM IT A E S IM N O N E M
+U O IC U O IC R E U Q O R P C IN U O R P E G IT A R E G A
+IL IL S MM MA A N
+A M A M A M OM OR O P E A M
+.T .T .T C .T O C C .T T S S .P .P
+OT.LOGGING x
+OT.MANAGEMENT x x x
+OT.SEPARATION x x x x
+OT.STORAGE x
+OT.TRUSTEDCOMMUNICATIONCHANNEL x x x x x
+OE.PROPERSTAFF x x x
+OE.PROPERUSER x x
+OE.PROPERMANAGEMENT x
+OE.RESILIENCE x
+OE.DEVICELIFECYCLE x x
+OE.SUPPORTINGSERVICES x x x x x
+OE.RELIABLETIMESTAMPS x x
+OE.AUDITTRAIL x
+Table 6: Tracing of security objectives to threats and organisational security policies
+The following rationale provides justification that the security objectives are suitable to counter
+each individual threat and that each security objective tracing back to a threat actually contributes
+to the mitigation of that threat.
+The threat T.MALICIOUSDEVICE is countered by the objectives OT.COMMUNICATION,
+OT.SEPARATION, OT.MANAGEMENT, OT.DEVICELIFECYCLE, and OT.DEVICETRACKING which are
+supported by the objectives OE.PROPERSTAFF, OE.PROPERUSER, OE.DEVICELIFECYCLE,
+OE.SUPPORTINGSERVICES, OT.TRUSTEDCOMMUNICATIONCHANNEL, and OE.RELIABLETIMESTAMPS
+as these objectives ensure that unauthorised logical access of malicious device agents to the MDM
+device server component is prevented.
+The threat T.MALICIOUSSTAFF is countered by the objectives OT.COMMUNICATION,
+OT.SEPARATION, OT.MANAGEMENT, OT.DEVICELIFECYCLE, and OT.LOGGING which are supported
+by the objectives OE.PROPERSTAFF, OE.SUPPORTINGSERVICES,
+OT.TRUSTEDCOMMUNICATIONCHANNEL, OE.RELIABLETIMESTAMPS and OE.AUDITTRAIL as these
+objectives ensure that unauthorised logical access of malicious staff agents to the MDM control
+server component is prevented.
+Page 23
+The threat T.MASQUERADING is countered by the objectives OT.SEPARATION, and
+OT.COMMUNICATION which are supported by the objectives OE.SUPPORTINGSERVICES, and
+OT.TRUSTEDCOMMUNICATIONCHANNEL, as these objectives ensure the separation of
+communication paths and the protection of communication from disclosure and modification.
+The threat T.COMPROMISEDCOMMUNICATION is countered by the objective
+OT.COMMUNICATION which is supported by the objective
+OT.TRUSTEDCOMMUNICATIONCHANNEL, as these objectives ensure the protection from
+unauthorised disclosure and modification of data exchanged between parts of the TOE and remote
+external entities by providing mutually authenticated trusted communication channels using
+trusted channel protocols based on cryptographic mechanisms.
+The threat T.COMPROMISEDSTORAGE is countered by the objective OT.STORAGE which is
+supported by the objective OE.SUPPORTINGSERVICES for user data stored by the MDM
+device/control server component.
+The organisational security policy P.SEPARATION is enforced by the objectives OT.SEPARATION,
+OT.COMMUNICATION and OT.TRUSTEDCOMMUNICATIONCHANNEL, as these objectives ensure the
+separation of interaction with authorised device agents from interaction with authorised staff
+agents.
+The organisational security policy P.MANAGEMENT is enforced by the objective OT.MANAGEMENT
+which is supported by the objectives OE.PROPERSTAFF, OE.PROPERUSER,
+OE.PROPERMANAGEMENT, OE.RESILIENCE, OE.DEVICELIFECYCLE, and OE.SUPPORTINGSERVICES.
+T
+N
+E
+M
+E
+G
+F F R A N
+A T S R E S U R A M R E C N
+E P E P E P E IL
+O O O IS
+R R R E
+P P P R
+.A .A .A .A
+OE.PROPERSTAFF x
+OE.PROPERUSER x
+OE.PROPERMANAGEMENT x
+OE.RESILIENCE x
+
+6.2 Security functional requirements rationale
+6.2.1 Coverage
+The following table provides a mapping of SFR components to the security objectives for the TOE,
+showing that each SFR component addresses at least one security objective and that all security
+objectives are addressed by one or more SFR components.
+Page 55
+SFR component L
+E
+N
+N
+N O IT A
+C IN
+U M
+M O C
+E L C Y
+C E
+F IL E C
+IV E D
+G N IK
+C A
+R T E C
+IV E D
+G N IG
+G O L
+T N
+E M
+E G A
+N A M
+N O
+IT A R
+A P E S
+E G A
+R O T S
+D E T
+S U R T
+-
+A
+H C N O
+IT
+A C IN
+U M M
+.T .T .T .T .T .T .T .TO
+O O O O O O O OC
+FAU_GEN.1 x x
+FAU_GEN.2 x x
+FAU_SAR.1 x x
+FAU_SAR.2 x x
+FAU_SAR.3 x
+FAU_STG.4 x x
+FCS_CKM.1/ECDSA, /RSA x
+FCS_CKM.2/ECDHE x
+FCS_CKM.5/SYMM, /MAC x
+FCS_CKM.6 x
+FCS_COP.1/AES, /RSA, /ECDSA, /SHA, x
+/HMAC
+FCS_RNG.1 x
+FDP_IFC.1 x
+FDP_IFF.2 x
+FDP_ITT.1X x
+FDP_RIP.1 x
+FDP_SDC.1 x
+FDP_SDI.1 x
+FDP_UCT.1 x
+FDP_UIT.1 x
+FIA_ATD.1 x x x x x
+FIA_UAU.1/DA x x x
+FIA_UAU.1/SA x x x x x
+FIA_UID.1/DA x x x
+FIA_UID.1/SA x x x x x
+FIA_USB.1 x x
+FMT_MOF.1 x
+FMT_MSA.1 x
+Page 56
+SFR component L
+E
+N
+N
+N O IT A
+C IN
+U M
+M O C
+E L C Y
+C E
+F IL E C
+IV E D
+G N IK
+C A
+R T E C
+IV E D
+G N IG
+G O L
+T N
+E M
+E G A
+N A M
+N O
+IT A R
+A P E S
+E G A
+R O T S
+D E T
+S U R T
+-
+A
+H C N O
+IT
+A C IN
+U M M
+.T .T .T .T .T .T .T .TO
+O O O O O O O OC
+FMT_MSA.3 x
+FMT_SMF.1/AD x
+FMT_SMF.1/AU x x
+FMT_SMF.1/MA x
+FMT_SMR.1 x x x x
+FPT_ITT.1 x
+FTP_ITC.1 x
+FTP_PRO.1 x
+FTP_PRO.2 x
+FTP_PRO.3 x x
+FTP_TRP.1/EN x
+FTP_TRP.1/DA x x
+FTP_TRP.1/SA x x
+Table 13: Mapping of SFR components to security objectives for the TOE]]></rationale_table_raw>
+    </objectives_rationale>
+    <sfr_rationale/>
+    <dependency_rationale/>
+  </rationale>
+  <toe_summary_spec doc_type_applies="ST">
+    <raw><![CDATA[7 TOE SUMMARY SPECIFICATION
+The TOE summary specification identifies the security functions that the TOE implements to meet
+the security functional requirements defined in section 6.1 of this ST.
+The table below shows which SFRs are satisfied by each of the TSFs.
+SFR component
+L
+T
+O
+T
+T
+M
+E
+N
+N
+ID U A .F P Y R C .F P D .F A I.F G M .F T P .F A H C .F
+S S S S S S S
+FAU_GEN.1 x
+FAU_GEN.2 x
+FAU_SAR.1 x
+FAU_SAR.2 x
+FAU_SAR.3 x
+FAU_STG.4 x
+FCS_CKM.1/ECDSA x
+FCS_CKM.1/RSA x
+FCS_CKM.2/ECDHE x
+FCS_CKM.5/SYMM x
+FCS_CKM.5/MAC x
+FCS_CKM.6 x
+FCS_COP.1/AES x
+FCS_COP.1/RSA x
+FCS_COP.1/ECDSA x
+FCS_COP.1/SHA x
+FCS_COP.1/HMAC x
+FCS_RNG.1 x
+FDP_IFC.1 x
+FDP_IFF.2 x
+FDP_ITT.1X x
+FDP_RIP.1 x
+FDP_SDC.1 x
+FDP_SDI.1 x
+FDP_UCT.1 x
+FDP_UIT.1 x
+FIA_ATD.1 x
+FIA_UAU.1/DA x
+Page 66
+SFR component
+L
+T
+O
+T
+T
+M
+E
+N
+N
+ID U A .F P Y R C .F P D .F A I.F G M .F T P .F A H C .F
+S S S S S S S
+FIA_UAU.1/SA x
+FIA_UID.1/DA x
+FIA_UID.1/SA x
+FIA_USB.1 x
+FMT_MOF.1 x
+FMT_MSA.1 x
+FMT_MSA.3 x
+FMT_SMF.1/AD x
+FMT_SMF.1/AU x
+FMT_SMF.1/MA x
+FMT_SMR.1 x
+FPT_ITT.1 x
+FTP_ITC.1 x
+FTP_PRO.1 x
+FTP_PRO.2 x
+FTP_PRO.3 x
+FTP_TRP.1/EN x
+FTP_TRP.1/DA x
+FTP_TRP.1/SA x
+Table 15: SFRs met by the TSFs
+7.1 SF.AUDIT - Security Audit
+FAU_GEN.1 / FAU_GEN.2: The UEM Server automatically generates audit records for all required
+events specified in the SFR without any additional administrator configuration. The audit records
+are stored in the UEM Server’s SQL database. The minimum set of audit records that can be
+generated are listed in Table 9 along with:
+• Start-up and shutdown of the audit functions by logging the start-up and shutdown of the
+MDM Server
+• device enrolment / unenrolment
+• configuration changes of mobile devices regarding
+• installed certificates
+• device settings
+• operating system version / patch level
+Page 67
+• installed applications incl. version
+Each event in the TOE’s audit log includes a date/time stamp obtained from the host server
+(connected to an NTP server), event type and category, user, host, and a success indicator.
+Each audit event resulting from an action of an identified user is associated with the identity of that
+user, i.e. the username in case of administrative actions performed by staff members, a UUID
+(internal unique device ID) in case of actions performed by a device agent.
+FAU_SAR.1: The UEM Server collects, protects, and can display audit messages to authorized
+auditors and managers. As the UEM Server generates audit events it stores them within its SQL
+database. Those events are available to be viewed via the UEM Server administrator portal.
+Periodically, the audit events stored in the SQL database are also forwarded to a configured
+SYSLOG server where they can be viewed in the operational environment.
+Note that audit events collected from enrolled mobile devices are received and immediately
+forwarded to a configured SYSLOG server where they can be examined. The UEM Server does not
+provide any interface to view these audit events and thus the functions from the environment are
+invoked to read audit data from the SYSLOG server.
+FAU_SAR.2: The TOE implements role-based access control. Only administrative users associated
+with roles that have access rights to access audit information can access them. Mobile devices and
+users who do not have this permission are not provided a mechanism to view audit data.
+FAU_SAR.3: The Management console of the UEM Server supports filtering of audit data based on
+the attributes ‘Source’, ‘Role’, ‘Category’, ‘Action’, ‘Sub-category’ and ‘Policy category’. If filters are
+applied, the Management console displays audit data that matches all of the selected filters.
+FAU_STG.4: The UEM Server stores audit data in the same SQL database where most of its
+configuration data is stored. The BlackBerry UEM Administrative Guidance Document defines SQL
+Server settings for the database that ensure that within the configurable lifetime of 1 to 365 days
+the audit storage cannot be exceeded.
+7.2 SF.CRYPTO - Cryptographic Support
+FCS_CKM.1/*, FCS_CKM.2/*, FCS_COP.1/*: The UEM Server uses its Certicom Security Builder
+GSE-J Crypto Core (version 2.9.2) to generate asymmetric RSA keys for authentication and key
+establishment. The UEM Server issues its own RSA 3072-bit certificates and stores them into the
+UEM Server SQL database so that they can be shared by distributed UEM Server instances.
+The UEM Server provides ECDSA key generation using P-256, P-384 and P-521 curves in support of
+ECDHE key establishment.
+The UEM Server handles decryption errors in accordance with NIST Special Publication 800-56B. It
+does not reveal the particular error that occurred, either through the contents of any outputted or
+logged error message or through timing variations.
+Vector testing, leveraging the NIST Automatic Cryptographic Validation Protocol (ACVP) demo
+server, using Certicom Security Builder GSE-J Crypto Core version 2.9.2 has been performed for the
+algorithms listed in the table below.
+Requirement Function Details
+FCS_CKM.1/* RSA and ECDSA key generation RSA 186-4: Key(gen) – 3072 bit
+ECDSA 186-4: Key(gen) P256, P-384, P-521
+FCS_CKM.2/* Key Agreement: KAS ECC KAS ECC: Ephemeral Unified,
+schemes; KA Role Initiator and KaRole(initiator, responder)
+responder
+Page 68
+Requirement Function Details
+FCS_COP.1/* Encryption/decryption AES 128/256 CBC
+AES 128/256 GCM
+Cryptographic signature RSA SigGen(3072), SigVer(3072)
+generation/verification
+ECDSA PKG/PKV/SigGen/SigVer P-256,
+P384, P-521
+Cryptographic hashing SHA-256/384/512
+keyed-hash message HMAC SHA-256/384
+authentication
+FCS_RNG.1 DRBG Hash_DRBG (any)
+Table 16: Crypto Algorithms
+The UEM Server (using its Certicom library) generates and verifies RSA (using 3072 bits) and ECDSA
+(using P-256, P-384, and P-521 curves) signatures, performs HMAC-SHA hashing, performs AES
+encryption and decryption, performs SHA hashing, establishes TLS/HTTPS connections, generates
+IVs, and generates random data.
+The UEM Server utilizes these cryptographic algorithms primarily during establishment of
+TLS/HTTPS connections (which require signature generation and verification as part of peer
+authentication, hashing as part of the signatures for peer authentication and for HMAC integrity,
+HMAC for integrity of the trusted channel, AES for the confidentiality of the trusted channel, and
+RBGs to generate nonces and IVs) and for the generation of random numbers.
+When using HMAC as part of TLS, the UEM Server utilizes HMAC keys equal to the block size of the
+underlying hash algorithm. Thus, when employing HMAC-SHA-256, the UEM Server uses a 32-byte
+key to generate a 32-byte hash. Likewise, when employing HMAC-SHA-384, it uses a 48-byte key
+when performing hashing to produce a 48-byte hash.
+The UEM Server generates IVs for AES CBC and AES GCM using unpredictable (random) IVs drawn
+from the Hash_DRBG (any) (which meets the “unpredictable” requirement of SP 800-38A and
+SP800-38D).
+FCS_CKM_5/*: The UEM Server derives symmetric keys and MAC keys required for the TLS data
+encryption and message authentication as defined in RFC 5246.
+FCS_CKM_6: The UEM Server clears plaintext keys (TLS and HTTPS session keys) from memory after
+those keys are no longer needed.
+Note that the UEM Server stores certificates and the related private keys (the only persistently
+stored keying material) in its SQL database in encrypted format, and when any new certificates are
+generated or imported, the UEM Server will directly overwrite the old keys with the new in the
+encrypted key store in the SQL database.
+FCS_RNG.1: The UEM Server is using the Hash_DRBG with a SHA2-512 core provided by the
+underlying Certicom library. The UEM Server utilizes Jitter RNG version 3.0.0 to seed its DRBG.
+Analysing the raw noise data generated by Jitter RNG 3.0.0 on the ST hardware confirmed that
+each bit of output provides 1 bit of entropy. The UEM Server is designed to ensure that if the
+entropy source delivers at least 0.666 bits of entropy per bit of output, the DRBG will be properly
+seeded with a minimum of 256 bits of entropy.
+Page 69
+7.3 SF.DP – User Data Protection
+FDP_SDC.1: The UEM Server uses certificates to provide an internal PKI which supports the
+issuance of certificates for its own use (i.e., to identify itself to other parties) and to be sent to
+mobile devices during enrolment. Private keys of certificates used by the UEM Server are stored
+encrypted in the server’s SQL database (AES-GCM mode) using a 256-bit DEK (data encryption key)
+created during installation. The DEK is encrypted (AES-CBC mode with HMAC-SHA-256 as an
+integrity check) using a 256-bit KEK (key encryption key) created during installation. The encrypted
+DEK is stored in the local file system of each unit of scale. The KEK is stored in and protected by the
+Windows key store. At no time does the UEM Server store any plaintext keys, plaintext PINs and
+plaintext passwords on its hard drive or its SQL database. The UEM Server does not store any
+ephemeral keys (e.g., TLS/HTTPS session keys).
+FDP_IFC.1: The MDM Server implements the grouping of devices and assignment of these groups
+to different managers by assigning different parameters to a device. While UEM supports a wide
+variety of parameters, for the TOE the parameters Operating System (OS), Operating System
+Version (OSV), Device Model (DM) and Manufacturer (M) have been selected. For a definition of
+the bounded sub-lattices, see the SFR FDP_IFC.1. For each device any of the parameters listed
+above has a dedicated value, e.g. a device does not run two different OS Versions at the same time.
+FDP_IFF.2 / FDP_UIT.1: Mobile device management function payloads are transferred over the air
+to mobile devices, using a secure TLS channel (FTP_TRP.1/DA). Payloads (i.e. new or updated
+policies and commands) are sent to the MDM agent during its next check-in to the UEM Server. The
+UEM Server uses predefined rules to determine applicable commands and policies to be sent to
+mobile devices. The UEM server also takes the mobile device’s capabilities into account; it only
+transfers commands and policies that the device is able to apply.
+Each device policy is signed by the UEM server using an RSA certificate issued for that purpose. It is
+then sent to the device agent via a secure TLS channel according to FTP_TRP.1/DA.
+Enrolled mobile devices are periodically notified by the Core Server via APNs or FCM depending on
+the operating system of the mobile device to check-in with a configurable interval. Managers can
+also initiate an immediate check-in using the UEM Server’s Management console.
+FDP_ITT.1X: User data transmitted between the Management console (control server component)
+and the Core Server component (part of the device server component) is protected against
+unauthorized disclosure and modification through the use of HTTPS TLS version 1.2 (RFC 5246) with
+mutual certificate-based authentication as defined by FTP_PRO.1, FTP_PRO.2 and FTP_PRO.3. The
+Management console is the TLS client, the Core Server component is the TLS server in this case.
+FDP_RIP.1: The residual information that needs to be protected from unauthorized re-use in the
+context of the MDM grouping SFP are PINs and passwords entered by users for authentication to
+the TOE as well as ephemeral keys for TLS sessions. Plaintext PINs and passwords sent to the TOE
+for user authentication and reference values retrieved from the database are erased from the
+database storage after the user is deleted, or before it is updated, using the Java AutoCloseable
+function and overwriting the data with zeros. Ephemeral keys for TLS sessions are erased from
+volatile memory as stated by FCS_CKM.6.
+FDP_SDI.1: The UEM Server stores user passwords, PINs, passwords used for key derivation as well
+as X509v3 certificates and related private keys encrypted in its SQL database, using AES-256 GCM
+FDP_UCT.1: User data is protected against unauthorised disclosure and modification by
+transmitting data via the trusted communication paths for staff agents (FTP_TRP.1/SA) and device
+agents (FTP_TRP.1/DA).
+Page 70
+7.4 SF.IA - Identification and authentication
+FIA_ATD.1: The UEM Server stores the following attributes for administrative user accounts: role
+(including permissions) assigned to the administrative user; mobile device users and user groups
+managed by the administrative user. For mobile devices enrolled in the UEM Server, the UEM
+Server stores the mobile device user who activated the device and the device group to which the
+mobile device has been assigned.
+FIA_UAU.1/DA, FIA_UID.1/DA: During the enrollment process, LDAP credentials are used to
+activate a mobile device over a secure TLS channel between the agent on the mobile device and
+the UEM Server. The UEM Server, having authenticated to the device agent through presentation
+of its certificate during the TLS handshake, checks that the LDAP credentials are valid. Once the
+enrollment process has completed, all subsequent connections between the device agent and the
+UEM Server occur through a mutually authenticated TLS session (in which the device agent
+presents its certificate to the UEM Server).
+FIA_UAU.1/SA, FIA_UID.1/SA: The UEM Server allows staff members to request password recover,
+choose a language and select the authentication provider before requiring that any staff member
+connecting to the server authenticate by providing a username and password. Put another way, a
+staff member cannot perform any actions at all (other than logging in, requesting password
+recover, choosing a language and selecting the authentication provider) until the staff member
+successfully authenticates.
+FIA_USB.1: The MDM server associates roles and permissions (i.e. a cluster of groupings) as
+security attributes with staff agents and groupings as security attributes with device agents via the
+TOEs role-based access control.
+The TOE supports the creation of local users, but also allows to use users maintained in an LDAP
+server. In the latter case, the TOE handles user data that is synchronized with LDAP. This user data
+cannot be directly modified on the TOE but only updated by modifying the data on LDAP and
+synchronizing with LDAP afterwards. Users, user attributes and group membership are maintained
+in LDAP.
+There is additional user data that is not maintained by LDAP and that can directly be modified on
+the TOE. Roles with permissions are maintained in the MDM-TS directly and not LDAP.
+All changes to the user data are audited.
+7.5 SF.MGMT - Security management
+FMT_SMR.1, FMT_SMF.1/AD, FMT_SMF.1/AU, FMT_SMF.1/MA: The UEM Server provides a set of
+preconfigured roles and allows for the creation of custom roles. The evaluated configuration of the
+TOE has at least the following roles:
+Role Tasks defined by SFRs Description
+Server primary - Server primary administrators are
+administrator administrators that have an
+administrative account on the
+underlying Microsoft Windows Server
+platform (i.e., the Windows
+administrator), log into Windows
+locally or through RDP, and are
+responsible for installation, install
+configuration, and have access to the
+SQL server database associated with
+the UEM Server.
+Page 71
+Role Tasks defined by SFRs Description
+Security Administrator Security administrators log into the
+UEM Server’s HTTPS WebUI
+(Management console) and are
+responsible for configuring the UEM
+Server’s settings. The Security
+Administrator role has full
+permissions to the management
+console, including creating and
+managing roles and administrative
+users. There must be at least one
+Security Administrator.
+Administrator See FMT_SMF.1/AD Administrators (in the sense of
+[MDMTSPP]) login through the UEM
+Server’s HTTPS WebUI and have the
+permissions required to complete the
+tasks specified in section 6.1.36.
+Auditor See FMT_SMF.1/AU Auditors login through the UEM
+Server’s HTTPS WebUI and have
+permissions only to access the UEM
+Server’s audit log.
+Manager See FMT_SMF.1/MA Managers login through the UEM
+Server’s HTTPS WebUI and are
+responsible for managing (groups of)
+mobile devices and mobile device
+users. They have the permissions
+required to complete the tasks
+specified in section 6.1.38.
+Mobile device users (MD - The UEM Server allows mobile device
+users) users to enroll their mobile devices
+using their LDAP credentials, and thus
+allows mobile device users to have
+the UEM Server manage their mobile
+devices to secure organization data
+and access.
+Table 17: Roles supported by the TOE
+All staff members (other than the server primary administrator) connect remotely to the UEM
+Server via HTTPS (using a standard web browser) and must be authenticated (providing a username
+and password) before gaining any access to the server. The UEM Server requires that administrator
+accounts be created for each staff member (and associated with existing roles or custom roles that
+can be configured by the Security Administrator to have a wide variety of permission
+combinations), and separates such staff members from mobile device users (unless a Security
+Administrator has explicitly created a separate administrative account for the user).
+ST Application Notes (FMT_SMR.1). The roles “Mobile device user”, “Server primary
+administrator”, and “Security administrator” are listed in Table 17 for the sake of completeness as
+they are always present in the evaluated configuration of the TOE. However, no claims are made
+about these roles in this ST.
+FMT_MOF.1, FMT_MSA.1, FMT_MSA.3: The MDM Server restricts all security management
+functions (identified above for FMT_SMF.1/AD, FMT_SMF.1/AU, FMT_SMF.1/MA) to an authorized
+Page 72
+staff agent. This is accomplished by role-based access controls (described above) assigned to each
+of the management screens and the associated functions. Any single permission a user role should
+have needs to be explicitly assigned by the manager. So, a user has no permissions by default. This
+default behavior cannot be changed by the manager.
+7.6 SF.PT - Protection of the TSF
+FPT_ITT.1: The UEM Server consists of two components: the Management console (control server
+component) to service staff interactions and the Core Server component (part of the device server
+component) to service device interactions. The Management console securely communicates with
+the Core Server component through HTTPS TLS version 1.2 (RFC 5246) with mutual certificate-
+based authentication as defined by FTP_PRO.1, FTP_PRO.2 and FTP_PRO.3. The Management
+console is the TLS client, the Core Server component is the TLS server in this case.
+7.7 SF.CHANNEL - Trusted path/channels
+FTP_PRO.1, FTP_PRO.2, FTP_PRO.3, FTP_ITC.1: The UEM Server implements TLS to secure
+communication with all enrolled device agents, remote staff agents (in combination with HTTPS), a
+remote database server as well as external audit and LDAP authentication servers. Since the UEM
+Server provides the MAS server functionality, there is no additional communication path for the
+MAS audit communications. The UEM Server is a TLS client when communicating with a remote
+database server and the external audit and LDAP authentication servers.
+The UEM Server supports TLS version 1.2 (RFC 5246). All versions of the SSL protocol and other
+versions of the TLS protocol are refused by the UEM Server.
+The TLS for each of these channels is capable of supporting mutual authentication using X509v3
+certificates, while mutual authentication is always required for enrolled device agents, as well as
+external audit and LDAP servers. The UEM Server will not establish a TLS session if the certificate
+presented by the peer is determined to be invalid.
+The UEM Server uses its Certicom library to perform X509v3 certificate validation in conformance
+with FTP_PRO.2. It accepts the use of wildcards in the SAN or CN for all certificates received during
+a TLS session negotiation. The UEM Server performs hostname checking to ensure that the
+expected hostname matches the certificate Common Name or Subject Alternate Name (when the
+UEM Server validates the certificate from an LDAP or Syslog server). When the UEM server is
+accepting TLS communications from a device agent, the UEM server verifies the device agent’s
+certificate by ensuring that that the Distinguished Name (DN) in the presented certificate matches
+a DN in a database of valid, known DNs.
+For key exchanges, the UEM server supports ECDHE key exchanges with EC curves secp256r1,
+secp384r1, and secp521r1.
+The UEM Server validates X509v3 certificates (including the full path) and checks their revocation
+status using OCSP. The server processes certificates presented during the TLS handshake by first
+checking the received certificate’s validity period and appropriate key usage property. The server
+checks that it can construct a certificate path from the received certificate through any
+intermediary CAs to a trusted root CA. If the server can successfully build the certificate path, then
+it will next check the validity of the CA certificates (e.g., checking its validity dates and that the CA
+flag is present in the basic constraints section for all CA certs) in the chain. Assuming the server
+determines that all CA certificates in the chain are valid, it will finally check the revocation status of
+the received certificate against an OCSP server. The UEM Server will not accept a TLS/HTTPS
+certificate as valid in the event that it cannot contact the revocation server. The UEM Server will
+not accept any certificate for which it cannot determine the validity and will reject the connection
+Page 73
+attempt. Note that the UEM Server only utilizes certificate pinning for communication between the
+MDM Server and enrolled iOS devices.
+In the evaluated configuration, the UEM Server is configured with an X509v3 certificate to present
+during TLS negotiation with an audit (Syslog) server, an X509v3 certificate to present during TLS
+negotiation with an LDAP server. The certificates used by the UEM Server for these communication
+channels are independent from one another and from its internal certificates used for
+communication with mobile devices.
+The UEM Server supports the following cipher suites when acting as a TLS client:
+• TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289,
+• TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289,
+• TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289,
+The UEM Server supports the following cipher suites when acting as a TLS server:
+• TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289,
+• TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289
+FTP_TRP.1/EN: The UEM Server implements a TLS trusted communication channel according to
+FTP_PRO.1 for the communication with device agents during enrolment. The enrolment process is
+either initiated manually by the mobile device user or – in case of automated enrolment – by an
+enrolment-supporting service (DEP for iOS and KME for Android). The mobile device agent
+connects to the UEM Server using the URL provided by the mobile device user or configured at the
+enrolment service. It authenticates the UEM Server through the server’s X.509 certificate. To be
+able to proceed with enrolment, the mobile device user needs to supply LDAP credentials. After
+successful verification of the user’s credentials, the UEM server issues a device certificate to secure
+all future communication according to FTP_TRP.1/DA with the device agent.
+FTP_TRP.1/DA: The UEM Server implements TLS according to FTP_PRO.1 to secure communication
+with all enrolled device agents. Mutual authentication using X.509 certificates (and certificate
+pinning for iOS) is always required for enrolled device agents.
+FTP_TRP.1/SA: The UEM Server implements HTTPS as its trusted communication path for
+communications with authorised remote staff agents. Remote staff agents must connect to the
+UEM Server using HTTPS to securely administer the UEM Server. Remote staff agents can
+administer the UEM Server by using the BlackBerry Web Services APIs or by using a normal web
+browser to access the web UI. The legacy SOAP API must not be used in the evaluated
+configuration. The UEM Server provides no other mechanism or method beyond HTTPS for a
+remote staff agent to configure or access the UEM Server.
+When accepting incoming HTTPS connections from remote staff agents, the UEM Server follows
+RFC 2818 and presents its server certificate. However, the UEM Server does not request that the
+remote staff agent present a certificate (in other words, the UEM Server does not require TLS
+mutual/client authentication for remote staff agents). Instead, the remote staff agent
+authenticates to the UEM Server using a username and password, transmitted to the UEM Server
+after they have established the TLS session.
+Page 74
+8 REFERENCES
+[AIS20] A proposal for: Functionality classes for random number generators, Version 2.0,
+18. September 2011
+[CC:2022] Common Criteria for Information Technology Security Evaluation. Part 1:
+Introduction and general model, November 2022, CC:2022 Revision 1, CCMB-2022-
+11-001; Part 2: Security functional components, November 2022, CC:2022
+Revision 1, CCMB-2022-11-002; Part 3: Security assurance components, November
+2022, CC:2022 Revision 1, CCMB-2022-11-003.
+[CC3.1R5] Common Criteria for Information Technology Security Evaluation. Part 1:
+Introduction and general model, April 2017, Version 3.1 Revision 5, CCMB-2017-
+04-001; Part 2: Security functional components, April 2017, Version 3.1 Revision 5,
+CCMB-2017-04-002; Part 3: Security assurance components, April 2017, Version
+3.1 Revision 5, CCMB-2017-04-003.
+[CEM:2022] Common Methodology for Information Technology Security Evaluation, Evaluation
+methodology, November 2022, CC:2022 Revision 1, CCMB-2022-11-006.
+[CEM3.1R5] Common Methodology for Information Technology Security Evaluation, Evaluation
+methodology, April 2017, Version 3.1 Revision 5, CCMB-2017-04-004.
+[MDMTSPP] PP Mobile Device Management – Trusted Server (MDM-TS), BSI-CC-PP-0115,
+Version 1.0.
+[MDMTSPPC] PP-Configuration Mobile Device Management – Trusted Server (MDM-TS)
+complemented with PP-Module Trusted Communication Channel (TCC), BSI-CC-PP-
+0116, Version 1.0.
+[TCCPPM] PP-Module Trusted Communication Channel (TCC), registered as component of PP-
+Configuration BSI-CC-PP-0116, Version 1.0.
+Page 75
+9 ABBREVIATIONS
+CC Common Criteria
+ECIES Elliptic Curve Integrated Encryption Scheme
+EOL End of Life
+JRE Java Runtime Environment
+LDAP Lightweight Directory Access Protocol
+MDM Mobile Device Managements
+PP Protection Profile
+PPM Protection Profile Module
+SAR Security Assurance Requirement
+SFR Security Functional Requirement
+ST Security Target
+TOE Target of Evaluation
+TSF TOE Security Functionality
+UEM Unified Endpoint Management
+VM Virtual Machine
+Page 76]]></raw>
+  </toe_summary_spec>
+  <unparsed_sections/>
+  <validation_report>
+    <summary stage1="ran" stage1_errors="3" stage1_warnings="0" stage2_errors="0" stage2_warnings="12" result="FAIL"/>
+    <issues>
+      <issue type="UNKNOWN_COMPONENT" severity="ERROR" location="FCS_CKM.4" detail="not found in cc_2022.xml catalog"/>
+      <issue type="HIERARCHICAL_MISMATCH" severity="ERROR" location="FDP_IFF.2" detail="parsed=[] catalog=['FDP_IFF.1']"/>
+      <issue type="UNKNOWN_COMPONENT" severity="ERROR" location="FTP_PRO.317" detail="not found in cc_2022.xml catalog"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OT.STORAGE" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.PROPERSTAFF" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.PROPERMANAGEMENT" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OT.DEVICETRACKING" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OT.SEPARATION" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.PROPERUSER" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OT.LOGGING" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OT.DEVICELIFECYCLE" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OE.RESILIENCE" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OT.TRUSTEDCOMMUNICATIONCHANNEL" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OT.MANAGEMENT" detail="no mapping in objectives_rationale"/>
+      <issue type="UNMAPPED_OBJECTIVE" severity="WARNING" location="OT.COMMUNICATION" detail="no mapping in objectives_rationale"/>
+    </issues>
+  </validation_report>
+</cc_document>

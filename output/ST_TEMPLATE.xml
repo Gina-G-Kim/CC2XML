@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cc_document doc_type="ST" eal="EAL2+" title="Template Reference Security Target" version="1.0" date="2026-01-01" cc_version="CC:2022">
+  <introduction>
+    <doc_reference>
+      <identifier/>
+      <title>Template Reference Security Target</title>
+      <version>1.0</version>
+      <date>2026-01-01</date>
+      <author/>
+      <sponsor/>
+    </doc_reference>
+    <toe_overview>
+      <toe_name>Template Reference Security Target</toe_name>
+      <toe_version>1.0</toe_version>
+      <toe_type/>
+      <description/>
+    </toe_overview>
+  </introduction>
+  <conformance_claims>
+    <cc_conformance>
+      <cc_version>CC:2022</cc_version>
+      <part2_conformance>extended</part2_conformance>
+      <part3_conformance>strict</part3_conformance>
+    </cc_conformance>
+    <pp_claims>
+      <pp_claim ref="PP-Example-Base" conformance_type=""/>
+    </pp_claims>
+    <package_claims>
+      <package_claim ref="EAL2" augmented="true"/>
+    </package_claims>
+  </conformance_claims>
+  <spd>
+    <threats>
+      <threat id="T.EXAMPLE_THREAT">
+        <description>An attacker attempts to perform an unauthorized action against the TOE.</description>
+      </threat>
+    </threats>
+    <assumptions>
+      <assumption id="A.EXAMPLE_ASSUMPTION">
+        <description>The operational environment provides physical protection for the TOE.</description>
+      </assumption>
+    </assumptions>
+    <osps>
+      <osp id="P.EXAMPLE_POLICY">
+        <description>The TOE shall enforce the example access control policy at all times.</description>
+      </osp>
+    </osps>
+  </spd>
+  <security_objectives>
+    <toe_objectives>
+      <objective id="O.EXAMPLE_OBJECTIVE">
+        <description>The TOE shall counter T.EXAMPLE_THREAT by enforcing P.EXAMPLE_POLICY.</description>
+      </objective>
+    </toe_objectives>
+    <env_objectives>
+      <objective id="OE.EXAMPLE_OBJECTIVE">
+        <description>The operational environment shall satisfy A.EXAMPLE_ASSUMPTION.</description>
+      </objective>
+    </env_objectives>
+  </security_objectives>
+  <extended_components>
+    <ext_family id="FCS_RBG_EXT" name="" class="FCS">
+      <family_behaviour/>
+      <component_levelling/>
+      <ext_component id="FCS_RBG_EXT.1" name="Random bit generation">
+        <hierarchical_to/>
+        <dependencies/>
+        <management/>
+        <audit_events/>
+      </ext_component>
+    </ext_family>
+  </extended_components>
+  <sfrs>
+    <class id="FIA" name="">
+      <family id="FIA_UID" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FIA_UID.2" name="User identification before any action" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to source="catalog">
+            <comp_ref id="FIA_UID.1"/>
+          </hierarchical_to>
+          <dependencies source="catalog"/>
+          <management/>
+          <audit_events/>
+          <elements source="catalog">
+            <element id="FIA_UID.2.1">
+              <raw><![CDATA[The TSF shall require each user to be successfully identified before allowing any TSF-mediated actions on behalf of that user.]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FIA_UAU" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FIA_UAU.2" name="User authentication before any action" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to source="st">
+            <comp_ref id="FIA_UAU.1"/>
+          </hierarchical_to>
+          <dependencies source="st">
+            <dependency>
+              <alternatives>
+                <comp_ref id="FIA_UID.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements source="st">
+            <element id="FIA_UAU.2.1">
+              <raw><![CDATA[The TSF shall require each user to be successfully
+authenticated before allowing any other TSF-mediated action on behalf of
+that user.]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+    <class id="FDP" name="">
+      <family id="FDP_ACC" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_ACC.1" name="Subset access control" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="st">
+            <dependency>
+              <alternatives>
+                <comp_ref id="FDP_ACF.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements source="st">
+            <element id="FDP_ACC.1.1">
+              <raw><![CDATA[The TSF shall enforce the [assignment: example access control
+policy] on [assignment: subjects, objects, and operations among subjects
+and objects covered by the SFP].]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+                <operation type="assignment" label="(a2)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_ACF" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_ACF.1" name="Security attribute based access control" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="st">
+            <dependency>
+              <alternatives>
+                <comp_ref id="FDP_ACC.1"/>
+              </alternatives>
+            </dependency>
+            <dependency>
+              <alternatives>
+                <comp_ref id="FMT_MSA.3"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements source="st">
+            <element id="FDP_ACF.1.1">
+              <raw><![CDATA[The TSF shall enforce the [assignment: example access control
+policy] to objects based on [assignment: security attributes].]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+                <operation type="assignment" label="(a2)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+            <element id="FDP_ACF.1.2">
+              <raw><![CDATA[The TSF shall enforce the following rules to determine if an
+operation among controlled subjects and controlled objects is allowed:
+[assignment: rules governing access].]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+            <element id="FDP_ACF.1.3">
+              <raw><![CDATA[The TSF shall explicitly authorise access of subjects to
+objects based on the following additional rules: [assignment: no
+additional rules].]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+            <element id="FDP_ACF.1.4">
+              <raw><![CDATA[The TSF shall explicitly deny access of subjects to objects
+based on the following additional rules: [assignment: no additional
+rules].]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note>This SFR's assignment operations are completed
+consistently with the access control policy named in FDP_ACC.1.</application_note>
+        </component>
+      </family>
+      <family id="FDP_ETC" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_ETC.1" name="Export of user data without security attributes" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="st">
+            <dependency>
+              <alternatives>
+                <comp_ref id="FDP_ACC.1"/>
+                <comp_ref id="FDP_IFC.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements source="st">
+            <element id="FDP_ETC.1.1">
+              <raw><![CDATA[The TSF shall enforce the [assignment: example access control
+policy] when exporting user data, controlled under the SFP(s), outside of
+the TOE.]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+            <element id="FDP_ETC.1.2">
+              <raw><![CDATA[The TSF shall export the user data without the user data's
+associated security attributes.]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FDP_IFF" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FDP_IFF.1" name="Simple security attributes" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="st">
+            <dependency unsatisfied="true">
+              <alternatives>
+                <comp_ref id="FMT_MSA.3"/>
+              </alternatives>
+            </dependency>
+            <dependency>
+              <alternatives>
+                <comp_ref id="FDP_IFC.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements source="st">
+            <element id="FDP_IFF.1.1">
+              <raw><![CDATA[The TSF shall enforce the [assignment: example information
+flow control policy] based on [assignment: security attributes].]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+                <operation type="assignment" label="(a2)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+    <class id="FCS" name="">
+      <family id="FCS_COP" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FCS_COP.1" name="Cryptographic operation" iteration_label="Hash" inclusion="mandatory" extended="false">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="st">
+            <dependency>
+              <alternatives>
+                <comp_ref id="FCS_CKM.1"/>
+                <comp_ref id="FCS_CKM.5"/>
+              </alternatives>
+            </dependency>
+            <dependency>
+              <alternatives>
+                <comp_ref id="FCS_CKM.3"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements source="st">
+            <element id="FCS_COP.1.1/Hash">
+              <raw><![CDATA[The TSF shall perform hashing in accordance with a
+specified cryptographic algorithm [assignment: SHA-256] and cryptographic
+key sizes [assignment: none] that meet the following: [assignment: FIPS
+180-4].]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+                <operation type="assignment" label="(a2)">
+                  <completed_value/>
+                </operation>
+                <operation type="assignment" label="(a3)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+    <class id="FAU" name="">
+      <family id="FAU_GEN" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FAU_GEN.2" name="User identity association" iteration_label="" inclusion="objective" extended="false">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="st">
+            <dependency>
+              <alternatives>
+                <comp_ref id="FAU_GEN.1"/>
+              </alternatives>
+            </dependency>
+            <dependency>
+              <alternatives>
+                <comp_ref id="FIA_UID.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements source="st">
+            <element id="FAU_GEN.2.1">
+              <raw><![CDATA[The TSF shall associate each auditable event with the identity
+of the user that caused the event.]]></raw>
+              <operations/>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+      <family id="FAU_SAR" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FAU_SAR.1" name="Audit review" iteration_label="" inclusion="mandatory" extended="false">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="st">
+            <dependency>
+              <alternatives>
+                <comp_ref id="FAU_GEN.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <management/>
+          <audit_events/>
+          <elements source="st">
+            <element id="FAU_SAR.1.1">
+              <raw><![CDATA[The TSF shall provide [assignment: authorised users] with the
+capability to read [assignment: list of audit information] from the audit
+records.]]></raw>
+              <operations>
+                <operation type="assignment" label="(a1)">
+                  <completed_value/>
+                </operation>
+                <operation type="assignment" label="(a2)">
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+    <class id="FTP" name="">
+      <family id="FTP_ITC" name="">
+        <user_notes/>
+        <levelling_notes/>
+        <component id="FTP_ITC.1" name="Inter-TSF trusted channel" iteration_label="" inclusion="selection_based" extended="false">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="catalog"/>
+          <management/>
+          <audit_events/>
+          <elements source="st">
+            <element id="FTP_ITC.1.1">
+              <raw><![CDATA[The TSF shall be capable of using [selection: IPsec, TLS] to
+provide a trusted communication channel.]]></raw>
+              <operations>
+                <operation type="selection" label="(s1)">
+                  <option>IPsec</option>
+                  <option>TLS</option>
+                  <completed_value/>
+                </operation>
+              </operations>
+            </element>
+          </elements>
+          <obj_refs/>
+          <application_note/>
+        </component>
+      </family>
+    </class>
+  </sfrs>
+  <sars>
+    <class id="ADV" name="">
+      <family id="ADV_FSP" name="">
+        <component id="ADV_FSP.1" name="Basic functional specification" inclusion="mandatory">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="catalog"/>
+          <elements source="st">
+            <element id="ADV_FSP.1.1D" type="D">
+              <raw><![CDATA[The developer shall provide a functional specification.
+
+Content and presentation elements:]]></raw>
+            </element>
+            <element id="ADV_FSP.1.1C" type="C">
+              <raw><![CDATA[The functional specification shall describe the purpose and
+method of use for each SFR-enforcing and SFR-supporting TSFI.
+
+Evaluator action elements:]]></raw>
+            </element>
+            <element id="ADV_FSP.1.1E" type="E">
+              <raw><![CDATA[The evaluator shall confirm that the information provided
+meets all requirements for content and presentation of evidence.]]></raw>
+            </element>
+          </elements>
+        </component>
+      </family>
+      <family id="ADV_TDS" name="">
+        <component id="ADV_TDS.1" name="Basic design" inclusion="mandatory">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="catalog">
+            <dependency>
+              <alternatives>
+                <comp_ref id="ADV_FSP.2"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <elements source="catalog">
+            <element id="ADV_TDS.1.1D" type="D">
+              <raw><![CDATA[The developer shall provide the design of the TOE.]]></raw>
+            </element>
+            <element id="ADV_TDS.1.2D" type="D">
+              <raw><![CDATA[The developer shall provide a mapping from the TSFI of the functional specification to the lowest level of decomposition available in the TOE design.]]></raw>
+            </element>
+            <element id="ADV_TDS.1.1C" type="C">
+              <raw><![CDATA[The design shall describe the structure of the TOE in terms of subsystems.]]></raw>
+            </element>
+            <element id="ADV_TDS.1.2C" type="C">
+              <raw><![CDATA[The design shall identify all subsystems of the TSF.]]></raw>
+            </element>
+            <element id="ADV_TDS.1.3C" type="C">
+              <raw><![CDATA[The design shall provide the behaviour summary of each SFR-supporting or SFR-non-interfering TSF subsystem.]]></raw>
+            </element>
+            <element id="ADV_TDS.1.4C" type="C">
+              <raw><![CDATA[The design shall summarize the SFR-enforcing behaviour of the SFR-enforcing subsystems.]]></raw>
+            </element>
+            <element id="ADV_TDS.1.5C" type="C">
+              <raw><![CDATA[The design shall provide a description of the interactions among SFR-enforcing subsystems of the TSF, and between the SFR-enforcing subsystems of the TSF and other subsystems of the TSF.]]></raw>
+            </element>
+            <element id="ADV_TDS.1.6C" type="C">
+              <raw><![CDATA[The mapping shall demonstrate that all TSFIs trace to the behaviour described in the TOE design that they invoke.]]></raw>
+            </element>
+            <element id="ADV_TDS.1.1E" type="E">
+              <raw><![CDATA[The evaluator shall confirm that the information provided meets all requirements for content and presentation of evidence.]]></raw>
+            </element>
+            <element id="ADV_TDS.1.2E" type="E">
+              <raw><![CDATA[The evaluator shall determine that the design is an accurate and complete instantiation of all security functional requirements.]]></raw>
+            </element>
+          </elements>
+        </component>
+      </family>
+    </class>
+    <class id="AGD" name="">
+      <family id="AGD_OPE" name="">
+        <component id="AGD_OPE.1" name="Operational user guidance" inclusion="mandatory">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="catalog">
+            <dependency>
+              <alternatives>
+                <comp_ref id="ADV_FSP.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <elements source="catalog">
+            <element id="AGD_OPE.1.1D" type="D">
+              <raw><![CDATA[The developer shall provide operational user guidance.]]></raw>
+            </element>
+            <element id="AGD_OPE.1.1C" type="C">
+              <raw><![CDATA[The operational user guidance shall describe, for each user role, the user-accessible functions and privileges that should be controlled in a secure processing environment, including appropriate warnings.]]></raw>
+            </element>
+            <element id="AGD_OPE.1.2C" type="C">
+              <raw><![CDATA[The operational user guidance shall describe, for each user role, how to use the available interfaces provided by the TOE in a secure manner.]]></raw>
+            </element>
+            <element id="AGD_OPE.1.3C" type="C">
+              <raw><![CDATA[The operational user guidance shall describe, for each user role, the available functions and interfaces, in particular all security parameters under the control of the user, indicating secure values as appropriate.]]></raw>
+            </element>
+            <element id="AGD_OPE.1.4C" type="C">
+              <raw><![CDATA[The operational user guidance shall, for each user role, clearly present each type of security-relevant event relative to the user-accessible functions that need to be performed, including changing the security characteristics of entities under the control of the TSF.]]></raw>
+            </element>
+            <element id="AGD_OPE.1.5C" type="C">
+              <raw><![CDATA[The operational user guidance shall identify all possible modes of operation of the TOE (including operation following failure or operational error), their consequences and implications for maintaining secure operation.]]></raw>
+            </element>
+            <element id="AGD_OPE.1.6C" type="C">
+              <raw><![CDATA[The operational user guidance shall, for each user role, describe the security controls to be followed in order to fulfil the security objectives for the operational environment as described in the ST.]]></raw>
+            </element>
+            <element id="AGD_OPE.1.7C" type="C">
+              <raw><![CDATA[The operational user guidance shall be clear and reasonable.]]></raw>
+            </element>
+            <element id="AGD_OPE.1.1E" type="E">
+              <raw><![CDATA[The evaluator shall confirm that the information provided meets all requirements for content and presentation of evidence.]]></raw>
+            </element>
+          </elements>
+        </component>
+      </family>
+      <family id="AGD_PRE" name="">
+        <component id="AGD_PRE.1" name="Preparative procedures" inclusion="mandatory">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="catalog"/>
+          <elements source="catalog">
+            <element id="AGD_PRE.1.1D" type="D">
+              <raw><![CDATA[The developer shall provide the TOE including its preparative procedures.]]></raw>
+            </element>
+            <element id="AGD_PRE.1.1C" type="C">
+              <raw><![CDATA[The preparative procedures shall describe all the steps necessary for secure acceptance of the delivered TOE in accordance with the developer's delivery procedures.]]></raw>
+            </element>
+            <element id="AGD_PRE.1.2C" type="C">
+              <raw><![CDATA[The preparative procedures shall describe all the steps necessary for secure installation of the TOE and for the secure preparation of the operational environment in accordance with the security objectives for the operational environment as described in the ST.]]></raw>
+            </element>
+            <element id="AGD_PRE.1.1E" type="E">
+              <raw><![CDATA[The evaluator shall confirm that the information provided meets all requirements for content and presentation of evidence.]]></raw>
+            </element>
+            <element id="AGD_PRE.1.2E" type="E">
+              <raw><![CDATA[The evaluator shall apply the preparative procedures to confirm that the TOE can be prepared securely for operation.]]></raw>
+            </element>
+          </elements>
+        </component>
+      </family>
+    </class>
+    <class id="ATE" name="">
+      <family id="ATE_IND" name="">
+        <component id="ATE_IND.2" name="Independent testing - sample" inclusion="mandatory">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="catalog">
+            <dependency>
+              <alternatives>
+                <comp_ref id="ADV_FSP.2"/>
+              </alternatives>
+            </dependency>
+            <dependency>
+              <alternatives>
+                <comp_ref id="AGD_OPE.1"/>
+              </alternatives>
+            </dependency>
+            <dependency>
+              <alternatives>
+                <comp_ref id="AGD_PRE.1"/>
+              </alternatives>
+            </dependency>
+            <dependency>
+              <alternatives>
+                <comp_ref id="ATE_COV.1"/>
+              </alternatives>
+            </dependency>
+            <dependency>
+              <alternatives>
+                <comp_ref id="ATE_FUN.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <elements source="catalog">
+            <element id="ATE_IND.2.1D" type="D">
+              <raw><![CDATA[The developer shall provide the TOE for testing.]]></raw>
+            </element>
+            <element id="ATE_IND.2.1C" type="C">
+              <raw><![CDATA[The TOE shall be suitable for testing.]]></raw>
+            </element>
+            <element id="ATE_IND.2.2C" type="C">
+              <raw><![CDATA[The developer shall provide an equivalent set of resources to those that were used in the developer's functional testing of the TSF.]]></raw>
+            </element>
+            <element id="ATE_IND.2.1E" type="E">
+              <raw><![CDATA[The evaluator shall confirm that the information provided meets all requirements for content and presentation of evidence.]]></raw>
+            </element>
+            <element id="ATE_IND.2.2E" type="E">
+              <raw><![CDATA[The evaluator shall execute a sample of tests in the test documentation to verify the developer test results.]]></raw>
+            </element>
+            <element id="ATE_IND.2.3E" type="E">
+              <raw><![CDATA[The evaluator shall test a subset of the TSF to confirm that the TSF operates as specified.]]></raw>
+            </element>
+          </elements>
+        </component>
+      </family>
+    </class>
+    <class id="AVA" name="">
+      <family id="AVA_VAN" name="">
+        <component id="AVA_VAN.2" name="Vulnerability analysis" inclusion="mandatory">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="catalog">
+            <dependency>
+              <alternatives>
+                <comp_ref id="ADV_ARC.1"/>
+              </alternatives>
+            </dependency>
+            <dependency>
+              <alternatives>
+                <comp_ref id="ADV_FSP.2"/>
+              </alternatives>
+            </dependency>
+            <dependency>
+              <alternatives>
+                <comp_ref id="ADV_TDS.1"/>
+              </alternatives>
+            </dependency>
+            <dependency>
+              <alternatives>
+                <comp_ref id="AGD_OPE.1"/>
+              </alternatives>
+            </dependency>
+            <dependency>
+              <alternatives>
+                <comp_ref id="AGD_PRE.1"/>
+              </alternatives>
+            </dependency>
+          </dependencies>
+          <elements source="catalog">
+            <element id="AVA_VAN.2.1D" type="D">
+              <raw><![CDATA[The developer shall provide the TOE for testing.]]></raw>
+            </element>
+            <element id="AVA_VAN.2.2D" type="D">
+              <raw><![CDATA[The developer shall provide a list of third party components included in the TOE and the TOE delivery.]]></raw>
+            </element>
+            <element id="AVA_VAN.2.1C" type="C">
+              <raw><![CDATA[The TOE shall be suitable for testing.]]></raw>
+            </element>
+            <element id="AVA_VAN.2.2C" type="C">
+              <raw><![CDATA[The list of third party components shall include components provided by third parties, and that are part of the TOE or otherwise part of the TOE delivery.]]></raw>
+            </element>
+            <element id="AVA_VAN.2.1E" type="E">
+              <raw><![CDATA[The evaluator shall confirm that the information provided meets all requirements for content and presentation of evidence.]]></raw>
+            </element>
+            <element id="AVA_VAN.2.2E" type="E">
+              <raw><![CDATA[The evaluator shall perform a search of public domain sources to identify potential vulnerabilities in the TOE the components in the list of third party components, and specific IT products in the environment that the TOE depends on.]]></raw>
+            </element>
+            <element id="AVA_VAN.2.3E" type="E">
+              <raw><![CDATA[The evaluator shall perform an independent vulnerability analysis of the TOE using the guidance documentation, functional specification, TOE design and security architecture description to identify potential vulnerabilities in the TOE.]]></raw>
+            </element>
+            <element id="AVA_VAN.2.4E" type="E">
+              <raw><![CDATA[The evaluator shall conduct penetration testing, based on the identified potential vulnerabilities, to determine that the TOE is resistant to attacks performed by an attacker possessing Basic attack potential.]]></raw>
+            </element>
+          </elements>
+        </component>
+      </family>
+    </class>
+    <class id="ALC" name="">
+      <family id="ALC_FLR" name="">
+        <component id="ALC_FLR.2" name="Flaw reporting procedures" inclusion="mandatory">
+          <hierarchical_to source="catalog"/>
+          <dependencies source="catalog"/>
+          <elements source="catalog">
+            <element id="ALC_FLR.2.1D" type="D">
+              <raw><![CDATA[The developer shall document and provide flaw remediation procedures addressed to TOE developers.]]></raw>
+            </element>
+            <element id="ALC_FLR.2.2D" type="D">
+              <raw><![CDATA[The developer shall establish a procedure for accepting and acting upon all reports of security flaws and requests for corrections to those flaws.]]></raw>
+            </element>
+            <element id="ALC_FLR.2.3D" type="D">
+              <raw><![CDATA[The developer shall provide flaw remediation guidance addressed to TOE users.]]></raw>
+            </element>
+            <element id="ALC_FLR.2.1C" type="C">
+              <raw><![CDATA[The flaw remediation procedures documentation shall describe the procedures used to track all reported security flaws in each release of the TOE.]]></raw>
+            </element>
+            <element id="ALC_FLR.2.2C" type="C">
+              <raw><![CDATA[The flaw remediation procedures shall require that a description of the nature and effect of each security flaw be provided, as well as the status of finding a correction to that flaw.]]></raw>
+            </element>
+            <element id="ALC_FLR.2.3C" type="C">
+              <raw><![CDATA[The flaw remediation procedures shall require that corrective actions be identified for each of the security flaws.]]></raw>
+            </element>
+            <element id="ALC_FLR.2.4C" type="C">
+              <raw><![CDATA[The flaw remediation procedures documentation shall describe the methods used to provide flaw information, corrections and guidance on corrective actions to TOE users.]]></raw>
+            </element>
+            <element id="ALC_FLR.2.5C" type="C">
+              <raw><![CDATA[The flaw remediation procedures shall describe a means by which the developer receives from TOE users reports and enquiries of suspected security flaws in the TOE.]]></raw>
+            </element>
+            <element id="ALC_FLR.2.6C" type="C">
+              <raw><![CDATA[The procedures for processing reported security flaws shall ensure that any reported flaws are remediated and the remediation procedures issued to TOE users.]]></raw>
+            </element>
+            <element id="ALC_FLR.2.7C" type="C">
+              <raw><![CDATA[The procedures for processing reported security flaws shall provide safeguards that any corrections to these security flaws do not introduce any new flaws.]]></raw>
+            </element>
+            <element id="ALC_FLR.2.8C" type="C">
+              <raw><![CDATA[The flaw remediation guidance shall describe a means by which TOE users report to the developer any suspected security flaws in the TOE.]]></raw>
+            </element>
+            <element id="ALC_FLR.2.1E" type="E">
+              <raw><![CDATA[The evaluator shall confirm that the information provided meets all requirements for content and presentation of evidence.]]></raw>
+            </element>
+          </elements>
+        </component>
+      </family>
+    </class>
+  </sars>
+  <rationale>
+    <objectives_rationale>
+      <mapping objective_id="O.EXAMPLE_OBJECTIVE">
+        <justification><![CDATA[This objective addresses T.EXAMPLE_THREAT and P.EXAMPLE_POLICY by
+requiring the TOE to enforce access control on every operation.]]></justification>
+        <spd_refs>
+          <spd_ref id="P.EXAMPLE_POLICY"/>
+          <spd_ref id="T.EXAMPLE_THREAT"/>
+        </spd_refs>
+      </mapping>
+      <mapping objective_id="OE.EXAMPLE_OBJECTIVE">
+        <justification><![CDATA[This objective addresses A.EXAMPLE_ASSUMPTION by requiring the operational
+environment to physically protect the TOE.]]></justification>
+        <spd_refs>
+          <spd_ref id="A.EXAMPLE_ASSUMPTION"/>
+        </spd_refs>
+      </mapping>
+    </objectives_rationale>
+    <sfr_rationale>
+      <mapping comp_id="FDP_ACC.1">
+        <justification><![CDATA[This component satisfies O.EXAMPLE_OBJECTIVE by defining the scope of the
+access control policy.]]></justification>
+        <obj_refs>
+          <obj_ref id="O.EXAMPLE_OBJECTIVE"/>
+        </obj_refs>
+      </mapping>
+      <mapping comp_id="FDP_ACF.1">
+        <justification><![CDATA[This component satisfies O.EXAMPLE_OBJECTIVE by defining the rules the
+access control policy uses to grant or deny access.]]></justification>
+        <obj_refs>
+          <obj_ref id="O.EXAMPLE_OBJECTIVE"/>
+        </obj_refs>
+      </mapping>
+      <mapping comp_id="FIA_UID.2">
+        <justification><![CDATA[This component satisfies O.EXAMPLE_OBJECTIVE by requiring identification
+before any other TSF-mediated action.]]></justification>
+        <obj_refs>
+          <obj_ref id="O.EXAMPLE_OBJECTIVE"/>
+        </obj_refs>
+      </mapping>
+      <mapping comp_id="FIA_UAU.2">
+        <justification><![CDATA[This component satisfies O.EXAMPLE_OBJECTIVE by requiring authentication
+before any other TSF-mediated action.]]></justification>
+        <obj_refs>
+          <obj_ref id="O.EXAMPLE_OBJECTIVE"/>
+        </obj_refs>
+      </mapping>
+      <mapping comp_id="FDP_ETC.1">
+        <justification><![CDATA[This component satisfies O.EXAMPLE_OBJECTIVE by controlling how user data
+is exported from the TOE.]]></justification>
+        <obj_refs>
+          <obj_ref id="O.EXAMPLE_OBJECTIVE"/>
+        </obj_refs>
+      </mapping>
+      <mapping comp_id="FDP_IFF.1">
+        <justification><![CDATA[This component satisfies O.EXAMPLE_OBJECTIVE by enforcing the example
+information flow control policy.]]></justification>
+        <obj_refs>
+          <obj_ref id="O.EXAMPLE_OBJECTIVE"/>
+        </obj_refs>
+      </mapping>
+      <mapping comp_id="FCS_COP.1/Hash">
+        <justification><![CDATA[This component satisfies O.EXAMPLE_OBJECTIVE by providing the hashing
+operation used elsewhere in the example access control policy.]]></justification>
+        <obj_refs>
+          <obj_ref id="O.EXAMPLE_OBJECTIVE"/>
+        </obj_refs>
+      </mapping>
+      <mapping comp_id="FAU_GEN.2">
+        <justification><![CDATA[This component satisfies O.EXAMPLE_OBJECTIVE by associating audit records
+with the identity of the user who caused them.]]></justification>
+        <obj_refs>
+          <obj_ref id="O.EXAMPLE_OBJECTIVE"/>
+        </obj_refs>
+      </mapping>
+      <mapping comp_id="FAU_SAR.1">
+        <justification><![CDATA[This component satisfies O.EXAMPLE_OBJECTIVE by allowing authorised users
+to review the audit trail.]]></justification>
+        <obj_refs>
+          <obj_ref id="O.EXAMPLE_OBJECTIVE"/>
+        </obj_refs>
+      </mapping>
+      <mapping comp_id="FTP_ITC.1">
+        <justification><![CDATA[This component satisfies O.EXAMPLE_OBJECTIVE by protecting the
+communication channel used by the networked hashing use case.]]></justification>
+        <obj_refs>
+          <obj_ref id="O.EXAMPLE_OBJECTIVE"/>
+        </obj_refs>
+      </mapping>
+    </sfr_rationale>
+    <dependency_rationale>
+      <mapping comp_id="FDP_IFF.1" dep_id="FMT_MSA.3">
+        <satisfied_by comp_id=""/>
+        <justification><![CDATA[not resolved. This TOE's configuration is static and has therefore no concept of manageable security attributes, so this dependency is not applicable.]]></justification>
+      </mapping>
+    </dependency_rationale>
+  </rationale>
+  <toe_summary_spec doc_type_applies="ST">
+    <raw><![CDATA[9. TOE Summary Specification
+
+The TOE identifies and authenticates every user before granting access,
+then enforces the example access control policy on every subsequent
+operation, mapped to FIA_UID.2, FIA_UAU.2, FDP_ACC.1, and FDP_ACF.1.]]></raw>
+  </toe_summary_spec>
+  <unparsed_sections/>
+  <validation_report>
+    <summary stage1="ran" stage1_errors="0" stage1_warnings="0" stage2_errors="0" stage2_warnings="0" result="PASS"/>
+    <issues/>
+  </validation_report>
+</cc_document>
