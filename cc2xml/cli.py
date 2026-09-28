@@ -10,6 +10,10 @@ vendor PDFs. No PDF-extraction step exists any more.
 Usage:
     python3 -m cc2xml.cli tests/foo.md [more.md/.txt ...]
     python3 -m cc2xml.cli --all          # every .md/.txt file in tests/
+
+Or via the executable at the repo root, which just wraps this same main():
+    ./cc2xml tests/foo.md
+    ./cc2xml --all
 """
 import argparse
 import re
@@ -75,4 +79,5 @@ def main(argv=None):
 
 
 if __name__ == '__main__':
-    main()
+    _results = main()
+    sys.exit(0 if all(status in ('PASS', 'WARN') for _, status, _ in _results) else 1)

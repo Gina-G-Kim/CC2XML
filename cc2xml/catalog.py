@@ -4,7 +4,7 @@ lookup index used by validate.py as Stage-1 ground truth.
 
 devNote.md assumes a generic pp-template-ish shape and says explicitly to
 verify the real root/tag names once the file is available and adjust XPath
-accordingly (section 9, "cc_2022.xml을 받으면..."). The real CC:2022 catalog
+accordingly. The CC:2022 catalog
 uses lowercase ids and this shape (confirmed by inspection):
 
   <cc version="CC:2022" revision="0.9">
@@ -36,8 +36,7 @@ uses lowercase ids and this shape (confirmed by inspection):
   </cc>
 
 All ids are normalized to uppercase on load so they compare directly against
-parser.py output (which preserves source-document casing, conventionally
-uppercase per devNote.md section 8's "id 속성: 원문 표기 대소문자 그대로").
+parser.py output
 """
 import re
 import xml.etree.ElementTree as ET

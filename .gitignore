@@ -1,0 +1,16 @@
+# Local working notes and reference material - not part of the tracked
+# repo. devnotes/ is a running session-by-session dev journal (see
+# devnotes/README.md if present locally); ref/ holds the ISO/IEC 15408
+# standard PDFs, cc_2022.xml, and real sample ST PDFs (ref/sample_sts/) -
+# all bulky and either regeneratable-from-source-elsewhere or purely
+# reference material, not project source.
+/devnotes/
+/ref/
+
+# Python bytecode cache, in case it ever appears.
+__pycache__/
+*.pyc
+
+# Local pipeline-vision notes, same rationale as devnotes/ above - not
+# project source, kept local only.
+/PIPELINE.md

@@ -643,8 +643,8 @@ def parse_sar_elements(lines, start, end):
 
 INCLUSION_RE = [
     (re.compile(r'selection-based|if\s+\[selection\]\s+is\s+chosen', re.IGNORECASE), 'selection_based'),
-    (re.compile(r'\(O\)|optional\s+SFR', re.IGNORECASE), 'optional'),
-    (re.compile(r'\bobjective\b\s*SFR|\(objective\)', re.IGNORECASE), 'objective'),
+    (re.compile(r'\(O\)|optional\s+SFR|SFR\s+is\s+optional', re.IGNORECASE), 'optional'),
+    (re.compile(r'\bobjective\b\s*SFR|\(objective\)|SFR\s*,?\s+is\s+an?\s+objective\b', re.IGNORECASE), 'objective'),
 ]
 
 

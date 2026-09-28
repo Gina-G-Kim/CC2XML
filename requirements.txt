@@ -1,2 +1,0 @@
-# No external dependencies - parser/validator use only the Python stdlib.
-# (pdfplumber was removed along with PDF-input support; see devNote.md.)

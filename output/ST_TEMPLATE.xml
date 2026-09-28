@@ -376,7 +376,7 @@ of the user that caused the event.]]></raw>
       <family id="FAU_SAR" name="">
         <user_notes/>
         <levelling_notes/>
-        <component id="FAU_SAR.1" name="Audit review" iteration_label="" inclusion="mandatory" extended="false">
+        <component id="FAU_SAR.1" name="Audit review" iteration_label="" inclusion="optional" extended="false">
           <hierarchical_to source="catalog"/>
           <dependencies source="st">
             <dependency>
